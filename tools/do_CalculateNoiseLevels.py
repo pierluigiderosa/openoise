@@ -31,7 +31,10 @@ from qgis.PyQt.QtWidgets import QDialog
 from qgis.PyQt.QtWidgets import QFileDialog
 from qgis.PyQt.QtWidgets import QMessageBox
 from qgis.core import (QgsProject, QgsWkbTypes, QgsMapLayerProxyModel)
-
+try:
+    from qgis.core import Qgis
+except ImportError:
+    from qgis.core import QGis as Qgis
 from qgis.PyQt import uic
 import os, sys
 import traceback
@@ -181,24 +184,28 @@ loss of precision in sound levels estimates.</p>
 
 
     def populateLayersReceiver( self ):
-        self.receivers_layer_comboBox.clear()
+        if Qgis.QGIS_VERSION_INT < 31401:
+            self.receivers_layer_comboBox.clear()
         self.receivers_layer_comboBox.setFilters(QgsMapLayerProxyModel.PointLayer)
 
 
 
     def populateLayersSourcePts( self ):
-        self.sources_pts_layer_comboBox.clear()
+        if Qgis.QGIS_VERSION_INT < 31401:
+            self.sources_pts_layer_comboBox.clear()
         self.sources_pts_layer_comboBox.setFilters(QgsMapLayerProxyModel.PointLayer)
 
 
     def populateLayersSourceRoads( self ):
-        self.sources_roads_layer_comboBox.clear()
+        if Qgis.QGIS_VERSION_INT < 31401:
+            self.sources_roads_layer_comboBox.clear()
         self.sources_roads_layer_comboBox.setFilters(QgsMapLayerProxyModel.LineLayer)
 
 
     def populateLayersBuildings( self ):
+        if Qgis.QGIS_VERSION_INT < 31401:
             self.buildings_layer_comboBox.clear()
-            self.buildings_layer_comboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer)
+        self.buildings_layer_comboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer)
 
 
 
