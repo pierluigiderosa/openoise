@@ -138,10 +138,7 @@ def get_levels(settings,source_layer,source_feat):
 
             level_bands['gen'] = on_Acoustics.NMPB(input_dict).bands()
             level_global['gen'] = on_Acoustics.OctaveBandsToGlobal(level_bands['gen'])
-            #print(input_dict)
-            #print(level_global['gen'])
-            # fix_print_with_import
-            #print(level_global['gen'])
+
 
 
         if settings['period_roads_day'] == 'True':
@@ -482,20 +479,20 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                 level_atm_bands = {}
 
                 geo_attenuation = on_Acoustics.GeometricalAttenuation('spherical',d_recTOsource_4m)
-                print("d_recTOsource_4m",d_recTOsource_4m)
-                print("geo_attenuation",geo_attenuation)
+                # print("d_recTOsource_4m",d_recTOsource_4m)
+                # print("geo_attenuation",geo_attenuation)
 
                 for key in list(level_emi.keys()):
                     if level_emi[key] > 0:
                         level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recTOsource,temperature,humidity,level_emi_bands[key]).level()
                         #level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
 
-                        print("level_atm_bands[key]",level_atm_bands[key])
+                        # print("level_atm_bands[key]",level_atm_bands[key])
                         if settings['implementation_roads'] == 'CNOSSOS':
                             level_dir[key] = on_Acoustics.OctaveBandsToGlobalA(level_atm_bands[key]) - geo_attenuation
                         else:
                             level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
-                            print("level_dir[key]",level_dir[key])
+                            # print("level_dir[key]",level_dir[key])
 
                         # correction for the segment lenght
                         if feat_type == 'road':
@@ -599,7 +596,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                                 for key in list(level_emi_bands.keys()):
                                     if level_emi[key] > 0:
 
-                                        level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff).level()
+                                        level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature).level()
                                         level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recPLUSsource,temperature,humidity,level_emi_bands[key]).attenuation()
                                         level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key],level_atm_bands[key])
                                         #level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])

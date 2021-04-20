@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>point_source</name>
-            <path>/home/stefmase/QGIS/data set for testing/point_source.shp</path>
+            <name>Confronti_pierluigi</name>
+            <path>/home/pierluigi/Scrivania/testing_openoise/Confronti_pierluigi.shp</path>
         </receivers>
 
         <sources>
@@ -17,14 +17,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_NMPB_traffic_flow</name>
-		<path>/home/stefmase/QGIS/data set for testing/roads_NMPB_traffic_flow.shp</path>
+		<name>road_CNOSSOS</name>
+		<path>/home/pierluigi/Scrivania/testing_openoise/road_CNOSSOS.SHP</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name />
-            <path />
+            <name>buildings_9h</name>
+            <path>/home/pierluigi/Scrivania/testing_openoise/buildings_9h.shp</path>
         </buildings>
 
         <emissions_points>
@@ -58,7 +58,7 @@
     <emission>
         <implementation>
 		<pts />
-		<roads>POWER_R</roads>
+		<roads>CNOSSOS</roads>
         </implementation>
 
 	<period>
@@ -85,7 +85,7 @@
         </POWER_P>
         
         <POWER_R>
-            <gen>light_n</gen>
+            <gen />
             <day />            
             <eve />            
             <nig />                                                            
@@ -121,8 +121,8 @@
         <CNOSSOS>
             <gen_1_n />
             <gen_1_s />            
-            <gen_2_n />
-            <gen_2_s />
+            <gen_2_n>car</gen_2_n>
+            <gen_2_s>v_car</gen_2_s>
             <gen_3_n />
             <gen_3_s />            
             <gen_4a_n />
@@ -163,8 +163,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface />                    
-            <slope />  
+            <surface>Surface</surface>                    
+            <slope>Slope</slope>  
 
         </CNOSSOS>       
     </emission>    
