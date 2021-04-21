@@ -237,8 +237,9 @@ class Diffraction(object):
 
         # version 1.4
         # level_diff consider the total distance
+        d_recPLUSsource = self.d_recTOdiff+self.d_diffTOsource
         for band in self.level_input:
-            level_diff[band] = round(self.level_input[band] - GeometricalAttenuation('spherical',self.d_recTOdiff+self.d_diffTOsource) - attenuation[band],1)
+            level_diff[band] = round(self.level_input[band] - GeometricalAttenuation('spherical',d_recPLUSsource) - attenuation[band],1)
 
         return level_diff
 
