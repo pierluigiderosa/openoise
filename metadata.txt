@@ -20,9 +20,9 @@ email=openoise@arpa.piemonte.it
 
 # Uncomment the following line and add your changelog entries:
 changelog=Ver 1.4 (April 2021)
+    - added temperature absorption
+    - fixed speed limit <20 to 20
     - bug fix UI
-
-changelog=Ver 1.3 (October 2019)
     - bug fixing
     Ver 1.2 (March 2019)
     - bug fixing

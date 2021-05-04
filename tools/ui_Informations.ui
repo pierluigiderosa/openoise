@@ -52,7 +52,10 @@ Please consider the following simplifications:
 
 
 Documentation:
-- CNOSSOS: https://ec.europa.eu/jrc/en/publication/reference-reports/common-noise-assessment-methods-europe-cnossos-eu</string>
+- CNOSSOS:
+
+- https://ec.europa.eu/jrc/en/publication/reference-reports/common-noise-assessment-methods-europe-cnossos-eu
+- https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;from=PT</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -82,8 +85,8 @@ Documentation:
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>98</width>
-            <height>738</height>
+            <width>694</width>
+            <height>437</height>
            </rect>
           </property>
           <attribute name="label">
@@ -129,7 +132,7 @@ OUTPUT DATA:
             <x>0</x>
             <y>0</y>
             <width>98</width>
-            <height>156</height>
+            <height>148</height>
            </rect>
           </property>
           <attribute name="label">
@@ -146,8 +149,8 @@ OUTPUT DATA:
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>109</width>
-                <height>2658</height>
+                <width>106</width>
+                <height>2245</height>
                </rect>
               </property>
               <attribute name="label">
@@ -196,8 +199,8 @@ OUTPUT DATA:
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>113</width>
-                <height>3458</height>
+                <width>110</width>
+                <height>2908</height>
                </rect>
               </property>
               <attribute name="label">
@@ -257,8 +260,8 @@ OUTPUT DATA:
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>122</width>
-            <height>938</height>
+            <width>117</width>
+            <height>800</height>
            </rect>
           </property>
           <attribute name="label">
@@ -302,7 +305,7 @@ INPUT DATA:
             <x>0</x>
             <y>0</y>
             <width>98</width>
-            <height>578</height>
+            <height>460</height>
            </rect>
           </property>
           <attribute name="label">

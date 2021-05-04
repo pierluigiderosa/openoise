@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>Confronti_pierluigi</name>
-            <path>/home/pierluigi/Scrivania/testing_openoise/Confronti_pierluigi.shp</path>
+            <name>receveir_points</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/receveir_points.shp</path>
         </receivers>
 
         <sources>
@@ -17,14 +17,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>road_CNOSSOS</name>
-		<path>/home/pierluigi/Scrivania/testing_openoise/road_CNOSSOS.SHP</path>
+		<name>roads_CNOSSOS</name>
+		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_CNOSSOS.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>buildings_9h</name>
-            <path>/home/pierluigi/Scrivania/testing_openoise/buildings_9h.shp</path>
+            <name>buildings</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -119,10 +119,10 @@
         </NMPB>
         
         <CNOSSOS>
-            <gen_1_n />
-            <gen_1_s />            
-            <gen_2_n>car</gen_2_n>
-            <gen_2_s>v_car</gen_2_s>
+            <gen_1_n>light_n</gen_1_n>
+            <gen_1_s>light_v</gen_1_s>            
+            <gen_2_n>mheavy_n</gen_2_n>
+            <gen_2_s>mheavy_v</gen_2_s>
             <gen_3_n />
             <gen_3_s />            
             <gen_4a_n />
