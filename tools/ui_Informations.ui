@@ -53,8 +53,6 @@ Please consider the following simplifications:
 
 Documentation:
 - CNOSSOS:
-
-- https://ec.europa.eu/jrc/en/publication/reference-reports/common-noise-assessment-methods-europe-cnossos-eu
 - https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;from=PT</string>
          </property>
          <property name="alignment">
@@ -85,8 +83,8 @@ Documentation:
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>694</width>
-            <height>437</height>
+            <width>98</width>
+            <height>579</height>
            </rect>
           </property>
           <attribute name="label">
@@ -406,15 +404,17 @@ INPUT DATA:
            </font>
           </property>
           <property name="text">
-           <string>The dataset contains 6 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
+           <string>The dataset contains 8 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
 
 LAYERS:
 1. buildings
 2. receveir_points (layer created with the script 'Create receiver points')
 3. source_points
-4. roads_NMPB_power
+4. roads_NMPB_emission
 5. roads_NMPB_traffic_flow
-6. roads_CNOSSOS</string>
+6. roads_CNOSSOS
+7. grid_points
+8. isolevel_curves</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

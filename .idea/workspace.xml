@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/opeNoise_en.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_en.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/opeNoise_es.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_es.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/opeNoise_it.qm" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.qm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/i18n/opeNoise_it.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_NMPB.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_NMPB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/ui_Informations.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Informations.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +207,8 @@
       <workItem from="1619343778045" duration="36000" />
       <workItem from="1620060901051" duration="2971000" />
       <workItem from="1620133479113" duration="1311000" />
-      <workItem from="1620142049876" duration="3636000" />
+      <workItem from="1620142049876" duration="4104000" />
+      <workItem from="1620221575123" duration="1261000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -286,7 +280,21 @@
       <option name="project" value="LOCAL" />
       <updated>1619009418059</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
+      <created>1620145722603</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620145722603</updated>
+    </task>
+    <task id="LOCAL-00012" summary="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
+      <created>1620145926694</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1620145926694</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +349,8 @@
     <MESSAGE value="- version 1.4 init" />
     <MESSAGE value="- fixed UI for versione" />
     <MESSAGE value="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver" />
+    <MESSAGE value="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS" />
+    <option name="LAST_COMMIT_MESSAGE" value="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
