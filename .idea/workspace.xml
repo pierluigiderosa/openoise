@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- added new data for testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_en.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_en.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_es.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_es.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_it.qm" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.qm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_it.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Informations.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Informations.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_RaysSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_RaysSearch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,8 +157,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.on_CalculateNoiseLevels" />
-        <item itemvalue="Python.on_CalculateNoiseLevels" />
-        <item itemvalue="Python.on_CalculateNoiseLevels" />
       </list>
     </recent_temporary>
   </component>
@@ -208,7 +206,9 @@
       <workItem from="1620060901051" duration="2971000" />
       <workItem from="1620133479113" duration="1311000" />
       <workItem from="1620142049876" duration="4104000" />
-      <workItem from="1620221575123" duration="1261000" />
+      <workItem from="1620221575123" duration="2737000" />
+      <workItem from="1620391311391" duration="31000" />
+      <workItem from="1620391373021" duration="4841000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -294,7 +294,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620145926694</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="- added new data for testing">
+      <created>1620223007154</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620223007154</updated>
+    </task>
+    <task id="LOCAL-00014" summary="- added new data for testing">
+      <created>1620223067936</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1620223067936</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +325,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/devel" />
+                        <option value="origin/version1.4" />
                       </list>
                     </value>
                   </entry>
@@ -327,6 +341,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/version1.4" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="origin/devel" />
@@ -350,7 +369,8 @@
     <MESSAGE value="- fixed UI for versione" />
     <MESSAGE value="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver" />
     <MESSAGE value="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS" />
-    <option name="LAST_COMMIT_MESSAGE" value="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS" />
+    <MESSAGE value="- added new data for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added new data for testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

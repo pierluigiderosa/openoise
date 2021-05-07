@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>/home/stefmase/QGIS/data set for testing</last>
+        <last>/home/pierluigi/Scrivania/dataset_testing</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>receveir_points</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/receveir_points.shp</path>
+            <name>ricettore_singolo</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/ricettore_singolo.shp</path>
         </receivers>
 
         <sources>
@@ -17,8 +17,8 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_CNOSSOS</name>
-		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_CNOSSOS.shp</path>
+		<name>roads_NMPB_emission</name>
+		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
 	    </roads>
         </sources>
 
@@ -32,11 +32,11 @@
         </emissions_points>
 
         <rays>
-            <path />
+            <path>/home/pierluigi/Scrivania/dataset_testing/raggi_diretti_bug.shp</path>
         </rays>
 
         <diff_rays>
-            <path />
+            <path>/home/pierluigi/Scrivania/dataset_testing/raggi_diffratti_bug.shp</path>
         </diff_rays>
     </layers>
 
@@ -58,7 +58,7 @@
     <emission>
         <implementation>
 		<pts />
-		<roads>CNOSSOS</roads>
+		<roads>POWER_R</roads>
         </implementation>
 
 	<period>
@@ -85,7 +85,7 @@
         </POWER_P>
         
         <POWER_R>
-            <gen />
+            <gen>Emis_gen</gen>
             <day />            
             <eve />            
             <nig />                                                            
@@ -119,10 +119,10 @@
         </NMPB>
         
         <CNOSSOS>
-            <gen_1_n>light_n</gen_1_n>
-            <gen_1_s>light_v</gen_1_s>            
-            <gen_2_n>mheavy_n</gen_2_n>
-            <gen_2_s>mheavy_v</gen_2_s>
+            <gen_1_n />
+            <gen_1_s />            
+            <gen_2_n />
+            <gen_2_s />
             <gen_3_n />
             <gen_3_s />            
             <gen_4a_n />
@@ -163,8 +163,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface>Surface</surface>                    
-            <slope>Slope</slope>  
+            <surface />                    
+            <slope />  
 
         </CNOSSOS>       
     </emission>    
