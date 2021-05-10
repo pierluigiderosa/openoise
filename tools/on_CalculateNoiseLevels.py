@@ -448,7 +448,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
             for obstacles_feat in obstacles_feat_all:
                 if receiver_feat.geometry().intersects(obstacles_feat.geometry()):
                     intersection = True
-               else:
+                else:
                     intersection = False
 
 
@@ -880,6 +880,8 @@ def run(settings,progress_bars):
             for obstacles_feat in obstacles_feat_all:
                 if f.geometry().intersects(obstacles_feat.geometry()):
                     intersection = True
+                else:
+                    intersection = False
 
         if 'gen' in level_field_index:
             if intersection is not True:

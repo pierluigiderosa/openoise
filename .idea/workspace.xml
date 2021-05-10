@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- added new data for testing">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- removed bug when receiver is inside a buoding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_RaysSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_RaysSearch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
     </list>
@@ -208,7 +207,8 @@
       <workItem from="1620142049876" duration="4104000" />
       <workItem from="1620221575123" duration="2737000" />
       <workItem from="1620391311391" duration="31000" />
-      <workItem from="1620391373021" duration="4841000" />
+      <workItem from="1620391373021" duration="5178000" />
+      <workItem from="1620653698592" duration="640000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -308,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620223067936</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="- removed bug when receiver is inside a buoding">
+      <created>1620396263574</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1620396263574</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +377,8 @@
     <MESSAGE value="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver" />
     <MESSAGE value="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS" />
     <MESSAGE value="- added new data for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added new data for testing" />
+    <MESSAGE value="- removed bug when receiver is inside a buoding" />
+    <option name="LAST_COMMIT_MESSAGE" value="- removed bug when receiver is inside a buoding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
