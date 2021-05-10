@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- removed bug when receiver is inside a buoding">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- removed bug on variable not assigned">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
@@ -208,7 +208,8 @@
       <workItem from="1620221575123" duration="2737000" />
       <workItem from="1620391311391" duration="31000" />
       <workItem from="1620391373021" duration="5178000" />
-      <workItem from="1620653698592" duration="640000" />
+      <workItem from="1620653698592" duration="1636000" />
+      <workItem from="1620672070189" duration="3322000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -315,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620396263574</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="- removed bug on variable not assigned">
+      <created>1620654394238</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620654394238</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,14 +386,15 @@
     <MESSAGE value="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS" />
     <MESSAGE value="- added new data for testing" />
     <MESSAGE value="- removed bug when receiver is inside a buoding" />
-    <option name="LAST_COMMIT_MESSAGE" value="- removed bug when receiver is inside a buoding" />
+    <MESSAGE value="- removed bug on variable not assigned" />
+    <option name="LAST_COMMIT_MESSAGE" value="- removed bug on variable not assigned" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py</url>
-          <line>368</line>
+          <line>371</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

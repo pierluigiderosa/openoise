@@ -8,7 +8,7 @@
     <layers>
         <receivers>
             <name>receveir_points</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/receveir_points.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
         </receivers>
 
         <sources>
@@ -24,7 +24,7 @@
 
         <buildings>
             <name>buildings</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/buildings.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -36,7 +36,7 @@
         </rays>
 
         <diff_rays>
-            <path />
+            <path>/home/pierluigi/Scrivania/dataset_testing/raggi_diffratti_bug.shp</path>
         </diff_rays>
     </layers>
 

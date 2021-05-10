@@ -428,7 +428,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
         progress_bars['recTOdif']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
-        print('find connectino receivers diffraction points',datetime.now() - time)
+        print('find connection receivers diffraction points',datetime.now() - time)
         time = datetime.now()
 
 
@@ -443,13 +443,13 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
     for receiver_feat in receiver_feat_all:
         # Bug correction in case of receiver inside a building
         # we exclude the receiver from calculus
+        Skip_intersection = False
         if obstacles_layer is not None:
             obstacles_feat_all = obstacles_layer.dataProvider().getFeatures()
             for obstacles_feat in obstacles_feat_all:
                 if receiver_feat.geometry().intersects(obstacles_feat.geometry()):
-                    intersection = True
-                else:
-                    intersection = False
+                    Skip_intersection = True
+
 
 
         receiver_feat_number = receiver_feat_number + 1
@@ -465,7 +465,8 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
         receiver_point_lin_level['eve'] = 0
         receiver_point_lin_level['nig'] = 0
 
-        if intersection is not True:
+        if Skip_intersection == False:
+
             if receiver_feat.id() in recTOsource_dict:
 
                 source_ids = recTOsource_dict[receiver_feat.id()]
@@ -875,37 +876,37 @@ def run(settings,progress_bars):
     for f in receiver_layer.getFeatures():
         # Bug correction in case of receiver inside a building
         # we exclude the receiver from calculus
+        Skip_intersectionDD = False
         if obstacles_layer is not None:
             obstacles_feat_all = obstacles_layer.dataProvider().getFeatures()
             for obstacles_feat in obstacles_feat_all:
                 if f.geometry().intersects(obstacles_feat.geometry()):
-                    intersection = True
-                else:
-                    intersection = False
+                    Skip_intersectionDD = True
+
 
         if 'gen' in level_field_index:
-            if intersection is not True:
+            if Skip_intersectionDD is False:
                 f['gen'] = receiver_feat_new_fields[f.id()][level_field_index['gen']]
                 #print(receiver_feat_new_fields,f.id(),f['gen'])
             else:
                 f['gen'] = -99
         if 'day' in level_field_index:
-            if intersection is not True:
+            if Skip_intersectionDD is False:
                 f['day'] = receiver_feat_new_fields[f.id()][level_field_index['day']]
             else:
                 f['day'] = -99
         if 'eve' in level_field_index:
-            if intersection is not True:
+            if Skip_intersectionDD is False:
                 f['eve'] = receiver_feat_new_fields[f.id()][level_field_index['eve']]
             else:
                 f['eve'] = -99
         if 'nig' in level_field_index:
-            if intersection is not True:
+            if Skip_intersectionDD is False:
                 f['nig'] = receiver_feat_new_fields[f.id()][level_field_index['nig']]
             else:
                 f['nig'] = -99
         if 'den' in level_field_index:
-            if intersection is not True:
+            if Skip_intersectionDD is False:
                 f['den'] = receiver_feat_new_fields[f.id()][level_field_index['den']]
             else:
                 f['den'] = -99
