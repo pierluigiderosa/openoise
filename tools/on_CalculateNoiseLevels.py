@@ -448,6 +448,8 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
             for obstacles_feat in obstacles_feat_all:
                 if receiver_feat.geometry().intersects(obstacles_feat.geometry()):
                     intersection = True
+               else:
+                    intersection = False
 
 
         receiver_feat_number = receiver_feat_number + 1
