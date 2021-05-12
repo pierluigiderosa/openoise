@@ -602,9 +602,11 @@ loss of precision in sound levels estimates.</p>
             basefile = os.path.basename(self.diff_rays_layer_lineEdit.text())
             diff_layer = os.path.splitext(basefile)[0]
             if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
-                settings['diff_rays_path'] = self.diff_rays_layer_lineEdit.text()[:-4]+'_1.shp'
-            else:
-                settings['diff_rays_path'] = self.diff_rays_layer_lineEdit.text()
+                lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
+                print(lyr.id())
+                QgsProject.instance().removeMapLayer(lyr.id())
+
+            settings['diff_rays_path'] = self.diff_rays_layer_lineEdit.text()
         else:
             settings['diff_rays_path'] = ''
 
@@ -695,9 +697,11 @@ loss of precision in sound levels estimates.</p>
                 basefile = os.path.basename(settings['diff_rays_path'])
                 diff_layer = os.path.splitext(basefile)[0]
                 if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
-                    self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'][:-4]+'_1.shp')
-                else:
-                    self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'])
+                    lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
+                    print(lyr.id())
+                    QgsProject.instance().removeMapLayer(lyr.id())
+
+                self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'])
             else:
                 self.diff_rays_layer_checkBox.setChecked(0)
                 self.diff_rays_layer_lineEdit.clear()
