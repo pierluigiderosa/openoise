@@ -396,11 +396,6 @@ Per questa ragione, è possibile inserire barriere acustiche in questo layer.</t
         <translation>Plugin di QGIS per il calcolo delle emissioni sonore</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="98"/>
-        <source>Version 1.4 - Aprile 2021</source>
-        <translation>Versione 1.4 - Aprile 2021</translation>
-    </message>
-    <message>
         <location filename="../tools/ui_Credits.ui" line="120"/>
         <source>GNU General Public License - V.2 or later</source>
         <translation></translation>
@@ -443,6 +438,11 @@ Per questa ragione, è possibile inserire barriere acustiche in questo layer.</t
         <location filename="../tools/ui_Credits.ui" line="312"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;porting to QGIS 3 by Pierluigi De Rosa - &lt;a href=&quot;https://www.onegis.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.onegis.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;porting a QGIS 3 by Pierluigi De Rosa - &lt;a href=&quot;https://www.onegis.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.onegis.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_Credits.ui" line="98"/>
+        <source>Version 1.4 - May 2021</source>
+        <translation>Versione 1.4 – Maggio 2021</translation>
     </message>
     <message>
         <location filename="../tools/ui_Credits.ui" line="197"/>
@@ -765,7 +765,7 @@ loss of precision in sound levels estimates.&lt;/p&gt;
         8 meters wide, produced by the passage of vehicles at a given speed for propagation without obstacles on a perfectly reflecting flat surface&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
         </source>
-        <translation type="vanished">       &lt;p&gt;&lt;strong&gt;Livello emissione - dB(A):&lt;/strong&gt; Livello di emissione sonora in dB(A) corrispondente al livello LAeq (1h) rilevato ad una altezza di 10 m dal suolo e a 30 m di distanza dal ciglio di una strada rettilinea infinitamente lunga posta sul suolo, larga 28 m, prodotto dal passaggio dei veicoli a una data velocità per una propagazione in assenza di ostacoli su una superficie piana perfettamente riflettente&lt;/p&gt;
+        <translation type="vanished">       &lt;p&gt;&lt;strong&gt;Livello emissione - dB(A):&lt;/strong&gt; Livello di emissione sonora in dB(A) corrispondente al livello LAeq (1h) rilevato ad una altezza di 10 m dal suolo e a 30 m di distanza dal ciglio di una strada rettilinea infinitamente lunga posta sul suolo, larga 2 8 m, prodotto dal passaggio dei veicoli a una data velocità per una propagazione in assenza di ostacoli su una superficie piana perfettamente riflettente&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;</translation>
     </message>
     <message>
@@ -872,9 +872,8 @@ loss of precision in sound levels estimates.&lt;/p&gt;
         <translation>Per le sorgenti stradali puoi selezionare il tipo di implementazione come di seguito:</translation>
     </message>
     <message>
-        <location filename="../tools/ui_SourceDetailsRoads.ui" line="50"/>
         <source>NMPB (power)</source>
-        <translation>NMPB (emissione)</translation>
+        <translation type="vanished">NMPB (emissione)</translation>
     </message>
     <message>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="73"/>
@@ -887,9 +886,8 @@ loss of precision in sound levels estimates.&lt;/p&gt;
         <translation>CNOSSOS</translation>
     </message>
     <message>
-        <location filename="../tools/ui_SourceDetailsRoads.ui" line="130"/>
         <source>Sound Power Level - dB(A) -</source>
-        <translation>Livello emissione - dB(A) -</translation>
+        <translation type="vanished">Livello emissione - dB(A) -</translation>
     </message>
     <message>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="193"/>
@@ -1007,6 +1005,16 @@ loss of precision in sound levels estimates.&lt;/p&gt;
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="847"/>
         <source>Night</source>
         <translation>Notte</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="50"/>
+        <source>NMPB (emission)</source>
+        <translation>NMPB (emissione)</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="130"/>
+        <source>Sound Emission Level - dB(A) -</source>
+        <translation>Livello emissione -dB(A) -</translation>
     </message>
     <message>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="740"/>
@@ -1190,6 +1198,30 @@ OUTPUT DATA:
     </message>
     <message>
         <location filename="../tools/ui_Informations.ui" line="407"/>
+        <source>The dataset contains 8 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
+
+LAYERS:
+1. buildings
+2. receveir_points (layer created with the script &apos;Create receiver points&apos;)
+3. source_points
+4. roads_NMPB_emission
+5. roads_NMPB_traffic_flow
+6. roads_CNOSSOS
+7. grid_points
+8. isolevel_curves (layer created with the plugin &apos;Contour plugin&apos;)</source>
+        <translation>Il dataset contiene 8 shapefile che possono aiutare l&apos;utente a capire come compilare le tabelle degli attributi dei layer per eseguire il calcolo del rumore con le diverse sorgenti.
+
+LAYERS:
+1. buildings
+2. receveir_points (layer creato con lo script &apos;Crea i punti ricevitori&apos;)
+3. source_points
+4. roads_NMPB_emission
+5. roads_NMPB_traffic_flow
+6. roads_CNOSSOS
+7. grid_points
+8. isolevel_curves</translation>
+    </message>
+    <message>
         <source>The dataset contains 6 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
 
 LAYERS:
@@ -1201,7 +1233,7 @@ LAYERS:
 6. roads_CNOSSOS
 7. grid_points
 8. isolevel_curves</source>
-        <translation>Il set di dati contiene 8 shapefiles che possono aiutare l&apos;utente a capire come compilare le tabelle degli attributi dei layer, in modo da poter effettuare il calcolo dei livelli sonori con le differenti tipologie di sorgenti.
+        <translation type="vanished">Il set di dati contiene 8 shapefiles che possono aiutare l&apos;utente a capire come compilare le tabelle degli attributi dei layer, in modo da poter effettuare il calcolo dei livelli sonori con le differenti tipologie di sorgenti.
 
 LAYERS:
 1. buildings

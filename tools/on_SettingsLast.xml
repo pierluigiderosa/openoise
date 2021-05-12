@@ -36,7 +36,7 @@
         </rays>
 
         <diff_rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/raggi_diffratti_bug.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/raggi_diffratti_bug_1_1.shp</path>
         </diff_rays>
     </layers>
 

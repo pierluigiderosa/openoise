@@ -384,6 +384,13 @@ loss of precision in sound levels estimates.</p>
             self.diff_rays_layer_lineEdit.setText( shapefileName + ".shp")
         else:
             self.diff_rays_layer_lineEdit.setText( shapefileName)
+        basefile = os.path.basename(shapefileName)
+        diff_layer = os.path.splitext(basefile)[0]
+
+        if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
+            lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
+            print(lyr.id())
+            QgsProject.instance().removeMapLayer(lyr.id())
 
         on_Settings.setOneSetting('directory_last',os.path.dirname(self.diff_rays_layer_lineEdit.text()))
 
@@ -592,7 +599,12 @@ loss of precision in sound levels estimates.</p>
         else:
             settings['rays_path'] = ''
         if self.diff_rays_layer_checkBox.isChecked():
-            settings['diff_rays_path'] = self.diff_rays_layer_lineEdit.text()
+            basefile = os.path.basename(self.diff_rays_layer_lineEdit.text())
+            diff_layer = os.path.splitext(basefile)[0]
+            if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
+                settings['diff_rays_path'] = self.diff_rays_layer_lineEdit.text()[:-4]+'_1.shp'
+            else:
+                settings['diff_rays_path'] = self.diff_rays_layer_lineEdit.text()
         else:
             settings['diff_rays_path'] = ''
 
@@ -680,7 +692,12 @@ loss of precision in sound levels estimates.</p>
 
             if settings['diff_rays_path'] is not None:
                 self.diff_rays_layer_checkBox.setChecked(1)
-                self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'])
+                basefile = os.path.basename(settings['diff_rays_path'])
+                diff_layer = os.path.splitext(basefile)[0]
+                if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
+                    self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'][:-4]+'_1.shp')
+                else:
+                    self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'])
             else:
                 self.diff_rays_layer_checkBox.setChecked(0)
                 self.diff_rays_layer_lineEdit.clear()

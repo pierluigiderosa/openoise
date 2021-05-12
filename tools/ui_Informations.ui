@@ -83,8 +83,8 @@ Documentation:
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>98</width>
-            <height>579</height>
+            <width>694</width>
+            <height>437</height>
            </rect>
           </property>
           <attribute name="label">
@@ -414,7 +414,7 @@ LAYERS:
 5. roads_NMPB_traffic_flow
 6. roads_CNOSSOS
 7. grid_points
-8. isolevel_curves</string>
+8. isolevel_curves (layer created with the plugin 'Contour plugin')</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

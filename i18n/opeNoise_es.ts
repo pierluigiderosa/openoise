@@ -390,7 +390,7 @@ can create isolevel curves using an specific plugin (for example “Contour Plug
     </message>
     <message>
         <location filename="../tools/ui_Credits.ui" line="98"/>
-        <source>Version 1.4 - Aprile 2021</source>
+        <source>Version 1.4 - May 2021</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -505,11 +505,6 @@ can create isolevel curves using an specific plugin (for example “Contour Plug
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../tools/ui_SourceDetailsRoads.ui" line="50"/>
-        <source>NMPB (power)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="73"/>
         <source>NMPB (traffic flow)</source>
         <translation type="unfinished"></translation>
@@ -517,11 +512,6 @@ can create isolevel curves using an specific plugin (for example “Contour Plug
     <message>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="96"/>
         <source>CNOSSOS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../tools/ui_SourceDetailsRoads.ui" line="130"/>
-        <source>Sound Power Level - dB(A) -</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -632,6 +622,16 @@ can create isolevel curves using an specific plugin (for example “Contour Plug
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="832"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1683"/>
         <source>Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="50"/>
+        <source>NMPB (emission)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="130"/>
+        <source>Sound Emission Level - dB(A) -</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -750,7 +750,7 @@ OUTPUT DATA:
     </message>
     <message>
         <location filename="../tools/ui_Informations.ui" line="407"/>
-        <source>The dataset contains 6 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
+        <source>The dataset contains 8 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
 
 LAYERS:
 1. buildings
@@ -760,7 +760,7 @@ LAYERS:
 5. roads_NMPB_traffic_flow
 6. roads_CNOSSOS
 7. grid_points
-8. isolevel_curves</source>
+8. isolevel_curves (layer created with the plugin &apos;Contour plugin&apos;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
