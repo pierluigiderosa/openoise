@@ -30,13 +30,15 @@ from qgis.PyQt.QtWidgets import QDialog
 #from qgis.core import *
 from qgis.PyQt.QtWidgets import QFileDialog
 from qgis.PyQt.QtWidgets import QMessageBox
-from qgis.core import (QgsProject, QgsWkbTypes, QgsMapLayerProxyModel)
+from qgis.core import (QgsProject, QgsWkbTypes, QgsMapLayerProxyModel,QgsVectorFileWriter)
 try:
     from qgis.core import Qgis
 except ImportError:
     from qgis.core import QGis as Qgis
 from qgis.PyQt import uic
+from osgeo import ogr
 import os, sys
+from pathlib import Path
 import traceback
 
 #from math import *
@@ -49,6 +51,26 @@ NoiseLevel_ui, _ = uic.loadUiType(os.path.join(
 from . import do_SourceDetailsPts,do_SourceDetailsRoads
 from . import on_Settings
 from . import on_CalculateNoiseLevels
+
+
+def removeLayer(path_layer):
+    # remove layer from TOC if already loaded
+    basefile = os.path.basename(path_layer)
+    diff_layer = os.path.splitext(basefile)[0]
+    directory = os.path.dirname(path_layer)
+    extensions = ["shp", "shx", "dbf", "prj", "sbn", "sbx", "fbn", "fbx", "ain", "aih", "ixs", "mxs", "atx", "xml",
+                  "cpg", "qix"]
+    if len(QgsProject.instance().mapLayersByName(diff_layer)) > 0:
+        lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
+        print('removing layer1: ', lyr.id())
+        QgsProject.instance().removeMapLayer(lyr.id())
+        QgsVectorFileWriter.deleteShapeFile(path_layer)
+
+        # for ext in extensions:
+        #     f = os.path.join(directory,diff_layer+'.'+ext)
+        #     if os.path.exists(f):
+        #         print('removing file: ',f)
+        #         os.remove(f)
 
 
 
@@ -170,6 +192,7 @@ loss of precision in sound levels estimates.</p>
             d.setWindowModality(Qt.ApplicationModal)
             d.show()
             d.exec_()
+
 
 
     def sourceRoads_show(self):
@@ -384,13 +407,8 @@ loss of precision in sound levels estimates.</p>
             self.diff_rays_layer_lineEdit.setText( shapefileName + ".shp")
         else:
             self.diff_rays_layer_lineEdit.setText( shapefileName)
-        basefile = os.path.basename(shapefileName)
-        diff_layer = os.path.splitext(basefile)[0]
 
-        if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
-            lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
-            print(lyr.id())
-            QgsProject.instance().removeMapLayer(lyr.id())
+        removeLayer(shapefileName)
 
         on_Settings.setOneSetting('directory_last',os.path.dirname(self.diff_rays_layer_lineEdit.text()))
 
@@ -599,14 +617,9 @@ loss of precision in sound levels estimates.</p>
         else:
             settings['rays_path'] = ''
         if self.diff_rays_layer_checkBox.isChecked():
-            basefile = os.path.basename(self.diff_rays_layer_lineEdit.text())
-            diff_layer = os.path.splitext(basefile)[0]
-            if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
-                lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
-                print(lyr.id())
-                QgsProject.instance().removeMapLayer(lyr.id())
 
             settings['diff_rays_path'] = self.diff_rays_layer_lineEdit.text()
+            removeLayer(settings['diff_rays_path'])
         else:
             settings['diff_rays_path'] = ''
 
@@ -694,12 +707,9 @@ loss of precision in sound levels estimates.</p>
 
             if settings['diff_rays_path'] is not None:
                 self.diff_rays_layer_checkBox.setChecked(1)
-                basefile = os.path.basename(settings['diff_rays_path'])
-                diff_layer = os.path.splitext(basefile)[0]
-                if len(QgsProject.instance().mapLayersByName(diff_layer)) != 0:
-                    lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
-                    print(lyr.id())
-                    QgsProject.instance().removeMapLayer(lyr.id())
+                removeLayer(settings['diff_rays_path'])
+
+
 
                 self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'])
             else:

@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>/home/pierluigi/Scrivania/dataset_testing</last>
+        <last>D:/win_folder_default/Desktop/openoise</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>receveir_points</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
+            <name>ricevitori</name>
+            <path>D:/win_folder_default/Desktop/openoise/ricevitori.shp</path>
         </receivers>
 
         <sources>
@@ -17,14 +17,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_NMPB_emission</name>
-		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
+		<name>roads</name>
+		<path>D:/win_folder_default/Desktop/openoise/roads.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>buildings</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
+            <path>D:/win_folder_default/Desktop/openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -36,12 +36,12 @@
         </rays>
 
         <diff_rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/raggi_diffratti_bug_1_1.shp</path>
+            <path>D:/win_folder_default/Desktop/openoise/diffratti.shp</path>
         </diff_rays>
     </layers>
 
     <options>
-        <research_ray>50</research_ray>
+        <research_ray>100</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
 
@@ -85,7 +85,7 @@
         </POWER_P>
         
         <POWER_R>
-            <gen>Emis_gen</gen>
+            <gen>power</gen>
             <day />            
             <eve />            
             <nig />                                                            
