@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>D:/win_folder_default/Desktop/openoise</last>
+        <last>/home/pierluigi/Scrivania/dataset_testing</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>ricevitori</name>
-            <path>D:/win_folder_default/Desktop/openoise/ricevitori.shp</path>
+            <name>receveir_points</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
         </receivers>
 
         <sources>
@@ -17,14 +17,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads</name>
-		<path>D:/win_folder_default/Desktop/openoise/roads.shp</path>
+		<name>roads_NMPB_emission</name>
+		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>buildings</name>
-            <path>D:/win_folder_default/Desktop/openoise/buildings.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -36,7 +36,7 @@
         </rays>
 
         <diff_rays>
-            <path>D:/win_folder_default/Desktop/openoise/diffratti.shp</path>
+            <path />
         </diff_rays>
     </layers>
 
@@ -85,7 +85,7 @@
         </POWER_P>
         
         <POWER_R>
-            <gen>power</gen>
+            <gen>Emis_gen</gen>
             <day />            
             <eve />            
             <nig />                                                            

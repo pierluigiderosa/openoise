@@ -389,6 +389,11 @@ can create isolevel curves using an specific plugin (for example “Contour Plug
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../tools/ui_Credits.ui" line="98"/>
+        <source>Version 1.4 - June 2021</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../tools/ui_Credits.ui" line="120"/>
         <source>GNU General Public License - V.2 or later</source>
         <translation type="unfinished"></translation>
@@ -426,11 +431,6 @@ can create isolevel curves using an specific plugin (for example “Contour Plug
     <message>
         <location filename="../tools/ui_Credits.ui" line="312"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;porting to QGIS 3 by Pierluigi De Rosa - &lt;a href=&quot;https://www.onegis.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.onegis.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../tools/ui_Credits.ui" line="98"/>
-        <source>Version 1.4 - May 2021</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

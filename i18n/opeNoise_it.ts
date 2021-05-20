@@ -396,6 +396,11 @@ Per questa ragione, è possibile inserire barriere acustiche in questo layer.</t
         <translation>Plugin di QGIS per il calcolo delle emissioni sonore</translation>
     </message>
     <message>
+        <location filename="../tools/ui_Credits.ui" line="98"/>
+        <source>Version 1.4 - June 2021</source>
+        <translation>Versione 1.4 - Giugno 2021</translation>
+    </message>
+    <message>
         <location filename="../tools/ui_Credits.ui" line="120"/>
         <source>GNU General Public License - V.2 or later</source>
         <translation></translation>
@@ -440,9 +445,8 @@ Per questa ragione, è possibile inserire barriere acustiche in questo layer.</t
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;porting a QGIS 3 by Pierluigi De Rosa - &lt;a href=&quot;https://www.onegis.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.onegis.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="98"/>
         <source>Version 1.4 - May 2021</source>
-        <translation>Versione 1.4 – Maggio 2021</translation>
+        <translation type="vanished">Versione 1.4 – Maggio 2021</translation>
     </message>
     <message>
         <location filename="../tools/ui_Credits.ui" line="197"/>
@@ -660,7 +664,7 @@ Per questa ragione, è possibile inserire barriere acustiche in questo layer.</t
     </message>
     <message>
         <source>Please specify the buildings vector layer</source>
-        <translation type="vanished">Per favore specifica il lyaer degli edifici</translation>
+        <translation type="vanished">Per favore specifica il layer degli edifici</translation>
     </message>
     <message>
         <source>Please specify output shapefile</source>
@@ -765,7 +769,7 @@ loss of precision in sound levels estimates.&lt;/p&gt;
         8 meters wide, produced by the passage of vehicles at a given speed for propagation without obstacles on a perfectly reflecting flat surface&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
         </source>
-        <translation type="vanished">       &lt;p&gt;&lt;strong&gt;Livello emissione - dB(A):&lt;/strong&gt; Livello di emissione sonora in dB(A) corrispondente al livello LAeq (1h) rilevato ad una altezza di 10 m dal suolo e a 30 m di distanza dal ciglio di una strada rettilinea infinitamente lunga posta sul suolo, larga 2 8 m, prodotto dal passaggio dei veicoli a una data velocità per una propagazione in assenza di ostacoli su una superficie piana perfettamente riflettente&lt;/p&gt;
+        <translation type="vanished">       &lt;p&gt;&lt;strong&gt;Livello emissione - dB(A):&lt;/strong&gt; Livello di emissione sonora in dB(A) corrispondente al livello LAeq (1h) rilevato ad una altezza di 10 m dal suolo e a 30 m di distanza dal ciglio di una strada rettilinea infinitamente lunga posta sul suolo, larga 28 m, prodotto dal passaggio dei veicoli a una data velocità per una propagazione in assenza di ostacoli su una superficie piana perfettamente riflettente&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;</translation>
     </message>
     <message>

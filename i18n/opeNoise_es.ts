@@ -390,7 +390,7 @@ can create isolevel curves using an specific plugin (for example “Contour Plug
     </message>
     <message>
         <location filename="../tools/ui_Credits.ui" line="98"/>
-        <source>Version 1.4 - May 2021</source>
+        <source>Version 1.4 - June 2021</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

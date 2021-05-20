@@ -469,6 +469,12 @@ loss of precision in sound levels estimates.</p>
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the diffracted sound rays layer."))
             return False
 
+        if self.diff_rays_layer_checkBox.isChecked() == True and self.rays_layer_checkBox.isChecked() == True:
+            if self.diff_rays_layer_lineEdit.text() == self.rays_layer_lineEdit.text():
+                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
+                                        self.tr("Please use different name for the diffracted and rays layer."))
+                return False
+
         # check old fields in receiver
         if self.check_oldFields() == False:
             return False
@@ -614,6 +620,7 @@ loss of precision in sound levels estimates.</p>
 
         if self.rays_layer_checkBox.isChecked():
             settings['rays_path'] = self.rays_layer_lineEdit.text()
+            removeLayer(settings['rays_path'])
         else:
             settings['rays_path'] = ''
         if self.diff_rays_layer_checkBox.isChecked():
@@ -701,17 +708,15 @@ loss of precision in sound levels estimates.</p>
             if settings['rays_path'] is not None:
                 self.rays_layer_checkBox.setChecked(1)
                 self.rays_layer_lineEdit.setText(settings['rays_path'])
+                removeLayer(settings['rays_path'])
             else:
                 self.rays_layer_checkBox.setChecked(0)
                 self.rays_layer_lineEdit.clear()
 
             if settings['diff_rays_path'] is not None:
                 self.diff_rays_layer_checkBox.setChecked(1)
-                removeLayer(settings['diff_rays_path'])
-
-
-
                 self.diff_rays_layer_lineEdit.setText(settings['diff_rays_path'])
+                removeLayer(settings['diff_rays_path'])
             else:
                 self.diff_rays_layer_checkBox.setChecked(0)
                 self.diff_rays_layer_lineEdit.clear()
@@ -854,3 +859,4 @@ loss of precision in sound levels estimates.</p>
         self.log_end()
 
         self.calculate_pushButton.setEnabled(True)
+        self.close()

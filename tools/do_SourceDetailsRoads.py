@@ -256,8 +256,7 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
         <p><strong>Sound Emission level – dB(A):</strong> Sound emission level expressed in dB(A) corresponding to the Laeq(1h) 
-        measured at a height of 10 meters above the ground, 30 meters away from the border of an infinitely long straight road placed directly on the ground, 2
-        8 meters wide, produced by the passage of vehicles at a given speed for propagation without obstacles on a perfectly reflecting flat surface</p>
+        measured at a height of 10 meters above the ground, 30 meters away from the border of an infinitely long straight road placed directly on the ground, 28 meters wide, produced by the passage of vehicles at a given speed for propagation without obstacles on a perfectly reflecting flat surface</p>
         '''))
 
 
