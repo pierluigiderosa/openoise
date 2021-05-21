@@ -421,26 +421,36 @@ Per questa ragione, è possibile inserire barriere acustiche in questo layer.</t
         <translation>(Agenzia Regionale per la Protezione Ambientale)</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="248"/>
+        <location filename="../tools/ui_Credits.ui" line="197"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.arpa.piemonte.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.arpa.piemonte.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.arpa.piemonte.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.arpa.piemonte.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_Credits.ui" line="251"/>
         <source>WITH THE SUPPORT OF:</source>
         <translation>CON IL SUPPORTO:</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_Credits.ui" line="289"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.comune.torino.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.comune.torino.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.comune.torino.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.comune.torino.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>CittÃ  di Torino</source>
         <translation type="vanished">Città di Torino</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="363"/>
+        <location filename="../tools/ui_Credits.ui" line="369"/>
         <source>CONTACTS:</source>
         <translation>CONTATTI:</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="385"/>
+        <location filename="../tools/ui_Credits.ui" line="391"/>
         <source>openoise@arpa.piemonte.it</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="312"/>
+        <location filename="../tools/ui_Credits.ui" line="318"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;porting to QGIS 3 by Pierluigi De Rosa - &lt;a href=&quot;https://www.onegis.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.onegis.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;porting a QGIS 3 by Pierluigi De Rosa - &lt;a href=&quot;https://www.onegis.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.onegis.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -449,19 +459,13 @@ Per questa ragione, è possibile inserire barriere acustiche in questo layer.</t
         <translation type="vanished">Versione 1.4 – Maggio 2021</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="197"/>
         <source> &lt;a href=&quot;www.arpa.piemonte.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.arpa.piemonte.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation> &lt;a href=&quot;www.arpa.piemonte.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.arpa.piemonte.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="vanished"> &lt;a href=&quot;www.arpa.piemonte.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.arpa.piemonte.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Credits.ui" line="270"/>
+        <location filename="../tools/ui_Credits.ui" line="273"/>
         <source>Città di Torino</source>
         <translation>Città di Torino</translation>
-    </message>
-    <message>
-        <location filename="../tools/ui_Credits.ui" line="286"/>
-        <source> &lt;a href=&quot;www.comune.torino.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.comune.torino.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
     </message>
 </context>
 <context>
@@ -1079,7 +1083,6 @@ Documentazione:
 - CNOSSOS: https://ec.europa.eu/jrc/en/publication/reference-reports/common-noise-assessment-methods-europe-cnossos-eu</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="44"/>
         <source>The plugin allows to estimate noise levels generated by point sources or by road sources at fixed receiver points and buildings. NMPB-Routes-96 and CNOSSOS methods for road emission are implemented.
 
 Please consider the following simplifications: 
@@ -1093,7 +1096,7 @@ Please consider the following simplifications:
 Documentation:
 - CNOSSOS:
 - https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;from=PT</source>
-        <translation>Il plugin consente di calcolare livelli sonori generati da una sorgente puntuale o da una sorgente stradale presso punti ricettori ed edifici. I metodi di calcolo implementati per l&apos;emissione stradale: sono NMPB-Routes-96 e CNOSSOS.
+        <translation type="vanished">Il plugin consente di calcolare livelli sonori generati da una sorgente puntuale o da una sorgente stradale presso punti ricettori ed edifici. I metodi di calcolo implementati per l&apos;emissione stradale: sono NMPB-Routes-96 e CNOSSOS.
 
 Considerare le seguenti semplificazioni:
 - la modellazione è in 2D;
@@ -1106,17 +1109,26 @@ Documentazione:
 - CNOSSOS: - https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;from=PT</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="73"/>
+        <location filename="../tools/ui_Informations.ui" line="44"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The plugin allows to estimate noise levels generated by point sources or by road sources at fixed receiver points and buildings. NMPB-Routes-96 and CNOSSOS methods for road emission are implemented.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Please consider the following simplifications: &lt;/p&gt;&lt;p&gt;- modelization is 2D; &lt;/p&gt;&lt;p&gt;- geometrical divergence, atmospheric absorption and diffractions are taken into account; &lt;/p&gt;&lt;p&gt;- no reflections are calculated; &lt;/p&gt;&lt;p&gt;- terrain is flat.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Documentation:&lt;/p&gt;&lt;p&gt;- &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;amp;from=PT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2015/996&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;- https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;amp;from=PT&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il plugin consente di calcolare livelli sonori generati da una sorgente puntuale o da una sorgente stradale presso punti ricettori ed edifici. I metodi di calcolo implementati per l&apos;emissione stradale: sono NMPB-Routes-96 e CNOSSOS.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Considerare le seguenti semplificazioni:
+ &lt;/p&gt;&lt;p&gt;- la modellazione è in 2D;
+&lt;/p&gt;&lt;p&gt;- viene considerata la divergenza geometrica, l&apos;assorbimento atmosferico e la diffrazione;
+&lt;/p&gt;&lt;p&gt;- le riflessioni non sono calcolate;
+&lt;/p&gt;&lt;p&gt;- il terreno è considerato piatto. &lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Documentazione:&lt;/p&gt;&lt;p&gt;- &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;amp;from=PT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2015/996&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;- https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;amp;from=PT&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_Informations.ui" line="67"/>
         <source>How it works</source>
         <translation>Come funziona</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="91"/>
+        <location filename="../tools/ui_Informations.ui" line="85"/>
         <source>1  -   CREATE RECEIVER POINTS</source>
         <translation>1  -  CREA I PUNTI RICEVITORI</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="105"/>
+        <location filename="../tools/ui_Informations.ui" line="99"/>
         <source>The first script generates either one receiver point for each facade or equidistant receiver point along the facade (a polygon layer).
 The points are created at a distance of 0.1 m from the facade.
 
@@ -1137,7 +1149,7 @@ DATI di OUTPUT:
 1. Punti ricettori (Layer puntuale)</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="166"/>
+        <location filename="../tools/ui_Informations.ui" line="160"/>
         <source>This script estimates noise levels at receiver points (a point layer) from point sources (a point layer).
 A ray is traced between each point source and each receiver point and then, if the length of the ray is lower then a fixed distance (chosen in the Parameters form), noise level will be calculated.
 In the calculation it&apos;s taken into account the geometrical divergence for a spherical point source, atmospheric absorption and diffractions. 
@@ -1176,32 +1188,32 @@ OUTPUT DATA:
 2. Raggi sonori diffratti (Layer puntuale) - opzionale -</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="266"/>
+        <location filename="../tools/ui_Informations.ui" line="260"/>
         <source>3  -   ASSIGN LEVELS TO BUILDINGS</source>
         <translation>3  -  ASSEGNA I LIVELLI AGLI EDIFICI</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="310"/>
+        <location filename="../tools/ui_Informations.ui" line="304"/>
         <source>4  -   APPLY NOISE SIMBOLOGY</source>
         <translation>4  -  APPLICA LA SIMBOLOGIA DEL RUMORE</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="345"/>
+        <location filename="../tools/ui_Informations.ui" line="339"/>
         <source>Data set for testing</source>
         <translation>Dati di test</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="365"/>
+        <location filename="../tools/ui_Informations.ui" line="359"/>
         <source>A data set for testing is available in the folder:</source>
         <translation>Un set di dati di test è disponibile nella cartella: </translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="386"/>
+        <location filename="../tools/ui_Informations.ui" line="380"/>
         <source>TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabeTextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabe</source>
         <translation>TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabeTextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabel TextLabe</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="407"/>
+        <location filename="../tools/ui_Informations.ui" line="401"/>
         <source>The dataset contains 8 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
 
 LAYERS:
@@ -1270,12 +1282,12 @@ LAYERS:
 6. roads_CNOSSOS</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="137"/>
+        <location filename="../tools/ui_Informations.ui" line="131"/>
         <source>2  -   CALCULATE NOISE LEVELS</source>
         <translation>2  -   CALCOLA I LIVELLI SONORI</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="155"/>
+        <location filename="../tools/ui_Informations.ui" line="149"/>
         <source>2A - Point Sources Calculation</source>
         <translation>2A - Calcolo con sorgenti puntuali</translation>
     </message>
@@ -1318,12 +1330,12 @@ OUTPUT DATA:
 2. Raggi sonori diffratti (Layer puntuale) - opzionale -</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="205"/>
+        <location filename="../tools/ui_Informations.ui" line="199"/>
         <source>2B - Road Sources Calculation</source>
         <translation>2B - Calcolo con sorgenti stradali</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="219"/>
+        <location filename="../tools/ui_Informations.ui" line="213"/>
         <source>This script estimates noise level at receiver points (a point layer) generated by road sources (a linear layer).
 
 For each road (line of the polyline layer) the sound power level is calculated in accordance with NMPB &apos;96 or CNOSSOS standards. 
@@ -1369,7 +1381,7 @@ OUTPUT DATA:
 2. Raggi sonori diffratti (Layer puntuale) - opzionale -</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="277"/>
+        <location filename="../tools/ui_Informations.ui" line="271"/>
         <source>The third script assigns the noise levels calculated for each receiver point to the corresponding building.
 The value assigned is the max value among all the receiver points for that building.
 It is possible to assign up to five levels.
@@ -1392,7 +1404,7 @@ DATI DI INPUT:
 2. Edifici (Layer poligonale)</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="321"/>
+        <location filename="../tools/ui_Informations.ui" line="315"/>
         <source>The last script assigns a noise level symbology to a layer with a sound level field in the attribute table.
 
 INPUT DATA:
