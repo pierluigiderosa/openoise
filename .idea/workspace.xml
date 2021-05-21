@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- add a check in case of same name of receiver and diffraction layer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Credits.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Credits.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Informations.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Informations.ui" afterDir="false" />
-    </list>
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed link in credits and information layer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,7 +208,7 @@
       <workItem from="1620830972794" duration="2241000" />
       <workItem from="1620833601133" duration="3307000" />
       <workItem from="1621521785877" duration="2690000" />
-      <workItem from="1621603185084" duration="659000" />
+      <workItem from="1621603185084" duration="945000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -354,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621523873199</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- fixed link in credits and information layer">
+      <created>1621605467873</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1621605467873</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +424,8 @@
     <MESSAGE value="- removed bug on output layer for diffraction" />
     <MESSAGE value="- removed bug on output layer for diffraction&#10;- added some info in UI" />
     <MESSAGE value="- add a check in case of same name of receiver and diffraction layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add a check in case of same name of receiver and diffraction layer" />
+    <MESSAGE value="- fixed link in credits and information layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixed link in credits and information layer" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />

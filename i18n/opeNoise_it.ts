@@ -1225,7 +1225,7 @@ LAYERS:
 6. roads_CNOSSOS
 7. grid_points
 8. isolevel_curves (layer created with the plugin &apos;Contour plugin&apos;)</source>
-        <translation>Il dataset contiene 8 shapefile che possono aiutare l&apos;utente a capire come compilare le tabelle degli attributi dei layer per eseguire il calcolo del rumore con le diverse sorgenti.
+        <translation type="unfinished">Il dataset contiene 8 shapefile che possono aiutare l&apos;utente a capire come compilare le tabelle degli attributi dei layer per eseguire il calcolo del rumore con le diverse sorgenti.
 
 LAYERS:
 1. buildings
@@ -1235,7 +1235,7 @@ LAYERS:
 5. roads_NMPB_traffic_flow
 6. roads_CNOSSOS
 7. grid_points
-8. isolevel_curves</translation>
+8. isolevel_curves (layer creato con il plugin &apos;Contour plugin&apos;)</translation>
     </message>
     <message>
         <source>The dataset contains 6 shapefiles that can help the user to understand how to compile the attribute tables of the layers in order to run the computation of the noise with the different sources.
