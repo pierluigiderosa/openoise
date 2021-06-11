@@ -95,7 +95,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Version 1.4 - June 2021</string>
+      <string>Version 2.0 - November 2021</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
