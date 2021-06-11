@@ -28,7 +28,7 @@ from builtins import str
 
 from qgis.PyQt.QtCore import QVariant
 from qgis.core import QgsVectorLayer, QgsField, QgsProject, QgsVectorFileWriter, QgsWkbTypes, QgsFields, Qgis
-from qgis.core import QgsGeometry, QgsFeature
+from qgis.core import QgsGeometry, QgsFeature, QgsPointXY, QgsRectangle, QgsFeatureRequest
 from math import sqrt,log10
 from qgis.utils import iface
 
@@ -62,6 +62,17 @@ def CreateTempDir():
 def DeleteTempDir():
 
     shutil.rmtree(temp_dir)
+
+def create_wkt_from_list(li_points):
+    # li_points must be a python list() of QgsPoint objects.
+
+    wkt = 'MULTIPOINT('
+    for point in li_points:
+        x = point.x()
+        y = point.y()
+        wkt += '({} {}), '.format(x, y)
+    wkt = wkt[:-1] + ')'
+    return wkt
 
 
 # computes distance (input two QgsPoints, return a float)
@@ -248,6 +259,21 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
     humidity = int(settings['humidity'])
 
     time = datetime.now()
+
+    # create variable if skip diffraction flag is active
+    if settings['skip_diffraction'] == "True":
+        skip_diffraction = True
+    else:
+        skip_diffraction = False
+
+    print('Diffraction')
+    print(skip_diffraction)
+    # 3D calculation tool
+    if settings['threedglobal'] == 'True':
+        Diff3d = True
+    else:
+        Diff3d =False
+
     ## create diffraction points
 
     if obstacles_layer is not None:

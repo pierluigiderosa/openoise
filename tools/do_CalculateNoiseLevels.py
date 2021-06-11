@@ -393,6 +393,11 @@ loss of precision in sound levels estimates.</p>
         else:
             self.diff_rays_layer_pushButton.setEnabled( False )
 
+    def skip_diffraction_checkBox_update(self):
+        if self.skip_diffraction_checkBox.isChecked():
+            self.diff_rays_layer_checkBox.setEnabled(False)
+        else:
+            self.diff_rays_layer_checkBox.setEnabled(True)
 
     def outFile_rays(self):
 
@@ -616,6 +621,11 @@ loss of precision in sound levels estimates.</p>
             settings['buildings_name'] = None
             settings['buildings_path'] = None
 
+        # skip diffraction
+        if self.skip_diffraction_checkBox.isChecked():
+            settings['skip_diffraction'] = 'True'
+        else:
+            settings['skip_diffraction'] = 'False'
 
         # TAB option
         settings['research_ray'] = self.research_ray_comboBox.currentText()
@@ -651,6 +661,8 @@ loss of precision in sound levels estimates.</p>
 
         if self.save_settings_checkBox.isChecked():
             on_Settings.copySettingsToSavedSettings(self.save_settings_lineEdit.text())
+
+
 
 
     def reload_settings(self):
@@ -697,6 +709,12 @@ loss of precision in sound levels estimates.</p>
                 self.buildings_layer_label2.setEnabled(True)
                 idx = self.buildings_layer_comboBox.findText(settings['buildings_name'])
                 self.buildings_layer_comboBox.setCurrentIndex(idx)
+
+            #skip diffraction
+            if settings['skip_diffraction'] == "True":
+                self.skip_diffraction_checkBox.setChecked(1)
+                self.diff_rays_layer_checkBox.setEnabled(False)
+
 
 
             # research ray
@@ -817,6 +835,11 @@ loss of precision in sound levels estimates.</p>
 
         if self.CRS_check() == False:
             return
+
+        if self.diff_rays_layer_checkBox.isChecked():
+            skip_diff = True
+        else:
+            skip_diff = False
 
         self.calculate_pushButton.setEnabled(False)
         self.label_time_start.setText('')

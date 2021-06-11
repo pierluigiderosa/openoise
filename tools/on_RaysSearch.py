@@ -37,13 +37,14 @@ from qgis.core import QgsVectorLayer, QgsSpatialIndex, QgsRectangle, QgsGeometry
 def compute_distance(QgsPoint1,QgsPoint2):
     return sqrt((QgsPoint1.x()-QgsPoint2.x())**2+(QgsPoint1.y()-QgsPoint2.y())**2)
 
-def run(bar,layer1_path,layer2_path,obstacles_path,research_ray):
+def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray):
 
     output = {}
+    output3D ={}
     #layer1 receiver
-    layer1 = QgsVectorLayer(layer1_path,"layer1","ogr")
+    layer1 = QgsVectorLayer(receiver_layer, "layer1", "ogr")
     #layer 2 source
-    layer2 = QgsVectorLayer(layer2_path,"layer2","ogr")
+    layer2 = QgsVectorLayer(diffraction_layer, "layer2", "ogr")
     layer2_feat_all_dict = {}
     layer2_feat_all = layer2.dataProvider().getFeatures()
     layer2_spIndex = QgsSpatialIndex()
@@ -80,9 +81,11 @@ def run(bar,layer1_path,layer2_path,obstacles_path,research_ray):
         rect.setYMinimum( layer1_feat.geometry().asPoint().y() - research_ray )
         rect.setYMaximum( layer1_feat.geometry().asPoint().y() + research_ray )
 
+        # search layer 2 source in rect of point #i of layer 1
         layer2_request = layer2_spIndex.intersects(rect)
 
         layer2_points = []
+        layer2_points3D = []
 
         # layer2_request contain all source feature in rect of receiver
         for layer2_id in layer2_request:
