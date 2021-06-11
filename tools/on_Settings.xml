@@ -2,7 +2,7 @@
 
     <directory>
         <default />
-        <last>/home/pierluigi/Scrivania/dataset_testing</last>
+        <last>/tmp</last>
     </directory>
 
     <layers>
@@ -44,6 +44,10 @@
         <research_ray>100</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
+        <diff_skip>False</diff_skip>
+        <height_receiver>False</height_receiver>
+        <threedglobal>False</threedglobal>
+        <field3D />
 
         <den>
             <day_hours>14</day_hours> 

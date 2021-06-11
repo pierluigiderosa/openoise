@@ -125,14 +125,16 @@ class Dialog(QDialog,NoiseLevel_ui):
         for value in research_ray:
             self.research_ray_comboBox.addItem(value)
 
-        temperature = ['10','15','20','25','30']
+        # cambio temperatura TASK
+        temperature = ['-20', '-15', '-10', '-5', '0', '5', '10', '15', '20',
+                       '25', '30', '35', '40', '45', '50']
         self.temperature_comboBox.clear()
         for value in temperature:
             self.temperature_comboBox.addItem(value)
         idx = self.temperature_comboBox.findText('20')
         self.temperature_comboBox.setCurrentIndex(idx)
 
-        humidity = ['40','50','60','70','80']
+        humidity = ['10','20','30','40','50','60','70','80','90','100']
         self.humidity_comboBox.clear()
         for value in humidity:
             self.humidity_comboBox.addItem(value)
@@ -217,6 +219,7 @@ loss of precision in sound levels estimates.</p>
         if Qgis.QGIS_VERSION_INT < 31401:
             self.sources_pts_layer_comboBox.clear()
         self.sources_pts_layer_comboBox.setFilters(QgsMapLayerProxyModel.PointLayer)
+        self.field_height_receiver.setLayer(self.receivers_layer_comboBox.currentLayer())
 
 
     def populateLayersSourceRoads( self ):
@@ -242,6 +245,16 @@ loss of precision in sound levels estimates.</p>
             self.sources_pts_layer_label.setEnabled(False)
             self.sources_pts_layer_comboBox.setEnabled(False)
             self.sources_pts_pushButton.setEnabled(False)
+
+        if self.height_receiver_check.isChecked():
+            self.field_height_receiver.setEnabled(True)
+        else:
+            self.field_height_receiver.setEnabled(False)
+
+        if self.height_building_check.isChecked():
+            self.field_height_building.setEnabled(True)
+        else:
+            self.field_height_building.setEnabled(False)
 
         if self.sources_roads_layer_checkBox.isChecked():
             self.sources_roads_layer_label.setEnabled(True)
@@ -276,11 +289,13 @@ loss of precision in sound levels estimates.</p>
             self.buildings_layer_label.setEnabled(True)
             self.buildings_layer_label2.setEnabled(True)
             self.buildings_layer_comboBox.setEnabled(True)
+            self.height_building_check.setEnabled(True)
             self.populateLayersBuildings()
         else:
             self.buildings_layer_label.setEnabled(False)
             self.buildings_layer_label2.setEnabled(False)
             self.buildings_layer_comboBox.setEnabled(False)
+            self.height_building_check.setEnabled(False)
             self.populateLayersBuildings()
 
     def tabUpdate(self):
