@@ -248,7 +248,7 @@ def get_levels(settings,source_layer,source_feat):
     levels['global'] = level_global
     levels['bands'] = level_bands
 
-    print("levels",levels)
+    # print("levels",levels)
     return levels
 
 
@@ -275,8 +275,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
         Diff3d =False
 
     ## create diffraction points
-
-    if obstacles_layer is not None:
+    if obstacles_layer is not None and skip_diffraction is False:
         bar = progress_bars['create_dif']['bar']
 
         diffraction_points_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "diffraction_pts.shp"))
@@ -326,6 +325,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
 
 
     # roads source layer to emission pts layer
+    # output emission_pts_writer layer
     if source_roads_layer is not None:
 
         ## create emission points from roads source
@@ -399,10 +399,12 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
             obstacles_feat_all_dict[obstacles_feat.id()] = obstacles_feat
 
         # diffraction layer
-        diff_feat_all = diffraction_layer.dataProvider().getFeatures()
-        diff_feat_all_dict = {}
-        for diff_feat in diff_feat_all:
-            diff_feat_all_dict[diff_feat.id()] = diff_feat
+        if skip_diffraction is False:
+            print('skip diffraction deactivate')
+            diff_feat_all = diffraction_layer.dataProvider().getFeatures()
+            diff_feat_all_dict = {}
+            for diff_feat in diff_feat_all:
+                diff_feat_all_dict[diff_feat.id()] = diff_feat
 
     progress_bars['prepare_emi']['label'].setText('Done in ' + duration(time,datetime.now()) )
     # fix_print_with_import
@@ -437,24 +439,29 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
         ### difTOsou
         bar = progress_bars['difTOsou']['bar']
 
-        diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray)
-
+        # skip diffraction here
+        if skip_diffraction is False:
+            diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray)
+        else:
+            diffTOsource_dict = {}
         progress_bars['difTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
-        print('find connections diffraction points sources',datetime.now() - time)
+        print('find connections diffraction points - sources',datetime.now() - time)
         time = datetime.now()
 
         ### recTOdif
         bar = progress_bars['recTOdif']['bar']
 
 #        recTOdiff_dict = on_RaysSearch.run_selection_distance(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,source_layer.source())
-        recTOdiff_dict = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict)
-
+        if skip_diffraction is False:
+            recTOdiff_dict = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict)
+        else:
+            recTOdiff_dict = {}
         progress_bars['recTOdif']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
-        print('find connection receivers diffraction points',datetime.now() - time)
+        print('find connections receivers - diffraction points',datetime.now() - time)
         time = datetime.now()
 
 
@@ -491,9 +498,8 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
         receiver_point_lin_level['eve'] = 0
         receiver_point_lin_level['nig'] = 0
 
-        if Skip_intersection == False:
 
-            if receiver_feat.id() in recTOsource_dict:
+        if receiver_feat.id() in recTOsource_dict:
 
                 source_ids = recTOsource_dict[receiver_feat.id()]
 
@@ -583,6 +589,9 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                         rays_writer.addFeature(ray)
                         ray_id = ray_id + 1
 
+
+        # added condition skip for diffraction
+        if skip_diffraction is False:
             if receiver_feat.id() in recTOdiff_dict:
 
                 diff_ids = recTOdiff_dict[receiver_feat.id()]
@@ -697,7 +706,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                                         diff_rays_writer.addFeature(ray)
                                         diff_ray_id = diff_ray_id + 1
 
-            if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+        if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
                 if receiver_point_lin_level['gen'] > 0:
                     Lgen = 10*log10(receiver_point_lin_level['gen'])
                     if Lgen < 0:
@@ -706,12 +715,12 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                 else:
                     receiver_feat_new_fields[level_field_index['gen']] = -99
 
-            Lday = 0
-            Leve = 0
-            Lnig = 0
+        Lday = 0
+        Leve = 0
+        Lnig = 0
 
-            #added contron on final data if negative set to zero
-            if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+        #added control on final data if negative set to zero
+        if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
                 if receiver_point_lin_level['day'] > 0:
                     Lday = 10*log10(receiver_point_lin_level['day'])
                     if Lday < 0:
@@ -720,7 +729,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                 else:
                     receiver_feat_new_fields[level_field_index['day']] = -99
 
-            if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+        if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
                 if receiver_point_lin_level['eve'] > 0:
                     Leve = 10*log10(receiver_point_lin_level['eve'])
                     if Leve <0:
@@ -729,7 +738,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                 else:
                     receiver_feat_new_fields[level_field_index['eve']] = -99
 
-            if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+        if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
                 if receiver_point_lin_level['nig'] > 0:
                     Lnig = 10*log10(receiver_point_lin_level['nig'])
                     if Lnig <0:
@@ -739,7 +748,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                 else:
                     receiver_feat_new_fields[level_field_index['nig']] = -99
 
-            if settings['period_den'] == "True":
+        if settings['period_den'] == "True":
                 receiver_feat_new_fields[level_field_index['den']] = on_Acoustics.Lden(Lday,Leve,Lnig,
                                                                                        int(settings['day_hours']),
                                                                                        int(settings['eve_hours']),
@@ -748,7 +757,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                                                                                        int(settings['eve_penalty']),
                                                                                        int(settings['nig_penalty'])
                                                                                        )
-            receiver_feat_all_new_fields[receiver_feat.id()] = receiver_feat_new_fields
+        receiver_feat_all_new_fields[receiver_feat.id()] = receiver_feat_new_fields
 
     progress_bars['calculate']['label'].setText('Done in ' + duration(time,datetime.now()) )
 

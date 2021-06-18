@@ -151,6 +151,8 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.rays_layer_pushButton.clicked.connect(self.outFile_rays)
         self.diff_rays_layer_checkBox.setChecked(0)
         self.diff_rays_layer_checkBox.toggled.connect(self.diff_rays_checkBox_update)
+        self.skip_diffraction_checkBox.setChecked(0)
+        self.skip_diffraction_checkBox.toggled.connect(self.skip_diffraction_checkBox_update)
         self.diff_rays_layer_pushButton.clicked.connect(self.outFile_diff_rays)
 
         self.tabWidget.currentChanged.connect(self.tabUpdate)
@@ -396,6 +398,7 @@ loss of precision in sound levels estimates.</p>
     def skip_diffraction_checkBox_update(self):
         if self.skip_diffraction_checkBox.isChecked():
             self.diff_rays_layer_checkBox.setEnabled(False)
+            self.diff_rays_layer_checkBox.setChecked(False)
         else:
             self.diff_rays_layer_checkBox.setEnabled(True)
 
@@ -655,6 +658,19 @@ loss of precision in sound levels estimates.</p>
         else:
             settings['diff_rays_path'] = ''
 
+        # 3D Settings
+        if self.height_receiver_check.isChecked():
+            settings['height_receiver'] = 'True'
+        else:
+            settings['height_receiver'] = 'False'
+
+        if self.height_building_check.isChecked():
+            settings['threedglobal'] = 'True'
+            settings['field3D'] = self.field_height_building.currentText()
+        else:
+            settings['threedglobal'] = 'False'
+            settings['field3D'] = ''
+
         on_Settings.setSettings(settings)
 
         on_Settings.copySettingsToLastSettings()
@@ -715,6 +731,11 @@ loss of precision in sound levels estimates.</p>
                 self.skip_diffraction_checkBox.setChecked(1)
                 self.diff_rays_layer_checkBox.setEnabled(False)
 
+            # 3D setting
+            if settings['threedglobal'] == "True":
+                self.height_building_check.setChecked(1)
+                self.field_height_building.setEnabled(True)
+                self.field_height_building.setField(settings['field3D'])
 
 
             # research ray
