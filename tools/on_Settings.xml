@@ -36,7 +36,7 @@
         </rays>
 
         <diff_rays>
-            <path>C:/Users/pierl/Desktop/test_openoise/diff_rays.shp</path>
+            <path />
         </diff_rays>
     </layers>
 
@@ -46,8 +46,8 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <height_receiver>False</height_receiver>
-        <threedglobal>False</threedglobal>
-        <field3D />
+        <threedglobal>True</threedglobal>
+        <field3D>id_bui</field3D>
 
         <den>
             <day_hours>14</day_hours> 

@@ -67,6 +67,7 @@ def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray):
     layer1_feat_total = layer1.dataProvider().featureCount()
     layer1_feat_number = 0
 
+    #layer1 receiver
     for layer1_feat in layer1_feat_all:
 
         layer1_feat_number = layer1_feat_number + 1
@@ -100,12 +101,17 @@ def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray):
 
                 intersect = 0
 
+                # check if rays intersect an obstacle
                 if obstacles_path is not None:
                     obstacles_request = obstacles_spIndex.intersects(ray_to_test.boundingBox())
                     for obstacles_id in obstacles_request:
                         if obstacles_feat_all_dict[obstacles_id].geometry().crosses(ray_to_test) == 1:
                             intersect = 1
-                            break
+                            # break
+                            # todo: salvare in output  sorgenti e ricevitori che incrociano building
+                            layer2_points3D.append(layer2_feat.id())
+                            output3D[layer1_feat.id()] = layer2_points3D
+
 
                 if intersect == 0:
 
@@ -113,7 +119,7 @@ def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray):
 
                     output[layer1_feat.id()] = layer2_points
 
-    return output
+    return output ,output3D
 
 
 def run_selection(bar,layer1_path,layer2_path,obstacles_path,research_ray,dict_selection):

@@ -33,6 +33,7 @@ from math import sqrt,log10
 from qgis.utils import iface
 
 import os,shutil
+from numpy import  unique as npunique
 
 from datetime import datetime
 
@@ -415,7 +416,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
 
         bar = progress_bars['recTOsou']['bar']
 
-        recTOsource_dict = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),None,research_ray)
+        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),None,research_ray)
 
         progress_bars['recTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
@@ -428,7 +429,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
     else:
         ### recTOsou
         bar = progress_bars['recTOsou']['bar']
-        recTOsource_dict = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray)
+        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray)
 
         progress_bars['recTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
@@ -513,6 +514,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
 
                     d_recTOsource = compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
                     # length with receiver points height fixed to 4 m
+                    # TODO: da modificare per tenere in conto la altezza variabile
                     d_recTOsource_4m = sqrt(d_recTOsource**2 + 16)
 
                     feat_type = source_feat_value['type']
@@ -706,6 +708,12 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                                         diff_rays_writer.addFeature(ray)
                                         diff_ray_id = diff_ray_id + 1
 
+        # calcolo in 3D
+        if Diff3d is True:
+            if receiver_feat.id() in dict3D:
+                source_ids = npunique(dict3D[receiver_feat.id()]).tolist()
+                for source_id in source_ids:
+                    pass
         if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
                 if receiver_point_lin_level['gen'] > 0:
                     Lgen = 10*log10(receiver_point_lin_level['gen'])
