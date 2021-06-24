@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
-    <height>458</height>
+    <width>441</width>
+    <height>473</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@
       <attribute name="title">
        <string>Grid points</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QLabel" name="label_2">
@@ -38,7 +38,7 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="0">
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <widget class="QLabel" name="label_3">
@@ -48,11 +48,21 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="extent_layer">
+           <property name="text">
+            <string>current extent</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QgsMapLayerComboBox" name="overlayLayer_ComboBox"/>
          </item>
         </layout>
        </item>
-       <item row="2" column="0">
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <widget class="QLabel" name="label_6">
@@ -73,7 +83,7 @@
          </item>
         </layout>
        </item>
-       <item row="3" column="0">
+       <item>
         <widget class="QPushButton" name="runGrid_pushButton">
          <property name="text">
           <string>MAKE POINTS GRID</string>
@@ -181,7 +191,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="min_spinBox"/>
+          <widget class="QSpinBox" name="min_spinBox">
+           <property name="value">
+            <number>40</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -195,7 +209,14 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="max_spinBox"/>
+          <widget class="QSpinBox" name="max_spinBox">
+           <property name="maximum">
+            <number>150</number>
+           </property>
+           <property name="value">
+            <number>99</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -209,7 +230,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="interval_spinBox"/>
+          <widget class="QSpinBox" name="interval_spinBox">
+           <property name="value">
+            <number>3</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

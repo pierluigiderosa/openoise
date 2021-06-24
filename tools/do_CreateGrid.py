@@ -26,7 +26,7 @@ except ImportError:
     from qgis.core import QGis as Qgis
 from qgis.PyQt import QtCore
 from PyQt5 import QtGui, uic
-from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
+from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog, QMessageBox
 
 import os
 import sys
@@ -56,6 +56,7 @@ class Dialog(QDialog, FORM_CLASS):
         self.runGrid_pushButton.clicked.connect(self.runGrid)
         self.runRaster_pushButton.clicked.connect(self.runRasterize)
         self.runContPoly_pushButton.clicked.connect(self.runContPoly)
+        self.extent_layer.clicked.connect(self.extent_layer_definition)
 
         spacing = ['5', '10', '20', '30', '40', '50']
         self.resolution_comboBox.clear()
@@ -68,6 +69,7 @@ class Dialog(QDialog, FORM_CLASS):
 
         if Qgis.QGIS_VERSION_INT < 31401:
             self.overlayLayer_ComboBox.clear()
+        self.overlayLayer_ComboBox.allowEmptyLayer()
         self.overlayLayer_ComboBox.setFilters(QgsMapLayerProxyModel.VectorLayer)
 
     def populate_layerTOrasterize(self):
@@ -81,6 +83,12 @@ class Dialog(QDialog, FORM_CLASS):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.rasterISOL_ComboBox.clear()
         self.rasterISOL_ComboBox.setFilters(QgsMapLayerProxyModel.RasterLayer)
+
+    def extent_layer_definition(self):
+        if self.extent_layer.isChecked():
+            self.overlayLayer_ComboBox.setEnabled(False)
+        else:
+            self.overlayLayer_ComboBox.setEnabled(True)
 
     def outputFile_grid(self):
 
@@ -176,15 +184,28 @@ class Dialog(QDialog, FORM_CLASS):
 
     def runGrid(self):
 
+
         resolution = int(self.resolution_comboBox.currentText())
         overlay_layer = self.overlayLayer_ComboBox.currentLayer()
         overlay_layer_path = overlay_layer.source()
         grid_path = self.gridpoint_lineEdit.text()
 
+        if grid_path == "":
+            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
+                                    self.tr("Please specify the output grid vector layer."))
+            return 0
+
+        if self.extent_layer.isChecked():
+            extent_iface = True
+        else:
+            extent_iface = False
+
+
         on_CreateGrid.createGrid(
             resolution,
             overlay_layer_path,
-            grid_path
+            grid_path,
+            extent_iface
         )
 
     def runRasterize(self):
@@ -194,6 +215,11 @@ class Dialog(QDialog, FORM_CLASS):
         layerTOrasterize_path = layerTOrasterize.source()
         field = self.fieldsLayer_ComboBox.currentText()
         raster_path = self.raster_lineEdit.text()
+
+        if raster_path == "":
+            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
+                                    self.tr("Please specify the output raster layer."))
+            return 0
 
         on_CreateGrid.createRaster(
             resolution,
@@ -214,6 +240,11 @@ class Dialog(QDialog, FORM_CLASS):
 
         contour_path = self.isoline_lineEdit.text()
         poly_path = self.polygon_lineEdit.text()
+
+        if contour_path == "" or poly_path == "":
+            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
+                                    self.tr("Please specify the output vector layers."))
+            return 0
 
         # create isolines
         on_CreateGrid.createContour(

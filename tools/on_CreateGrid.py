@@ -16,20 +16,23 @@ from qgis.utils import iface
 from qgis import processing
 
 
-def createGrid(resolution, overlay_layer_path, grid_path):
+def createGrid(resolution, building_layer_path, grid_path, extent_iface):
     project = QgsProject.instance()
 
     overlay_layer_name = os.path.splitext(
-        os.path.basename(overlay_layer_path))[0]
+        os.path.basename(building_layer_path))[0]
 
-    overlay_layer = QgsVectorLayer(
-        overlay_layer_path,
+    buildings_layer = QgsVectorLayer(
+        building_layer_path,
         overlay_layer_name,
         "ogr")
 
-    crs_layer = overlay_layer.crs().authid()
+    crs_layer = buildings_layer.crs().authid()
 
-    extent = iface.mapCanvas().extent()
+    if extent_iface == True:
+        extent = iface.mapCanvas().extent()
+    elif extent_iface == False:
+        extent = buildings_layer.extent()
     xmax = extent.xMaximum()
     ymax = extent.yMaximum()
     xmin = extent.xMinimum()
@@ -52,13 +55,25 @@ def createGrid(resolution, overlay_layer_path, grid_path):
     grid_output = result_grid['OUTPUT']
 
     # native:difference
-    params_difference = {
+    # params_difference = {
+    #     'INPUT': grid_output,
+    #     'OUTPUT': 'memory:',
+    #     'OVERLAY': overlay_layer
+    # }
+    #
+    # result_difference = processing.run("native:difference", params_difference)
+    # difference_output = result_difference['OUTPUT']
+
+    # native:extractbylocation
+    params_extract = {
         'INPUT': grid_output,
+        'INTERSECT': buildings_layer,
         'OUTPUT': 'memory:',
-        'OVERLAY': overlay_layer
+        'OVERLAY': buildings_layer,
+        'PREDICATE': [2]
     }
 
-    result_difference = processing.run("native:difference", params_difference)
+    result_difference = processing.run("native:extractbylocation", params_extract)
     difference_output = result_difference['OUTPUT']
 
     # native:multipart to single partS
@@ -222,7 +237,7 @@ def polygonize(raster_path, minimum, maximum, interval, poly_path):
         'BAND': 1,
         'EIGHT_CONNECTEDNESS': False,
         'EXTRA': '',
-        'FIELD': 'DN',
+        'FIELD': 'dBA',
         'INPUT': reclas_output,
         'OUTPUT': poly_path
     }
