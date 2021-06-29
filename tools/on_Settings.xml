@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>griglia1</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/griglia1.shp</path>
+            <name>receveir_points</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
         </receivers>
 
         <sources>
@@ -18,13 +18,13 @@
 	    </pts>
 	    <roads>	
 		<name>roads_NMPB_emission</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_NMPB_emission.shp</path>
+		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name />
-            <path />
+            <name>buildings</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
