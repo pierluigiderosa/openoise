@@ -44,7 +44,7 @@ from datetime import datetime
 sys.path.append(os.path.dirname(__file__))
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'ui_CreateReceiverPoints.ui'), resource_suffix='')
-from . import on_CreateReceiverPoints
+from . import on_CreateReceiverPoints,on_CreateGrid
 
 from . import on_Settings
 
@@ -63,7 +63,7 @@ class Dialog(QDialog,FORM_CLASS):
         self.setupUi(self)
                 
         self.populateLayers()
-        
+        self.populate_overlayLayer()
         spaced_distance_list = ['1','2','3','4','5']        
         self.spaced_pts_comboBox.clear()
         for distance in spaced_distance_list:
@@ -76,18 +76,60 @@ class Dialog(QDialog,FORM_CLASS):
         self.middle_pts_radioButton.toggled.connect(self.method_update)
         self.spaced_pts_radioButton.toggled.connect(self.method_update)
 
-        self.receiver_layer_pushButton.clicked.connect(self.outFile)        
+        self.receiver_layer_pushButton.clicked.connect(self.outFile)
+        self.extent_layer.clicked.connect(self.extent_layer_definition)
+        self.gridSave_pushButton.clicked.connect(self.outputFile_grid)
+        self.runGrid_pushButton.clicked.connect(self.runGrid)
         self.buttonBox = self.buttonBox.button( QDialogButtonBox.Ok )
 
-
         self.progressBar.setValue(0)
-    
+
+        spacing = ['5', '10', '20', '30', '40', '50']
+        self.resolution_comboBox.clear()
+        for space in spacing:
+            self.resolution_comboBox.addItem(space)
     
     def populateLayers( self ):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.buildings_layer_comboBox.clear()
         self.buildings_layer_comboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer)
-        
+
+    def populate_overlayLayer(self):
+
+        if Qgis.QGIS_VERSION_INT < 31401:
+            self.overlayLayer_ComboBox.clear()
+        self.overlayLayer_ComboBox.allowEmptyLayer()
+        self.overlayLayer_ComboBox.setFilters(QgsMapLayerProxyModel.VectorLayer)
+
+    def extent_layer_definition(self):
+        if self.extent_layer.isChecked():
+            self.overlayLayer_ComboBox.setEnabled(False)
+        else:
+            self.overlayLayer_ComboBox.setEnabled(True)
+
+    def outputFile_grid(self):
+
+        self.gridpoint_lineEdit.clear()
+        self.fileName = QFileDialog.getSaveFileName(
+            None,
+            'Open file',
+            on_Settings.getOneSetting('directory_last'),
+            "Shapefile (*.shp);;All files (*)"
+        )
+
+        if self.fileName is None or self.fileName == "":
+            return
+
+        if str.find(self.fileName[0], ".shp") == -1 and str.find(self.fileName[0], ".SHP") == -1:
+            self.gridpoint_lineEdit.setText(self.fileName[0] + ".shp")
+        else:
+            self.gridpoint_lineEdit.setText(self.fileName[0])
+
+        pathFile = on_Settings.setOneSetting(
+            'directory_last',
+            os.path.dirname(self.gridpoint_lineEdit.text())
+        )
+
     def outFile(self):
         self.receiver_layer_lineEdit.clear()
 
@@ -210,7 +252,32 @@ class Dialog(QDialog,FORM_CLASS):
             format(duration_s, '02'))
         return duration_string
 
-    
+    def runGrid(self):
+
+
+        resolution = int(self.resolution_comboBox.currentText())
+        overlay_layer = self.overlayLayer_ComboBox.currentLayer()
+        overlay_layer_path = overlay_layer.source()
+        grid_path = self.gridpoint_lineEdit.text()
+
+        if grid_path == "":
+            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
+                                    self.tr("Please specify the output grid vector layer."))
+            return 0
+
+        if self.extent_layer.isChecked():
+            extent_iface = True
+        else:
+            extent_iface = False
+
+
+        on_CreateGrid.createGrid(
+            resolution,
+            overlay_layer_path,
+            grid_path,
+            extent_iface
+        )
+
     
 
     

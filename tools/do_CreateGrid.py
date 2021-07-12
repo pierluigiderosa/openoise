@@ -47,73 +47,30 @@ class Dialog(QDialog, FORM_CLASS):
         QDialog.__init__(self, iface.mainWindow())
         self.iface = iface
         self.setupUi(self)
-        self.populate_overlayLayer()
         self.populate_layerTOrasterize()
-        self.gridSave_pushButton.clicked.connect(self.outputFile_grid)
-        self.rasterSave_pushButton.clicked.connect(self.outputFile_raster)
         self.isolineSave_pushButton.clicked.connect(self.outputFile_contour)
         self.polygonSave_pushButton.clicked.connect(self.outputFile_polygon)
-        self.runGrid_pushButton.clicked.connect(self.runGrid)
-        self.runRaster_pushButton.clicked.connect(self.runRasterize)
         self.runContPoly_pushButton.clicked.connect(self.runContPoly)
-        self.extent_layer.clicked.connect(self.extent_layer_definition)
 
         spacing = ['5', '10', '20', '30', '40', '50']
-        self.resolution_comboBox.clear()
         self.resolution_raster_comboBox.clear()
         for space in spacing:
-            self.resolution_comboBox.addItem(space)
             self.resolution_raster_comboBox.addItem(space)
 
-    def populate_overlayLayer(self):
-
-        if Qgis.QGIS_VERSION_INT < 31401:
-            self.overlayLayer_ComboBox.clear()
-        self.overlayLayer_ComboBox.allowEmptyLayer()
-        self.overlayLayer_ComboBox.setFilters(QgsMapLayerProxyModel.VectorLayer)
 
     def populate_layerTOrasterize(self):
 
         if Qgis.QGIS_VERSION_INT < 31401:
             self.layerTOrasterize_ComboBox.clear()
-        self.layerTOrasterize_ComboBox.setFilters(QgsMapLayerProxyModel.VectorLayer)
+        self.layerTOrasterize_ComboBox.setFilters(QgsMapLayerProxyModel.PointLayer)
 
-    def populate_rasterTOcontour(self):
 
-        if Qgis.QGIS_VERSION_INT < 31401:
-            self.rasterISOL_ComboBox.clear()
-        self.rasterISOL_ComboBox.setFilters(QgsMapLayerProxyModel.RasterLayer)
 
-    def extent_layer_definition(self):
-        if self.extent_layer.isChecked():
-            self.overlayLayer_ComboBox.setEnabled(False)
-        else:
-            self.overlayLayer_ComboBox.setEnabled(True)
-
-    def outputFile_grid(self):
-
-        self.gridpoint_lineEdit.clear()
-        self.fileName = QFileDialog.getSaveFileName(
-            None,
-            'Open file',
-            on_Settings.getOneSetting('directory_last'),
-            "Shapefile (*.shp);;All files (*)"
-        )
-
-        if self.fileName is None or self.fileName == "":
-            return
-
-        if str.find(self.fileName[0], ".shp") == -1 and str.find(self.fileName[0], ".SHP") == -1:
-            self.gridpoint_lineEdit.setText(self.fileName[0] + ".shp")
-        else:
-            self.gridpoint_lineEdit.setText(self.fileName[0])
-
-        pathFile = on_Settings.setOneSetting(
-            'directory_last',
-            os.path.dirname(self.gridpoint_lineEdit.text())
-        )
 
     def outputFile_raster(self):
+        '''
+        function not used anymore
+        '''
 
         self.raster_lineEdit.clear()
         self.fileName = QFileDialog.getSaveFileName(
@@ -182,57 +139,19 @@ class Dialog(QDialog, FORM_CLASS):
             os.path.dirname(self.polygon_lineEdit.text())
         )
 
-    def runGrid(self):
 
 
-        resolution = int(self.resolution_comboBox.currentText())
-        overlay_layer = self.overlayLayer_ComboBox.currentLayer()
-        overlay_layer_path = overlay_layer.source()
-        grid_path = self.gridpoint_lineEdit.text()
 
-        if grid_path == "":
-            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
-                                    self.tr("Please specify the output grid vector layer."))
-            return 0
-
-        if self.extent_layer.isChecked():
-            extent_iface = True
-        else:
-            extent_iface = False
-
-
-        on_CreateGrid.createGrid(
-            resolution,
-            overlay_layer_path,
-            grid_path,
-            extent_iface
-        )
-
-    def runRasterize(self):
+    # make Raster - Contour and Polygonize
+    def runContPoly(self):
 
         resolution = int(self.resolution_raster_comboBox.currentText())
         layerTOrasterize = self.layerTOrasterize_ComboBox.currentLayer()
         layerTOrasterize_path = layerTOrasterize.source()
         field = self.fieldsLayer_ComboBox.currentText()
-        raster_path = self.raster_lineEdit.text()
 
-        if raster_path == "":
-            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
-                                    self.tr("Please specify the output raster layer."))
-            return 0
-
-        on_CreateGrid.createRaster(
-            resolution,
-            layerTOrasterize_path,
-            field,
-            raster_path
-        )
-
-    # run Contour and Polygonize
-    def runContPoly(self):
-
-        raster = self.rasterISOL_ComboBox.currentLayer()
-        raster_path = raster.source()
+        # raster = self.rasterISOL_ComboBox.currentLayer()
+        # raster_path = raster.source()
 
         minimum = self.min_spinBox.value()
         maximum = self.max_spinBox.value()
@@ -247,8 +166,10 @@ class Dialog(QDialog, FORM_CLASS):
             return 0
 
         # create isolines
-        on_CreateGrid.createContour(
-            raster_path,
+        raster_path = on_CreateGrid.createRasterContour(
+            resolution,
+            layerTOrasterize_path,
+            field,
             interval,
             contour_path
         )

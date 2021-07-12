@@ -158,17 +158,49 @@ def createRaster(resolution, layerTOrasterize_path, field, raster_path):
     project.addMapLayer(raster_layer)
 
 
-def createContour(raster_path, interval, contour_path):
+def createRasterContour(resolution, layerTOrasterize_path, field, interval, contour_path):
     project = QgsProject.instance()
 
-    raster_name = os.path.splitext(
-        os.path.basename(raster_path))[0]
+    layerTOrasterize_name = os.path.splitext(
+        os.path.basename(layerTOrasterize_path))[0]
 
-    raster = QgsRasterLayer(
-        raster_path,
-        raster_name,
-        "gdal"
+    layerTOrasterize = QgsVectorLayer(
+        layerTOrasterize_path,
+        layerTOrasterize_name,
+        "ogr"
     )
+
+    extent = layerTOrasterize.extent()
+    xmax = extent.xMaximum()
+    ymax = extent.yMaximum()
+    xmin = extent.xMinimum()
+    ymin = extent.yMinimum()
+    extent_coords = "%f,%f,%f,%f" % (xmin, xmax, ymin, ymax)
+
+    params_rasterize = {
+        'BURN': 0,
+        'DATA_TYPE': 5,
+        'EXTENT': extent_coords,
+        'EXTRA': '',
+        'FIELD': field,
+        'HEIGHT': resolution,
+        'INIT': None,
+        'INPUT': layerTOrasterize,
+        'INVERT': False,
+        'NODATA': 0,
+        'OPTIONS': '',
+        'OUTPUT': 'TEMPORARY_OUTPUT',
+        'UNITS': 1,
+        'WIDTH': resolution
+    }
+    result_rasterize = processing.run("gdal:rasterize", params_rasterize)
+    raster_output = result_rasterize['OUTPUT']
+    raster_layer = QgsRasterLayer(
+        raster_output,
+        'Raster'
+    )
+
+    project.addMapLayer(raster_layer)
 
     params_contour = {
         'BAND': 1,
@@ -176,7 +208,7 @@ def createContour(raster_path, interval, contour_path):
         'EXTRA': '',
         'FIELD_NAME': 'gen',
         'IGNORE_NODATA': False,
-        'INPUT': raster,
+        'INPUT': raster_output,
         'INTERVAL': interval,
         'NODATA': None,
         'OFFSET': 0,
@@ -195,6 +227,7 @@ def createContour(raster_path, interval, contour_path):
     )
 
     project.addMapLayer(contour_layer)
+    return raster_output
 
 
 def polygonize(raster_path, minimum, maximum, interval, poly_path):

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>250</height>
+    <height>300</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -28,7 +28,7 @@
   <property name="maximumSize">
    <size>
     <width>500</width>
-    <height>250</height>
+    <height>300</height>
    </size>
   </property>
   <property name="sizeIncrement">
@@ -45,161 +45,260 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QVBoxLayout" name="buildings_layer_verticalLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetNoConstraint</enum>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-     <item>
-      <widget class="QLabel" name="buildings_layer_label">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Buildings layer (input polygon layer)</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QgsMapLayerComboBox" name="buildings_layer_comboBox"/>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QVBoxLayout" name="receivers_layer_verticalLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetMaximumSize</enum>
-     </property>
-     <item>
-      <widget class="QLabel" name="receivers_layer_label">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Receivers layer (output point layer)</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="receiver_layer_horizontalLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetFixedSize</enum>
-       </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Main</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLineEdit" name="receiver_layer_lineEdit">
-         <property name="enabled">
-          <bool>false</bool>
+        <layout class="QVBoxLayout" name="buildings_layer_verticalLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetNoConstraint</enum>
          </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+         <item>
+          <widget class="QLabel" name="buildings_layer_label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Buildings layer (input polygon layer)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QgsMapLayerComboBox" name="buildings_layer_comboBox"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="receivers_layer_verticalLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
+         <item>
+          <widget class="QLabel" name="receivers_layer_label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Receivers layer (output point layer)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="receiver_layer_horizontalLayout">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetFixedSize</enum>
+           </property>
+           <item>
+            <widget class="QLineEdit" name="receiver_layer_lineEdit">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="receiver_layer_pushButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Browse</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Choose the creation methods:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="receiver_layer_pushButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="middle_pts_radioButton">
+           <property name="text">
+            <string>Receiver points in the half of the facades</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="spaced_pts_radioButton">
+           <property name="text">
+            <string> Equidistant receiver points along the facades (m):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="spaced_pts_comboBox">
+           <property name="minimumSize">
+            <size>
+             <width>75</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>75</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QProgressBar" name="progressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDialogButtonBox" name="buttonBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="standardButtons">
+            <set>QDialogButtonBox::Ok</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Grid</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Spacing</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="resolution_comboBox"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Extent layer</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="extent_layer">
+           <property name="text">
+            <string>current extent</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QgsMapLayerComboBox" name="overlayLayer_ComboBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>10</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Save file</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="gridpoint_lineEdit"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="gridSave_pushButton">
+           <property name="text">
+            <string>Browse</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="runGrid_pushButton">
          <property name="text">
-          <string>Browse</string>
+          <string>MAKE POINTS GRID</string>
          </property>
         </widget>
        </item>
       </layout>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Choose the creation methods:</string>
-     </property>
+     </widget>
     </widget>
-   </item>
-   <item>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QRadioButton" name="middle_pts_radioButton">
-       <property name="text">
-        <string>Receiver points in the half of the facades</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QRadioButton" name="spaced_pts_radioButton">
-       <property name="text">
-        <string> Equidistant receiver points along the facades (m):</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QComboBox" name="spaced_pts_comboBox">
-       <property name="minimumSize">
-        <size>
-         <width>75</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>75</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QProgressBar" name="progressBar">
-       <property name="value">
-        <number>0</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Ok</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>
