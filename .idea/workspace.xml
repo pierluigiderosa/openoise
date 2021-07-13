@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="added icon grid builder">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="correction for combobox in grid creation">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
     </list>
@@ -43,6 +44,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -58,7 +60,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
-  <component name="RunManager" selected="Python.on_CalculateNoiseLevels">
+  <component name="RunManager" selected="Python.opeNoise">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="openoise" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -221,10 +223,12 @@
       <workItem from="1624008366905" duration="3701000" />
       <workItem from="1624360356824" duration="1002000" />
       <workItem from="1624368261643" duration="1227000" />
-      <workItem from="1624530409182" duration="7158000" />
-      <workItem from="1624949697831" duration="618000" />
-      <workItem from="1626163665963" duration="92000" />
-      <workItem from="1626163788926" duration="4690000" />
+      <workItem from="1624530409182" duration="6827000" />
+      <workItem from="1626102457399" duration="4216000" />
+      <workItem from="1626116439295" duration="3463000" />
+      <workItem from="1626153458567" duration="714000" />
+      <workItem from="1626154468254" duration="210000" />
+      <workItem from="1626204647827" duration="1539000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -394,28 +398,42 @@
       <option name="project" value="LOCAL" />
       <updated>1624449634062</updated>
     </task>
-    <task id="LOCAL-00025" summary="- create_grid fixed grid creation&#10;- fixe case empty output">
-      <created>1624546845792</created>
+    <task id="LOCAL-00025" summary="create grid icon">
+      <created>1624946830147</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1624546845792</updated>
+      <updated>1624946830147</updated>
     </task>
-    <task id="LOCAL-00026" summary="added icon grid builder">
-      <created>1624950031903</created>
+    <task id="LOCAL-00026" summary="create grid icon">
+      <created>1624946993717</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1624950031903</updated>
+      <updated>1624946993717</updated>
     </task>
-    <task id="LOCAL-00027" summary="added icon grid builder">
-      <created>1624950278646</created>
+    <task id="LOCAL-00027" summary="create grid integratet in create receivers&#10;create contour and polygon simplified">
+      <created>1626122579828</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1624950278646</updated>
+      <updated>1626122579828</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="new icon for raster creation">
+      <created>1626154399574</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1626154399574</updated>
+    </task>
+    <task id="LOCAL-00029" summary="correction for combobox in grid creation">
+      <created>1626154662976</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1626154662976</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,12 +504,14 @@
     <MESSAGE value="- added layer creato con contour plugin" />
     <MESSAGE value="- skip_diffraction complete - to test by ARPA" />
     <MESSAGE value="- create_grid initial commit" />
-    <MESSAGE value="- create_grid fixed grid creation&#10;- fixe case empty output" />
-    <MESSAGE value="added icon grid builder" />
-    <option name="LAST_COMMIT_MESSAGE" value="added icon grid builder" />
+    <MESSAGE value="create grid icon" />
+    <MESSAGE value="create grid integratet in create receivers&#10;create contour and polygon simplified" />
+    <MESSAGE value="new icon for raster creation" />
+    <MESSAGE value="correction for combobox in grid creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction for combobox in grid creation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/openoise$openoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1612876823241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/openoise$openoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1612876823241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

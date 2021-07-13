@@ -605,7 +605,8 @@ loss of precision in sound levels estimates.</p>
             settings['custom3d'] = 'True'
             settings['custom3dfield'] = self.field_height_receiver.currentText()
         else:
-            settings['custom3d'] = 'True'
+            settings['custom3d'] = 'False'
+            settings['custom3dfield'] =''
 
         if self.sources_pts_layer_checkBox.isChecked() == True:
             settings['sources_pts_name'] = self.sources_pts_layer.name()
