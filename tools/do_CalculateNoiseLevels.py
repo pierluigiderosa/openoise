@@ -600,6 +600,13 @@ loss of precision in sound levels estimates.</p>
         settings['receivers_name'] = self.receiver_layer.name()
         settings['receivers_path'] = self.receiver_layer.source()
 
+        # custom 3D
+        if self.height_receiver_check.isChecked():
+            settings['custom3d'] = 'True'
+            settings['custom3dfield'] = self.field_height_receiver.currentText()
+        else:
+            settings['custom3d'] = 'True'
+
         if self.sources_pts_layer_checkBox.isChecked() == True:
             settings['sources_pts_name'] = self.sources_pts_layer.name()
             settings['sources_pts_path'] = self.sources_pts_layer.source()
@@ -705,6 +712,13 @@ loss of precision in sound levels estimates.</p>
                 self.sources_pts_layer_comboBox.setCurrentIndex(idx)
             else:
                 self.sources_pts_layer_checkBox.setChecked(False)
+
+            # custom 3d
+            if settings['custom3d'] == "True":
+                self.height_receiver_check.setChecked(1)
+                self.field_height_receiver.setEnabled(True)
+                self.field_height_receiver.setField(settings['custom3dfield'])
+
 
             if settings['implementation_roads'] is not None:
                 self.sources_roads_layer_checkBox.setEnabled(True)

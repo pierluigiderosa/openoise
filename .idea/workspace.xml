@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="added icon grid builder">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opeNoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/opeNoise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_CreateGrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CreateGrid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_CreateGrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateGrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

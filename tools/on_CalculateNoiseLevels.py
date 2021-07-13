@@ -515,6 +515,11 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                     d_recTOsource = compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
                     # length with receiver points height fixed to 4 m
                     # TODO: da modificare per tenere in conto la altezza variabile
+                    if settings['custom3d'] == "True":
+                        print(receiver_feat.id())
+                        print(receiver_feat[settings['custom3dfield']])
+                        print('-----------')
+
                     d_recTOsource_4m = sqrt(d_recTOsource**2 + 16)
 
                     feat_type = source_feat_value['type']

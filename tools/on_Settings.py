@@ -33,6 +33,8 @@ def keys_traduction():
     keys_traduction =  {'directory_last' : 'directory/last',
                         'receivers_name' : 'layers/receivers/name',
                         'receivers_path' : 'layers/receivers/path',
+                        'custom3d': 'layers/receivers/custom3d',
+                        'custom3dfield' : 'layers/receivers/custom3dfield',
                         'sources_pts_name' : 'layers/sources/pts/name',
                         'sources_pts_path' : 'layers/sources/pts/path',
                         'sources_roads_name' : 'layers/sources/roads/name',
