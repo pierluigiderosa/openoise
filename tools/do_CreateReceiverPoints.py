@@ -99,7 +99,7 @@ class Dialog(QDialog,FORM_CLASS):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.overlayLayer_ComboBox.clear()
         self.overlayLayer_ComboBox.allowEmptyLayer()
-        self.overlayLayer_ComboBox.setFilters(QgsMapLayerProxyModel.VectorLayer)
+        self.overlayLayer_ComboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer | QgsMapLayerProxyModel.LineLayer)
 
     def extent_layer_definition(self):
         if self.extent_layer.isChecked():
