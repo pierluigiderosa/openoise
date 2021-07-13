@@ -171,14 +171,15 @@ class Dialog(QDialog, FORM_CLASS):
             layerTOrasterize_path,
             field,
             interval,
-            contour_path
+            contour_path,
+            poly_path
         )
 
         # create polygon from reclassified raster
-        on_CreateGrid.polygonize(
-            raster_path,
-            minimum,
-            maximum,
-            interval,
-            poly_path
-        )
+        # on_CreateGrid.polygonize(
+        #     raster_path,
+        #     minimum,
+        #     maximum,
+        #     interval,
+        #     poly_path
+        # )

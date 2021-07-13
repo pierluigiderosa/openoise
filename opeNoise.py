@@ -101,7 +101,6 @@ class opeNoise(object):
         self.ApplyNoiseSymbology_item.triggered.connect(self.ApplyNoiseSymbology_show)
 
         # Create Grid
-        # TODO: add icon to grid
         self.CreateGrid_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_PointSourceCalculation.png"),
             QCoreApplication.translate("opeNoise", "Create Grid"),
             self.iface.mainWindow())
