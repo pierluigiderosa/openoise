@@ -63,6 +63,7 @@ class Dialog(QDialog, FORM_CLASS):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.layerTOrasterize_ComboBox.clear()
         self.layerTOrasterize_ComboBox.setFilters(QgsMapLayerProxyModel.PointLayer)
+        self.fieldsLayer_ComboBox.setLayer(self.layerTOrasterize_ComboBox.currentLayer())
 
 
 
@@ -103,6 +104,8 @@ class Dialog(QDialog, FORM_CLASS):
             "Shapefile (*.shp);;All files (*)"
         )
 
+
+
         if self.fileName is None or self.fileName == "":
             return
 
@@ -126,6 +129,8 @@ class Dialog(QDialog, FORM_CLASS):
             "Shapefile (*.shp);;All files (*)"
         )
 
+
+
         if self.fileName is None or self.fileName == "":
             return
 
@@ -144,7 +149,15 @@ class Dialog(QDialog, FORM_CLASS):
 
     # make Raster - Contour and Polygonize
     def runContPoly(self):
-
+        # test is linedit are compiled
+        if self.polygon_lineEdit.text() == "" or self.polygon_lineEdit.text() == ".shp":
+            QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
+                                    self.tr("Please specify the output vector polygon layer."))
+            return
+        if self.isoline_lineEdit.text() == "" or self.isoline_lineEdit.text() == ".shp":
+            QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
+                                    self.tr("Please specify the output vector isolines layer."))
+            return
         resolution = int(self.resolution_raster_comboBox.currentText())
         layerTOrasterize = self.layerTOrasterize_ComboBox.currentLayer()
         layerTOrasterize_path = layerTOrasterize.source()
@@ -161,7 +174,7 @@ class Dialog(QDialog, FORM_CLASS):
         poly_path = self.polygon_lineEdit.text()
 
         if contour_path == "" or poly_path == "":
-            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
+            QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
                                     self.tr("Please specify the output vector layers."))
             return 0
 

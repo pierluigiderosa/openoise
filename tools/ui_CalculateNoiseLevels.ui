@@ -1198,19 +1198,6 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QCheckBox" name="skip_diffraction_checkBox">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>510</y>
-       <width>211</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Skip diffraction calculation.</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="tabCalculate">
     <attribute name="title">
@@ -1746,6 +1733,22 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="skip_diffraction_checkBox">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>211</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reduces&lt;/span&gt; the calculation time with consequent&lt;span style=&quot; text-decoration: underline;&quot;&gt; loss of precision in sound levels estimates&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string>Skip diffraction calculation.</string>
      </property>
     </widget>
    </widget>

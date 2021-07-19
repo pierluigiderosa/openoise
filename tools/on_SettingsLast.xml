@@ -7,10 +7,10 @@
 
     <layers>
         <receivers>
-            <name>receveir_points</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
-            <custom3d>True</custom3d>
-            <custom3dfield>id_pt</custom3dfield>
+            <name>griglia1</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/griglia1.shp</path>
+            <custom3d>False</custom3d>
+            <custom3dfield />
         </receivers>
 
         <sources>
@@ -20,13 +20,13 @@
 	    </pts>
 	    <roads>	
 		<name>roads_NMPB_emission</name>
-		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
+		<path>C:/Users/pierl/Desktop/test_openoise/roads_NMPB_emission.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>buildings</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
+            <name />
+            <path />
         </buildings>
 
         <emissions_points>
@@ -47,7 +47,7 @@
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
-        <height_receiver>True</height_receiver>
+        <height_receiver>False</height_receiver>
         <threedglobal>False</threedglobal>
         <field3D />
 

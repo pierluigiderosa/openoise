@@ -82,7 +82,7 @@
            </rect>
           </property>
           <attribute name="label">
-           <string>1  -   CREATE RECEIVER POINTS</string>
+           <string>1  -   CREATE RECEIVER OR GRID POINTS</string>
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <property name="sizeConstraint">
@@ -402,7 +402,7 @@ INPUT DATA:
 
 LAYERS:
 1. buildings
-2. receveir_points (layer created with the script 'Create receiver points')
+2. receveir_points (layer created with the script 'Create receiver or grid points')
 3. source_points
 4. roads_NMPB_emission
 5. roads_NMPB_traffic_flow

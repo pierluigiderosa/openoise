@@ -161,7 +161,7 @@ class Dialog(QDialog,FORM_CLASS):
         dir_path = os.path.dirname(path)        
         log_errors_path_name = os.path.join(dir_path,"log_CreateReceiverPoints_errors.txt")
         log_errors = open(log_errors_path_name,"w")
-        log_errors.write(self.tr("opeNoise") + " - " + self.tr("Create Receiver Points") + " - " + self.tr("Errors") + "\n\n")
+        log_errors.write(self.tr("opeNoise") + " - " + self.tr("Create Receiver or Grid Points") + " - " + self.tr("Errors") + "\n\n")
         
         
     def log_end(self):
@@ -172,11 +172,11 @@ class Dialog(QDialog,FORM_CLASS):
       
         self.buttonBox.setEnabled( False )
         if self.buildings_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver Points"), self.tr("Please specify the buildings vector layer"))
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify the buildings vector layer"))
             self.buttonBox.setEnabled( True )
             return
         elif self.receiver_layer_lineEdit.text() == "" or self.receiver_layer_lineEdit.text() == ".shp":
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver Points"), self.tr("Please specify output shapefile"))
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify output shapefile"))
             
             self.buttonBox.setEnabled( True )
             return
@@ -221,7 +221,7 @@ class Dialog(QDialog,FORM_CLASS):
                                 self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                                 self.tr("Duration: ") + str(self.duration())
 
-                QMessageBox.information(self, self.tr("opeNoise - Create Receiver Points"), result_string)
+                QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), result_string)
             else:
                 result_string = self.tr("Sorry, process not complete.") + "\n\n" +\
                                 self.tr("View the log file to understand the problem:") + "\n" +\
@@ -230,7 +230,7 @@ class Dialog(QDialog,FORM_CLASS):
                                 self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S.%f") + "\n"+\
                                 self.tr("Duration: ") + str(self.duration())
                                 
-                QMessageBox.information(self, self.tr("opeNoise - Create Receiver Points"), self.tr(result_string))
+                QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr(result_string))
                 
                 self.buttonBox.setEnabled( True )
 
@@ -253,6 +253,11 @@ class Dialog(QDialog,FORM_CLASS):
         return duration_string
 
     def runGrid(self):
+
+        if self.gridpoint_lineEdit.text()== "" or self.gridpoint_lineEdit.text() == ".shp":
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
+                                    self.tr("Please specify output shapefile"))
+            return
 
 
         resolution = int(self.resolution_comboBox.currentText())

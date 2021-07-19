@@ -80,7 +80,7 @@ class opeNoise(object):
         # self.CreateReceiverPoints_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_CreateReceiverPoints.png"),
         #                                 QCoreApplication.translate("opeNoise", self.tr("Create Receiver Points")), self.iface.mainWindow())
         self.CreateReceiverPoints_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_CreateReceiverPoints.png"),
-                                                                            self.tr("Create Receiver Points"),
+                                                                            self.tr("Create Receiver or Grid Points"),
                                                  self.iface.mainWindow())
 
         self.CreateReceiverPoints_item.triggered.connect(self.CreateReceiverPoints_show)
