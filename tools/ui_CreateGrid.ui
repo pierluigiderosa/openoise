@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>488</width>
-    <height>337</height>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -125,7 +125,7 @@
      <item>
       <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>Contours level layer </string>
+        <string>Contours level (output layer) </string>
        </property>
       </widget>
      </item>
@@ -146,7 +146,7 @@
      <item>
       <widget class="QLabel" name="label_12">
        <property name="text">
-        <string>Polygon level layer </string>
+        <string>Polygon level (output layer) </string>
        </property>
       </widget>
      </item>
@@ -161,6 +161,13 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBarGrid">
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QPushButton" name="runContPoly_pushButton">

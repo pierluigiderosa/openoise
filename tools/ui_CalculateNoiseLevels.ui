@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -221,7 +221,7 @@
        <item>
         <widget class="QCheckBox" name="height_receiver_check">
          <property name="text">
-          <string>Activate custom receiver height</string>
+          <string>Activate custom receiver height (m)</string>
          </property>
         </widget>
        </item>

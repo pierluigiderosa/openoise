@@ -9,6 +9,7 @@ from qgis.core import (
     QgsFields,
     QgsRasterLayer,
     QgsWkbTypes,
+QgsProcessingFeedback,
     QgsVectorFileWriter,
 QgsVectorDataProvider
 )
@@ -111,9 +112,10 @@ def createGrid(resolution, building_layer_path, grid_path, extent_iface):
     grid_layer.updateFields()
 
 
-def createRasterContour(resolution, layerTOrasterize_path, field, interval, contour_path,poly_path):
+def createRasterContour(resolution, layerTOrasterize_path, field, interval, contour_path,poly_path,myprogress):
     project = QgsProject.instance()
-
+    feedback = QgsProcessingFeedback()
+    feedback.setProgress(0)
     layerTOrasterize_name = os.path.splitext(
         os.path.basename(layerTOrasterize_path))[0]
 
@@ -146,7 +148,8 @@ def createRasterContour(resolution, layerTOrasterize_path, field, interval, cont
         'UNITS': 1,
         'WIDTH': resolution
     }
-    result_rasterize = processing.run("gdal:rasterize", params_rasterize)
+    result_rasterize = processing.run("gdal:rasterize", params_rasterize, feedback=feedback)
+    feedback.setProgress(100)
     raster_output = result_rasterize['OUTPUT']
     raster_layer = QgsRasterLayer(
         raster_output,
@@ -154,6 +157,14 @@ def createRasterContour(resolution, layerTOrasterize_path, field, interval, cont
     )
 
     project.addMapLayer(raster_layer)
+
+    '''procedura da sviluppare per rimuovere i valori minore di zero
+    { 'CELLSIZE' : 5, 'CRS' : QgsCoordinateReferenceSystem('EPSG:3003'), 
+    'EXPRESSION' : '(\"Raster@1\">0)*\"Raster@1\"', 
+    'EXTENT' : '1394561.740000000,1394816.740000000,4989600.651000000,4989900.651000000 [EPSG:3003]', 
+    'LAYERS' : None, 
+    'OUTPUT' : 'TEMPORARY_OUTPUT' }
+    '''
 
     params_contour = {
         'BAND': 1,
@@ -194,7 +205,7 @@ def createRasterContour(resolution, layerTOrasterize_path, field, interval, cont
         'IGNORE_NODATA': False,
         'INPUT': raster_output,
         'INTERVAL': interval,
-        'NODATA': None,
+        'NODATA': -99,
         'OFFSET': 0,
         'OUTPUT': poly_path
     }
