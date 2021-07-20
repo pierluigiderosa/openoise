@@ -174,7 +174,7 @@ def createRasterContour(resolution, layerTOrasterize_path, field, interval, cont
         'IGNORE_NODATA': False,
         'INPUT': raster_output,
         'INTERVAL': interval,
-        'NODATA': None,
+        'NODATA': -99,
         'OFFSET': 0,
         'OUTPUT': contour_path
     }
