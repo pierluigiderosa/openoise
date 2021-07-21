@@ -254,6 +254,10 @@ class Dialog(QDialog,FORM_CLASS):
 
     def runGrid(self):
 
+        # progressbar Grid Point
+        BarGridReceiver = self.progressBarGridReceiver
+        BarGridReceiver.setMaximum(100)
+
         if self.gridpoint_lineEdit.text()== "" or self.gridpoint_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
                                     self.tr("Please specify output shapefile"))
@@ -280,7 +284,8 @@ class Dialog(QDialog,FORM_CLASS):
             resolution,
             overlay_layer_path,
             grid_path,
-            extent_iface
+            extent_iface,
+            BarGridReceiver
         )
 
     

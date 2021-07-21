@@ -149,7 +149,8 @@ class Dialog(QDialog, FORM_CLASS):
 
     # make Raster - Contour and Polygonize
     def runContPoly(self):
-        myprogress = self.progressBarGrid.setMaximum(100)
+        ProgressBarGrid = self.progressBarGrid
+        ProgressBarGrid.setMaximum(100)
         # test is linedit are compiled
         if self.polygon_lineEdit.text() == "" or self.polygon_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
@@ -187,7 +188,7 @@ class Dialog(QDialog, FORM_CLASS):
             interval,
             contour_path,
             poly_path,
-            myprogress
+            ProgressBarGrid
         )
 
         # create polygon from reclassified raster

@@ -290,6 +290,13 @@
         </layout>
        </item>
        <item>
+        <widget class="QProgressBar" name="progressBarGridReceiver">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="runGrid_pushButton">
          <property name="text">
           <string>OK</string>

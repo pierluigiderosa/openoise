@@ -18,8 +18,12 @@ from qgis.utils import iface
 from qgis import processing
 
 
-def createGrid(resolution, building_layer_path, grid_path, extent_iface):
+def createGrid(resolution, building_layer_path, grid_path, extent_iface,BarGridReceiver):
     project = QgsProject.instance()
+
+    # feedback configuration
+    feedback = QgsProcessingFeedback()
+    feedback.progressChanged.connect(BarGridReceiver.setValue)
 
     overlay_layer_name = os.path.splitext(
         os.path.basename(building_layer_path))[0]
@@ -54,6 +58,7 @@ def createGrid(resolution, building_layer_path, grid_path, extent_iface):
     }
 
     result_grid = processing.run("native:creategrid", params_creategrid)
+    feedback.setProgress(70)
     grid_output = result_grid['OUTPUT']
 
     # native:difference
@@ -76,6 +81,7 @@ def createGrid(resolution, building_layer_path, grid_path, extent_iface):
     }
 
     result_difference = processing.run("native:extractbylocation", params_extract)
+    feedback.setProgress(85)
     difference_output = result_difference['OUTPUT']
 
     # native:multipart to single partS
@@ -85,6 +91,7 @@ def createGrid(resolution, building_layer_path, grid_path, extent_iface):
     }
 
     result_multiTOsingle = processing.run("native:multiparttosingleparts", params_multiTosingle)
+    feedback.setProgress(100)
     output_singlepart = result_multiTOsingle['OUTPUT']
 
     # remove layer in already in TOC
@@ -112,10 +119,13 @@ def createGrid(resolution, building_layer_path, grid_path, extent_iface):
     grid_layer.updateFields()
 
 
-def createRasterContour(resolution, layerTOrasterize_path, field, interval, contour_path,poly_path,myprogress):
+def createRasterContour(resolution, layerTOrasterize_path, field, interval, contour_path, poly_path, ProgressBarGrid):
     project = QgsProject.instance()
+
+    #feedback configuration
     feedback = QgsProcessingFeedback()
-    feedback.setProgress(0)
+    feedback.progressChanged.connect(ProgressBarGrid.setValue)
+
     layerTOrasterize_name = os.path.splitext(
         os.path.basename(layerTOrasterize_path))[0]
 
@@ -149,7 +159,7 @@ def createRasterContour(resolution, layerTOrasterize_path, field, interval, cont
         'WIDTH': resolution
     }
     result_rasterize = processing.run("gdal:rasterize", params_rasterize, feedback=feedback)
-    feedback.setProgress(100)
+    feedback.setProgress(33)
     raster_output = result_rasterize['OUTPUT']
     raster_layer = QgsRasterLayer(
         raster_output,
@@ -182,7 +192,8 @@ def createRasterContour(resolution, layerTOrasterize_path, field, interval, cont
     # remove contour if already in TOC
     removeLayer(contour_path)
 
-    result_contour = processing.run("gdal:contour", params_contour)
+    result_contour = processing.run("gdal:contour", params_contour, feedback=feedback)
+    feedback.setProgress(66)
     contour_output = result_contour['OUTPUT']
 
     contour_name = os.path.splitext(
@@ -212,7 +223,8 @@ def createRasterContour(resolution, layerTOrasterize_path, field, interval, cont
     # remove polygon in already in TOC
     removeLayer(poly_path)
 
-    result_poly = processing.run("gdal:contour_polygon", parameter_poly_contour)
+    result_poly = processing.run("gdal:contour_polygon", parameter_poly_contour,feedback=feedback)
+    feedback.setProgress(100)
     poly_output = result_poly['OUTPUT']
     poly_name = os.path.splitext(
         os.path.basename(poly_path))[0]
