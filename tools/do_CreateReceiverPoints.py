@@ -28,7 +28,7 @@ from qgis.PyQt.QtCore import QObject
 from qgis.PyQt.QtWidgets import QDialog, QFileDialog
 from qgis.PyQt.QtWidgets import QDialogButtonBox
 from qgis.PyQt.QtWidgets import QMessageBox
-from qgis.core import QgsProject, QgsWkbTypes, QgsMapLayerProxyModel
+from qgis.core import QgsProject, QgsWkbTypes, QgsMapLayerProxyModel,QgsCoordinateReferenceSystem
 try:
     from qgis.core import Qgis
 except ImportError:
@@ -78,9 +78,14 @@ class Dialog(QDialog,FORM_CLASS):
 
         self.receiver_layer_pushButton.clicked.connect(self.outFile)
         self.extent_layer.clicked.connect(self.extent_layer_definition)
+        # self.currentExtentSet.clicked.connect(self.extent_layer_definition2)
         self.gridSave_pushButton.clicked.connect(self.outputFile_grid)
         self.runGrid_pushButton.clicked.connect(self.runGrid)
         self.buttonBox = self.buttonBox.button( QDialogButtonBox.Ok )
+
+        # set the extend layer definition
+        self.ExtentGrid.setCurrentExtent(self.iface.mapCanvas().extent(), QgsProject.crs())
+
 
         self.progressBar.setValue(0)
 
@@ -106,6 +111,10 @@ class Dialog(QDialog,FORM_CLASS):
             self.overlayLayer_ComboBox.setEnabled(False)
         else:
             self.overlayLayer_ComboBox.setEnabled(True)
+
+    def extent_layer_definition2(self):
+        extent = self.iface.mapCanvas().extent()
+        self.ExtentGrid.setCurrentExtent(extent,QgsCoordinateReferenceSystem("EPSG:3003"))
 
     def outputFile_grid(self):
 

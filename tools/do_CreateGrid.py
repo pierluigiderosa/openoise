@@ -181,7 +181,7 @@ class Dialog(QDialog, FORM_CLASS):
             return 0
 
         # create isolines
-        raster_path = on_CreateGrid.createRasterContour(
+        raster_path = on_CreateGrid.createRasterAndContour(
             resolution,
             layerTOrasterize_path,
             field,

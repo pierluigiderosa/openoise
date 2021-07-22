@@ -119,7 +119,7 @@ def createGrid(resolution, building_layer_path, grid_path, extent_iface,BarGridR
     grid_layer.updateFields()
 
 
-def createRasterContour(resolution, layerTOrasterize_path, field, interval, contour_path, poly_path, ProgressBarGrid):
+def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, contour_path, poly_path, ProgressBarGrid):
     project = QgsProject.instance()
 
     #feedback configuration
