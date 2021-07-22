@@ -77,14 +77,14 @@ class Dialog(QDialog,FORM_CLASS):
         self.spaced_pts_radioButton.toggled.connect(self.method_update)
 
         self.receiver_layer_pushButton.clicked.connect(self.outFile)
-        self.extent_layer.clicked.connect(self.extent_layer_definition)
-        # self.currentExtentSet.clicked.connect(self.extent_layer_definition2)
         self.gridSave_pushButton.clicked.connect(self.outputFile_grid)
         self.runGrid_pushButton.clicked.connect(self.runGrid)
         self.buttonBox = self.buttonBox.button( QDialogButtonBox.Ok )
 
         # set the extend layer definition
-        self.ExtentGrid.setCurrentExtent(self.iface.mapCanvas().extent(), QgsProject.crs())
+        projCrs = QgsProject.instance().crs()
+        canvas_extent = self.iface.mapCanvas().extent()
+        self.ExtentGrid.setCurrentExtent(canvas_extent,projCrs)
 
 
         self.progressBar.setValue(0)
@@ -102,15 +102,11 @@ class Dialog(QDialog,FORM_CLASS):
     def populate_overlayLayer(self):
 
         if Qgis.QGIS_VERSION_INT < 31401:
-            self.overlayLayer_ComboBox.clear()
-        self.overlayLayer_ComboBox.allowEmptyLayer()
-        self.overlayLayer_ComboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer | QgsMapLayerProxyModel.LineLayer)
+            self.BuildingMaskLayerCombo.clear()
+        self.BuildingMaskLayerCombo.allowEmptyLayer()
+        self.BuildingMaskLayerCombo.setFilters(QgsMapLayerProxyModel.PolygonLayer)
 
-    def extent_layer_definition(self):
-        if self.extent_layer.isChecked():
-            self.overlayLayer_ComboBox.setEnabled(False)
-        else:
-            self.overlayLayer_ComboBox.setEnabled(True)
+
 
     def extent_layer_definition2(self):
         extent = self.iface.mapCanvas().extent()
@@ -274,8 +270,10 @@ class Dialog(QDialog,FORM_CLASS):
 
 
         resolution = int(self.resolution_comboBox.currentText())
-        overlay_layer = self.overlayLayer_ComboBox.currentLayer()
-        overlay_layer_path = overlay_layer.source()
+
+        # get the building mask layer
+        BuildingMaskLayer = self.BuildingMaskLayerCombo.currentLayer()
+
         grid_path = self.gridpoint_lineEdit.text()
 
         if grid_path == "":
@@ -283,18 +281,15 @@ class Dialog(QDialog,FORM_CLASS):
                                     self.tr("Please specify the output grid vector layer."))
             return 0
 
-        if self.extent_layer.isChecked():
-            extent_iface = True
-        else:
-            extent_iface = False
+        extentSelected = self.ExtentGrid.currentExtent()
 
 
         on_CreateGrid.createGrid(
             resolution,
-            overlay_layer_path,
             grid_path,
-            extent_iface,
-            BarGridReceiver
+            extentSelected,
+            BarGridReceiver,
+            BuildingMaskLayer,
         )
 
     

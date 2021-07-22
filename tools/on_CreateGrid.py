@@ -18,27 +18,23 @@ from qgis.utils import iface
 from qgis import processing
 
 
-def createGrid(resolution, building_layer_path, grid_path, extent_iface,BarGridReceiver):
+def createGrid(resolution, grid_path, extent,BarGridReceiver,BuildingMaskLayer):
     project = QgsProject.instance()
 
     # feedback configuration
     feedback = QgsProcessingFeedback()
     feedback.progressChanged.connect(BarGridReceiver.setValue)
 
-    overlay_layer_name = os.path.splitext(
-        os.path.basename(building_layer_path))[0]
+    grid_layer_name = os.path.splitext(
+        os.path.basename(grid_path))[0]
 
-    buildings_layer = QgsVectorLayer(
-        building_layer_path,
-        overlay_layer_name,
+    grid_layer = QgsVectorLayer(
+        grid_path,
+        grid_layer_name,
         "ogr")
 
-    crs_layer = buildings_layer.crs().authid()
+    crs_layer = QgsProject.instance().crs()
 
-    if extent_iface == True:
-        extent = iface.mapCanvas().extent()
-    elif extent_iface == False:
-        extent = buildings_layer.extent()
     xmax = extent.xMaximum()
     ymax = extent.yMaximum()
     xmin = extent.xMinimum()
@@ -74,9 +70,9 @@ def createGrid(resolution, building_layer_path, grid_path, extent_iface,BarGridR
     # native:extractbylocation
     params_extract = {
         'INPUT': grid_output,
-        'INTERSECT': buildings_layer,
+        'INTERSECT': BuildingMaskLayer,
         'OUTPUT': 'memory:',
-        'OVERLAY': buildings_layer,
+        'OVERLAY': BuildingMaskLayer,
         'PREDICATE': [2]
     }
 
