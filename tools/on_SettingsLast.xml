@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>griglia1</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/griglia1.shp</path>
+            <name>receveir_points</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -25,8 +25,8 @@
         </sources>
 
         <buildings>
-            <name />
-            <path />
+            <name>buildings</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -40,6 +40,9 @@
         <diff_rays>
             <path />
         </diff_rays>
+        <diff3D_rays>
+            <path>C:/Users/pierl/Desktop/test_openoise/diffraction3d.shp</path>
+        </diff3D_rays>
     </layers>
 
     <options>
@@ -48,7 +51,8 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <height_receiver>False</height_receiver>
-        <threedglobal>False</threedglobal>
+        <threedglobal>True</threedglobal>
+        <threedglobal_rays>True</threedglobal_rays>
         <field3D />
 
         <den>

@@ -1,4 +1,8 @@
 opeNoise - Calculate Noise Levels - Errors
 
-No errors.
-
+Traceback (most recent call last):
+  File "C:/Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\do_CalculateNoiseLevels.py", line 938, in accept
+    on_CalculateNoiseLevels.run(settings,self.progress_bars)
+  File "C:/Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\on_CalculateNoiseLevels.py", line 1056, in run
+    receiver_feat_new_fields = calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_layer_writer)
+NameError: name 'diff3D_layer_writer' is not defined

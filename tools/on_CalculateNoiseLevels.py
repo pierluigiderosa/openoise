@@ -253,7 +253,7 @@ def get_levels(settings,source_layer,source_feat):
     return levels
 
 
-def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer):
+def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_layer_writer):
 
     research_ray = int(settings['research_ray'])
     temperature = int(settings['temperature'])
@@ -468,6 +468,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
 
     ray_id = 0
     diff_ray_id = 0
+    diff3D_ray_id = 0
 
     receiver_feat_all_new_fields =  {}
 
@@ -556,6 +557,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                         else:
                             #
                             level_dir[key] = -1
+
 
                     if rays_writer is not None:
                         ray = QgsFeature()
@@ -717,7 +719,122 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
             if receiver_feat.id() in dict3D:
                 source_ids = npunique(dict3D[receiver_feat.id()]).tolist()
                 for source_id in source_ids:
-                    pass
+                    source_feat_value = source_feat_all_dict[source_id]
+                    sor_feat = source_feat_value['feat']
+
+                    # build 2D plane line
+                    sorgente_punto = sor_feat.geometry().asPoint()
+                    ricevitori_punto = receiver_feat.geometry().asPoint()
+                    line = QgsGeometry.fromPolylineXY([sorgente_punto, ricevitori_punto])
+
+                    # TODO: definire il valore di quota punto partenza immagina che sono nel piano XZ
+                    p1 = QgsPointXY(0, 0)
+                    punti_hull = [p1]
+                    # TODO: definire altezza ricevitore
+                    pLast = QgsPointXY(line.length(), 4)
+                    # definisco un rettangolo di ricerca per optimizing loop
+                    x_min = min(sorgente_punto.x(), ricevitori_punto.x())
+                    x_max = max(sorgente_punto.x(), ricevitori_punto.x())
+                    y_min = min(sorgente_punto.y(), ricevitori_punto.y())
+                    y_max = max(sorgente_punto.y(), ricevitori_punto.y())
+                    rect = QgsRectangle(x_min, y_min, x_max, y_max)
+                    request = QgsFeatureRequest().setFilterRect(rect).setFlags(QgsFeatureRequest.ExactIntersect)
+
+                    # cycle to intersect the line with obstacles
+                    # output is a 3D vertical line
+                    for f in obstacles_layer.getFeatures(request):
+                        if f.geometry().intersects(line):
+                            intersezione = line.intersection(f.geometry())
+
+                            # prendo i punti della intersezione
+                            if intersezione.isMultipart():
+                                poly=intersezione.asMultiPolyline()
+                                for ii in poly:
+                                    for jj in ii:
+                                        distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((jj)))
+                                        # TODO: chiamare la colonna che contiene altezza
+                                        fieldH = settings['field3D']
+                                        elev = f[fieldH]
+                                        if elev <= 3:
+                                            elev = 3.
+                                        punti_hull.append(QgsPointXY(distanza, elev))
+
+                            else:
+                                poly = intersezione.asPolyline()
+
+                                # distanza dal punto iniziale
+                                for pti in poly:
+                                    distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((pti)))
+                                    # TODO: chiamare la colonna che contiene altezza
+                                    fieldH = settings['field3D']
+                                    elev = f[fieldH]
+                                    if elev <= 3:
+                                        elev = 3.
+                                    punti_hull.append(QgsPointXY(distanza, elev))
+
+                    punti_hull.append(pLast)
+                    polygon_wkt = create_wkt_from_list(punti_hull)
+                    multipoint = QgsGeometry.fromWkt(polygon_wkt)
+                    out_ring = multipoint.convexHull()
+
+                    delta3d = out_ring.length() - line.length()
+                    print('3D dist: '+str(delta3d))
+                    # determination of epsilon
+                    ePoints = out_ring.asPolygon()[0][1:-1]
+                    eLine = QgsGeometry.fromPolylineXY(ePoints)
+                    eDist=eLine.length()
+
+                    level_dif = {}
+                    level_dif_bands = {}
+                    level_atm_bands = {}
+
+                    # LA PARTE SEGUENTE CALCOLA I LIVELLI E SOMMA I DB
+                    # for key in list(level_emi_bands.keys()):
+                    #     if level_emi[key] > 0:
+                    #         level_dif_bands[key] = on_Acoustics.Diffraction3D(level_emi_bands[key],
+                    #                                                         delta3d, eDist,
+                    #                                                         temperature).level3D()
+                    #         level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(delta3d, temperature,
+                    #                                                                   humidity, level_emi_bands[
+                    #                                                                       key]).attenuation()
+                    #         level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key], level_atm_bands[key])
+                    #
+                    #
+                    #         if settings['implementation_roads'] == 'CNOSSOS':
+                    #             level_dif[key] = on_Acoustics.OctaveBandsToGlobalA(level_dif_bands[key])
+                    #         else:
+                    #             level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
+                    #
+                    #         # correction for the segment lenght
+                    #         if feat_type == 'road':
+                    #             if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
+                    #                 level_dif[key] = level_dif[key] + 20 + 10 * log10(float(segment)) + 3
+                    #             if settings['implementation_roads'] == 'CNOSSOS':
+                    #                 level_dif[key] = level_dif[key] + 10 * log10(float(segment)) + 3
+                    #
+                    #         receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key] / float(10))
+                    #     else:
+                    #         level_dif[key] = -1
+
+                    if diff3D_layer_writer is not None:
+                        ray = QgsFeature()
+                        ray.setGeometry(line)
+                        attributes = [diff3D_ray_id,
+                                      receiver_feat.id(),
+                                      sor_feat.id(),
+                                      delta3d,
+                                      ePoints,
+                                      eLine,
+                                      eDist]
+
+                        # TODO add levels calculated to attributes
+
+                        ray.setAttributes(attributes)
+                        diff3D_layer_writer.addFeature(ray)
+
+                        #update counter ID rays
+                        diff3D_ray_id = diff3D_ray_id +1
+
         if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
                 if receiver_point_lin_level['gen'] > 0:
                     Lgen = 10*log10(receiver_point_lin_level['gen'])
@@ -813,6 +930,7 @@ def run(settings,progress_bars):
 
     rays_layer_path = settings['rays_path']
     diff_rays_layer_path = settings['diff_rays_path']
+    diff3D_layer_path = settings['diff3D_rays_path']
 
     # defines rays layer
     if rays_layer_path is not None:
@@ -877,6 +995,27 @@ def run(settings,progress_bars):
     else:
         diff_rays_writer = None
 
+    if diff3D_layer_path is not None:
+        # TODO: mancano if per i livelli di emissione
+
+        # add fields
+        rays_fields = QgsFields()
+        rays_fields.append(QgsField("id_diff_ray", QVariant.Int))
+        rays_fields.append(QgsField("id_rec", QVariant.Int))
+        rays_fields.append(QgsField("id_source", QVariant.Int))
+        rays_fields.append(QgsField("delta3d", QVariant.Double, len=10, prec=2))
+        rays_fields.append(QgsField("ePoints", QVariant.Double, len=10, prec=2))
+        rays_fields.append(QgsField("eLine", QVariant.Double, len=10, prec=2))
+        rays_fields.append(QgsField("eDist", QVariant.Double, len=10, prec=2))
+
+        diff3D_rays_writer = QgsVectorFileWriter(diff3D_layer_path, "System", rays_fields, QgsWkbTypes.LineString,
+                                               receiver_layer.crs(), "ESRI Shapefile")
+
+
+    else:
+        diff3D_rays_writer = None
+
+
 
     # puts the sound level in the receivers points attribute table
     # gets fields from recever point layer and initializes the final receiver_point_field_level to populate the receiver points layer attribute table
@@ -914,7 +1053,7 @@ def run(settings,progress_bars):
 
 
     #calculation
-    receiver_feat_new_fields = calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer)
+    receiver_feat_new_fields = calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_layer_writer)
 
     #old way to insert data in table
     # receiver_layer.dataProvider().changeAttributeValues(receiver_feat_new_fields)
@@ -980,6 +1119,14 @@ def run(settings,progress_bars):
 
         QgsProject.instance().addMapLayers([diff_rays_layer])
 
+        QgsProject.instance().reloadAllLayers()
+
+    if diff3D_layer_path is not None:
+        del diff3D_layer_path
+        diff3D_rays_layer_name = os.path.splitext(os.path.basename(diff3D_layer_path))[0]
+        diff3D_rays_layer = QgsVectorLayer(diff3D_layer_path, str(diff3D_rays_layer_name), "ogr")
+
+        QgsProject.instance().addMapLayers([diff3D_rays_layer])
         QgsProject.instance().reloadAllLayers()
 
     # render receivers with noise colours

@@ -151,9 +151,12 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.rays_layer_pushButton.clicked.connect(self.outFile_rays)
         self.diff_rays_layer_checkBox.setChecked(0)
         self.diff_rays_layer_checkBox.toggled.connect(self.diff_rays_checkBox_update)
+        self.diff3DRaysCheck.setChecked(0)
+        self.diff3DRaysCheck.toggled.connect(self.diff3D_rays_checkBox_update)
         self.skip_diffraction_checkBox.setChecked(0)
         self.skip_diffraction_checkBox.toggled.connect(self.skip_diffraction_checkBox_update)
         self.diff_rays_layer_pushButton.clicked.connect(self.outFile_diff_rays)
+        self.dif3Df_rays_layer_pushButton.clicked.connect(self.outFile_diff3D_rays)
 
         self.tabWidget.currentChanged.connect(self.tabUpdate)
 
@@ -395,6 +398,13 @@ loss of precision in sound levels estimates.</p>
         else:
             self.diff_rays_layer_pushButton.setEnabled( False )
 
+    def diff3D_rays_checkBox_update(self):
+
+        if self.diff3DRaysCheck.isChecked():
+            self.dif3Df_rays_layer_pushButton.setEnabled( True )
+        else:
+            self.dif3Df_rays_layer_pushButton.setEnabled( False )
+
     def skip_diffraction_checkBox_update(self):
         if self.skip_diffraction_checkBox.isChecked():
             self.diff_rays_layer_checkBox.setEnabled(False)
@@ -435,6 +445,22 @@ loss of precision in sound levels estimates.</p>
 
         on_Settings.setOneSetting('directory_last',os.path.dirname(self.diff_rays_layer_lineEdit.text()))
 
+    def outFile_diff3D_rays(self):
+        self.diff3D_rays_layer_lineEdit.clear()
+        shapefileName, __ = QFileDialog.getSaveFileName(None, 'Open file', on_Settings.getOneSetting('directory_last'),
+                                                        "Shapefile (*.shp);;All files (*)")
+
+        if shapefileName is None or shapefileName == "":
+            return
+
+        if str.find(shapefileName, ".shp") == -1 and str.find(shapefileName, ".SHP") == -1:
+            self.diff3D_rays_layer_lineEdit.setText(shapefileName + ".shp")
+        else:
+            self.diff3D_rays_layer_lineEdit.setText(shapefileName)
+
+        removeLayer(shapefileName)
+
+        on_Settings.setOneSetting('directory_last', os.path.dirname(self.diff3D_rays_layer_lineEdit.text()))
 
     def check(self):
 
@@ -666,6 +692,12 @@ loss of precision in sound levels estimates.</p>
         else:
             settings['diff_rays_path'] = ''
 
+        if self.diff3DRaysCheck.isChecked():
+            settings['diff3D_rays_path'] = self.diff3D_rays_layer_lineEdit.text()
+            removeLayer(settings['diff3D_rays_path'])
+        else:
+            settings['diff3D_rays_path'] = ''
+
         # 3D Settings
         if self.height_receiver_check.isChecked():
             settings['height_receiver'] = 'True'
@@ -678,6 +710,10 @@ loss of precision in sound levels estimates.</p>
         else:
             settings['threedglobal'] = 'False'
             settings['field3D'] = ''
+        if self.diff3DRaysCheck.isChecked():
+            settings['threedglobal_rays'] = 'True'
+        else:
+            settings['threedglobal_rays'] = 'True'
 
         on_Settings.setSettings(settings)
 
@@ -790,6 +826,13 @@ loss of precision in sound levels estimates.</p>
                 self.diff_rays_layer_checkBox.setChecked(0)
                 self.diff_rays_layer_lineEdit.clear()
 
+            if settings['diff3D_rays_path'] is not None:
+                self.diff3DRaysCheck.setChecked(1)
+                self.diff3D_rays_layer_lineEdit.setText(settings['diff3D_rays_path'])
+                removeLayer(settings['diff3D_rays_path'])
+            else:
+                self.diff_rays_layer_checkBox.setChecked(0)
+                self.diff_rays_layer_lineEdit.clear()
 
         except:
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Sorry, but somethigs wrong in import last settings."))
