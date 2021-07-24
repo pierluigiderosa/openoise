@@ -53,7 +53,7 @@
         <height_receiver>False</height_receiver>
         <threedglobal>True</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>
-        <field3D />
+        <field3D>altezza</field3D>
 
         <den>
             <day_hours>14</day_hours> 

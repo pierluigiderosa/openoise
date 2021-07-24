@@ -301,6 +301,8 @@ loss of precision in sound levels estimates.</p>
             self.buildings_layer_label2.setEnabled(False)
             self.buildings_layer_comboBox.setEnabled(False)
             self.height_building_check.setEnabled(False)
+            self.height_building_check.setChecked(0)
+            self.diff3DRaysCheck.setChecked(0)
             self.populateLayersBuildings()
 
     def tabUpdate(self):

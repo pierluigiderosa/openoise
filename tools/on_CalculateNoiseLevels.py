@@ -824,9 +824,11 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                                       sor_feat.id(),
                                       delta3d,
                                       ePoints,
-                                      eLine,
-                                      eDist]
+                                      0,
+                                      0]
 
+                        print(line)
+                        print(attributes)
                         # TODO add levels calculated to attributes
 
                         ray.setAttributes(attributes)
@@ -1053,7 +1055,7 @@ def run(settings,progress_bars):
 
 
     #calculation
-    receiver_feat_new_fields = calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_layer_writer)
+    receiver_feat_new_fields = calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_rays_writer)
 
     #old way to insert data in table
     # receiver_layer.dataProvider().changeAttributeValues(receiver_feat_new_fields)
@@ -1122,7 +1124,7 @@ def run(settings,progress_bars):
         QgsProject.instance().reloadAllLayers()
 
     if diff3D_layer_path is not None:
-        del diff3D_layer_path
+        del diff3D_rays_writer
         diff3D_rays_layer_name = os.path.splitext(os.path.basename(diff3D_layer_path))[0]
         diff3D_rays_layer = QgsVectorLayer(diff3D_layer_path, str(diff3D_rays_layer_name), "ogr")
 
