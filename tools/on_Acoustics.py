@@ -665,6 +665,7 @@ class Diffraction3D(object):
     - level_input: has to be a dict with keys [63, 125, 250, 500, 1000 , 2000, 4000, 8000] and value the levels in bands
     - epsilon: distance in 3D of all obstacles
 
+    Reference Equation is 2.5.23 Allegato_2 22-12-2021
     The output is dict:
     -
     '''
@@ -673,7 +674,7 @@ class Diffraction3D(object):
         self.temp = float(temperature)
         self.level_input = level_input
         self.delta = delta
-        self.eDist = eDist
+        self.epsilon = eDist
         self.sound_speed = 331.6 + 0.6 * self.temp
 
     def attenuation(self):
@@ -682,7 +683,7 @@ class Diffraction3D(object):
 
         for band in self.level_input:
             wave_length = self.sound_speed / float(band)
-            c2nd = (1.+ (5*wave_length/self.eDist)**2)/(1/3. + (5*wave_length/self.eDist)**2)
+            c2nd = (1. + (5 * wave_length / self.epsilon) ** 2) / (1 / 3. + (5 * wave_length / self.epsilon) ** 2)
             if 40./band * c2nd * wave_length >= -2:
                 Att = 10*Ch*log10(3+(40/wave_length)*self.delta)
                 Att_dic[band] = round(Att, 2)

@@ -253,7 +253,7 @@ def get_levels(settings,source_layer,source_feat):
     return levels
 
 
-def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_layer_writer):
+def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, settings, level_field_index, obstacles_layer, rays_writer, diff_rays_writer, diff3D_rays_writer):
 
     research_ray = int(settings['research_ray'])
     temperature = int(settings['temperature'])
@@ -752,7 +752,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                                 for ii in poly:
                                     for jj in ii:
                                         distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((jj)))
-                                        # TODO: chiamare la colonna che contiene altezza
+                                        # call column contaning 3D building height
                                         fieldH = settings['field3D']
                                         elev = f[fieldH]
                                         if elev <= 3:
@@ -782,7 +782,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                     # determination of epsilon
                     ePoints = out_ring.asPolygon()[0][1:-1]
                     eLine = QgsGeometry.fromPolylineXY(ePoints)
-                    eDist=eLine.length()
+                    epsilon=eLine.length()
 
                     level_dif = {}
                     level_dif_bands = {}
@@ -816,23 +816,21 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
                     #     else:
                     #         level_dif[key] = -1
 
-                    if diff3D_layer_writer is not None:
+                    if diff3D_rays_writer is not None:
                         ray = QgsFeature()
                         ray.setGeometry(line)
                         attributes = [diff3D_ray_id,
                                       receiver_feat.id(),
                                       sor_feat.id(),
                                       delta3d,
-                                      ePoints,
-                                      0,
-                                      0]
+                                      epsilon]
 
                         print(line)
                         print(attributes)
                         # TODO add levels calculated to attributes
 
                         ray.setAttributes(attributes)
-                        diff3D_layer_writer.addFeature(ray)
+                        diff3D_rays_writer.addFeature(ray)
 
                         #update counter ID rays
                         diff3D_ray_id = diff3D_ray_id +1
@@ -1006,9 +1004,7 @@ def run(settings,progress_bars):
         rays_fields.append(QgsField("id_rec", QVariant.Int))
         rays_fields.append(QgsField("id_source", QVariant.Int))
         rays_fields.append(QgsField("delta3d", QVariant.Double, len=10, prec=2))
-        rays_fields.append(QgsField("ePoints", QVariant.Double, len=10, prec=2))
-        rays_fields.append(QgsField("eLine", QVariant.Double, len=10, prec=2))
-        rays_fields.append(QgsField("eDist", QVariant.Double, len=10, prec=2))
+        rays_fields.append(QgsField("epsilon", QVariant.Double, len=10, prec=2))
 
         diff3D_rays_writer = QgsVectorFileWriter(diff3D_layer_path, "System", rays_fields, QgsWkbTypes.LineString,
                                                receiver_layer.crs(), "ESRI Shapefile")

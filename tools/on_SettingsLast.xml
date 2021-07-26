@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/test_openoise</last>
+        <last>/home/pierluigi/Scrivania/dataset_testing</last>
     </directory>
 
     <layers>
         <receivers>
             <name>receveir_points</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -20,13 +20,13 @@
 	    </pts>
 	    <roads>	
 		<name>roads_NMPB_emission</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_NMPB_emission.shp</path>
+		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>buildings</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -41,7 +41,7 @@
             <path />
         </diff_rays>
         <diff3D_rays>
-            <path>C:/Users/pierl/Desktop/test_openoise/diffraction3d.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/test_diff_3d.shp</path>
         </diff3D_rays>
     </layers>
 
