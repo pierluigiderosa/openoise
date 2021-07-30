@@ -37,7 +37,7 @@ from qgis.core import QgsVectorLayer, QgsSpatialIndex, QgsRectangle, QgsGeometry
 def compute_distance(QgsPoint1,QgsPoint2):
     return sqrt((QgsPoint1.x()-QgsPoint2.x())**2+(QgsPoint1.y()-QgsPoint2.y())**2)
 
-def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray,totalBar):
+def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray,totalBar,diffMode):
 
     output = {}
     output3D ={}
@@ -73,7 +73,10 @@ def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray,tot
         layer1_feat_number = layer1_feat_number + 1
         barValue = layer1_feat_number/float(layer1_feat_total)*100
         bar.setValue(barValue)
-        totalBar.setValue(barValue)
+        if diffMode is True:
+            totalBar.setValue(barValue / 6 +100/6*3)
+        else:
+            totalBar.setValue(barValue/6+100/6*2)
 
         # researches the layer2 points in a rectangle created by the research_ray
         # creates the search rectangle from receiver geometry
@@ -155,7 +158,8 @@ def run_selection(bar,layer1_path,layer2_path,obstacles_path,research_ray,dict_s
         layer1_feat_number = layer1_feat_number + 1
         barValue = layer1_feat_number/float(layer1_feat_total)*100
         bar.setValue(barValue)
-        totalBar.setValue(100/6.*5+barValue)
+        # totalbar recTodiff
+        totalBar.setValue(barValue/6+100/6*4)
         
         # researches the layer2 points in a rectangle created by the research_ray
         # creates the search rectangle

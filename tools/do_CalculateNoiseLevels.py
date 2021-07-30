@@ -158,6 +158,9 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.diff_rays_layer_pushButton.clicked.connect(self.outFile_diff_rays)
         self.dif3Df_rays_layer_pushButton.clicked.connect(self.outFile_diff3D_rays)
 
+        # turn off widget with
+        self.barsWidget.hide()
+
         self.tabWidget.currentChanged.connect(self.tabUpdate)
 
         self.calculate_pushButton.clicked.connect(self.accept)

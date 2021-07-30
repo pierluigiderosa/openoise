@@ -370,9 +370,10 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         source_feat_number = source_feat_number + 1
         barValue = source_feat_number/float(source_feat_total)*100
         bar.setValue(barValue)
-        totalBar.setMinimum(100/6.)
-        totalBar.setValue(barValue)
-        totalBar.setMaximum(100/6.*2)
+
+        # totalbar prepare_emi
+        totalBar.setValue(barValue/6+100/6)
+
 
         type_source = source_feat['type']
         id_source = source_feat['id_source']
@@ -423,9 +424,8 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         bar = progress_bars['recTOsou']['bar']
 
-        totalBar.setMinimum(100/6*2)
-        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),None,research_ray,totalBar)
-        totalBar.setMaximum(100 / 6 * 3)
+        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),None,research_ray,totalBar,False)
+
 
         progress_bars['recTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
@@ -438,9 +438,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
     else:
         ### recTOsou
         bar = progress_bars['recTOsou']['bar']
-        totalBar.setMinimum(100 / 6 * 3)
-        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar)
-        totalBar.setMaximum(100 / 6 * 4)
+        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar,False)
 
         progress_bars['recTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
@@ -453,12 +451,11 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         # skip diffraction here
         if skip_diffraction is False:
-            totalBar.setMinimum(100 / 6 * 4)
-            diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar)
-            totalBar.setMaximum(100 / 6 * 5)
+            diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar,True)
+
         else:
             diffTOsource_dict = {}
-            totalBar.setValue(100 / 6 * 5)
+            totalBar.setValue(100 / 6 * 4)
         progress_bars['difTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
@@ -473,7 +470,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
             recTOdiff_dict = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,totalBar)
         else:
             recTOdiff_dict = {}
-            totalBar.setValue(partialPercBar*5)
+            totalBar.setValue(100 / 6. * 5)
         progress_bars['recTOdif']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
@@ -505,7 +502,8 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         receiver_feat_number = receiver_feat_number + 1
         barValue = receiver_feat_number/float(receiver_feat_total)*100
         bar.setValue(barValue)
-        totalBar.setValue(partialPercBar*5+barValue)
+        # totalbar calculate
+        totalBar.setValue(barValue/6+100/6*5)
 
         receiver_feat_new_fields = {}
 
