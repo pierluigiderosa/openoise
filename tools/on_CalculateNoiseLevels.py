@@ -253,8 +253,10 @@ def get_levels(settings,source_layer,source_feat):
     return levels
 
 
-def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, settings, level_field_index, obstacles_layer, rays_writer, diff_rays_writer, diff3D_rays_writer):
+def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_layer, settings, level_field_index, obstacles_layer, rays_writer, diff_rays_writer, diff3D_rays_writer):
 
+    # partialPercBar store the corresponding partial for each progressbar. Six in total and grouped un one main ProgressBar is 100/
+    partialPercBar = 100/6.
     research_ray = int(settings['research_ray'])
     temperature = int(settings['temperature'])
     humidity = int(settings['humidity'])
@@ -281,13 +283,15 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
 
         diffraction_points_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "diffraction_pts.shp"))
 
-        on_CreateDiffractionPoints.run(bar,obstacles_layer.source(),diffraction_points_layer_path)
+        on_CreateDiffractionPoints.run(bar,obstacles_layer.source(),diffraction_points_layer_path,totalBar)
         diffraction_layer_name = 'diff'
         diffraction_layer = QgsVectorLayer(diffraction_points_layer_path,diffraction_layer_name,"ogr")
 
         progress_bars['create_dif']['label'].setText('Done in ' + duration(time,datetime.now()) )
 #        print 'crea diffraction points ',datetime.now() - time
         time = datetime.now()
+    else:
+        totalBar.setValue(partialPercBar)
 
 
     # Create emission layer that will contain all the emission pts from source_pts and source_roads
@@ -366,6 +370,9 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
         source_feat_number = source_feat_number + 1
         barValue = source_feat_number/float(source_feat_total)*100
         bar.setValue(barValue)
+        totalBar.setMinimum(100/6.)
+        totalBar.setValue(barValue)
+        totalBar.setMaximum(100/6.*2)
 
         type_source = source_feat['type']
         id_source = source_feat['id_source']
@@ -416,7 +423,9 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
 
         bar = progress_bars['recTOsou']['bar']
 
-        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),None,research_ray)
+        totalBar.setMinimum(100/6*2)
+        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),None,research_ray,totalBar)
+        totalBar.setMaximum(100 / 6 * 3)
 
         progress_bars['recTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
@@ -429,7 +438,9 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
     else:
         ### recTOsou
         bar = progress_bars['recTOsou']['bar']
-        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray)
+        totalBar.setMinimum(100 / 6 * 3)
+        recTOsource_dict,dict3D = on_RaysSearch.run(bar,receiver_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar)
+        totalBar.setMaximum(100 / 6 * 4)
 
         progress_bars['recTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
@@ -442,9 +453,12 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
 
         # skip diffraction here
         if skip_diffraction is False:
-            diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray)
+            totalBar.setMinimum(100 / 6 * 4)
+            diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar)
+            totalBar.setMaximum(100 / 6 * 5)
         else:
             diffTOsource_dict = {}
+            totalBar.setValue(100 / 6 * 5)
         progress_bars['difTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
@@ -456,9 +470,10 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
 
 #        recTOdiff_dict = on_RaysSearch.run_selection_distance(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,source_layer.source())
         if skip_diffraction is False:
-            recTOdiff_dict = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict)
+            recTOdiff_dict = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,totalBar)
         else:
             recTOdiff_dict = {}
+            totalBar.setValue(partialPercBar*5)
         progress_bars['recTOdif']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
@@ -490,6 +505,7 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
         receiver_feat_number = receiver_feat_number + 1
         barValue = receiver_feat_number/float(receiver_feat_total)*100
         bar.setValue(barValue)
+        totalBar.setValue(partialPercBar*5+barValue)
 
         receiver_feat_new_fields = {}
 
@@ -897,7 +913,7 @@ def calc(progress_bars, receiver_layer, source_pts_layer, source_roads_layer, se
     return receiver_feat_all_new_fields
 
 
-def run(settings,progress_bars):
+def run(settings,progress_bars,totalBar):
 
     for key in list(progress_bars.keys()):
         bar = progress_bars[key]
@@ -1051,7 +1067,7 @@ def run(settings,progress_bars):
 
 
     #calculation
-    receiver_feat_new_fields = calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_rays_writer)
+    receiver_feat_new_fields = calc(progress_bars,totalBar,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_rays_writer)
 
     #old way to insert data in table
     # receiver_layer.dataProvider().changeAttributeValues(receiver_feat_new_fields)

@@ -41,7 +41,7 @@
             <path />
         </diff_rays>
         <diff3D_rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/test_diff_3d.shp</path>
+            <path />
         </diff3D_rays>
     </layers>
 
@@ -51,9 +51,9 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <height_receiver>False</height_receiver>
-        <threedglobal>True</threedglobal>
+        <threedglobal>False</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>
-        <field3D>altezza</field3D>
+        <field3D />
 
         <den>
             <day_hours>14</day_hours> 

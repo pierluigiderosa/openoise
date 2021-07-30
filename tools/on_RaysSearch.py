@@ -37,7 +37,7 @@ from qgis.core import QgsVectorLayer, QgsSpatialIndex, QgsRectangle, QgsGeometry
 def compute_distance(QgsPoint1,QgsPoint2):
     return sqrt((QgsPoint1.x()-QgsPoint2.x())**2+(QgsPoint1.y()-QgsPoint2.y())**2)
 
-def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray):
+def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray,totalBar):
 
     output = {}
     output3D ={}
@@ -73,6 +73,7 @@ def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray):
         layer1_feat_number = layer1_feat_number + 1
         barValue = layer1_feat_number/float(layer1_feat_total)*100
         bar.setValue(barValue)
+        totalBar.setValue(barValue)
 
         # researches the layer2 points in a rectangle created by the research_ray
         # creates the search rectangle from receiver geometry
@@ -122,7 +123,7 @@ def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray):
     return output ,output3D
 
 
-def run_selection(bar,layer1_path,layer2_path,obstacles_path,research_ray,dict_selection):
+def run_selection(bar,layer1_path,layer2_path,obstacles_path,research_ray,dict_selection,totalBar):
     
     output = {}
     
@@ -153,7 +154,8 @@ def run_selection(bar,layer1_path,layer2_path,obstacles_path,research_ray,dict_s
 
         layer1_feat_number = layer1_feat_number + 1
         barValue = layer1_feat_number/float(layer1_feat_total)*100
-        bar.setValue(barValue)        
+        bar.setValue(barValue)
+        totalBar.setValue(100/6.*5+barValue)
         
         # researches the layer2 points in a rectangle created by the research_ray
         # creates the search rectangle

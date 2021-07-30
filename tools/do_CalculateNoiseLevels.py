@@ -937,7 +937,7 @@ loss of precision in sound levels estimates.</p>
         settings = on_Settings.getAllSettings()
 
         try:
-            on_CalculateNoiseLevels.run(settings,self.progress_bars)
+            on_CalculateNoiseLevels.run(settings,self.progress_bars,self.totalBar)
             run = 1
         except:
             error= traceback.format_exc()
