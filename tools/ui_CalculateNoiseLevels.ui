@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>3</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -1117,7 +1117,7 @@
        <x>20</x>
        <y>420</y>
        <width>771</width>
-       <height>91</height>
+       <height>71</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="rays_layer_verticalLayout_3">
@@ -1182,19 +1182,6 @@
        <y>390</y>
        <width>761</width>
        <height>20</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>450</y>
-       <width>769</width>
-       <height>3</height>
       </rect>
      </property>
      <property name="orientation">

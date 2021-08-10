@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="threeD implementation - initial2">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="unique progressbar -initial">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_CreateDiffractionPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateDiffractionPoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_RaysSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_RaysSearch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
@@ -49,9 +43,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../../../../../Program Files/QGIS 3.18/apps/Python37" />
@@ -64,7 +60,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
-  <component name="RunManager" selected="Python.on_CalculateNoiseLevels">
+  <component name="RunManager" selected="Python.opeNoise">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="openoise" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,6 +160,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.on_CalculateNoiseLevels" />
+        <item itemvalue="Python.on_CalculateNoiseLevels" />
+        <item itemvalue="Python.on_CalculateNoiseLevels" />
       </list>
     </recent_temporary>
   </component>
@@ -227,21 +225,22 @@
       <workItem from="1624008366905" duration="3701000" />
       <workItem from="1624360356824" duration="1002000" />
       <workItem from="1624368261643" duration="1227000" />
-      <workItem from="1624530409182" duration="7158000" />
-      <workItem from="1624949697831" duration="618000" />
-      <workItem from="1626163665963" duration="92000" />
-      <workItem from="1626163788926" duration="4690000" />
-      <workItem from="1626688369446" duration="3683000" />
-      <workItem from="1626765367500" duration="2687000" />
-      <workItem from="1626782940153" duration="3371000" />
-      <workItem from="1626786957988" duration="28000" />
-      <workItem from="1626946930950" duration="1839000" />
-      <workItem from="1626959143029" duration="790000" />
-      <workItem from="1627031401579" duration="7774000" />
-      <workItem from="1627121304175" duration="1832000" />
-      <workItem from="1627564295904" duration="197000" />
-      <workItem from="1627564557200" duration="16000" />
-      <workItem from="1627631290055" duration="3386000" />
+      <workItem from="1624530409182" duration="6827000" />
+      <workItem from="1626102457399" duration="4216000" />
+      <workItem from="1626116439295" duration="3463000" />
+      <workItem from="1626153458567" duration="714000" />
+      <workItem from="1626154468254" duration="210000" />
+      <workItem from="1626204647827" duration="1823000" />
+      <workItem from="1626705167398" duration="82000" />
+      <workItem from="1626841333486" duration="2197000" />
+      <workItem from="1626963804459" duration="4565000" />
+      <workItem from="1627290255146" duration="4010000" />
+      <workItem from="1627569229370" duration="5896000" />
+      <workItem from="1627625563434" duration="320000" />
+      <workItem from="1627650585441" duration="116000" />
+      <workItem from="1628179691419" duration="792000" />
+      <workItem from="1628320049076" duration="122000" />
+      <workItem from="1628598779310" duration="2698000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -411,84 +410,77 @@
       <option name="project" value="LOCAL" />
       <updated>1624449634062</updated>
     </task>
-    <task id="LOCAL-00025" summary="- create_grid fixed grid creation&#10;- fixe case empty output">
-      <created>1624546845792</created>
+    <task id="LOCAL-00025" summary="create grid icon">
+      <created>1624946830147</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1624546845792</updated>
+      <updated>1624946830147</updated>
     </task>
-    <task id="LOCAL-00026" summary="added icon grid builder">
-      <created>1624950031903</created>
+    <task id="LOCAL-00026" summary="create grid icon">
+      <created>1624946993717</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1624950031903</updated>
+      <updated>1624946993717</updated>
     </task>
-    <task id="LOCAL-00027" summary="added icon grid builder">
-      <created>1624950278646</created>
+    <task id="LOCAL-00027" summary="create grid integratet in create receivers&#10;create contour and polygon simplified">
+      <created>1626122579828</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1624950278646</updated>
+      <updated>1626122579828</updated>
     </task>
-    <task id="LOCAL-00028" summary="custom 3d field height">
-      <created>1626181367242</created>
+    <task id="LOCAL-00028" summary="new icon for raster creation">
+      <created>1626154399574</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1626181367242</updated>
+      <updated>1626154399574</updated>
     </task>
-    <task id="LOCAL-00029" summary="first part correction Note 19-lug">
-      <created>1626694079099</created>
+    <task id="LOCAL-00029" summary="correction for combobox in grid creation">
+      <created>1626154662976</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1626694079099</updated>
+      <updated>1626154662976</updated>
     </task>
-    <task id="LOCAL-00030" summary="second part correction Note 19-lug">
-      <created>1626786878882</created>
+    <task id="LOCAL-00030" summary="custom 3d receiver height">
+      <created>1626208653337</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1626786878882</updated>
+      <updated>1626208653337</updated>
     </task>
-    <task id="LOCAL-00031" summary="second part correction Note 19-lug">
-      <created>1626786977411</created>
+    <task id="LOCAL-00031" summary="progress bar added to create grid tools">
+      <created>1626843531497</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1626786977411</updated>
+      <updated>1626843531497</updated>
     </task>
-    <task id="LOCAL-00032" summary="second part correction Note 19-lug">
-      <created>1626959926603</created>
+    <task id="LOCAL-00032" summary="selector extent for grid creation">
+      <created>1626966694429</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1626959926603</updated>
+      <updated>1626966694429</updated>
     </task>
-    <task id="LOCAL-00033" summary="threeD implementation - initial">
-      <created>1627046164086</created>
+    <task id="LOCAL-00033" summary="3D creation and save to shapefile">
+      <created>1627294650052</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1627046164086</updated>
+      <updated>1627294650052</updated>
     </task>
-    <task id="LOCAL-00034" summary="threeD implementation - initial">
-      <created>1627046184851</created>
+    <task id="LOCAL-00034" summary="unique progressbar -initial">
+      <created>1627625610732</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1627046184851</updated>
+      <updated>1627625610732</updated>
     </task>
-    <task id="LOCAL-00035" summary="threeD implementation - initial2">
-      <created>1627123135495</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1627123135495</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,8 +531,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- multiprt to singlepart in grid&#10;- added table for -5° 0°" />
-    <MESSAGE value="- added 3D noise calculation" />
     <MESSAGE value="- added grid creation&#10;- attenuation for several temperatures" />
     <MESSAGE value="settings changes" />
     <MESSAGE value="- version 1.4 init" />
@@ -557,16 +547,19 @@
     <MESSAGE value="- added layer creato con contour plugin" />
     <MESSAGE value="- skip_diffraction complete - to test by ARPA" />
     <MESSAGE value="- create_grid initial commit" />
-    <MESSAGE value="- create_grid fixed grid creation&#10;- fixe case empty output" />
-    <MESSAGE value="added icon grid builder" />
-    <MESSAGE value="custom 3d field height" />
-    <MESSAGE value="first part correction Note 19-lug" />
-    <MESSAGE value="second part correction Note 19-lug" />
-    <MESSAGE value="threeD implementation - initial" />
-    <MESSAGE value="threeD implementation - initial2" />
-    <option name="LAST_COMMIT_MESSAGE" value="threeD implementation - initial2" />
+    <MESSAGE value="create grid icon" />
+    <MESSAGE value="create grid integratet in create receivers&#10;create contour and polygon simplified" />
+    <MESSAGE value="new icon for raster creation" />
+    <MESSAGE value="correction for combobox in grid creation" />
+    <MESSAGE value="custom 3d receiver height" />
+    <MESSAGE value="progress bar added to create grid tools" />
+    <MESSAGE value="selector extent for grid creation" />
+    <MESSAGE value="3D creation and save to shapefile" />
+    <MESSAGE value="unique progressbar -initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="unique progressbar -initial" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/openoise$openoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1612876823241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

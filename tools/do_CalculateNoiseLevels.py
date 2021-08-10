@@ -159,7 +159,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.dif3Df_rays_layer_pushButton.clicked.connect(self.outFile_diff3D_rays)
 
         # turn off widget with
-        self.barsWidget.hide()
+        # self.barsWidget.hide()
 
         self.tabWidget.currentChanged.connect(self.tabUpdate)
 
@@ -836,8 +836,8 @@ loss of precision in sound levels estimates.</p>
                 self.diff3D_rays_layer_lineEdit.setText(settings['diff3D_rays_path'])
                 removeLayer(settings['diff3D_rays_path'])
             else:
-                self.diff_rays_layer_checkBox.setChecked(0)
-                self.diff_rays_layer_lineEdit.clear()
+                self.diff3DRaysCheck.setChecked(0)
+                self.diff3D_rays_layer_lineEdit.clear()
 
         except:
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Sorry, but somethigs wrong in import last settings."))

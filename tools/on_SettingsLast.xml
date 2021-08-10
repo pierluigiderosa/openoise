@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/test_openoise</last>
+        <last>/home/pierluigi/Scrivania/dataset_testing</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>griglia1</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/griglia1.shp</path>
+            <name>receveir_points</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -20,13 +20,13 @@
 	    </pts>
 	    <roads>	
 		<name>roads_NMPB_emission</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_NMPB_emission.shp</path>
+		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name />
-            <path />
+            <name>buildings</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -34,11 +34,11 @@
         </emissions_points>
 
         <rays>
-            <path />
+            <path>/home/pierluigi/Scrivania/dataset_testing/diretti20.shp</path>
         </rays>
 
         <diff_rays>
-            <path />
+            <path>/home/pierluigi/Scrivania/dataset_testing/diffratti20.shp</path>
         </diff_rays>
         <diff3D_rays>
             <path />

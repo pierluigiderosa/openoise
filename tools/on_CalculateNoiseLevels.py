@@ -270,7 +270,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         skip_diffraction = False
 
     print('Diffraction')
-    print(skip_diffraction)
+
     # 3D calculation tool
     if settings['threedglobal'] == 'True':
         Diff3d = True
@@ -278,7 +278,10 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         Diff3d =False
 
     ## create diffraction points
+    print(obstacles_layer is not None)
+    print(skip_diffraction is False)
     if obstacles_layer is not None and skip_diffraction is False:
+        print('create diffraction points')
         bar = progress_bars['create_dif']['bar']
 
         diffraction_points_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "diffraction_pts.shp"))
