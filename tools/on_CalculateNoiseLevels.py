@@ -455,8 +455,6 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         # skip diffraction here
         if skip_diffraction is False:
             diffTOsource_dict, dict3Dnotused = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar,True)
-            print('diffTOsource_dict')
-            print(diffTOsource_dict)
 
         else:
             diffTOsource_dict = {}
@@ -473,8 +471,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 #        recTOdiff_dict = on_RaysSearch.run_selection_distance(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,source_layer.source())
         if skip_diffraction is False:
             recTOdiff_dict = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,totalBar)
-            print('recTOdiff_dict')
-            print(recTOdiff_dict)
+
         else:
             recTOdiff_dict = {}
             totalBar.setValue(100 / 6. * 5)
@@ -521,393 +518,394 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         receiver_point_lin_level['eve'] = 0
         receiver_point_lin_level['nig'] = 0
 
+        if Skip_intersection == False:
 
-        if receiver_feat.id() in recTOsource_dict:
+            if receiver_feat.id() in recTOsource_dict:
 
-                source_ids = recTOsource_dict[receiver_feat.id()]
+                    source_ids = recTOsource_dict[receiver_feat.id()]
 
-                for source_id in source_ids:
+                    for source_id in source_ids:
 
-                    source_feat_value = source_feat_all_dict[source_id]
+                        source_feat_value = source_feat_all_dict[source_id]
 
-                    source_feat = source_feat_value['feat']
+                        source_feat = source_feat_value['feat']
 
-                    ray_geometry = QgsGeometry.fromPolylineXY( [ receiver_feat.geometry().asPoint() , source_feat.geometry().asPoint() ] )
+                        ray_geometry = QgsGeometry.fromPolylineXY( [ receiver_feat.geometry().asPoint() , source_feat.geometry().asPoint() ] )
 
-                    d_recTOsource = compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
-                    # length with receiver points height fixed to 4 m
+                        d_recTOsource = compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
+                        # length with receiver points height fixed to 4 m
 
-                    if settings['custom3d'] == "True":
-                        receiver_height= float(receiver_feat[settings['custom3dfield']])
-                        d_recTOsource_4m = sqrt(d_recTOsource ** 2 + receiver_height**2)
-                    else:
-                        d_recTOsource_4m = sqrt(d_recTOsource**2 + 16)
-
-                    feat_type = source_feat_value['type']
-                    level_emi = source_feat_value['global']
-                    level_emi_bands = source_feat_value['bands']
-                    segment = source_feat_value['segment']
-
-                    level_dir = {}
-                    level_atm_bands = {}
-
-                    geo_attenuation = on_Acoustics.GeometricalAttenuation('spherical',d_recTOsource_4m)
-                    # print("d_recTOsource_4m",d_recTOsource_4m)
-                    # print("geo_attenuation",geo_attenuation)
-
-                    for key in list(level_emi.keys()):
-                        if level_emi[key] > 0:
-                            level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recTOsource,temperature,humidity,level_emi_bands[key]).level()
-                            #level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
-
-                            # print("level_atm_bands[key]",level_atm_bands[key])
-                            if settings['implementation_roads'] == 'CNOSSOS':
-                                level_dir[key] = on_Acoustics.OctaveBandsToGlobalA(level_atm_bands[key]) - geo_attenuation
-                            else:
-                                level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
-                                # print("level_dir[key]",level_dir[key])
-
-                            # correction for the segment lenght
-                            if feat_type == 'road':
-                                if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
-                                    level_dir[key] = level_dir[key] + 20 + 10*log10(float(segment)) + 3
-                                if settings['implementation_roads'] == 'CNOSSOS':
-                                    level_dir[key] = level_dir[key] + 10*log10(float(segment)) + 3
-
-                            receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dir[key]/float(10))
+                        if settings['custom3d'] == "True":
+                            receiver_height= float(receiver_feat[settings['custom3dfield']])
+                            d_recTOsource_4m = sqrt(d_recTOsource ** 2 + receiver_height**2)
                         else:
-                            #
-                            level_dir[key] = -1
+                            d_recTOsource_4m = sqrt(d_recTOsource**2 + 16)
 
+                        feat_type = source_feat_value['type']
+                        level_emi = source_feat_value['global']
+                        level_emi_bands = source_feat_value['bands']
+                        segment = source_feat_value['segment']
 
-                    if rays_writer is not None:
-                        ray = QgsFeature()
-                        ray.setGeometry(ray_geometry)
-                        attributes = [ray_id, receiver_feat.id(), source_feat.id(), d_recTOsource, d_recTOsource_4m]
+                        level_dir = {}
+                        level_atm_bands = {}
 
-                        if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                            if 'gen' in level_emi:
-                                attributes.append(level_emi['gen'])
-                                attributes.append(level_dir['gen'])
+                        geo_attenuation = on_Acoustics.GeometricalAttenuation('spherical',d_recTOsource_4m)
+                        # print("d_recTOsource_4m",d_recTOsource_4m)
+                        # print("geo_attenuation",geo_attenuation)
+
+                        for key in list(level_emi.keys()):
+                            if level_emi[key] > 0:
+                                level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recTOsource,temperature,humidity,level_emi_bands[key]).level()
+                                #level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
+
+                                # print("level_atm_bands[key]",level_atm_bands[key])
+                                if settings['implementation_roads'] == 'CNOSSOS':
+                                    level_dir[key] = on_Acoustics.OctaveBandsToGlobalA(level_atm_bands[key]) - geo_attenuation
+                                else:
+                                    level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
+                                    # print("level_dir[key]",level_dir[key])
+
+                                # correction for the segment lenght
+                                if feat_type == 'road':
+                                    if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
+                                        level_dir[key] = level_dir[key] + 20 + 10*log10(float(segment)) + 3
+                                    if settings['implementation_roads'] == 'CNOSSOS':
+                                        level_dir[key] = level_dir[key] + 10*log10(float(segment)) + 3
+
+                                receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dir[key]/float(10))
                             else:
-                                attributes.append(None)
-                                attributes.append(None)
-                        if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                            if 'day' in level_emi:
-                                attributes.append(level_emi['day'])
-                                attributes.append(level_dir['day'])
-                            else:
-                                attributes.append(None)
-                                attributes.append(None)
-                        if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                            if 'eve' in level_emi:
-                                attributes.append(level_emi['eve'])
-                                attributes.append(level_dir['eve'])
-                            else:
-                                attributes.append(None)
-                                attributes.append(None)
-                        if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                            if 'nig' in level_emi:
-                                attributes.append(level_emi['nig'])
-                                attributes.append(level_dir['nig'])
-                            else:
-                                attributes.append(None)
-                                attributes.append(None)
-
-                        ray.setAttributes(attributes)
-                        rays_writer.addFeature(ray)
-                        ray_id = ray_id + 1
+                                #
+                                level_dir[key] = -1
 
 
-        # added condition skip for diffraction
-        if skip_diffraction is False:
-            if receiver_feat.id() in recTOdiff_dict:
+                        if rays_writer is not None:
+                            ray = QgsFeature()
+                            ray.setGeometry(ray_geometry)
+                            attributes = [ray_id, receiver_feat.id(), source_feat.id(), d_recTOsource, d_recTOsource_4m]
 
-                diff_ids = recTOdiff_dict[receiver_feat.id()]
+                            if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+                                if 'gen' in level_emi:
+                                    attributes.append(level_emi['gen'])
+                                    attributes.append(level_dir['gen'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
+                            if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+                                if 'day' in level_emi:
+                                    attributes.append(level_emi['day'])
+                                    attributes.append(level_dir['day'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
+                            if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+                                if 'eve' in level_emi:
+                                    attributes.append(level_emi['eve'])
+                                    attributes.append(level_dir['eve'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
+                            if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+                                if 'nig' in level_emi:
+                                    attributes.append(level_emi['nig'])
+                                    attributes.append(level_dir['nig'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
 
-                for diff_id in diff_ids:
+                            ray.setAttributes(attributes)
+                            rays_writer.addFeature(ray)
+                            ray_id = ray_id + 1
 
-                    diff_feat = diff_feat_all_dict[diff_id]
 
-                    if diff_feat.id() in diffTOsource_dict:
+            # added condition skip for diffraction
+            if skip_diffraction is False:
+                if receiver_feat.id() in recTOdiff_dict:
 
-                        source_ids = diffTOsource_dict[diff_feat.id()]
+                    diff_ids = recTOdiff_dict[receiver_feat.id()]
 
-                        for source_id in source_ids:
+                    for diff_id in diff_ids:
 
-                            source_feat_value = source_feat_all_dict[source_id]
+                        diff_feat = diff_feat_all_dict[diff_id]
 
-                            source_feat = source_feat_value['feat']
+                        if diff_feat.id() in diffTOsource_dict:
 
-                            if receiver_feat.id() in recTOsource_dict:
-                                source_ids = recTOsource_dict[receiver_feat.id()]
-                                if source_feat.id() in source_ids:
-                                    shadow = 0
+                            source_ids = diffTOsource_dict[diff_feat.id()]
+
+                            for source_id in source_ids:
+
+                                source_feat_value = source_feat_all_dict[source_id]
+
+                                source_feat = source_feat_value['feat']
+
+                                if receiver_feat.id() in recTOsource_dict:
+                                    source_ids = recTOsource_dict[receiver_feat.id()]
+                                    if source_feat.id() in source_ids:
+                                        shadow = 0
+                                    else:
+                                        shadow = 1
                                 else:
                                     shadow = 1
-                            else:
-                                shadow = 1
 
-                            if shadow == 1:
+                                if shadow == 1:
 
-                                ray_geometry = QgsGeometry.fromPolylineXY( [ receiver_feat.geometry().asPoint() , diff_feat.geometry().asPoint() , source_feat.geometry().asPoint()] )
+                                    ray_geometry = QgsGeometry.fromPolylineXY( [ receiver_feat.geometry().asPoint() , diff_feat.geometry().asPoint() , source_feat.geometry().asPoint()] )
 
-                                d_recTOdiff = compute_distance(receiver_feat.geometry().asPoint(),diff_feat.geometry().asPoint())
-                                d_diffTOsource = compute_distance(diff_feat.geometry().asPoint(),source_feat.geometry().asPoint())
-                                d_recTOsource =  compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
-                                d_recPLUSsource = d_recTOdiff + d_diffTOsource
+                                    d_recTOdiff = compute_distance(receiver_feat.geometry().asPoint(),diff_feat.geometry().asPoint())
+                                    d_diffTOsource = compute_distance(diff_feat.geometry().asPoint(),source_feat.geometry().asPoint())
+                                    d_recTOsource =  compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
+                                    d_recPLUSsource = d_recTOdiff + d_diffTOsource
 
-                                if d_recPLUSsource <= research_ray:
+                                    if d_recPLUSsource <= research_ray:
 
-                                    feat_type = source_feat_value['type']
-                                    level_emi = source_feat_value['global']
-                                    level_emi_bands = source_feat_value['bands']
-                                    segment = source_feat_value['segment']
+                                        feat_type = source_feat_value['type']
+                                        level_emi = source_feat_value['global']
+                                        level_emi_bands = source_feat_value['bands']
+                                        segment = source_feat_value['segment']
 
-                                    level_dif = {}
-                                    level_dif_bands = {}
-                                    level_atm_bands = {}
+                                        level_dif = {}
+                                        level_dif_bands = {}
+                                        level_atm_bands = {}
 
 
-                                    for key in list(level_emi_bands.keys()):
-                                        if level_emi[key] > 0:
+                                        for key in list(level_emi_bands.keys()):
+                                            if level_emi[key] > 0:
 
-                                            level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature).level()
-                                            level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recPLUSsource,temperature,humidity,level_emi_bands[key]).attenuation()
-                                            level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key],level_atm_bands[key])
-                                            #level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
+                                                level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature).level()
+                                                level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recPLUSsource,temperature,humidity,level_emi_bands[key]).attenuation()
+                                                level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key],level_atm_bands[key])
+                                                #level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
 
-                                            #print("settings: ", settings['implementation_roads'])
+                                                #print("settings: ", settings['implementation_roads'])
 
-                                            if settings['implementation_roads'] == 'CNOSSOS':
-                                                level_dif[key] = on_Acoustics.OctaveBandsToGlobalA(level_dif_bands[key])
-                                            else:
-                                                level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
-
-                                            # correction for the segment lenght
-                                            if feat_type == 'road':
-                                                if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
-                                                    level_dif[key] = level_dif[key] + 20 + 10*log10(float(segment)) + 3
                                                 if settings['implementation_roads'] == 'CNOSSOS':
-                                                    level_dif[key] = level_dif[key] + 10*log10(float(segment)) + 3
+                                                    level_dif[key] = on_Acoustics.OctaveBandsToGlobalA(level_dif_bands[key])
+                                                else:
+                                                    level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
 
-                                            receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key]/float(10))
-                                        else:
-                                            level_dif[key] = -1
+                                                # correction for the segment lenght
+                                                if feat_type == 'road':
+                                                    if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
+                                                        level_dif[key] = level_dif[key] + 20 + 10*log10(float(segment)) + 3
+                                                    if settings['implementation_roads'] == 'CNOSSOS':
+                                                        level_dif[key] = level_dif[key] + 10*log10(float(segment)) + 3
 
-
-                                    if diff_rays_writer is not None:
-                                        ray = QgsFeature()
-                                        ray.setGeometry(ray_geometry)
-                                        attributes = [diff_ray_id, receiver_feat.id(), diff_feat.id(), source_feat.id(),
-                                                      d_recTOdiff, d_diffTOsource, d_recTOsource]
-
-                                        if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                                            if 'gen' in level_emi:
-                                                attributes.append(level_emi['gen'])
-                                                attributes.append(level_dif['gen'])
+                                                receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key]/float(10))
                                             else:
-                                                attributes.append(None)
-                                                attributes.append(None)
-                                        if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                                            if 'day' in level_emi:
-                                                attributes.append(level_emi['day'])
-                                                attributes.append(level_dif['day'])
-                                            else:
-                                                attributes.append(None)
-                                                attributes.append(None)
-                                        if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                                            if 'eve' in level_emi:
-                                                attributes.append(level_emi['eve'])
-                                                attributes.append(level_dif['eve'])
-                                            else:
-                                                attributes.append(None)
-                                                attributes.append(None)
-                                        if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                                            if 'nig' in level_emi:
-                                                attributes.append(level_emi['nig'])
-                                                attributes.append(level_dif['nig'])
-                                            else:
-                                                attributes.append(None)
-                                                attributes.append(None)
+                                                level_dif[key] = -1
 
-                                        ray.setAttributes(attributes)
-                                        diff_rays_writer.addFeature(ray)
-                                        diff_ray_id = diff_ray_id + 1
 
-        # calcolo in 3D
-        if Diff3d is True:
-            if receiver_feat.id() in dict3D:
-                source_ids = npunique(dict3D[receiver_feat.id()]).tolist()
-                for source_id in source_ids:
-                    source_feat_value = source_feat_all_dict[source_id]
-                    sor_feat = source_feat_value['feat']
+                                        if diff_rays_writer is not None:
+                                            ray = QgsFeature()
+                                            ray.setGeometry(ray_geometry)
+                                            attributes = [diff_ray_id, receiver_feat.id(), diff_feat.id(), source_feat.id(),
+                                                          d_recTOdiff, d_diffTOsource, d_recTOsource]
 
-                    # build 2D plane line
-                    sorgente_punto = sor_feat.geometry().asPoint()
-                    ricevitori_punto = receiver_feat.geometry().asPoint()
-                    line = QgsGeometry.fromPolylineXY([sorgente_punto, ricevitori_punto])
+                                            if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+                                                if 'gen' in level_emi:
+                                                    attributes.append(level_emi['gen'])
+                                                    attributes.append(level_dif['gen'])
+                                                else:
+                                                    attributes.append(None)
+                                                    attributes.append(None)
+                                            if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+                                                if 'day' in level_emi:
+                                                    attributes.append(level_emi['day'])
+                                                    attributes.append(level_dif['day'])
+                                                else:
+                                                    attributes.append(None)
+                                                    attributes.append(None)
+                                            if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+                                                if 'eve' in level_emi:
+                                                    attributes.append(level_emi['eve'])
+                                                    attributes.append(level_dif['eve'])
+                                                else:
+                                                    attributes.append(None)
+                                                    attributes.append(None)
+                                            if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+                                                if 'nig' in level_emi:
+                                                    attributes.append(level_emi['nig'])
+                                                    attributes.append(level_dif['nig'])
+                                                else:
+                                                    attributes.append(None)
+                                                    attributes.append(None)
 
-                    # TODO: definire il valore di quota punto partenza immagina che sono nel piano XZ
-                    p1 = QgsPointXY(0, 0)
-                    punti_hull = [p1]
-                    # TODO: definire altezza ricevitore
-                    pLast = QgsPointXY(line.length(), 4)
-                    # definisco un rettangolo di ricerca per optimizing loop
-                    x_min = min(sorgente_punto.x(), ricevitori_punto.x())
-                    x_max = max(sorgente_punto.x(), ricevitori_punto.x())
-                    y_min = min(sorgente_punto.y(), ricevitori_punto.y())
-                    y_max = max(sorgente_punto.y(), ricevitori_punto.y())
-                    rect = QgsRectangle(x_min, y_min, x_max, y_max)
-                    request = QgsFeatureRequest().setFilterRect(rect).setFlags(QgsFeatureRequest.ExactIntersect)
+                                            ray.setAttributes(attributes)
+                                            diff_rays_writer.addFeature(ray)
+                                            diff_ray_id = diff_ray_id + 1
 
-                    # cycle to intersect the line with obstacles
-                    # output is a 3D vertical line
-                    for f in obstacles_layer.getFeatures(request):
-                        if f.geometry().intersects(line):
-                            intersezione = line.intersection(f.geometry())
+            # calcolo in 3D
+            if Diff3d is True:
+                if receiver_feat.id() in dict3D:
+                    source_ids = npunique(dict3D[receiver_feat.id()]).tolist()
+                    for source_id in source_ids:
+                        source_feat_value = source_feat_all_dict[source_id]
+                        sor_feat = source_feat_value['feat']
 
-                            # prendo i punti della intersezione
-                            if intersezione.isMultipart():
-                                poly=intersezione.asMultiPolyline()
-                                for ii in poly:
-                                    for jj in ii:
-                                        distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((jj)))
-                                        # call column contaning 3D building height
+                        # build 2D plane line
+                        sorgente_punto = sor_feat.geometry().asPoint()
+                        ricevitori_punto = receiver_feat.geometry().asPoint()
+                        line = QgsGeometry.fromPolylineXY([sorgente_punto, ricevitori_punto])
+
+                        # TODO: definire il valore di quota punto partenza immagina che sono nel piano XZ
+                        p1 = QgsPointXY(0, 0)
+                        punti_hull = [p1]
+                        # TODO: definire altezza ricevitore
+                        pLast = QgsPointXY(line.length(), 4)
+                        # definisco un rettangolo di ricerca per optimizing loop
+                        x_min = min(sorgente_punto.x(), ricevitori_punto.x())
+                        x_max = max(sorgente_punto.x(), ricevitori_punto.x())
+                        y_min = min(sorgente_punto.y(), ricevitori_punto.y())
+                        y_max = max(sorgente_punto.y(), ricevitori_punto.y())
+                        rect = QgsRectangle(x_min, y_min, x_max, y_max)
+                        request = QgsFeatureRequest().setFilterRect(rect).setFlags(QgsFeatureRequest.ExactIntersect)
+
+                        # cycle to intersect the line with obstacles
+                        # output is a 3D vertical line
+                        for f in obstacles_layer.getFeatures(request):
+                            if f.geometry().intersects(line):
+                                intersezione = line.intersection(f.geometry())
+
+                                # prendo i punti della intersezione
+                                if intersezione.isMultipart():
+                                    poly=intersezione.asMultiPolyline()
+                                    for ii in poly:
+                                        for jj in ii:
+                                            distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((jj)))
+                                            # call column contaning 3D building height
+                                            fieldH = settings['field3D']
+                                            elev = f[fieldH]
+                                            if elev <= 3:
+                                                elev = 3.
+                                            punti_hull.append(QgsPointXY(distanza, elev))
+
+                                else:
+                                    poly = intersezione.asPolyline()
+
+                                    # distanza dal punto iniziale
+                                    for pti in poly:
+                                        distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((pti)))
+                                        # TODO: chiamare la colonna che contiene altezza
                                         fieldH = settings['field3D']
                                         elev = f[fieldH]
                                         if elev <= 3:
                                             elev = 3.
                                         punti_hull.append(QgsPointXY(distanza, elev))
 
-                            else:
-                                poly = intersezione.asPolyline()
+                        punti_hull.append(pLast)
+                        polygon_wkt = create_wkt_from_list(punti_hull)
+                        multipoint = QgsGeometry.fromWkt(polygon_wkt)
+                        out_ring = multipoint.convexHull()
 
-                                # distanza dal punto iniziale
-                                for pti in poly:
-                                    distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((pti)))
-                                    # TODO: chiamare la colonna che contiene altezza
-                                    fieldH = settings['field3D']
-                                    elev = f[fieldH]
-                                    if elev <= 3:
-                                        elev = 3.
-                                    punti_hull.append(QgsPointXY(distanza, elev))
+                        delta3d = out_ring.length() - line.length()
+                        print('3D dist: '+str(delta3d))
+                        # determination of epsilon
+                        ePoints = out_ring.asPolygon()[0][1:-1]
+                        eLine = QgsGeometry.fromPolylineXY(ePoints)
+                        epsilon=eLine.length()
 
-                    punti_hull.append(pLast)
-                    polygon_wkt = create_wkt_from_list(punti_hull)
-                    multipoint = QgsGeometry.fromWkt(polygon_wkt)
-                    out_ring = multipoint.convexHull()
+                        level_dif = {}
+                        level_dif_bands = {}
+                        level_atm_bands = {}
 
-                    delta3d = out_ring.length() - line.length()
-                    print('3D dist: '+str(delta3d))
-                    # determination of epsilon
-                    ePoints = out_ring.asPolygon()[0][1:-1]
-                    eLine = QgsGeometry.fromPolylineXY(ePoints)
-                    epsilon=eLine.length()
+                        # LA PARTE SEGUENTE CALCOLA I LIVELLI E SOMMA I DB
+                        # for key in list(level_emi_bands.keys()):
+                        #     if level_emi[key] > 0:
+                        #         level_dif_bands[key] = on_Acoustics.Diffraction3D(level_emi_bands[key],
+                        #                                                         delta3d, eDist,
+                        #                                                         temperature).level3D()
+                        #         level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(delta3d, temperature,
+                        #                                                                   humidity, level_emi_bands[
+                        #                                                                       key]).attenuation()
+                        #         level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key], level_atm_bands[key])
+                        #
+                        #
+                        #         if settings['implementation_roads'] == 'CNOSSOS':
+                        #             level_dif[key] = on_Acoustics.OctaveBandsToGlobalA(level_dif_bands[key])
+                        #         else:
+                        #             level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
+                        #
+                        #         # correction for the segment lenght
+                        #         if feat_type == 'road':
+                        #             if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
+                        #                 level_dif[key] = level_dif[key] + 20 + 10 * log10(float(segment)) + 3
+                        #             if settings['implementation_roads'] == 'CNOSSOS':
+                        #                 level_dif[key] = level_dif[key] + 10 * log10(float(segment)) + 3
+                        #
+                        #         receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key] / float(10))
+                        #     else:
+                        #         level_dif[key] = -1
 
-                    level_dif = {}
-                    level_dif_bands = {}
-                    level_atm_bands = {}
+                        if diff3D_rays_writer is not None:
+                            ray = QgsFeature()
+                            ray.setGeometry(line)
+                            attributes = [diff3D_ray_id,
+                                          receiver_feat.id(),
+                                          sor_feat.id(),
+                                          delta3d,
+                                          epsilon]
 
-                    # LA PARTE SEGUENTE CALCOLA I LIVELLI E SOMMA I DB
-                    # for key in list(level_emi_bands.keys()):
-                    #     if level_emi[key] > 0:
-                    #         level_dif_bands[key] = on_Acoustics.Diffraction3D(level_emi_bands[key],
-                    #                                                         delta3d, eDist,
-                    #                                                         temperature).level3D()
-                    #         level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(delta3d, temperature,
-                    #                                                                   humidity, level_emi_bands[
-                    #                                                                       key]).attenuation()
-                    #         level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key], level_atm_bands[key])
-                    #
-                    #
-                    #         if settings['implementation_roads'] == 'CNOSSOS':
-                    #             level_dif[key] = on_Acoustics.OctaveBandsToGlobalA(level_dif_bands[key])
-                    #         else:
-                    #             level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
-                    #
-                    #         # correction for the segment lenght
-                    #         if feat_type == 'road':
-                    #             if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
-                    #                 level_dif[key] = level_dif[key] + 20 + 10 * log10(float(segment)) + 3
-                    #             if settings['implementation_roads'] == 'CNOSSOS':
-                    #                 level_dif[key] = level_dif[key] + 10 * log10(float(segment)) + 3
-                    #
-                    #         receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key] / float(10))
-                    #     else:
-                    #         level_dif[key] = -1
+                            print(line)
+                            print(attributes)
+                            # TODO add levels calculated to attributes
 
-                    if diff3D_rays_writer is not None:
-                        ray = QgsFeature()
-                        ray.setGeometry(line)
-                        attributes = [diff3D_ray_id,
-                                      receiver_feat.id(),
-                                      sor_feat.id(),
-                                      delta3d,
-                                      epsilon]
+                            ray.setAttributes(attributes)
+                            diff3D_rays_writer.addFeature(ray)
 
-                        print(line)
-                        print(attributes)
-                        # TODO add levels calculated to attributes
+                            #update counter ID rays
+                            diff3D_ray_id = diff3D_ray_id +1
 
-                        ray.setAttributes(attributes)
-                        diff3D_rays_writer.addFeature(ray)
+            if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+                    if receiver_point_lin_level['gen'] > 0:
+                        Lgen = 10*log10(receiver_point_lin_level['gen'])
+                        if Lgen < 0:
+                            Lgen = 0
+                        receiver_feat_new_fields[level_field_index['gen']] =  Lgen
+                    else:
+                        receiver_feat_new_fields[level_field_index['gen']] = -99
 
-                        #update counter ID rays
-                        diff3D_ray_id = diff3D_ray_id +1
+            Lday = 0
+            Leve = 0
+            Lnig = 0
 
-        if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                if receiver_point_lin_level['gen'] > 0:
-                    Lgen = 10*log10(receiver_point_lin_level['gen'])
-                    if Lgen < 0:
-                        Lgen = 0
-                    receiver_feat_new_fields[level_field_index['gen']] =  Lgen
-                else:
-                    receiver_feat_new_fields[level_field_index['gen']] = -99
+            #added control on final data if negative set to zero
+            if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+                    if receiver_point_lin_level['day'] > 0:
+                        Lday = 10*log10(receiver_point_lin_level['day'])
+                        if Lday < 0:
+                            Lday = 0
+                        receiver_feat_new_fields[level_field_index['day']] = Lday
+                    else:
+                        receiver_feat_new_fields[level_field_index['day']] = -99
 
-        Lday = 0
-        Leve = 0
-        Lnig = 0
+            if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+                    if receiver_point_lin_level['eve'] > 0:
+                        Leve = 10*log10(receiver_point_lin_level['eve'])
+                        if Leve <0:
+                            Leve=0
+                        receiver_feat_new_fields[level_field_index['eve']] = Leve
+                    else:
+                        receiver_feat_new_fields[level_field_index['eve']] = -99
 
-        #added control on final data if negative set to zero
-        if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                if receiver_point_lin_level['day'] > 0:
-                    Lday = 10*log10(receiver_point_lin_level['day'])
-                    if Lday < 0:
-                        Lday = 0
-                    receiver_feat_new_fields[level_field_index['day']] = Lday
-                else:
-                    receiver_feat_new_fields[level_field_index['day']] = -99
+            if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+                    if receiver_point_lin_level['nig'] > 0:
+                        Lnig = 10*log10(receiver_point_lin_level['nig'])
+                        if Lnig <0:
+                            Lnig=0
+                        receiver_feat_new_fields[level_field_index['nig']] = Lnig
 
-        if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                if receiver_point_lin_level['eve'] > 0:
-                    Leve = 10*log10(receiver_point_lin_level['eve'])
-                    if Leve <0:
-                        Leve=0
-                    receiver_feat_new_fields[level_field_index['eve']] = Leve
-                else:
-                    receiver_feat_new_fields[level_field_index['eve']] = -99
+                    else:
+                        receiver_feat_new_fields[level_field_index['nig']] = -99
 
-        if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                if receiver_point_lin_level['nig'] > 0:
-                    Lnig = 10*log10(receiver_point_lin_level['nig'])
-                    if Lnig <0:
-                        Lnig=0
-                    receiver_feat_new_fields[level_field_index['nig']] = Lnig
-
-                else:
-                    receiver_feat_new_fields[level_field_index['nig']] = -99
-
-        if settings['period_den'] == "True":
-                receiver_feat_new_fields[level_field_index['den']] = on_Acoustics.Lden(Lday,Leve,Lnig,
-                                                                                       int(settings['day_hours']),
-                                                                                       int(settings['eve_hours']),
-                                                                                       int(settings['nig_hours']),
-                                                                                       int(settings['day_penalty']),
-                                                                                       int(settings['eve_penalty']),
-                                                                                       int(settings['nig_penalty'])
-                                                                                       )
-        receiver_feat_all_new_fields[receiver_feat.id()] = receiver_feat_new_fields
+            if settings['period_den'] == "True":
+                    receiver_feat_new_fields[level_field_index['den']] = on_Acoustics.Lden(Lday,Leve,Lnig,
+                                                                                           int(settings['day_hours']),
+                                                                                           int(settings['eve_hours']),
+                                                                                           int(settings['nig_hours']),
+                                                                                           int(settings['day_penalty']),
+                                                                                           int(settings['eve_penalty']),
+                                                                                           int(settings['nig_penalty'])
+                                                                                           )
+            receiver_feat_all_new_fields[receiver_feat.id()] = receiver_feat_new_fields
 
     progress_bars['calculate']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
