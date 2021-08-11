@@ -32,16 +32,16 @@
         </emissions_points>
 
         <rays>
-            <path />
+            <path>/home/pierluigi/Scrivania/dataset_testing/diretti20.shp</path>
         </rays>
 
         <diff_rays>
-            <path />
+            <path>/home/pierluigi/Scrivania/dataset_testing/diffratti14.shp</path>
         </diff_rays>
     </layers>
 
     <options>
-        <research_ray>100</research_ray>
+        <research_ray>50</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
 
