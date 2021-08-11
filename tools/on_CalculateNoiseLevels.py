@@ -454,7 +454,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         # skip diffraction here
         if skip_diffraction is False:
-            diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar,True)
+            diffTOsource_dict, dict3Dnotused = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray,totalBar,True)
             print('diffTOsource_dict')
             print(diffTOsource_dict)
 
@@ -472,7 +472,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
 #        recTOdiff_dict = on_RaysSearch.run_selection_distance(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,source_layer.source())
         if skip_diffraction is False:
-            recTOdiff_dict = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,totalBar)
+            recTOdiff_dict, dict3Dnotused = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,totalBar)
             print('recTOdiff_dict')
             print(recTOdiff_dict)
         else:

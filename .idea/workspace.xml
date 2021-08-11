@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="added print dictionary for diffraction">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -494,7 +494,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/version1.4" />
+                        <option value="origin/version2.0" />
                       </list>
                     </value>
                   </entry>
@@ -510,6 +510,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/version2.0" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="origin/version1.4" />
