@@ -1,10 +1,4 @@
 opeNoise - Calculate Noise Levels - Errors
 
-Traceback (most recent call last):
-  File "/home/pierluigi/.local/share/QGIS/QGIS3/profiles/default/python/plugins/openoise/tools/do_CalculateNoiseLevels.py", line 943, in accept
-    on_CalculateNoiseLevels.run(settings,self.progress_bars,self.totalBar)
-  File "/home/pierluigi/.local/share/QGIS/QGIS3/profiles/default/python/plugins/openoise/tools/on_CalculateNoiseLevels.py", line 1075, in run
-    receiver_feat_new_fields = calc(progress_bars,totalBar,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_rays_writer)
-  File "/home/pierluigi/.local/share/QGIS/QGIS3/profiles/default/python/plugins/openoise/tools/on_CalculateNoiseLevels.py", line 475, in calc
-    recTOdiff_dict, dict3Dnotused = on_RaysSearch.run_selection(bar,receiver_layer.source(),diffraction_layer.source(),obstacles_layer.source(),research_ray,diffTOsource_dict,totalBar)
-ValueError: too many values to unpack (expected 2)
+No errors.
+
