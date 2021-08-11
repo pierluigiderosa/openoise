@@ -32,7 +32,7 @@
         </emissions_points>
 
         <rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/diretti20.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/diretti14.shp</path>
         </rays>
 
         <diff_rays>
