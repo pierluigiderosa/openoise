@@ -413,6 +413,7 @@ def calc(progress_bars,receiver_layer,source_pts_layer,source_roads_layer,settin
         bar = progress_bars['difTOsou']['bar']
 
         diffTOsource_dict = on_RaysSearch.run(bar,diffraction_layer.source(),source_layer.source(),obstacles_layer.source(),research_ray)
+        print('diffTOsource_dict')
         print(diffTOsource_dict)
         progress_bars['difTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
