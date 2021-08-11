@@ -159,7 +159,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.dif3Df_rays_layer_pushButton.clicked.connect(self.outFile_diff3D_rays)
 
         # turn off widget with
-        # self.barsWidget.hide()
+        self.barsWidget.hide()
 
         self.tabWidget.currentChanged.connect(self.tabUpdate)
 

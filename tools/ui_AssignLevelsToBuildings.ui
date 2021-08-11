@@ -43,12 +43,9 @@
   <property name="locale">
    <locale language="Italian" country="Italy"/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
-    <layout class="QVBoxLayout" name="receivers_layer_verticalLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetNoConstraint</enum>
-     </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="receiver_points_layer_label">
        <property name="sizePolicy">
@@ -58,12 +55,19 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Receiver points layer (input point layer)</string>
+        <string>Receiver points layer (input point layer) and field for population</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QgsMapLayerComboBox" name="receiver_points_layer_comboBox"/>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QgsMapLayerComboBox" name="receiver_points_layer_comboBox"/>
+       </item>
+       <item>
+        <widget class="QgsFieldComboBox" name="receiver_points_population_field"/>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
@@ -215,12 +219,12 @@
    <slot>setLayer(QgsMapLayer*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>79</x>
-     <y>87</y>
+     <x>90</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
-     <x>71</x>
-     <y>137</y>
+     <x>82</x>
+     <y>134</y>
     </hint>
    </hints>
   </connection>
@@ -231,8 +235,8 @@
    <slot>setLayer(QgsMapLayer*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>233</x>
-     <y>82</y>
+     <x>244</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
      <x>231</x>
@@ -247,12 +251,12 @@
    <slot>setLayer(QgsMapLayer*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>347</x>
-     <y>75</y>
+     <x>353</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
-     <x>367</x>
-     <y>135</y>
+     <x>422</x>
+     <y>134</y>
     </hint>
    </hints>
   </connection>
@@ -263,8 +267,8 @@
    <slot>setLayer(QgsMapLayer*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>515</x>
-     <y>76</y>
+     <x>353</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -279,12 +283,28 @@
    <slot>setLayer(QgsMapLayer*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>617</x>
-     <y>74</y>
+     <x>353</x>
+     <y>64</y>
     </hint>
     <hint type="destinationlabel">
      <x>623</x>
      <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>receiver_points_layer_comboBox</sender>
+   <signal>layerChanged(QgsMapLayer*)</signal>
+   <receiver>receiver_points_population_field</receiver>
+   <slot>setLayer(QgsMapLayer*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>309</x>
+     <y>42</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>54</y>
     </hint>
    </hints>
   </connection>
