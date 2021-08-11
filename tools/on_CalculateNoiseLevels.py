@@ -808,32 +808,32 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                         level_atm_bands = {}
 
                         # LA PARTE SEGUENTE CALCOLA I LIVELLI E SOMMA I DB
-                        # for key in list(level_emi_bands.keys()):
-                        #     if level_emi[key] > 0:
-                        #         level_dif_bands[key] = on_Acoustics.Diffraction3D(level_emi_bands[key],
-                        #                                                         delta3d, eDist,
-                        #                                                         temperature).level3D()
-                        #         level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(delta3d, temperature,
-                        #                                                                   humidity, level_emi_bands[
-                        #                                                                       key]).attenuation()
-                        #         level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key], level_atm_bands[key])
-                        #
-                        #
-                        #         if settings['implementation_roads'] == 'CNOSSOS':
-                        #             level_dif[key] = on_Acoustics.OctaveBandsToGlobalA(level_dif_bands[key])
-                        #         else:
-                        #             level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
-                        #
-                        #         # correction for the segment lenght
-                        #         if feat_type == 'road':
-                        #             if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
-                        #                 level_dif[key] = level_dif[key] + 20 + 10 * log10(float(segment)) + 3
-                        #             if settings['implementation_roads'] == 'CNOSSOS':
-                        #                 level_dif[key] = level_dif[key] + 10 * log10(float(segment)) + 3
-                        #
+                        for key in list(level_emi_bands.keys()):
+                            if level_emi[key] > 0:
+                                level_dif_bands[key] = on_Acoustics.Diffraction3D(level_emi_bands[key],
+                                                                                delta3d, epsilon,
+                                                                                temperature).level3D()
+                                level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(delta3d, temperature,
+                                                                                          humidity, level_emi_bands[
+                                                                                              key]).attenuation()
+                                level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key], level_atm_bands[key])
+
+
+                                if settings['implementation_roads'] == 'CNOSSOS':
+                                    level_dif[key] = on_Acoustics.OctaveBandsToGlobalA(level_dif_bands[key])
+                                else:
+                                    level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
+
+                                # correction for the segment lenght
+                                if feat_type == 'road':
+                                    if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
+                                        level_dif[key] = level_dif[key] + 20 + 10 * log10(float(segment)) + 3
+                                    if settings['implementation_roads'] == 'CNOSSOS':
+                                        level_dif[key] = level_dif[key] + 10 * log10(float(segment)) + 3
+                        # TODO : parte che aggiunge i livelli a valore finale
                         #         receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key] / float(10))
-                        #     else:
-                        #         level_dif[key] = -1
+                            else:
+                                level_dif[key] = -1
 
                         if diff3D_rays_writer is not None:
                             ray = QgsFeature()
@@ -844,9 +844,34 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                           delta3d,
                                           epsilon]
 
-                            print(line)
-                            print(attributes)
-                            # TODO add levels calculated to attributes
+                            if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+                                if 'gen' in level_emi:
+                                    attributes.append(level_emi['gen'])
+                                    attributes.append(level_dif['gen'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
+                            if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+                                if 'day' in level_emi:
+                                    attributes.append(level_emi['day'])
+                                    attributes.append(level_dif['day'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
+                            if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+                                if 'eve' in level_emi:
+                                    attributes.append(level_emi['eve'])
+                                    attributes.append(level_dif['eve'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
+                            if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+                                if 'nig' in level_emi:
+                                    attributes.append(level_emi['nig'])
+                                    attributes.append(level_dif['nig'])
+                                else:
+                                    attributes.append(None)
+                                    attributes.append(None)
 
                             ray.setAttributes(attributes)
                             diff3D_rays_writer.addFeature(ray)
@@ -1015,7 +1040,6 @@ def run(settings,progress_bars,totalBar):
         diff_rays_writer = None
 
     if diff3D_layer_path is not None:
-        # TODO: mancano if per i livelli di emissione
 
         # add fields
         rays_fields = QgsFields()
@@ -1024,6 +1048,19 @@ def run(settings,progress_bars,totalBar):
         rays_fields.append(QgsField("id_source", QVariant.Int))
         rays_fields.append(QgsField("delta3d", QVariant.Double, len=10, prec=2))
         rays_fields.append(QgsField("epsilon", QVariant.Double, len=10, prec=2))
+
+        if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+            rays_fields.append(QgsField("gen_emi", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("gen", QVariant.Double,len=5,prec=1))
+        if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+            rays_fields.append(QgsField("day_emi", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("day", QVariant.Double,len=5,prec=1))
+        if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+            rays_fields.append(QgsField("eve_emi", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("eve", QVariant.Double,len=5,prec=1))
+        if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+            rays_fields.append(QgsField("nig_emi", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("nig", QVariant.Double,len=5,prec=1))
 
         diff3D_rays_writer = QgsVectorFileWriter(diff3D_layer_path, "System", rays_fields, QgsWkbTypes.LineString,
                                                receiver_layer.crs(), "ESRI Shapefile")
