@@ -555,7 +555,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
                         for key in list(level_emi.keys()):
                             if level_emi[key] > 0:
-                                level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recTOsource,temperature,humidity,level_emi_bands[key]).level()
+                                level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recTOsource_4m,temperature,humidity,level_emi_bands[key]).level()
                                 #level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
 
                                 # print("level_atm_bands[key]",level_atm_bands[key])
