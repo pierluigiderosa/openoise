@@ -2,7 +2,7 @@
 
     <directory>
         <default />
-        <last>/home/pierluigi/Scrivania/dataset_testing</last>
+        <last>/tmp</last>
     </directory>
 
     <layers>

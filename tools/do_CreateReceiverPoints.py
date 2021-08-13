@@ -281,7 +281,7 @@ class Dialog(QDialog,FORM_CLASS):
                                     self.tr("Please specify the output grid vector layer."))
             return 0
 
-        extentSelected = self.ExtentGrid.currentExtent()
+        extentSelected = self.ExtentGrid.outputExtent()
 
 
         on_CreateGrid.createGrid(
