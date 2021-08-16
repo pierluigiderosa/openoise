@@ -91,7 +91,7 @@ def createGrid(resolution, grid_path, extent,BarGridReceiver,BuildingMaskLayer):
     output_singlepart = result_multiTOsingle['OUTPUT']
 
     # remove layer in already in TOC
-    removeLayer(grid_path)
+    # removeLayer(grid_path)
     writer = QgsVectorFileWriter.writeAsVectorFormat(
         output_singlepart,
         grid_path,
@@ -131,12 +131,28 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         "ogr"
     )
 
+    # routine to detect the resolution raster
+    feats_count = layerTOrasterize.featureCount()
+    spacings = [5, 10, 20, 30, 40, 50]
+
     extent = layerTOrasterize.extent()
     xmax = extent.xMaximum()
     ymax = extent.yMaximum()
     xmin = extent.xMinimum()
     ymin = extent.yMinimum()
     extent_coords = "%f,%f,%f,%f" % (xmin, xmax, ymin, ymax)
+
+    area_extent = (xmax-xmin)*(ymax-ymin)
+    print(area_extent)
+    print(feats_count)
+    density_points = area_extent/feats_count
+    print(density_points)
+    dict_den = dict()
+    for space in spacings:
+        dict_den[density_points-space**2]=space
+    print(dict_den)
+    # TODO continua da QUI
+
 
     params_rasterize = {
         'BURN': 0,
@@ -148,7 +164,7 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         'INIT': None,
         'INPUT': layerTOrasterize,
         'INVERT': False,
-        'NODATA': 0,
+        'NODATA': -99,
         'OPTIONS': '',
         'OUTPUT': 'TEMPORARY_OUTPUT',
         'UNITS': 1,

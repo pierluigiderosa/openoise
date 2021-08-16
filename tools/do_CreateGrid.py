@@ -52,10 +52,6 @@ class Dialog(QDialog, FORM_CLASS):
         self.polygonSave_pushButton.clicked.connect(self.outputFile_polygon)
         self.runContPoly_pushButton.clicked.connect(self.runContPoly)
 
-        spacing = ['5', '10', '20', '30', '40', '50']
-        self.resolution_raster_comboBox.clear()
-        for space in spacing:
-            self.resolution_raster_comboBox.addItem(space)
 
 
     def populate_layerTOrasterize(self):
@@ -160,7 +156,7 @@ class Dialog(QDialog, FORM_CLASS):
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
                                     self.tr("Please specify the output vector isolines layer."))
             return
-        resolution = int(self.resolution_raster_comboBox.currentText())
+        resolution = 5
         layerTOrasterize = self.layerTOrasterize_ComboBox.currentLayer()
         layerTOrasterize_path = layerTOrasterize.source()
         field = self.fieldsLayer_ComboBox.currentText()

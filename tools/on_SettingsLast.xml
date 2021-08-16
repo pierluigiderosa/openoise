@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>/home/pierluigi/Scrivania/dataset_testing</last>
+        <last>C:/Users/pierl/Desktop/test_openoise</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>receveir_points</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
+            <name>griglia1</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/griglia1.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -20,13 +20,13 @@
 	    </pts>
 	    <roads>	
 		<name>roads_NMPB_emission</name>
-		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
+		<path>C:/Users/pierl/Desktop/test_openoise/roads_NMPB_emission.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>buildings</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
+            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -34,14 +34,14 @@
         </emissions_points>
 
         <rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/diretti20.shp</path>
+            <path />
         </rays>
 
         <diff_rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/diffratti20.shp</path>
+            <path />
         </diff_rays>
         <diff3D_rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/diff3d.shp</path>
+            <path />
         </diff3D_rays>
     </layers>
 
@@ -51,9 +51,9 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <height_receiver>False</height_receiver>
-        <threedglobal>True</threedglobal>
+        <threedglobal>False</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>
-        <field3D>altezza</field3D>
+        <field3D />
 
         <den>
             <day_hours>14</day_hours> 

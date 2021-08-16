@@ -55,6 +55,9 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -98,6 +101,9 @@
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>Receiver at 4 m above the ground</string>
            </property>
            <property name="text">
             <string>Receivers layer (output point layer)</string>
@@ -231,8 +237,14 @@
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="toolTip">
+            <string>Receiver spacing (m) at 4 m above the ground</string>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="text">
-            <string>Point spacing</string>
+            <string>Receiver spacing (m)</string>
            </property>
           </widget>
          </item>
@@ -279,7 +291,7 @@
          <item>
           <widget class="QLabel" name="label_6">
            <property name="text">
-            <string>Grid layer</string>
+            <string>Grid layer (output point layer)</string>
            </property>
           </widget>
          </item>
@@ -296,18 +308,22 @@
         </layout>
        </item>
        <item>
-        <widget class="QProgressBar" name="progressBarGridReceiver">
-         <property name="value">
-          <number>0</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="runGrid_pushButton">
-         <property name="text">
-          <string>OK</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QProgressBar" name="progressBarGridReceiver">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="runGrid_pushButton">
+           <property name="text">
+            <string>OK</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
