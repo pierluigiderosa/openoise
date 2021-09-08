@@ -686,15 +686,15 @@ class Diffraction3D(object):
             c2nd = (1. + (5 * wave_length / self.epsilon) ** 2) / (1 / 3. + (5 * wave_length / self.epsilon) ** 2)
             if 40./wave_length * c2nd * self.epsilon >= -2:
                 Att = 10*Ch*log10(3+(40/wave_length * c2nd * self.epsilon))
+                if Att < 0:
+                    Att = 0
+                if Att > 25:
+                    Att = 25
                 Att_dic[band] = round(Att, 2)
             else:
                 Att = 0
                 Att_dic[band] = round(Att, 2)
 
-        if Att <0:
-         Att =0
-        if Att >25:
-         Att=25
          
         return Att_dic
 
