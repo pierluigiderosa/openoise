@@ -147,9 +147,9 @@ class CNOSSOS(object):
                     self.vehicles_classes['4b']= 5
 
         # con tutte le bande
-        #bands = [63, 125, 250, 500, 1000 , 2000, 4000, 8000]
+        bands = [63, 125, 250, 500, 1000 , 2000, 4000, 8000]
         # escludendo bande 63 e 8000
-        bands = [125, 250, 500, 1000 , 2000, 4000]
+        # bands = [125, 250, 500, 1000 , 2000, 4000]
 
         p = {}
         p_all_vehicles = {}

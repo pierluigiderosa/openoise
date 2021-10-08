@@ -35,7 +35,7 @@ def GlobalToOctaveBands(model,level_input):
     '''
     level_output = {}
 
-    bands = [63, 125, 250, 500, 1000 , 2000, 4000, 8000]
+    bands = [63, 125, 250, 500, 1000, 2000, 4000, 8000]
 
     if level_input > 0:
 
@@ -645,12 +645,12 @@ class Diffraction(object):
                     Att = 10*Ch[band]*log10(3+(40/wave_length)*self.delta)
                 else:
                     Att = 0
-
                 #     limitation to Att
                 if Att <0:
                     Att=0
                 if Att > 25:
                     Att=25
+
 
                 Att_dic[band] = round(Att, 2)
 
@@ -669,13 +669,15 @@ class Diffraction3D(object):
     The output is dict:
     -
     '''
-    def __init__(self,level_input,delta, eDist,temperature):
+    def __init__(self, level_input, distSUP3D, eDist, dInclinata, temperature):
 
         self.temp = float(temperature)
         self.level_input = level_input
-        self.delta = delta
+        self.distSUP3D = distSUP3D
+        self.dInclinata = dInclinata
         self.epsilon = eDist
         self.sound_speed = 331.6 + 0.6 * self.temp
+        self.d = distSUP3D - dInclinata
 
     def attenuation(self):
         Att_dic = {}
@@ -684,19 +686,19 @@ class Diffraction3D(object):
         for band in self.level_input:
             wave_length = self.sound_speed / float(band)
             c2nd = (1. + (5 * wave_length / self.epsilon) ** 2) / (1 / 3. + (5 * wave_length / self.epsilon) ** 2)
-            if 40./wave_length * c2nd * self.epsilon >= -2:
-                Att = 10*Ch*log10(3+(40/wave_length * c2nd * self.epsilon))
+            if 40./wave_length * c2nd * self.d >= -2:
+                Att = 10*Ch*log10(3 + (40 / wave_length * c2nd * self.d))
+                if Att < 0:
+                    Att = 0
+                if Att > 25:
+                    Att = 25
                 Att_dic[band] = round(Att, 2)
             else:
                 Att = 0
                 Att_dic[band] = round(Att, 2)
-
-        if Att <0:
-         Att =0
-        if Att >25:
-         Att=25
          
         return Att_dic
+
 
     def level3D(self):
         level_diff = {}
@@ -704,7 +706,7 @@ class Diffraction3D(object):
         attenuation = self.attenuation()
 
         for band in self.level_input:
-            level_diff[band] = round(self.level_input[band] - GeometricalAttenuation('spherical',self.delta) - attenuation[band],1)
+            level_diff[band] = round(self.level_input[band] - GeometricalAttenuation('spherical',self.distSUP3D) - attenuation[band],1)
 
         return level_diff
 

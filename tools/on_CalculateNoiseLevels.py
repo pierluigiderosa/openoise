@@ -122,7 +122,7 @@ def get_levels(settings,source_layer,source_feat):
 
         for key in list(level_global.keys()):
             # fix_print_with_import
-            #print(level_global[key])
+
             level_bands[key] = on_Acoustics.GlobalToOctaveBands('ISO_traffic_road',level_global[key])
 
     # NMPB
@@ -666,13 +666,11 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                         level_dif_bands = {}
                                         level_atm_bands = {}
 
-
                                         for key in list(level_emi_bands.keys()):
                                             if level_emi[key] > 0:
 
                                                 level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature).level()
                                                 level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recPLUSsource,temperature,humidity,level_emi_bands[key]).attenuation()
-                                                level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key],level_atm_bands[key])
                                                 #level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
 
                                                 #print("settings: ", settings['implementation_roads'])
@@ -738,6 +736,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                 if receiver_feat.id() in dict3D:
                     source_ids = npunique(dict3D[receiver_feat.id()]).tolist()
                     for source_id in source_ids:
+
                         source_feat_value = source_feat_all_dict[source_id]
                         sor_feat = source_feat_value['feat']
 
@@ -749,7 +748,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                         # TODO: definire il valore di quota punto partenza immagina che sono nel piano XZ
                         p1 = QgsPointXY(0, 0)
                         punti_hull = [p1]
-                        # TODO: definire altezza ricevitore
+                        # TODO: definire altezza ricevitore custom height
                         pLast = QgsPointXY(line.length(), 4)
                         # definisco un rettangolo di ricerca per optimizing loop
                         x_min = min(sorgente_punto.x(), ricevitori_punto.x())
@@ -774,7 +773,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                             # call column contaning 3D building height
                                             fieldH = settings['field3D']
                                             elev = f[fieldH]
-                                            if elev <= 3:
+                                            if elev <= 3.:
                                                 elev = 3.
                                             punti_hull.append(QgsPointXY(distanza, elev))
 
@@ -784,10 +783,10 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                     # distanza dal punto iniziale
                                     for pti in poly:
                                         distanza = line.lineLocatePoint(QgsGeometry().fromPointXY((pti)))
-                                        # TODO: chiamare la colonna che contiene altezza
+                                        # call column contaning 3D building height
                                         fieldH = settings['field3D']
                                         elev = f[fieldH]
-                                        if elev <= 3:
+                                        if elev <= 3.:
                                             elev = 3.
                                         punti_hull.append(QgsPointXY(distanza, elev))
 
@@ -796,10 +795,10 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                         multipoint = QgsGeometry.fromWkt(polygon_wkt)
                         out_ring = multipoint.convexHull()
 
-                        delta3d = out_ring.length() - line.length()
-                        print('3D dist: '+str(delta3d))
+                        dInclinata = compute_distance(p1,pLast)
+                        distSUP3D = out_ring.length() - dInclinata
                         # determination of epsilon
-                        ePoints = out_ring.asPolygon()[0][1:-1]
+                        ePoints = out_ring.asPolygon()[0][1:-2]
                         eLine = QgsGeometry.fromPolylineXY(ePoints)
                         epsilon=eLine.length()
 
@@ -811,9 +810,9 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                         for key in list(level_emi_bands.keys()):
                             if level_emi[key] > 0:
                                 level_dif_bands[key] = on_Acoustics.Diffraction3D(level_emi_bands[key],
-                                                                                delta3d, epsilon,
+                                                                                distSUP3D, epsilon,dInclinata,
                                                                                 temperature).level3D()
-                                level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(delta3d, temperature,
+                                level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(distSUP3D, temperature,
                                                                                           humidity, level_emi_bands[
                                                                                               key]).attenuation()
                                 level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key], level_atm_bands[key])
@@ -841,7 +840,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                             attributes = [diff3D_ray_id,
                                           receiver_feat.id(),
                                           sor_feat.id(),
-                                          delta3d,
+                                          distSUP3D,
                                           epsilon]
 
                             if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
@@ -1043,7 +1042,7 @@ def run(settings,progress_bars,totalBar):
 
         # add fields
         rays_fields = QgsFields()
-        rays_fields.append(QgsField("id_diff_ray", QVariant.Int))
+        rays_fields.append(QgsField("id_dif_ray", QVariant.Int))
         rays_fields.append(QgsField("id_rec", QVariant.Int))
         rays_fields.append(QgsField("id_source", QVariant.Int))
         rays_fields.append(QgsField("delta3d", QVariant.Double, len=10, prec=2))
