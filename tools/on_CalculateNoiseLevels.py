@@ -740,16 +740,20 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                         source_feat_value = source_feat_all_dict[source_id]
                         sor_feat = source_feat_value['feat']
 
+
                         # build 2D plane line
                         sorgente_punto = sor_feat.geometry().asPoint()
                         ricevitori_punto = receiver_feat.geometry().asPoint()
                         line = QgsGeometry.fromPolylineXY([sorgente_punto, ricevitori_punto])
 
-                        # TODO: definire il valore di quota punto partenza immagina che sono nel piano XZ
                         p1 = QgsPointXY(0, 0)
                         punti_hull = [p1]
                         # TODO: definire altezza ricevitore custom height
-                        pLast = QgsPointXY(line.length(), 4)
+                        if settings['custom3d'] == "True":
+                            receiver_height3D = float(receiver_feat[settings['custom3dfield']])
+                            pLast = QgsPointXY(line.length(), receiver_height3D)
+                        else:
+                            pLast = QgsPointXY(line.length(), 4)
                         # definisco un rettangolo di ricerca per optimizing loop
                         x_min = min(sorgente_punto.x(), ricevitori_punto.x())
                         x_max = max(sorgente_punto.x(), ricevitori_punto.x())
@@ -829,8 +833,8 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                         level_dif[key] = level_dif[key] + 20 + 10 * log10(float(segment)) + 3
                                     if settings['implementation_roads'] == 'CNOSSOS':
                                         level_dif[key] = level_dif[key] + 10 * log10(float(segment)) + 3
-                        # TODO : parte che aggiunge i livelli a valore finale
-                        #         receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key] / float(10))
+                                #         add noise to final value
+                                receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key] / float(10))
                             else:
                                 level_dif[key] = -1
 

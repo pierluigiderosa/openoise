@@ -412,10 +412,17 @@ loss of precision in sound levels estimates.</p>
 
     def skip_diffraction_checkBox_update(self):
         if self.skip_diffraction_checkBox.isChecked():
+            #block create diffraction layer 2D
             self.diff_rays_layer_checkBox.setEnabled(False)
             self.diff_rays_layer_checkBox.setChecked(False)
+        #     block create diffraction layer 3D
+            self.height_building_check.setChecked(False)
+            self.height_building_check.setEnabled(False)
+            self.field_height_building.setEnabled(False)
         else:
             self.diff_rays_layer_checkBox.setEnabled(True)
+            self.height_building_check.setEnabled(True)
+            self.field_height_building.setEnabled(True)
 
     def outFile_rays(self):
 
@@ -599,6 +606,11 @@ loss of precision in sound levels estimates.</p>
 
         if self.sources_pts_layer_checkBox.isChecked() and self.sources_pts_layer_comboBox.currentText() != "":
             self.sources_pts_layer = QgsProject.instance().mapLayersByName(self.sources_pts_layer_comboBox.currentText())[0]
+            # check that is used a projected CRS
+            if self.sources_pts_layer.crs().isGeographic():
+                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr(
+                    "The source layer have to use a projected CRS (Coordinate Reference System)."))
+                return False
 
             if self.sources_pts_layer.crs().authid() != self.receiver_layer.crs().authid():
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("The receivers and the points sources layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS."))
@@ -607,12 +619,22 @@ loss of precision in sound levels estimates.</p>
         if self.sources_roads_layer_checkBox.isChecked() and self.sources_roads_layer_comboBox.currentText() != "":
             self.sources_roads_layer = QgsProject.instance().mapLayersByName(self.sources_roads_layer_comboBox.currentText())[0]
 
+            if self.sources_roads_layer.crs().isGeographic():
+                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr(
+                    "The source layer have to use a projected CRS (Coordinate Reference System)."))
+                return False
+
             if self.sources_roads_layer.crs().authid() != self.receiver_layer.crs().authid():
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("The receivers and the road sources layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS."))
                 return False
 
         if self.buildings_layer_checkBox.isChecked() and self.buildings_layer_comboBox.currentText() != "":
             self.buildings_layer = QgsProject.instance().mapLayersByName(self.buildings_layer_comboBox.currentText())[0]
+
+            if self.buildings_layer.crs().isGeographic():
+                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr(
+                    "The building layer have to use a projected CRS (Coordinate Reference System)."))
+                return False
 
             if self.receiver_layer.crs().authid() != self.buildings_layer.crs().authid():
                 QMessageBox.information(self, self.tr("opeNoise - Road Source Calculation"), self.tr("The receivers and buildings layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS."))

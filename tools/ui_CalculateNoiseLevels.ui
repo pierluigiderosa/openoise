@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -304,13 +304,26 @@
        </property>
        <item>
         <widget class="QCheckBox" name="height_building_check">
+         <property name="toolTip">
+          <string>to enable check that skip diffraction in disabled.</string>
+         </property>
          <property name="text">
           <string>Activate 3D global</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QgsFieldComboBox" name="field_height_building"/>
+        <widget class="QgsFieldComboBox" name="field_height_building">
+         <property name="toolTip">
+          <string>to enable check that skip diffraction in disabled.</string>
+         </property>
+         <property name="statusTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string/>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
