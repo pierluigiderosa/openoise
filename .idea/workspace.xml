@@ -4,13 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="correction for 3D diffraction">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="correction for 3D diffraction&#10;added custom height">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opeNoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/opeNoise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_ApplyNoiseSymbology.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_ApplyNoiseSymbology.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_CreateGrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CreateGrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_Credits.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_Credits.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_Informations.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_Informations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_SourceDetailsPts.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_SourceDetailsPts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_NMPB.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_NMPB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_ApplyNoiseSymbology.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_ApplyNoiseSymbology.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_CreateDiffractionPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateDiffractionPoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_CreateEmissionPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateEmissionPoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_CreateReceiverPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateReceiverPoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_RaysSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_RaysSearch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +263,7 @@
       <workItem from="1633158403211" duration="140000" />
       <workItem from="1633588647356" duration="5389000" />
       <workItem from="1633700558173" duration="4256000" />
-      <workItem from="1634115403891" duration="3473000" />
+      <workItem from="1634115403891" duration="5317000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -510,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633704853753</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="correction for 3D diffraction&#10;added custom height">
+      <created>1634119198450</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1634119198450</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +582,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- added grid creation&#10;- attenuation for several temperatures" />
     <MESSAGE value="settings changes" />
     <MESSAGE value="- version 1.4 init" />
     <MESSAGE value="- fixed UI for versione" />
@@ -586,7 +606,8 @@
     <MESSAGE value="threeD implementation - initial2" />
     <MESSAGE value="unique bar for overall process" />
     <MESSAGE value="correction for 3D diffraction" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction for 3D diffraction" />
+    <MESSAGE value="correction for 3D diffraction&#10;added custom height" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction for 3D diffraction&#10;added custom height" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
