@@ -669,7 +669,11 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                         for key in list(level_emi_bands.keys()):
                                             if level_emi[key] > 0:
 
-                                                level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature).level()
+                                                if settings['custom3d'] == "True":
+                                                    receiver_height = float(receiver_feat[settings['custom3dfield']])
+                                                else:
+                                                    receiver_height=4
+                                                level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature,receiver_height).level()
                                                 level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recPLUSsource,temperature,humidity,level_emi_bands[key]).attenuation()
                                                 #level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
 
