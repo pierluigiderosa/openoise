@@ -254,7 +254,7 @@ class CNOSSOS(object):
         else:
             delta_Lacc = float(self.CNOSSOS_Road_Params[m]['Cr'][self.k]) * max([1.-(float(self.dist_intersection)/100.),0.])
 
-        # delta_Ltemp
+        # delta_Ltemp formula 2.2.10 pag. 10
         delta_Ltemp = self.CNOSSOS_Road_Params[m]['K']* (self.temp_reference - self.temperature)
 
         delta_sum = delta_Lroad + delta_Lstudd + delta_Lacc + delta_Ltemp
