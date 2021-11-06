@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="bug correction attenuation even for custom height">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="bug correction for custom receiver height in diffraction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS_Road_Params.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS_Road_Params.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS_Road_Surfaces.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS_Road_Surfaces.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
     </list>
@@ -250,7 +248,8 @@
       <workItem from="1631128975920" duration="91000" />
       <workItem from="1631185490555" duration="4048000" />
       <workItem from="1631292397686" duration="89000" />
-      <workItem from="1636120177821" duration="3024000" />
+      <workItem from="1636120177821" duration="5195000" />
+      <workItem from="1636179700084" duration="7207000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -518,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628874515624</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="bug correction for custom receiver height in diffraction">
+      <created>1636124689937</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1636124689937</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +580,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver" />
     <MESSAGE value="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS" />
     <MESSAGE value="- added new data for testing" />
     <MESSAGE value="- removed bug when receiver is inside a buoding" />
@@ -599,7 +604,8 @@
     <MESSAGE value="fixed bug on diffraction&#10;- added data in 3d layer in debug" />
     <MESSAGE value="bug correction in reading extent from box" />
     <MESSAGE value="bug correction attenuation even for custom height" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug correction attenuation even for custom height" />
+    <MESSAGE value="bug correction for custom receiver height in diffraction" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug correction for custom receiver height in diffraction" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$openoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1612876823241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

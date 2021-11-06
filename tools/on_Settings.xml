@@ -19,8 +19,8 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_NMPB_emission</name>
-		<path>/home/pierluigi/Scrivania/dataset_testing/data set for testing/roads_NMPB_emission.shp</path>
+		<name>strade_semplici_CNOSSOS3003</name>
+		<path>/home/pierluigi/Scrivania/dataset_testing/strade_semplici_CNOSSOS3003.shp|layername=strade_semplici_CNOSSOS3003</path>
 	    </roads>
         </sources>
 
@@ -41,7 +41,7 @@
             <path />
         </diff_rays>
         <diff3D_rays>
-            <path>/home/pierluigi/Scrivania/dataset_testing/diff3d.shp</path>
+            <path />
         </diff3D_rays>
     </layers>
 
@@ -51,9 +51,9 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <height_receiver>False</height_receiver>
-        <threedglobal>True</threedglobal>
+        <threedglobal>False</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>
-        <field3D>altezza</field3D>
+        <field3D />
 
         <den>
             <day_hours>14</day_hours> 
@@ -68,7 +68,7 @@
     <emission>
         <implementation>
 		<pts />
-		<roads>POWER_R</roads>
+		<roads>CNOSSOS</roads>
         </implementation>
 
 	<period>
@@ -79,10 +79,10 @@
 		    <nig />  
 		</pts>
 		<roads>
-		    <gen>True</gen>
+		    <gen>False</gen>
 		    <day>False</day>            
 		    <eve>False</eve>            
-		    <nig>False</nig>  
+		    <nig>True</nig>  
 		</roads>
 	    <den>False</den>                                                          	     
 	</period>
@@ -95,7 +95,7 @@
         </POWER_P>
         
         <POWER_R>
-            <gen>Emis_gen</gen>
+            <gen />
             <day />            
             <eve />            
             <nig />                                                            
@@ -162,8 +162,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n />
-            <nig_1_s />            
+            <nig_1_n>N_leggeri</nig_1_n>
+            <nig_1_s>V_leggeri</nig_1_s>            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
@@ -173,8 +173,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface />                    
-            <slope />  
+            <surface>Superficie</surface>                    
+            <slope>Pendenza</slope>  
 
         </CNOSSOS>       
     </emission>    
