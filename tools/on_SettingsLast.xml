@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>/home/pierluigi/Scrivania/dataset_testing</last>
+        <last>C:/Users/pierl/Desktop/TestDiffraction</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>receveir_points</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/receveir_points.shp</path>
+            <name>ricettore</name>
+            <path>C:/Users/pierl/Desktop/TestDiffraction/ricettore.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>strade_semplici_CNOSSOS3003</name>
-		<path>/home/pierluigi/Scrivania/dataset_testing/strade_semplici_CNOSSOS3003.shp|layername=strade_semplici_CNOSSOS3003</path>
+		<name>road_CNOSSOS1</name>
+		<path>C:/Users/pierl/Desktop/TestDiffraction/road_CNOSSOS1.SHP</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>buildings</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
+            <name>Edificio</name>
+            <path>C:/Users/pierl/Desktop/TestDiffraction/Edificio.shp</path>
         </buildings>
 
         <emissions_points>
@@ -38,7 +38,7 @@
         </rays>
 
         <diff_rays>
-            <path />
+            <path>C:/Users/pierl/Desktop/TestDiffraction/diffrazione.shp</path>
         </diff_rays>
         <diff3D_rays>
             <path />
@@ -46,8 +46,8 @@
     </layers>
 
     <options>
-        <research_ray>50</research_ray>
-        <temperature>20</temperature>
+        <research_ray>1000</research_ray>
+        <temperature>50</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <height_receiver>False</height_receiver>
@@ -162,8 +162,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n>N_leggeri</nig_1_n>
-            <nig_1_s>V_leggeri</nig_1_s>            
+            <nig_1_n>car</nig_1_n>
+            <nig_1_s>v_car</nig_1_s>            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
@@ -173,8 +173,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface>Superficie</surface>                    
-            <slope>Pendenza</slope>  
+            <surface>Surface</surface>                    
+            <slope>Slope</slope>  
 
         </CNOSSOS>       
     </emission>    

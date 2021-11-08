@@ -414,14 +414,16 @@ loss of precision in sound levels estimates.</p>
         if self.skip_diffraction_checkBox.isChecked():
             #block create diffraction layer 2D
             self.diff_rays_layer_checkBox.setEnabled(False)
+            self.diff_rays_layer_checkBox.setChecked(False)
             self.diff3DRaysCheck.setChecked(False)
+            self.diff3DRaysCheck.setEnabled(False)
         #     block create diffraction layer 3D
             self.height_building_check.setChecked(False)
             self.height_building_check.setEnabled(False)
             self.field_height_building.setEnabled(False)
         else:
             self.diff_rays_layer_checkBox.setEnabled(True)
-            self.diff3DRaysCheck.setChecked(True)
+            self.diff3DRaysCheck.setEnabled(True)
             self.height_building_check.setEnabled(True)
             self.field_height_building.setEnabled(True)
 
