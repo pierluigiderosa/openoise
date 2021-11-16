@@ -531,7 +531,7 @@ class Diffraction(object):
     - attenuation: only the attenuation
     '''
 
-    def __init__(self, model,level_input,d_diffTOsource,d_recTOsource,d_recTOdiff,temp,recHeight):
+    def __init__(self, model,level_input,d_diffTOsource,d_recTOsource,d_recTOdiff,temp):
 
         self.model = model
         self.level_input = level_input
@@ -542,9 +542,7 @@ class Diffraction(object):
 
 
         self.sound_speed = 331.6+0.6*self.temp  # Expressed in m/s
-        d_diffTOsource3D = sqrt((d_diffTOsource**2+float(recHeight)**2))
-        d_recTOsource3D = sqrt(d_recTOsource**2+float(recHeight)**2)
-        self.delta =  float (d_recTOdiff + d_diffTOsource3D - d_recTOsource3D)
+        self.delta =  float (d_recTOdiff + d_diffTOsource - d_recTOsource)
 
 
     def level(self):
@@ -559,7 +557,10 @@ class Diffraction(object):
         for band in self.level_input:
             level_diff[band] = round(self.level_input[band] - GeometricalAttenuation('spherical',d_recPLUSsource) - attenuation[band],1)
 
+
         return level_diff
+
+
 
     def attenuation(self):
 
@@ -635,6 +636,7 @@ class Diffraction(object):
 
         for band in self.level_input:
             wave_length = self.sound_speed/float(band)
+
             if (40./wave_length)*self.delta < -2:
                 Att = 0
                 Att_dic[band] = Att
@@ -655,7 +657,6 @@ class Diffraction(object):
 
 
                 Att_dic[band] = round(Att, 2)
-
 
         return Att_dic
 

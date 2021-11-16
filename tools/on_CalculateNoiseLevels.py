@@ -652,6 +652,12 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
                                     d_recTOdiff = compute_distance(receiver_feat.geometry().asPoint(),diff_feat.geometry().asPoint())
                                     d_diffTOsource = compute_distance(diff_feat.geometry().asPoint(),source_feat.geometry().asPoint())
+                                    # case of custom height receiver only difftction point to source is affected
+                                    if settings['custom3d'] == "True":
+                                        receiver_height = float(receiver_feat[settings['custom3dfield']])
+                                    else:
+                                        receiver_height = 4
+                                    d_diffTOsource = sqrt(d_diffTOsource ** 2 + receiver_height ** 2)
                                     d_recTOsource =  compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
                                     d_recPLUSsource = d_recTOdiff + d_diffTOsource
 
@@ -669,12 +675,10 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                         for key in list(level_emi_bands.keys()):
                                             if level_emi[key] > 0:
 
-                                                if settings['custom3d'] == "True":
-                                                    receiver_height = float(receiver_feat[settings['custom3dfield']])
-                                                else:
-                                                    receiver_height=4
-                                                level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature,receiver_height).level()
+                                                level_dif_bands[key] = on_Acoustics.Diffraction('CNOSSOS',level_emi_bands[key],d_diffTOsource,d_recTOsource,d_recTOdiff,temperature).level()
                                                 level_atm_bands[key] = on_Acoustics.AtmosphericAbsorption(d_recPLUSsource,temperature,humidity,level_emi_bands[key]).attenuation()
+                                                level_dif_bands[key] = on_Acoustics.DiffBands(level_dif_bands[key],
+                                                                                              level_atm_bands[key])
                                                 #level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
 
                                                 #print("settings: ", settings['implementation_roads'])
@@ -692,6 +696,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                                         level_dif[key] = level_dif[key] + 10*log10(float(segment)) + 3
 
                                                 receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key]/float(10))
+
                                             else:
                                                 level_dif[key] = -1
 
@@ -752,7 +757,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
                         p1 = QgsPointXY(0, 0)
                         punti_hull = [p1]
-                        # TODO: definire altezza ricevitore custom height
+
                         if settings['custom3d'] == "True":
                             receiver_height3D = float(receiver_feat[settings['custom3dfield']])
                             pLast = QgsPointXY(line.length(), receiver_height3D)
