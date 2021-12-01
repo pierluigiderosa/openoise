@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>3</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -999,7 +999,7 @@
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Create diffracted sound rays layer (output line layer)</string>
+         <string>Create diffracted (vertical obstacle) sound rays layer (output line layer)</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -1207,14 +1207,14 @@
        <x>20</x>
        <y>330</y>
        <width>771</width>
-       <height>59</height>
+       <height>75</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
        <widget class="QCheckBox" name="diff3DRaysCheck">
         <property name="text">
-         <string>Create 3D diffrancted sounds rays layer (output memory line layer)</string>
+         <string>Create diffracted (horizontal obstacle) sound rays layer (output line layer)</string>
         </property>
        </widget>
       </item>
@@ -1365,7 +1365,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>60</y>
+       <y>40</y>
        <width>211</width>
        <height>23</height>
       </rect>
@@ -1829,6 +1829,22 @@
        </item>
       </layout>
      </widget>
+    </widget>
+    <widget class="QCheckBox" name="saveEmissionCheckBox">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string extracomment="This option is valid only in case of input road layers."/>
+     </property>
+     <property name="text">
+      <string>Save emission on input layer</string>
+     </property>
     </widget>
    </widget>
   </widget>

@@ -205,7 +205,7 @@ def get_levels(settings,source_layer,source_feat):
         input_dict['Ts'] = 0
         input_dict['k'] = 'k=1'
         input_dict['dist_intersection'] = 100
-        input_dict['temperature'] = 20
+        input_dict['temperature'] = int(settings['temperature'])
 
         if settings['period_roads_gen'] == 'True':
             for key in CNOSSOS_keys:
@@ -336,9 +336,15 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
     # output emission_pts_writer layer
     if source_roads_layer is not None:
 
+        if settings['save_emission'] == 'True':
+            saveEmi = True
+        else:
+            saveEmi = False
+
         ## create emission points from roads source
         emission_pts_roads_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "emission_pts_roads.shp"))
-        on_CreateEmissionPoints.run(source_roads_layer.source(),receiver_layer.source(),emission_pts_roads_layer_path,research_ray)
+        on_CreateEmissionPoints.run(source_roads_layer.source(),receiver_layer.source(),emission_pts_roads_layer_path,research_ray,saveEmi)
+
         emission_pts_roads_layer = QgsVectorLayer(emission_pts_roads_layer_path,'emission_pts_roads',"ogr")
 
         # get levels from the road source

@@ -45,7 +45,7 @@ def add_point_to_layer(writer, point, attributes):
     writer.addFeature(feature)
 
 
-def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, research_ray):
+def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, research_ray,saveEmi):
     sources_layer = QgsVectorLayer(sources_layer_path, "input layer", "ogr")
     receivers_layer = QgsVectorLayer(receivers_layer_path, "output layer", "ogr")
 

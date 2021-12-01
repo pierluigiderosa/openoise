@@ -155,6 +155,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.diff3DRaysCheck.toggled.connect(self.diff3D_rays_checkBox_update)
         self.skip_diffraction_checkBox.setChecked(0)
         self.skip_diffraction_checkBox.toggled.connect(self.skip_diffraction_checkBox_update)
+        self.saveEmissionCheckBox.setChecked(0)
         self.diff_rays_layer_pushButton.clicked.connect(self.outFile_diff_rays)
         self.dif3Df_rays_layer_pushButton.clicked.connect(self.outFile_diff3D_rays)
 
@@ -530,7 +531,17 @@ loss of precision in sound levels estimates.</p>
             return False
 
         if self.diff_rays_layer_checkBox.isChecked() == True and self.diff_rays_layer_lineEdit.text() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the diffracted sound rays layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the diffracted vertical sound rays layer."))
+            return False
+
+        # check that 3d diffraction is activated when diffracted layers are outputted
+        if self.diff3DRaysCheck.isChecked() == True and self.diff3D_rays_layer_lineEdit.text() == "":
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
+                                    self.tr("Please specify the diffracted horizontal sound rays layer."))
+            return False
+        if self.diff3DRaysCheck.isChecked() == True and self.height_building_check.isChecked() == False:
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
+                                    self.tr("Please activate the 3D global in Input tab."))
             return False
 
         if self.diff_rays_layer_checkBox.isChecked() == True and self.rays_layer_checkBox.isChecked() == True:
@@ -694,6 +705,12 @@ loss of precision in sound levels estimates.</p>
         else:
             settings['skip_diffraction'] = 'False'
 
+        # save emission value in input road layer
+        if self.saveEmissionCheckBox.isChecked():
+            settings['save_emission'] = 'True'
+        else:
+            settings['save_emission'] = 'False'
+
         # TAB option
         settings['research_ray'] = self.research_ray_comboBox.currentText()
         settings['temperature'] = self.temperature_comboBox.currentText()
@@ -811,6 +828,10 @@ loss of precision in sound levels estimates.</p>
             if settings['skip_diffraction'] == "True":
                 self.skip_diffraction_checkBox.setChecked(1)
                 self.diff_rays_layer_checkBox.setEnabled(False)
+
+            # save emission in input layer
+            if settings['save_emission'] == "True":
+                self.saveEmissionCheckBox.setChecked(1)
 
             # 3D setting
             if settings['threedglobal'] == "True":

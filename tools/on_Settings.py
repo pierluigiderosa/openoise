@@ -48,6 +48,7 @@ def keys_traduction():
                         'temperature' : 'options/temperature',
                         'humidity' : 'options/humidity',
                         'skip_diffraction': 'options/diff_skip',
+                        'save_emission': 'options/save_emission',
                         'height_receiver': 'options/height_receiver',
                         'threedglobal':'options/threedglobal',
                         'threedglobal_rays':'options/threedglobal_rays',

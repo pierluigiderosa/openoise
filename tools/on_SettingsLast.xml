@@ -38,7 +38,7 @@
         </rays>
 
         <diff_rays>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/diffraction2.shp</path>
+            <path>C:/Users/pierl/Desktop/Test_diffraction1/diffratti.shp</path>
         </diff_rays>
         <diff3D_rays>
             <path>C:/Users/pierl/Desktop/Test_diffraction1/diff3D.shp</path>
@@ -47,9 +47,10 @@
 
     <options>
         <research_ray>1000</research_ray>
-        <temperature>20</temperature>
+        <temperature>40</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
+        <save_emission>False</save_emission>
         <height_receiver>True</height_receiver>
         <threedglobal>True</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>
