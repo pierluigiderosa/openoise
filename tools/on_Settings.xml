@@ -47,10 +47,10 @@
 
     <options>
         <research_ray>1000</research_ray>
-        <temperature>40</temperature>
+        <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
-        <save_emission>False</save_emission>
+        <save_emission>True</save_emission>
         <height_receiver>True</height_receiver>
         <threedglobal>True</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>

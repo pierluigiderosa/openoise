@@ -28,7 +28,7 @@ from builtins import str
 
 from qgis.PyQt.QtCore import QVariant
 from qgis.core import QgsVectorLayer, QgsField, QgsProject, QgsVectorFileWriter, QgsWkbTypes, QgsFields, Qgis
-from qgis.core import QgsGeometry, QgsFeature, QgsPointXY, QgsRectangle, QgsFeatureRequest
+from qgis.core import QgsGeometry, QgsFeature, QgsPointXY, QgsRectangle, QgsFeatureRequest,edit
 from math import sqrt,log10
 from qgis.utils import iface
 
@@ -343,16 +343,63 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         ## create emission points from roads source
         emission_pts_roads_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "emission_pts_roads.shp"))
-        on_CreateEmissionPoints.run(source_roads_layer.source(),receiver_layer.source(),emission_pts_roads_layer_path,research_ray,saveEmi)
+        on_CreateEmissionPoints.run(source_roads_layer.source(),receiver_layer.source(),emission_pts_roads_layer_path,research_ray)
 
         emission_pts_roads_layer = QgsVectorLayer(emission_pts_roads_layer_path,'emission_pts_roads',"ogr")
 
         # get levels from the road source
         source_roads_levels_dict = {}
         source_roads_feat_all = source_roads_layer.dataProvider().getFeatures()
-        for source_feat in source_roads_feat_all:
-            levels = get_levels(settings,source_roads_layer,source_feat)
-            source_roads_levels_dict[source_feat.id()] = levels
+        if saveEmi == True:
+            # check thathe the field Emission is not already present, in case I will create it
+            if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+                if 'gen_emi' not in source_roads_layer.fields().names():
+                    source_roads_dataprovider = source_roads_layer.dataProvider()
+                    source_roads_dataprovider.addAttributes([QgsField('gen_emi',
+                                                                      QVariant.Double, len=5, prec=1)])
+                    source_roads_layer.updateFields()
+            if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+                if 'day_emi' not in source_roads_layer.fields().names():
+                    source_roads_dataprovider = source_roads_layer.dataProvider()
+                    source_roads_dataprovider.addAttributes([QgsField('day_emi',
+                                                                      QVariant.Double, len=5, prec=1)])
+                    source_roads_layer.updateFields()
+            if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+                if 'eve_emi' not in source_roads_layer.fields().names():
+                    source_roads_dataprovider = source_roads_layer.dataProvider()
+                    source_roads_dataprovider.addAttributes([QgsField('eve_emi',
+                                                                      QVariant.Double, len=5, prec=1)])
+                    source_roads_layer.updateFields()
+            if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+                if 'nig_emi' not in source_roads_layer.fields().names():
+                    source_roads_dataprovider = source_roads_layer.dataProvider()
+                    source_roads_dataprovider.addAttributes([QgsField('nig_emi',
+                                                                      QVariant.Double, len=5, prec=1)])
+                    source_roads_layer.updateFields()
+
+            with edit(source_roads_layer):
+                source_feat = next(source_roads_layer.getFeatures())
+                levels = get_levels(settings, source_roads_layer, source_feat)
+                source_roads_levels_dict[source_feat.id()] = levels
+                if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
+                    source_feat['gen_emi'] = levels['global']['gen']
+                    source_roads_layer.updateFeature(source_feat)
+                if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
+                    source_feat['day_emi'] = levels['global']['day']
+                    source_roads_layer.updateFeature(source_feat)
+                if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
+                    source_feat['eve_emi'] = levels['global']['eve']
+                    source_roads_layer.updateFeature(source_feat)
+                if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
+                    source_feat['nig_emi'] = levels['global']['nig']
+                    source_roads_layer.updateFeature(source_feat)
+
+
+
+        else:
+            for source_feat in source_roads_feat_all:
+                levels = get_levels(settings,source_roads_layer,source_feat)
+                source_roads_levels_dict[source_feat.id()] = levels
 
         # add roads pts to emission pts layer
         source_pts_roads_feat_all = emission_pts_roads_layer.dataProvider().getFeatures()
