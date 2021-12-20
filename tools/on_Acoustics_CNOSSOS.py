@@ -55,7 +55,7 @@ class CNOSSOS(object):
         tree = ET.parse(os.path.join(dir_path,"on_Acoustics_CNOSSOS_Road_Params.xml"))
         tree_1 = ET.parse(os.path.join(dir_path,"on_Acoustics_CNOSSOS_Road_Surfaces.xml"))
         self.root = tree.getroot()
-        self.root1 = tree_1.getroot()
+        self.root_Surface = tree_1.getroot()
         self.speed_reference = float(self.root[1].text)
         self.temp_reference = float(self.root[3].text)
         self.vehicles_classes = {}
@@ -117,10 +117,10 @@ class CNOSSOS(object):
 
         ID = self.surfaces_classes.get(self.surface)
 
-        alfa = self.root1[1][ID][self.vehicles_classes[m]-1].attrib.get('A').split()
-        beta = self.root1[1][ID][self.vehicles_classes[m]-1].attrib.get('B').split()
-        vmin = self.root1[1][ID].attrib.get('Vmin')
-        vmax =self.root1[1][ID].attrib.get('Vmax')
+        alfa = self.root_Surface[1][ID][self.vehicles_classes[m] - 1].attrib.get('A').split()
+        beta = self.root_Surface[1][ID][self.vehicles_classes[m] - 1].attrib.get('B').split()
+        vmin = self.root_Surface[1][ID].attrib.get('Vmin')
+        vmax =self.root_Surface[1][ID].attrib.get('Vmax')
 
         alfa_bands = {63: float(alfa[0]), 125: float(alfa[1]),250: float(alfa[2]), 500: float(alfa[3]), 1000: float(alfa[4]), 2000: float(alfa[5]), 4000: float(alfa[6]),8000: float(alfa[7])}
 
@@ -215,6 +215,9 @@ class CNOSSOS(object):
         # delta_Lroad
         if m == '1' or m == '2' or m == '3':
             self.CNOSSOS_Surface_Params[m] = self.surface_param(m)
+            # TODO: controllare surface params
+            # print('m='+str(m)+' Lrolling:')
+            # print(self.CNOSSOS_Surface_Params[m])
 
             if speed < self.CNOSSOS_Surface_Params[m]['Vmin']:
                 speed = self.CNOSSOS_Surface_Params[m]['Vmin']
@@ -259,13 +262,15 @@ class CNOSSOS(object):
 
         delta_sum = delta_Lroad + delta_Lstudd + delta_Lacc + delta_Ltemp
 
-        return self.CNOSSOS_Road_Params[m]['Ar'][f] + self.CNOSSOS_Road_Params[m]['Br'][f] * log10(speed/self.speed_reference) + delta_sum
+        Lroll_out = self.CNOSSOS_Road_Params[m]['Ar'][f] + self.CNOSSOS_Road_Params[m]['Br'][f] * log10(speed/self.speed_reference) + delta_sum
+        print('freq',f,delta_Lroad,delta_Lstudd,delta_Lacc,delta_Ltemp,speed,self.speed_reference,Lroll_out)
+        return Lroll_out
 
 
     def L_propagation(self,m,f,speed):             # L_propagation as pag. 37, cap. III.2.4, formula III-11
 
         # delta_Lroad
-        if self.surface == 'NL01':
+        if self.surface in ('NL01','NL02','NL03','NL04','NL05','NL06','NL07','NL08','NL09','NL10','NL11','NL12','NL13','NL14'):
 
             self.CNOSSOS_Surface_Params[m] = self.surface_param(m)
 

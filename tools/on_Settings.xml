@@ -9,8 +9,8 @@
         <receivers>
             <name>ricettore</name>
             <path>C:/Users/pierl/Desktop/Test_diffraction1/ricettore.shp</path>
-            <custom3d>True</custom3d>
-            <custom3dfield>H</custom3dfield>
+            <custom3d>False</custom3d>
+            <custom3dfield />
         </receivers>
 
         <sources>
@@ -34,14 +34,14 @@
         </emissions_points>
 
         <rays>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/diretti.shp</path>
+            <path />
         </rays>
 
         <diff_rays>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/diffratti.shp</path>
+            <path />
         </diff_rays>
         <diff3D_rays>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/diff3D.shp</path>
+            <path />
         </diff3D_rays>
     </layers>
 
@@ -51,10 +51,10 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <save_emission>True</save_emission>
-        <height_receiver>True</height_receiver>
-        <threedglobal>True</threedglobal>
+        <height_receiver>False</height_receiver>
+        <threedglobal>False</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>
-        <field3D>H</field3D>
+        <field3D />
 
         <den>
             <day_hours>14</day_hours> 
