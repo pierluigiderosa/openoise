@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.dbf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,6 +279,8 @@
       <workItem from="1639989629304" duration="137000" />
       <workItem from="1640001860128" duration="27000" />
       <workItem from="1640258537937" duration="2492000" />
+      <workItem from="1640261768285" duration="17000" />
+      <workItem from="1640267695739" duration="787000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -604,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640260921437</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="correction param NL02 ref 3">
+      <created>1640261776693</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1640261776693</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
