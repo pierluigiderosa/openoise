@@ -220,12 +220,11 @@ class CNOSSOS(object):
             # print(self.CNOSSOS_Surface_Params[m])
 
             if speed < self.CNOSSOS_Surface_Params[m]['Vmin']:
-                speed = self.CNOSSOS_Surface_Params[m]['Vmin']
-
-            if speed > self.CNOSSOS_Surface_Params[m]['Vmax']:
-                speed = self.CNOSSOS_Surface_Params[m]['Vmax']
-
-            delta_Lroad = float(self.CNOSSOS_Surface_Params[m]['Alfa'][f]) + float(self.CNOSSOS_Surface_Params[m]['Beta'][0]) * log10(speed/self.speed_reference)
+                delta_Lroad = 0
+            elif speed > self.CNOSSOS_Surface_Params[m]['Vmax']:
+                delta_Lroad = 0
+            else:
+                delta_Lroad = float(self.CNOSSOS_Surface_Params[m]['Alfa'][f]) + float(self.CNOSSOS_Surface_Params[m]['Beta'][0]) * log10(speed/self.speed_reference)
 
         else:
             delta_Lroad = 0

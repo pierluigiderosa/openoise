@@ -8,7 +8,7 @@
     <layers>
         <receivers>
             <name>ricettore</name>
-            <path>/home/pierluigi/Scrivania/test_openoise_simple/ricettore.shp</path>
+            <path>C:/Users/pierl/Desktop/Test_diffraction1/ricettore.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -20,13 +20,13 @@
 	    </pts>
 	    <roads>	
 		<name>road_CNOSSOS</name>
-		<path>/home/pierluigi/Scrivania/test_openoise_simple/road_CNOSSOS.SHP</path>
+		<path>C:/Users/pierl/Desktop/Test_diffraction1/road_CNOSSOS.SHP</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>Edificio</name>
-            <path>/home/pierluigi/Scrivania/test_openoise_simple/Edificio.shp</path>
+            <path>C:/Users/pierl/Desktop/Test_diffraction1/Edificio.shp</path>
         </buildings>
 
         <emissions_points>
