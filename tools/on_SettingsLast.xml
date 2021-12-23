@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>ricettore</name>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/ricettore.shp</path>
+            <name>receveir_points</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>road_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/Test_diffraction1/road_CNOSSOS.SHP</path>
+		<name>roads_NMPB_traffic_flow</name>
+		<path>C:/Users/pierl/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/openoise/data set for testing/roads_NMPB_traffic_flow.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>Edificio</name>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/Edificio.shp</path>
+            <name>buildings</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -46,7 +46,7 @@
     </layers>
 
     <options>
-        <research_ray>1000</research_ray>
+        <research_ray>50</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
@@ -69,7 +69,7 @@
     <emission>
         <implementation>
 		<pts />
-		<roads>CNOSSOS</roads>
+		<roads>NMPB</roads>
         </implementation>
 
 	<period>
@@ -115,18 +115,18 @@
             <eve_l_s />            
             <eve_h_n />
             <eve_h_s />
-            <nig_l_n />
-            <nig_l_s />            
+            <nig_l_n>light_n</nig_l_n>
+            <nig_l_s>light_s</nig_l_s>            
             <nig_h_n />
             <nig_h_s />
             
             <gen_type />
             <day_type />            
             <eve_type />
-            <nig_type />    
+            <nig_type>Traffic</nig_type>    
             
-            <surface />                    
-            <slope />            
+            <surface>Surface</surface>                    
+            <slope>Slope</slope>            
         </NMPB>
         
         <CNOSSOS>
@@ -163,8 +163,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n>car</nig_1_n>
-            <nig_1_s>v_car</nig_1_s>            
+            <nig_1_n />
+            <nig_1_s />            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
@@ -174,8 +174,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface>Surface</surface>                    
-            <slope>Slope</slope>  
+            <surface />                    
+            <slope />  
 
         </CNOSSOS>       
     </emission>    

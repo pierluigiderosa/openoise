@@ -379,19 +379,19 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
             with edit(source_roads_layer):
                 source_feat = next(source_roads_layer.getFeatures())
-                levels = get_levels(settings, source_roads_layer, source_feat)
-                source_roads_levels_dict[source_feat.id()] = levels
+                levelsEmi = get_levels(settings, source_roads_layer, source_feat)
+                source_roads_levels_dict[source_feat.id()] = levelsEmi
                 if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                    source_feat['gen_emi'] = levels['global']['gen']
+                    source_feat['gen_emi'] = levelsEmi['global']['gen']
                     source_roads_layer.updateFeature(source_feat)
                 if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                    source_feat['day_emi'] = levels['global']['day']
+                    source_feat['day_emi'] = levelsEmi['global']['day']
                     source_roads_layer.updateFeature(source_feat)
                 if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                    source_feat['eve_emi'] = levels['global']['eve']
+                    source_feat['eve_emi'] = levelsEmi['global']['eve']
                     source_roads_layer.updateFeature(source_feat)
                 if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                    source_feat['nig_emi'] = levels['global']['nig']
+                    source_feat['nig_emi'] = levelsEmi['global']['nig']
                     source_roads_layer.updateFeature(source_feat)
 
 

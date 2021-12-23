@@ -1,4 +1,10 @@
 opeNoise - Calculate Noise Levels - Errors
 
-No errors.
-
+Traceback (most recent call last):
+  File "C:/Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\do_CalculateNoiseLevels.py", line 989, in accept
+    on_CalculateNoiseLevels.run(settings,self.progress_bars,self.totalBar)
+  File "C:/Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\on_CalculateNoiseLevels.py", line 1175, in run
+    receiver_feat_new_fields = calc(progress_bars,totalBar,receiver_layer,source_pts_layer,source_roads_layer,settings,level_field_index,obstacles_layer,rays_writer,diff_rays_writer,diff3D_rays_writer)
+  File "C:/Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\on_CalculateNoiseLevels.py", line 442, in calc
+    levels = source_roads_levels_dict[id_source]
+KeyError: 1
