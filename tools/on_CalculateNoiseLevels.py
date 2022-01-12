@@ -335,8 +335,8 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
     # roads source layer to emission pts layer
     # output emission_pts_writer layer
     if source_roads_layer is not None:
-        # TODO: for now it save emission only for CNOSSOS not NMPB
-        if settings['save_emission'] == 'True' and settings['implementation_roads'] =='CNOSSOS':
+
+        if settings['save_emission'] == 'True':
             saveEmi = True
         else:
             saveEmi = False
@@ -380,7 +380,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
             with edit(source_roads_layer):
                 source_feat = next(source_roads_layer.getFeatures())
                 levelsEmi = get_levels(settings, source_roads_layer, source_feat)
-                # source_roads_levels_dict[source_feat.id()] = levels
+                source_roads_levels_dict[source_feat.id()] = levelsEmi
                 if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
                     source_feat['gen_emi'] = levelsEmi['global']['gen']
                     source_roads_layer.updateFeature(source_feat)

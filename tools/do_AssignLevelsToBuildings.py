@@ -33,7 +33,7 @@ from qgis.PyQt.QtWidgets import QDialog
 from qgis.PyQt.QtWidgets import QDialogButtonBox
 from qgis.PyQt.QtWidgets import QMessageBox
 
-from qgis.core import (QgsProject,
+from qgis.core import (QgsProject,QgsVectorLayer,QgsFeature,
                        QgsWkbTypes,QgsFieldProxyModel,
                        QgsField, QgsMapLayerProxyModel)
 try:
@@ -41,7 +41,7 @@ try:
 except ImportError:
     from qgis.core import QGis as Qgis
 from qgis.PyQt import uic
-import os, sys
+import os, sys, shutil
 import traceback
 
 #from math import *
@@ -51,6 +51,22 @@ Ui_AssignLevelsToBuildings_window, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'ui_AssignLevelsToBuildings.ui'), resource_suffix='')
 
 from . import on_ApplyNoiseSymbology
+
+def CreateTempDir():
+
+    global temp_dir
+
+    currentPath = os.path.dirname(__file__)
+    temp_dir = os.path.abspath(os.path.join(currentPath + os.sep +'temp'))
+
+    if os.path.isdir(temp_dir):
+        DeleteTempDir()
+
+    os.mkdir(temp_dir)
+
+def DeleteTempDir():
+
+    shutil.rmtree(temp_dir)
 
 class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
@@ -91,8 +107,24 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         self.buildings_layer_comboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer)
 
         self.receiver_points_population_field.setLayer(self.buildings_layer_comboBox.currentLayer())
+        self.receiver_points_population_field.setAllowEmptyFieldName(True)
 
         #self.buildings_layer_comboBox.addItems(buildings_layers)
+
+    def outputTempTable(self,pddf,tablename):
+        vl = QgsVectorLayer("None", tablename, "memory")
+        pr = vl.dataProvider()
+        pr.addAttributes([QgsField("level", QVariant.String),
+                          QgsField("population", QVariant.Double)])
+        vl.updateFields()
+        labelsLev = ["<=35.0dBa", "35 - 40 dBa", "40 - 45 dBa", "45 - 50 dBa",
+                     "50 - 55 dBa", "55 - 60 dBa", "60 - 65 dBa", "65 - 70 dBa",
+                     "70 - 75 dBa", "75 - 80 dBa", ">80 dBa"]
+        for idx in range(len(pddf.values)):
+            f = QgsFeature()
+            f.setAttributes([labelsLev[idx], round(float(pddf.values[idx]), 2)])
+            pr.addFeature(f)
+        QgsProject.instance().addMapLayer(vl)
 
 
     def update_field_receiver_points_layer(self):
@@ -331,14 +363,17 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 for livello in livelliFiltered:
                     outPop.append([livello, abitanti / len(livelliFiltered), id_bui])
 
-        df1 = pd.DataFrame(outPop, columns=['livello', 'popolazione', 'id_bui'])
-        bins = pd.cut(df1['livello'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
+        df1 = pd.DataFrame(outPop, columns=['levels', 'popolazione', 'id_bui'])
+        bins = pd.cut(df1['levels'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
         df2=df1.groupby(bins)['popolazione'].agg(['sum'])
-        return df2
+        df3 = df2.rename({'sum': 'population'}, axis=1)
+        return df3
 
 
 
     def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field):
+
+        CreateTempDir()
 
         # gets vector layers, features receiver points
         receiver_points_feat_total = receiver_points_layer.dataProvider().featureCount()
@@ -447,97 +482,128 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             else:
                 buildings_levels_fields[id_edi] = feat_levels_fields
         #     --------------
-            # Assigning dwellings and people living in dwellings to receiver points PAG 37 Directive 2020
+            if building_pop_Field != '':
+                # Assigning dwellings and people living in dwellings to receiver points PAG 37 Directive 2020
+                # creo dizionario che contiene per ogni edificio i livelli di ogni ricettore
+                if receiver_points_layer_details['level_1'] != 'none':
+                    if level_1 < 0: # filter in case level is -99
+                        level_1 = 0
+                    if id_edi in buildings_levels_from_receiverL1:
+                        buildings_levels_from_receiverL1[id_edi].append(level_1)
+                    else:
+                        buildings_levels_from_receiverL1[id_edi] = [level_1]
+
+                if receiver_points_layer_details['level_2'] != 'none':
+                    if level_2 < 0:
+                        level_2 = 0
+                    if id_edi in buildings_levels_from_receiverL2:
+                        buildings_levels_from_receiverL2[id_edi].append(level_2)
+                    else:
+                        buildings_levels_from_receiverL2[id_edi] = [level_2]
+
+                if receiver_points_layer_details['level_3'] != 'none':
+                    if level_3 < 0:
+                        level_3 = 0
+                    if id_edi in buildings_levels_from_receiverL3:
+                        buildings_levels_from_receiverL3[id_edi].append(level_3)
+                    else:
+                        buildings_levels_from_receiverL3[id_edi] = [level_3]
+
+                if receiver_points_layer_details['level_4'] != 'none':
+                    if level_4 < 0:
+                        level_4 = 0
+                    if id_edi in buildings_levels_from_receiverL4:
+                        buildings_levels_from_receiverL4[id_edi].append(level_4)
+                    else:
+                        buildings_levels_from_receiverL4[id_edi] = [level_4]
+
+                if receiver_points_layer_details['level_5'] != 'none':
+                    if level_5 < 0:
+                        level_5 = 0
+                    if id_edi in buildings_levels_from_receiverL5:
+                        buildings_levels_from_receiverL5[id_edi].append(level_5)
+                    else:
+                        buildings_levels_from_receiverL5[id_edi] = [level_5]
+
+        if building_pop_Field != '':
+            # creation of dict that stores median e numbers of receiver relater to any buildings
+            buildings_medianL1=dict()
+            buildings_medianL2 = dict()
+            buildings_medianL3 = dict()
+            buildings_medianL4 = dict()
+            buildings_medianL5 = dict()
             if receiver_points_layer_details['level_1'] != 'none':
-                if level_1 < 0: # filter in case level is -99
-                    level_1 = 0
-                if id_edi in buildings_levels_from_receiverL1:
-                    buildings_levels_from_receiverL1[id_edi].append(level_1)
-                else:
-                    buildings_levels_from_receiverL1[id_edi] = [level_1]
+                for keysB, valueB in buildings_levels_from_receiverL1.items():
+                    buildings_medianL1[keysB] = (median(valueB), len(valueB) )
 
             if receiver_points_layer_details['level_2'] != 'none':
-                if level_2 < 0:
-                    level_2 = 0
-                if id_edi in buildings_levels_from_receiverL2:
-                    buildings_levels_from_receiverL2[id_edi].append(level_2)
-                else:
-                    buildings_levels_from_receiverL2[id_edi] = [level_2]
+                for keysB, valueB in buildings_levels_from_receiverL2.items():
+                    buildings_medianL2[keysB] = (median(valueB), len(valueB))
 
             if receiver_points_layer_details['level_3'] != 'none':
-                if level_3 < 0:
-                    level_3 = 0
-                if id_edi in buildings_levels_from_receiverL3:
-                    buildings_levels_from_receiverL3[id_edi].append(level_3)
-                else:
-                    buildings_levels_from_receiverL3[id_edi] = [level_3]
+                for keysB, valueB in buildings_levels_from_receiverL3.items():
+                    buildings_medianL3[keysB] = (median(valueB), len(valueB))
 
             if receiver_points_layer_details['level_4'] != 'none':
-                if level_4 < 0:
-                    level_4 = 0
-                if id_edi in buildings_levels_from_receiverL4:
-                    buildings_levels_from_receiverL4[id_edi].append(level_4)
-                else:
-                    buildings_levels_from_receiverL4[id_edi] = [level_4]
+                for keysB, valueB in buildings_levels_from_receiverL4.items():
+                    buildings_medianL4[keysB] = (median(valueB), len(valueB))
 
             if receiver_points_layer_details['level_5'] != 'none':
-                if level_5 < 0:
-                    level_5 = 0
-                if id_edi in buildings_levels_from_receiverL5:
-                    buildings_levels_from_receiverL5[id_edi].append(level_5)
-                else:
-                    buildings_levels_from_receiverL5[id_edi] = [level_5]
+                for keysB, valueB in buildings_levels_from_receiverL5.items():
+                    buildings_medianL5[keysB] = (median(valueB), len(valueB))
 
-        buildings_medianL1=dict()
-        buildings_medianL2 = dict()
-        buildings_medianL3 = dict()
-        buildings_medianL4 = dict()
-        buildings_medianL5 = dict()
-        if receiver_points_layer_details['level_1'] != 'none':
-            for keysB, valueB in buildings_levels_from_receiverL1.items():
-                buildings_medianL1[keysB] = (median(valueB), len(valueB) )
+            # extract population from building layer and store in
+            buildingPop = dict()
+            for bFeat in buildings_layer.getFeatures():
+                buildingPop[bFeat.id()] = bFeat[building_pop_Field]
+            print('pop: ',buildingPop)
+            print('BLeve1: ', buildings_levels_from_receiverL1)
 
-        if receiver_points_layer_details['level_2'] != 'none':
-            for keysB, valueB in buildings_levels_from_receiverL2.items():
-                buildings_medianL2[keysB] = (median(valueB), len(valueB))
-
-        if receiver_points_layer_details['level_3'] != 'none':
-            for keysB, valueB in buildings_levels_from_receiverL3.items():
-                buildings_medianL3[keysB] = (median(valueB), len(valueB))
-
-        if receiver_points_layer_details['level_4'] != 'none':
-            for keysB, valueB in buildings_levels_from_receiverL4.items():
-                buildings_medianL4[keysB] = (median(valueB), len(valueB))
-
-        if receiver_points_layer_details['level_5'] != 'none':
-            for keysB, valueB in buildings_levels_from_receiverL5.items():
-                buildings_medianL5[keysB] = (median(valueB), len(valueB))
-
-        # extract population from building layer and store in
-        buildingPop = dict()
-        for bFeat in buildings_layer.getFeatures():
-            buildingPop[bFeat.id()] = bFeat[building_pop_Field]
-        print('pop: ',buildingPop)
-        print('BLeve: ', buildings_levels_from_receiverL1)
-
-        # todo: preparare la tabella riassuntiva anche per gli altri livelli
-        df1 = self.popMedianAssign(buildingPop,
-                             buildings_levels_from_receiverL1,
-                             buildings_levels_from_receiverL1)
-        print(df1)
-        # todo: esportare popolazione su tabella
+            if receiver_points_layer_details['level_1'] != 'none':
+                df1 = self.popMedianAssign(buildingPop,
+                                     buildings_levels_from_receiverL1,
+                                     buildings_medianL1)
+                self.outputTempTable(df1,"Population - Lev1")
+                print('L1 pop',df1)
+            if receiver_points_layer_details['level_2'] != 'none':
+                df2 = self.popMedianAssign(buildingPop,
+                                     buildings_levels_from_receiverL2,
+                                     buildings_medianL2)
+                self.outputTempTable(df2,"Population - Lev2")
+                print('L2 pop',df2)
+            if receiver_points_layer_details['level_3'] != 'none':
+                df3 = self.popMedianAssign(buildingPop,
+                                     buildings_levels_from_receiverL3,
+                                     buildings_medianL3)
+                self.outputTempTable(df3,"Population - Lev3")
+                print('L3 pop',df3)
+            if receiver_points_layer_details['level_4'] != 'none':
+                df4 = self.popMedianAssign(buildingPop,
+                                     buildings_levels_from_receiverL4,
+                                     buildings_medianL4)
+                self.outputTempTable(df4,"Population - Lev4")
+                print('L3 pop',df4)
+            if receiver_points_layer_details['level_5'] != 'none':
+                df5 = self.popMedianAssign(buildingPop,
+                                     buildings_levels_from_receiverL5,
+                                     buildings_medianL5)
+                self.outputTempTable(df5,"Population - Lev5")
+                print('L3 pop',df5)
 
 
-        # del buildings_levels_from_receiverL2
-        # del buildings_levels_from_receiverL3
-        # del buildings_levels_from_receiverL4
-        # del buildings_levels_from_receiverL5
 
-        print('L1:',buildings_medianL1)
-        print('L2',buildings_medianL2)
-        print('L3',buildings_medianL3)
-        print('L4',buildings_medianL4)
-        print('L5',buildings_medianL5)
+            # del buildings_levels_from_receiverL2
+            # del buildings_levels_from_receiverL3
+            # del buildings_levels_from_receiverL4
+            # del buildings_levels_from_receiverL5
+
+            print('L1:',buildings_medianL1)
+            print('L2',buildings_medianL2)
+            print('L3',buildings_medianL3)
+            print('L4',buildings_medianL4)
+            print('L5',buildings_medianL5)
+        # -- end new part
+
         # puts the sound level in the buildings attribute table
         new_level_fields = []
         if receiver_points_layer_details['level_1'] != 'none':
@@ -551,7 +617,6 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         if receiver_points_layer_details['level_5'] != 'none':
             new_level_fields.append(QgsField(level_5_name, QVariant.Double,len=5,prec=1))
 
-        print(new_level_fields)
         buildings_layer.dataProvider().addAttributes( new_level_fields )
         buildings_layer.updateFields()
         buildings_layer.dataProvider().changeAttributeValues(buildings_levels_fields)

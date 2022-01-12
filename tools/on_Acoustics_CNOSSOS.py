@@ -273,9 +273,14 @@ class CNOSSOS(object):
 
             self.CNOSSOS_Surface_Params[m] = self.surface_param(m)
 
-            delta_Lroad = min(self.CNOSSOS_Surface_Params[m]['Alfa'][f],0)
-        else:
+
+
+        if speed < self.CNOSSOS_Surface_Params[m]['Vmin']:
             delta_Lroad = 0
+        elif speed > self.CNOSSOS_Surface_Params[m]['Vmax']:
+            delta_Lroad = 0
+        else:
+            delta_Lroad = min(self.CNOSSOS_Surface_Params[m]['Alfa'][f], 0)
 
         # delta_Lacc
         if self.dist_intersection == 0:
