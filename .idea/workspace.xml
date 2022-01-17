@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="fix for save emission only for CNOSSOS">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="first version population calculus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.dbf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_CNOSSOS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
@@ -289,7 +287,9 @@
       <workItem from="1640268794650" duration="6551000" />
       <workItem from="1641980424024" duration="2939000" />
       <workItem from="1642001889095" duration="2037000" />
-      <workItem from="1642007366124" duration="3963000" />
+      <workItem from="1642007366124" duration="4211000" />
+      <workItem from="1642405764972" duration="2766000" />
+      <workItem from="1642430892924" duration="5169000" />
     </task>
     <task id="LOCAL-00001" summary="added setting for 3d option">
       <created>1613634701355</created>
@@ -627,7 +627,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640268513520</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="first version population calculus">
+      <created>1642011614261</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1642011614261</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +685,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- removed bug on variable not assigned" />
     <MESSAGE value="- removed bug on output layer for diffraction" />
     <MESSAGE value="- removed bug on output layer for diffraction&#10;- added some info in UI" />
     <MESSAGE value="- add a check in case of same name of receiver and diffraction layer" />
@@ -703,7 +709,8 @@
     <MESSAGE value="fix delta_Lroad in case of speed out of range Vmin Vmax" />
     <MESSAGE value="correction param NL02 ref 3" />
     <MESSAGE value="fix for save emission only for CNOSSOS" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix for save emission only for CNOSSOS" />
+    <MESSAGE value="first version population calculus" />
+    <option name="LAST_COMMIT_MESSAGE" value="first version population calculus" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />

@@ -262,7 +262,7 @@ class CNOSSOS(object):
         delta_sum = delta_Lroad + delta_Lstudd + delta_Lacc + delta_Ltemp
 
         Lroll_out = self.CNOSSOS_Road_Params[m]['Ar'][f] + self.CNOSSOS_Road_Params[m]['Br'][f] * log10(speed/self.speed_reference) + delta_sum
-        print('freqROL',f,delta_Lroad,delta_Lstudd,delta_Lacc,delta_Ltemp,speed,self.speed_reference,round(Lroll_out,1))
+
         return Lroll_out
 
 
@@ -316,9 +316,8 @@ class CNOSSOS(object):
         delta_sum = delta_Lroad + delta_Lacc + delta_Lgrad
 
         L_prop_out = self.CNOSSOS_Road_Params[m]['Ap'][f] + self.CNOSSOS_Road_Params[m]['Bp'][f] *(speed - self.speed_reference)/self.speed_reference + delta_sum
-        print('freq',f,delta_Lroad , delta_Lacc , delta_Lgrad,
-              speed,self.speed_reference,
-              round(L_prop_out,1) )
+
+
         return L_prop_out
 
 #prova = {}

@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>ricettore</name>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/ricettore.shp</path>
+            <name>receveir_points</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>road_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/Test_diffraction1/road_CNOSSOS.SHP</path>
+		<name>roads_CNOSSOS</name>
+		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>Edificio</name>
-            <path>C:/Users/pierl/Desktop/Test_diffraction1/Edificio.shp</path>
+            <name>buildings</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -46,7 +46,7 @@
     </layers>
 
     <options>
-        <research_ray>50</research_ray>
+        <research_ray>250</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
@@ -80,10 +80,10 @@
 		    <nig />  
 		</pts>
 		<roads>
-		    <gen>False</gen>
+		    <gen>True</gen>
 		    <day>False</day>            
 		    <eve>False</eve>            
-		    <nig>True</nig>  
+		    <nig>False</nig>  
 		</roads>
 	    <den>False</den>                                                          	     
 	</period>
@@ -130,8 +130,8 @@
         </NMPB>
         
         <CNOSSOS>
-            <gen_1_n />
-            <gen_1_s />            
+            <gen_1_n>light_n</gen_1_n>
+            <gen_1_s>light_v</gen_1_s>            
             <gen_2_n />
             <gen_2_s />
             <gen_3_n />
@@ -163,8 +163,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n>car</nig_1_n>
-            <nig_1_s>v_car</nig_1_s>            
+            <nig_1_n />
+            <nig_1_s />            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
