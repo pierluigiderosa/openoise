@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -224,12 +224,24 @@
        <item>
         <widget class="QCheckBox" name="height_receiver_check">
          <property name="text">
-          <string>Activate custom receiver height (m)</string>
+          <string>Activate custom receiver height (m)
+for receivers other than 4 m from the ground</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QgsFieldComboBox" name="field_height_receiver"/>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_17">
+           <property name="text">
+            <string>choose the label field containing the receveirs height attribute</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QgsFieldComboBox" name="field_height_receiver"/>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -303,14 +315,25 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QCheckBox" name="height_building_check">
-         <property name="toolTip">
-          <string>to enable check that skip diffraction in disabled.</string>
-         </property>
-         <property name="text">
-          <string>Activate 3D global</string>
-         </property>
-        </widget>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QCheckBox" name="height_building_check">
+           <property name="toolTip">
+            <string>to enable check that skip diffraction in disabled.</string>
+           </property>
+           <property name="text">
+            <string>Activate 3D calculation - Specifies the height of the buildings (m)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;      to also take into account the diffraction at horizontal obstacles.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QgsFieldComboBox" name="field_height_building">

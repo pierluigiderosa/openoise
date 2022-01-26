@@ -760,7 +760,7 @@ loss of precision in sound levels estimates.</p>
         if self.diff3DRaysCheck.isChecked():
             settings['threedglobal_rays'] = 'True'
         else:
-            settings['threedglobal_rays'] = 'True'
+            settings['threedglobal_rays'] = 'False'
 
         on_Settings.setSettings(settings)
 

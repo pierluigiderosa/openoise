@@ -40,7 +40,7 @@
      <item>
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Data value</string>
+        <string>Data value dB(A)</string>
        </property>
       </widget>
      </item>

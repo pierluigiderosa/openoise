@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/Test_diffraction1</last>
+        <last>C:/Users/pierl/Desktop/Raggi diffratti</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>receveir_points</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points.shp</path>
+            <name>receveir_CNOSSOS</name>
+            <path>C:/Users/pierl/Desktop/Raggi diffratti/receveir_CNOSSOS.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
+		<name>road_CNOSSOS</name>
+		<path>C:/Users/pierl/Desktop/Raggi diffratti/road_CNOSSOS.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>buildings</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
+            <name>buildings_CNOSSOS</name>
+            <path>C:/Users/pierl/Desktop/Raggi diffratti/buildings_CNOSSOS.shp</path>
         </buildings>
 
         <emissions_points>
@@ -41,7 +41,7 @@
             <path />
         </diff_rays>
         <diff3D_rays>
-            <path />
+            <path>C:/Users/pierl/Desktop/Raggi diffratti/horizontal_P1.shp</path>
         </diff3D_rays>
     </layers>
 
@@ -52,9 +52,9 @@
         <diff_skip>False</diff_skip>
         <save_emission>True</save_emission>
         <height_receiver>False</height_receiver>
-        <threedglobal>False</threedglobal>
+        <threedglobal>True</threedglobal>
         <threedglobal_rays>True</threedglobal_rays>
-        <field3D />
+        <field3D>H</field3D>
 
         <den>
             <day_hours>14</day_hours> 
@@ -80,10 +80,10 @@
 		    <nig />  
 		</pts>
 		<roads>
-		    <gen>True</gen>
+		    <gen>False</gen>
 		    <day>False</day>            
 		    <eve>False</eve>            
-		    <nig>False</nig>  
+		    <nig>True</nig>  
 		</roads>
 	    <den>False</den>                                                          	     
 	</period>
@@ -130,8 +130,8 @@
         </NMPB>
         
         <CNOSSOS>
-            <gen_1_n>light_n</gen_1_n>
-            <gen_1_s>light_v</gen_1_s>            
+            <gen_1_n />
+            <gen_1_s />            
             <gen_2_n />
             <gen_2_s />
             <gen_3_n />
@@ -163,8 +163,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n />
-            <nig_1_s />            
+            <nig_1_n>light_n</nig_1_n>
+            <nig_1_s>light_v</nig_1_s>            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />

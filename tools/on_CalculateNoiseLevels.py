@@ -544,7 +544,6 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
     bar = progress_bars['calculate']['bar']
 
-
     for receiver_feat in receiver_feat_all:
         # Bug correction in case of receiver inside a building
         # we exclude the receiver from calculus
@@ -869,6 +868,10 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                         eLine = QgsGeometry.fromPolylineXY(ePoints)
                         epsilon=eLine.length()
 
+                        level_emi = source_feat_value['global']
+                        level_emi_bands = source_feat_value['bands']
+
+
                         level_dif = {}
                         level_dif_bands = {}
                         level_atm_bands = {}
@@ -1111,7 +1114,7 @@ def run(settings,progress_bars,totalBar):
         rays_fields = QgsFields()
         rays_fields.append(QgsField("id_dif_ray", QVariant.Int))
         rays_fields.append(QgsField("id_rec", QVariant.Int))
-        rays_fields.append(QgsField("id_source", QVariant.Int))
+        rays_fields.append(QgsField("id_emi", QVariant.Int))
         rays_fields.append(QgsField("delta3d", QVariant.Double, len=10, prec=2))
         rays_fields.append(QgsField("epsilon", QVariant.Double, len=10, prec=2))
 
