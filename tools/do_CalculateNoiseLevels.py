@@ -62,7 +62,9 @@ def removeLayer(path_layer):
                   "cpg", "qix"]
     if len(QgsProject.instance().mapLayersByName(diff_layer)) > 0:
         lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
-        print('removing layer1: ', lyr.id())
+        print(diff_layer,':',directory,':',basefile,':',path_layer)
+        print('rename layer1: ', lyr.id())
+        print(os.path.join(directory,diff_layer+'1.shp',))
         QgsProject.instance().removeMapLayer(lyr.id())
         QgsVectorFileWriter.deleteShapeFile(path_layer)
 
@@ -476,7 +478,8 @@ loss of precision in sound levels estimates.</p>
 
         removeLayer(shapefileName)
 
-        on_Settings.setOneSetting('directory_last', os.path.dirname(self.diff3D_rays_layer_lineEdit.text()))
+        on_Settings.setOneSetting('directory_last',
+                                  os.path.dirname(self.diff3D_rays_layer_lineEdit.text()))
 
     def check(self):
 

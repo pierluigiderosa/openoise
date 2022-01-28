@@ -215,9 +215,7 @@ class CNOSSOS(object):
         # delta_Lroad
         if m == '1' or m == '2' or m == '3':
             self.CNOSSOS_Surface_Params[m] = self.surface_param(m)
-            # TODO: controllare surface params
-            # print('m='+str(m)+' Lrolling:')
-            # print(self.CNOSSOS_Surface_Params[m])
+
 
             if speed < self.CNOSSOS_Surface_Params[m]['Vmin']:
                 delta_Lroad = 0
@@ -269,18 +267,17 @@ class CNOSSOS(object):
     def L_propagation(self,m,f,speed):             # L_propagation as pag. 37, cap. III.2.4, formula III-11
 
         # delta_Lroad
-        if self.surface in ('NL01','NL02','NL03','NL04','NL05','NL06','NL07','NL08','NL09','NL10','NL11','NL12','NL13','NL14'):
-
+        if self.surface in (0,'NL01','NL02','NL03','NL04','NL05','NL06','NL07','NL08','NL09','NL10','NL11','NL12','NL13','NL14'):
             self.CNOSSOS_Surface_Params[m] = self.surface_param(m)
 
-
-
-        if speed < self.CNOSSOS_Surface_Params[m]['Vmin']:
-            delta_Lroad = 0
-        elif speed > self.CNOSSOS_Surface_Params[m]['Vmax']:
-            delta_Lroad = 0
+            if speed < self.CNOSSOS_Surface_Params[m]['Vmin']:
+                delta_Lroad = 0
+            elif speed > self.CNOSSOS_Surface_Params[m]['Vmax']:
+                delta_Lroad = 0
+            else:
+                delta_Lroad = min(self.CNOSSOS_Surface_Params[m]['Alfa'][f], 0)
         else:
-            delta_Lroad = min(self.CNOSSOS_Surface_Params[m]['Alfa'][f], 0)
+            delta_Lroad = 0
 
         # delta_Lacc
         if self.dist_intersection == 0:

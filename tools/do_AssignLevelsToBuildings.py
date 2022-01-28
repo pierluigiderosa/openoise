@@ -119,7 +119,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         vl.updateFields()
         labelsLev = ["<=35.0 dB(A)", "35 - 40 dB(A)", "40 - 45 dB(A)", "45 - 50 dB(A)",
                      "50 - 55 dB(A)", "55 - 60 dB(A)", "60 - 65 dB(A)", "65 - 70 dB(A)",
-                     "70 - 75 dB(A)", "75 - 80 dB(A)", ">80 dB(A) lk mjkvm k"]
+                     "70 - 75 dB(A)", "75 - 80 dB(A)", ">80 dB(A)"]
         for idx in range(len(pddf.values)):
             f = QgsFeature()
             f.setAttributes([labelsLev[idx], round(float(pddf.values[idx]), 2)])

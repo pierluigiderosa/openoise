@@ -64,7 +64,9 @@ class Dialog(QDialog,FORM_CLASS):
                 
         self.populateLayers()
         self.populate_overlayLayer()
-        spaced_distance_list = ['1','2','3','4','5']        
+        # added only distances of 5 m
+        # spaced_distance_list = ['1','2','3','4','5']
+        spaced_distance_list = ['5']
         self.spaced_pts_comboBox.clear()
         for distance in spaced_distance_list:
             self.spaced_pts_comboBox.addItem(distance)
@@ -259,6 +261,13 @@ class Dialog(QDialog,FORM_CLASS):
 
     def runGrid(self):
 
+        # check that CRS in projected
+        project = QgsProject.instance()
+        if project.crs().isGeographic():
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr(
+                "The project have to use a projected CRS (Coordinate Reference System)."))
+            return
+
         # progressbar Grid Point
         BarGridReceiver = self.progressBarGridReceiver
         BarGridReceiver.setMaximum(100)
@@ -291,6 +300,8 @@ class Dialog(QDialog,FORM_CLASS):
             BarGridReceiver,
             BuildingMaskLayer,
         )
+
+        self.close()
 
     
 

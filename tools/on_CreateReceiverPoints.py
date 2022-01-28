@@ -47,6 +47,8 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
     receiver_points_fields = QgsFields()
     receiver_points_fields.append(QgsField("id_pt", QVariant.Int))
     receiver_points_fields.append(QgsField("id_bui", QVariant.Int))
+    receiver_points_fields.append(QgsField("f_dis", QVariant.Double,len=5,prec=1))
+
 
     receiver_points_writer = QgsVectorFileWriter(receiver_points_layer_path, "System",
                                                  receiver_points_fields, QgsWkbTypes.Point, buildings_layer.crs(),"ESRI Shapefile")
@@ -151,7 +153,8 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
                     x2 = buildings_pts[ii+1][0]
                     y1 = buildings_pts[ii][1]
                     y2 = buildings_pts[ii+1][1]
-                    
+                    facade_dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
+
                     xm = ( x1 + x2 )/2
                     ym = ( y1 + y2 )/2
                 
@@ -185,7 +188,7 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
                             break 
                     
                     if intersect == 0:
-                        pt.setAttributes([pt_id, buildings_feat.id()])
+                        pt.setAttributes([pt_id, buildings_feat.id(),facade_dist])
                         receiver_points_writer.addFeature(pt)
                         pt_id = pt_id + 1
                     
@@ -198,7 +201,7 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
                             break 
                     
                     if intersect == 0:
-                        pt.setAttributes([pt_id, buildings_feat.id()])
+                        pt.setAttributes([pt_id, buildings_feat.id(),facade_dist])
                         receiver_points_writer.addFeature(pt)
                         pt_id = pt_id + 1                
     
@@ -267,7 +270,11 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
 
 
     del output
-    
+
+    # TODO: segnare la progressiva con la funzione
+    #  https://qgis.org/pyqgis/3.4/core/QgsGeometry.html#qgis.core.QgsGeometry.lineLocatePoint
+
+
     ## Delete pts in buildings
     # creates SpatialIndex
     buildings_feat_all = buildings_layer.dataProvider().getFeatures()    
@@ -282,6 +289,8 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
     receiver_points_layer_fields = QgsFields()
     receiver_points_layer_fields.append(QgsField("id_pt", QVariant.Int))
     receiver_points_layer_fields.append(QgsField("id_bui", QVariant.Int))
+    receiver_points_layer_fields.append(QgsField("prog", QVariant.Double, len=5, prec=1))
+    receiver_points_layer_fields.append(QgsField("f_dis", QVariant.Double, len=5, prec=1))
 
     receiver_points_layer_writer = QgsVectorFileWriter(receiver_points_layer_path, "System",
                                                        receiver_points_layer_fields, QgsWkbTypes.Point,
