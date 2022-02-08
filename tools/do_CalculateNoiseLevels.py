@@ -513,6 +513,11 @@ loss of precision in sound levels estimates.</p>
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify at least one power for a reference period in the road source."))
                 return False
 
+        if self.height_receiver_check.isChecked() and self.field_height_receiver.currentText() == "":
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
+                                    self.tr("Please specify elevation field for buildings layer."))
+            return False
+
 
         if self.buildings_layer_checkBox.isChecked() == True and self.buildings_layer_comboBox.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the buildings layer."))

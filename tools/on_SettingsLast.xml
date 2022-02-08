@@ -9,7 +9,7 @@
         <receivers>
             <name>receveir_CNOSSOS</name>
             <path>C:/Users/pierl/Desktop/Raggi diffratti/receveir_CNOSSOS.shp</path>
-            <custom3d>False</custom3d>
+            <custom3d>True</custom3d>
             <custom3dfield />
         </receivers>
 
@@ -25,8 +25,8 @@
         </sources>
 
         <buildings>
-            <name>buildings_CNOSSOS</name>
-            <path>C:/Users/pierl/Desktop/Raggi diffratti/buildings_CNOSSOS.shp</path>
+            <name />
+            <path />
         </buildings>
 
         <emissions_points>
@@ -50,8 +50,8 @@
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
-        <save_emission>True</save_emission>
-        <height_receiver>False</height_receiver>
+        <save_emission>False</save_emission>
+        <height_receiver>True</height_receiver>
         <threedglobal>False</threedglobal>
         <threedglobal_rays>False</threedglobal_rays>
         <field3D />

@@ -47,7 +47,7 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
     receiver_points_fields = QgsFields()
     receiver_points_fields.append(QgsField("id_pt", QVariant.Int))
     receiver_points_fields.append(QgsField("id_bui", QVariant.Int))
-    receiver_points_fields.append(QgsField("f_dis", QVariant.Double,len=5,prec=1))
+    receiver_points_fields.append(QgsField("facadeP", QVariant.Double,len=5,prec=2))
 
 
     receiver_points_writer = QgsVectorFileWriter(receiver_points_layer_path, "System",
@@ -82,9 +82,12 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
         building_geom = buildings_feat.geometry()
         if building_geom.isMultipart():
             buildings_pt = building_geom.asMultiPolygon()[0]
+            gLine = QgsGeometry.fromPolylineXY(building_geom.asMultiPolygon()[ii][0])
+            totLen = gLine.length()
             #building_geom.convertToSingleType()
         else:
             buildings_pt = buildings_feat.geometry().asPolygon()
+            totLen = building_geom.lenght()
 
 
         # creates the search rectangle to match the receiver point in the building and del them
@@ -201,7 +204,7 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
                             break 
                     
                     if intersect == 0:
-                        pt.setAttributes([pt_id, buildings_feat.id(),facade_dist])
+                        pt.setAttributes([pt_id, buildings_feat.id(),facade_dist/totLen*100])
                         receiver_points_writer.addFeature(pt)
                         pt_id = pt_id + 1                
     
@@ -234,7 +237,7 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
     buildings_memory_layer.dataProvider().addFeatures(buildings_feat_list)   
     buildings_memory_layer.updateExtents()
 
-    # this is crazy: I had to addd this line otherwise the first processing doesn't work...
+    # this is crazy: I had to add this line otherwise the first processing doesn't work...
     QgsProject.instance().addMapLayers([buildings_memory_layer])
     
     bar.setValue(1)
@@ -289,8 +292,7 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
     receiver_points_layer_fields = QgsFields()
     receiver_points_layer_fields.append(QgsField("id_pt", QVariant.Int))
     receiver_points_layer_fields.append(QgsField("id_bui", QVariant.Int))
-    receiver_points_layer_fields.append(QgsField("prog", QVariant.Double, len=5, prec=1))
-    receiver_points_layer_fields.append(QgsField("f_dis", QVariant.Double, len=5, prec=1))
+    receiver_points_layer_fields.append(QgsField("facadeP", QVariant.Double, len=5, prec=2))
 
     receiver_points_layer_writer = QgsVectorFileWriter(receiver_points_layer_path, "System",
                                                        receiver_points_layer_fields, QgsWkbTypes.Point,
@@ -341,7 +343,7 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
 
 
         if to_add:
-            attributes = [receiver_points_feat_id, building_fid_correct]
+            attributes = [receiver_points_feat_id, building_fid_correct,spaced_pts_distance]
             fet = QgsFeature()
             fet.setGeometry(receiver_memory_feat.geometry())
             fet.setAttributes(attributes)
@@ -357,5 +359,96 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
     QgsProject.instance().addMapLayers([receiver_points_layer])
 
     QgsProject.instance().reloadAllLayers()
+
+def case2b(bar,buildings_layer_path,receiver_points_layer_path):
+    buildings_layer_name = os.path.splitext(os.path.basename(buildings_layer_path))[0]
+    buildings_layer = QgsVectorLayer(buildings_layer_path, buildings_layer_name, "ogr")
+
+    # defines emission_points layer
+    receiver_points_fields = QgsFields()
+    receiver_points_fields.append(QgsField("id_pt", QVariant.Int))
+    receiver_points_fields.append(QgsField("id_bui", QVariant.Int))
+    receiver_points_fields.append(QgsField("facadeP", QVariant.Double, len=5, prec=2))
+
+    receiver_points_writer = QgsVectorFileWriter(receiver_points_layer_path, "System",
+                                                 receiver_points_fields, QgsWkbTypes.Point, buildings_layer.crs(),
+                                                 "ESRI Shapefile")
+
+    # gets features from layer
+    buildings_feat_all = buildings_layer.dataProvider().getFeatures()
+
+    # creates SpatialIndex
+    buildings_spIndex = QgsSpatialIndex()
+    buildings_feat_all_dict = {}
+    for buildings_feat in buildings_feat_all:
+        buildings_spIndex.insertFeature(buildings_feat)
+        buildings_feat_all_dict[buildings_feat.id()] = buildings_feat
+
+    # re-gets features from layer
+    buildings_feat_all = buildings_layer.dataProvider().getFeatures()
+    buildings_feat_total = buildings_layer.dataProvider().featureCount()
+
+    pt_id = 0
+    reachLen = 5 # variable storing distance steps
+    buildings_feat_number = 0
+    for buildings_feat in buildings_feat_all:
+
+        buildings_feat_number = buildings_feat_number + 1
+        barValue = buildings_feat_number / float(buildings_feat_total) * 100
+        bar.setValue(barValue)
+
+        building_geom = buildings_feat.geometry()
+        if building_geom.isMultipart():
+            for ii in range(len(building_geom.asMultiPolygon())):
+                gLine = QgsGeometry.fromPolylineXY(building_geom.asMultiPolygon()[ii][0])
+                totLen = gLine.length()
+                prog = reachLen / 2.
+                startReach = 0
+                endReach = 5
+
+                steps = list()
+                while startReach < totLen and endReach < totLen:
+                    f = QgsFeature()
+                    pt = gLine.interpolate(prog)
+                    steps.append(prog)
+                    f.setGeometry(pt)
+                    f.setAttributes([pt_id,buildings_feat.id() ,(min(endReach, totLen) - startReach)/totLen*100])
+                    receiver_points_writer.addFeature(f)
+                    pt_id = pt_id + 1
+                    prog = prog + reachLen
+                    endReach = endReach + reachLen
+                    startReach += reachLen
+
+            # building_geom.convertToSingleType()
+        else:
+            gLine = QgsGeometry.fromPolylineXY(building_geom.asPolygon()[0])
+
+            totLen = gLine.length()
+            prog = reachLen / 2.
+            startReach = 0
+            endReach = 5
+
+            steps = list()
+            while startReach < totLen and endReach < totLen:
+                f = QgsFeature()
+                pt = gLine.interpolate(prog)
+                steps.append(prog)
+                f.setGeometry(pt)
+                f.setAttributes([str(pt_id),buildings_feat.id(), (min(endReach, totLen) - startReach)/totLen*100])
+                receiver_points_writer.addFeature(f)
+                pt_id += 1
+                prog = prog + reachLen
+                endReach = endReach + reachLen
+                startReach += reachLen
+
+    del receiver_points_writer
+    # print receiver_points_layer_path
+    receiver_points_layer_name = os.path.splitext(os.path.basename(receiver_points_layer_path))[0]
+    # print receiver_points_layer_name
+    receiver_points_layer = QgsVectorLayer(receiver_points_layer_path, str(receiver_points_layer_name), "ogr")
+
+    QgsProject.instance().addMapLayers([receiver_points_layer])
+
+        # building_geom.lineLocatePoint(QgsGeometry().fromPointXY(1394677.00,4989762.05))
 
 

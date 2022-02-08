@@ -72,11 +72,13 @@ class Dialog(QDialog,FORM_CLASS):
             self.spaced_pts_comboBox.addItem(distance)
         self.spaced_pts_comboBox.setEnabled(False)
         
-        self.middle_pts_radioButton.setChecked(1)
+        self.middle_pts_radioButton.setChecked(0)
         self.spaced_pts_radioButton.setChecked(0)
+        self.case2b_radioButton.setChecked(1)
         
         self.middle_pts_radioButton.toggled.connect(self.method_update)
         self.spaced_pts_radioButton.toggled.connect(self.method_update)
+        self.case2b_radioButton.toggled.connect(self.method_update)
 
         self.receiver_layer_pushButton.clicked.connect(self.outFile)
         self.gridSave_pushButton.clicked.connect(self.outputFile_grid)
@@ -154,6 +156,10 @@ class Dialog(QDialog,FORM_CLASS):
             
     
     def method_update(self):
+        '''
+        function to deactivate the combobox to select the distances
+        :return:
+        '''
         
         if self.middle_pts_radioButton.isChecked():
             self.spaced_pts_comboBox.setEnabled(False)
@@ -211,6 +217,8 @@ class Dialog(QDialog,FORM_CLASS):
                 if self.spaced_pts_radioButton.isChecked():
                     spaced_pts_distance = float(self.spaced_pts_comboBox.currentText())
                     on_CreateReceiverPoints.spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distance)
+                if self.case2b_radioButton.isChecked():
+                    on_CreateReceiverPoints.case2b(bar,buildings_layer_path,receiver_points_layer_path)
 
                 run = 1
 

@@ -92,6 +92,8 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         self.receiver_points_population_field.setFilters(
             QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
+        self.dwellingCombobox.setFilters(
+            QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
 
 
     def populate_comboBox( self ):
@@ -107,7 +109,14 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         self.buildings_layer_comboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer)
 
         self.receiver_points_population_field.setLayer(self.buildings_layer_comboBox.currentLayer())
+        self.dwellingCombobox.setLayer(self.buildings_layer_comboBox.currentLayer())
         self.receiver_points_population_field.setAllowEmptyFieldName(True)
+        self.dwellingCombobox.setAllowEmptyFieldName(True)
+
+        # populate method combobox
+        self.methodComboBox.addItem('Method 1')
+        self.methodComboBox.addItem('Method 2')
+        self.methodComboBox.addItem('Method 3')
 
         #self.buildings_layer_comboBox.addItems(buildings_layers)
 
@@ -115,7 +124,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
         pr.addAttributes([QgsField("level", QVariant.String),
-                          QgsField("population", QVariant.Double)])
+                          QgsField("people", QVariant.Double)])
         vl.updateFields()
         labelsLev = ["<=35.0 dB(A)", "35 - 40 dB(A)", "40 - 45 dB(A)", "45 - 50 dB(A)",
                      "50 - 55 dB(A)", "55 - 60 dB(A)", "60 - 65 dB(A)", "65 - 70 dB(A)",
@@ -269,6 +278,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         receiver_points_layer_details = self.populate_receiver_points_fields()
         buildings_layer = QgsProject.instance().mapLayersByName(self.buildings_layer_comboBox.currentText())[0]
         building_pop_Field = self.receiver_points_population_field.currentText()
+        dwelling_Field = self.dwellingCombobox.currentText()
 
 
         # CRS control (each layer must have the same CRS)
@@ -287,7 +297,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         # Run
         try:
-            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field)
+            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field)
             run = 1
         except:
             error= traceback.format_exc()
@@ -371,7 +381,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
 
 
-    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field):
+    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field):
 
         CreateTempDir()
 
@@ -563,31 +573,31 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 df1 = self.popMedianAssign(buildingPop,
                                      buildings_levels_from_receiverL1,
                                      buildings_medianL1)
-                self.outputTempTable(df1,"Population - Lev1")
+                self.outputTempTable(df1,"Noise Exposure - Lev1")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
                 df2 = self.popMedianAssign(buildingPop,
                                      buildings_levels_from_receiverL2,
                                      buildings_medianL2)
-                self.outputTempTable(df2,"Population - Lev2")
+                self.outputTempTable(df2,"Noise Exposure - Lev2")
                 print('L2 pop',df2)
             if receiver_points_layer_details['level_3'] != 'none':
                 df3 = self.popMedianAssign(buildingPop,
                                      buildings_levels_from_receiverL3,
                                      buildings_medianL3)
-                self.outputTempTable(df3,"Population - Lev3")
+                self.outputTempTable(df3,"Noise Exposure - Lev3")
                 print('L3 pop',df3)
             if receiver_points_layer_details['level_4'] != 'none':
                 df4 = self.popMedianAssign(buildingPop,
                                      buildings_levels_from_receiverL4,
                                      buildings_medianL4)
-                self.outputTempTable(df4,"Population - Lev4")
+                self.outputTempTable(df4,"Noise Exposure - Lev4")
                 print('L3 pop',df4)
             if receiver_points_layer_details['level_5'] != 'none':
                 df5 = self.popMedianAssign(buildingPop,
                                      buildings_levels_from_receiverL5,
                                      buildings_medianL5)
-                self.outputTempTable(df5,"Population - Lev5")
+                self.outputTempTable(df5,"Noise Exposure - Lev5")
                 print('L3 pop',df5)
 
 

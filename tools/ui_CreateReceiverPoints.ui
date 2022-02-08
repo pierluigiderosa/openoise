@@ -181,13 +181,6 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QRadioButton" name="spaced_pts_radioButton">
-           <property name="text">
-            <string> Equidistant receiver points along the facades (m):</string>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="1">
           <widget class="QComboBox" name="spaced_pts_comboBox">
            <property name="minimumSize">
@@ -201,6 +194,23 @@
              <width>75</width>
              <height>16777215</height>
             </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="spaced_pts_radioButton">
+           <property name="text">
+            <string> Equidistant receiver points along the facades (m):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QRadioButton" name="case2b_radioButton">
+           <property name="toolTip">
+            <string> in according to case 2b - Directive 2002/49/EC  Annex II </string>
+           </property>
+           <property name="text">
+            <string>façades split up every 5 m from the start position</string>
            </property>
           </widget>
          </item>
