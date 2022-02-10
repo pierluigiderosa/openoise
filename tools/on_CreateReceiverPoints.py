@@ -26,7 +26,7 @@ from builtins import range
 from qgis.PyQt.QtCore import QObject
 from qgis.PyQt.QtCore import QVariant, Qt
 from qgis.core import QgsProject, QgsVectorFileWriter, QgsWkbTypes, QgsFields, QgsPointXY
-from qgis.core import QgsPoint,QgsFeature,QgsGeometry
+from qgis.core import QgsPoint,QgsFeature,QgsGeometry,edit
 from qgis.core import QgsVectorLayer,QgsSpatialIndex,QgsField,QgsRectangle,QgsFeatureRequest
 from math import sqrt
 
@@ -82,7 +82,7 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
         building_geom = buildings_feat.geometry()
         if building_geom.isMultipart():
             buildings_pt = building_geom.asMultiPolygon()[0]
-            gLine = QgsGeometry.fromPolylineXY(building_geom.asMultiPolygon()[ii][0])
+            gLine = QgsGeometry.fromPolylineXY(building_geom.asMultiPolygon()[0][0])
             totLen = gLine.length()
             #building_geom.convertToSingleType()
         else:
@@ -374,6 +374,7 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
                                                  receiver_points_fields, QgsWkbTypes.Point, buildings_layer.crs(),
                                                  "ESRI Shapefile")
 
+
     # gets features from layer
     buildings_feat_all = buildings_layer.dataProvider().getFeatures()
 
@@ -401,6 +402,8 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
         if building_geom.isMultipart():
             for ii in range(len(building_geom.asMultiPolygon())):
                 gLine = QgsGeometry.fromPolylineXY(building_geom.asMultiPolygon()[ii][0])
+                # distance 0.1 m from facades
+                gLine = gLine.buffer(0.1,5)
                 totLen = gLine.length()
                 prog = reachLen / 2.
                 startReach = 0
@@ -422,6 +425,8 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
             # building_geom.convertToSingleType()
         else:
             gLine = QgsGeometry.fromPolylineXY(building_geom.asPolygon()[0])
+            # distance 0.1 m from facades
+            gLine = gLine.buffer(0.1, 5)
 
             totLen = gLine.length()
             prog = reachLen / 2.
@@ -441,11 +446,21 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
                 endReach = endReach + reachLen
                 startReach += reachLen
 
+
+
     del receiver_points_writer
     # print receiver_points_layer_path
     receiver_points_layer_name = os.path.splitext(os.path.basename(receiver_points_layer_path))[0]
     # print receiver_points_layer_name
     receiver_points_layer = QgsVectorLayer(receiver_points_layer_path, str(receiver_points_layer_name), "ogr")
+
+
+    # cleaning -- remove feature inside buildings
+    with edit(receiver_points_layer):
+        for receiverFeature in receiver_points_layer.getFeatures():
+            for builFeature in buildings_layer.getFeatures():
+                if builFeature.geometry().intersects(receiverFeature.geometry()):
+                    receiver_points_layer.deleteFeature(receiverFeature.id())
 
     QgsProject.instance().addMapLayers([receiver_points_layer])
 

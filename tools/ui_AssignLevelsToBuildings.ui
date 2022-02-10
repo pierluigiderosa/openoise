@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>713</width>
-    <height>300</height>
+    <height>350</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -22,13 +22,13 @@
   <property name="minimumSize">
    <size>
     <width>713</width>
-    <height>300</height>
+    <height>350</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>713</width>
-    <height>300</height>
+    <height>350</height>
    </size>
   </property>
   <property name="sizeIncrement">
@@ -125,7 +125,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Buildings layer (input polygon layer) and field for population</string>
+        <string>Buildings layer (input polygon layer) and field for people</string>
        </property>
       </widget>
      </item>
@@ -134,7 +134,20 @@
        <property name="horizontalSpacing">
         <number>7</number>
        </property>
-       <item row="2" column="2">
+       <item row="0" column="1">
+        <widget class="QgsMapLayerComboBox" name="buildings_layer_comboBox"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Dwellings</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
         <widget class="QgsFieldComboBox" name="receiver_points_population_field">
          <property name="toolTip">
           <string>population field</string>
@@ -145,6 +158,9 @@
         </widget>
        </item>
        <item row="2" column="1">
+        <widget class="QgsFieldComboBox" name="dwellingCombobox"/>
+       </item>
+       <item row="1" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>Population</string>
@@ -155,42 +171,15 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Method</string>
+        <widget class="QLabel" name="label_4">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
          </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="methodComboBox"/>
-       </item>
-       <item row="3" column="2">
-        <widget class="QgsFieldComboBox" name="dwellingCombobox"/>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>Dwellings</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Building layer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="3">
-        <widget class="Line" name="line_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QgsMapLayerComboBox" name="buildings_layer_comboBox"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Building layer</string>
          </property>
          <property name="margin">
           <number>0</number>
@@ -199,6 +188,19 @@
           <number>20</number>
          </property>
         </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Method</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QgsFieldComboBox" name="methodComboBox"/>
        </item>
       </layout>
      </item>
@@ -254,8 +256,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>699</x>
-     <y>262</y>
+     <x>700</x>
+     <y>326</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -270,8 +272,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>699</x>
-     <y>268</y>
+     <x>700</x>
+     <y>326</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -366,8 +368,8 @@
    <slot>setLayer(QgsMapLayer*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>154</x>
-     <y>216</y>
+     <x>514</x>
+     <y>190</y>
     </hint>
     <hint type="destinationlabel">
      <x>616</x>
@@ -382,12 +384,28 @@
    <slot>setLayer(QgsMapLayer*)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>207</x>
-     <y>206</y>
+     <x>567</x>
+     <y>190</y>
     </hint>
     <hint type="destinationlabel">
      <x>503</x>
      <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buildings_layer_comboBox</sender>
+   <signal>layerChanged(QgsMapLayer*)</signal>
+   <receiver>methodComboBox</receiver>
+   <slot>setLayer(QgsMapLayer*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>383</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>265</y>
     </hint>
    </hints>
   </connection>

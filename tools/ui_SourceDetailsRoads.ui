@@ -105,7 +105,7 @@
    <item>
     <widget class="QStackedWidget" name="road_stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="road_power_page">
       <widget class="QWidget" name="layoutWidget">
@@ -1208,7 +1208,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>2-WHEEL &lt;= 50cc</string>
+             <string>2-WHEEL ≤ 50cc</string>
             </property>
            </widget>
           </item>

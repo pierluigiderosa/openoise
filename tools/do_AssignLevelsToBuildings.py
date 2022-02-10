@@ -94,6 +94,8 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
         self.dwellingCombobox.setFilters(
             QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
+        self.methodComboBox.setFilters(
+            QgsFieldProxyModel.String)
 
 
     def populate_comboBox( self ):
@@ -110,13 +112,12 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         self.receiver_points_population_field.setLayer(self.buildings_layer_comboBox.currentLayer())
         self.dwellingCombobox.setLayer(self.buildings_layer_comboBox.currentLayer())
+        self.methodComboBox.setLayer(self.buildings_layer_comboBox.currentLayer())
         self.receiver_points_population_field.setAllowEmptyFieldName(True)
         self.dwellingCombobox.setAllowEmptyFieldName(True)
+        self.methodComboBox.setAllowEmptyFieldName(True)
 
-        # populate method combobox
-        self.methodComboBox.addItem('Method 1')
-        self.methodComboBox.addItem('Method 2')
-        self.methodComboBox.addItem('Method 3')
+
 
         #self.buildings_layer_comboBox.addItems(buildings_layers)
 
@@ -279,6 +280,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         buildings_layer = QgsProject.instance().mapLayersByName(self.buildings_layer_comboBox.currentText())[0]
         building_pop_Field = self.receiver_points_population_field.currentText()
         dwelling_Field = self.dwellingCombobox.currentText()
+        methodPopField = self.methodComboBox.currentText()
 
 
         # CRS control (each layer must have the same CRS)
@@ -297,7 +299,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         # Run
         try:
-            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field)
+            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField)
             run = 1
         except:
             error= traceback.format_exc()
@@ -357,21 +359,37 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         log_errors.close()
 
-    def popMedianAssign(self,popDic, buildingLevel, mediane):
+    def split_list(a_list):
+        half = len(a_list) // 2
+        return a_list[:half], a_list[half:]
+
+    def EUpopCalculationMethod(self, popDic, buildingLevel,dwellings,Method):
         outPop = list()
         for id_bui in buildingLevel.keys():
             livelli = buildingLevel[id_bui]
             abitanti = popDic[id_bui]
-            # remove minimum value in case even receivers
-            if len(livelli) % 2 != 0:
-                livelli.remove(min(livelli))
-
-            livelliFiltered = [x for x in livelli if x > mediane[id_bui][0]]
-            if len(livelliFiltered) == 0:
-                outPop.append([0, abitanti, id_bui])
+            ndwelling = dwellings[id_bui]
+            method = Method[id_bui]
+            if method.endswith('1'):
+                # method 1
+                outPop.append([max(livelli), abitanti, id_bui])
+            # todo: implementare metodo 2
+            # if method.endswith('2'):
+            #     # method 2
+            #     pass
             else:
-                for livello in livelliFiltered:
-                    outPop.append([livello, abitanti / len(livelliFiltered), id_bui])
+                # method 3
+                # method3 - part1 - remove minimum value in case even receivers
+                if len(livelli) % 2 != 0:
+                    livelli.remove(min(livelli))
+
+                # livelliFiltered = [x for x in livelli if x > mediane[id_bui][0]]
+                livelliFilteredLow, livelliFilteredHi = self.split_list(sorted(livelli))
+                if len(livelliFilteredHi) == 0:
+                    outPop.append([0, abitanti, id_bui])
+                else:
+                    for livello in livelliFilteredHi:
+                        outPop.append([livello, abitanti / len(livelliFilteredHi), id_bui])
 
         df1 = pd.DataFrame(outPop, columns=['levels', 'popolazione', 'id_bui'])
         bins = pd.cut(df1['levels'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
@@ -381,7 +399,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
 
 
-    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field):
+    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method):
 
         CreateTempDir()
 
@@ -496,45 +514,46 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 # Assigning dwellings and people living in dwellings to receiver points PAG 37 Directive 2020
                 # creo dizionario che contiene per ogni edificio i livelli di ogni ricettore
                 if receiver_points_layer_details['level_1'] != 'none':
-                    if level_1 < 0: # filter in case level is -99
-                        level_1 = 0
-                    if id_edi in buildings_levels_from_receiverL1:
-                        buildings_levels_from_receiverL1[id_edi].append(level_1)
-                    else:
-                        buildings_levels_from_receiverL1[id_edi] = [level_1]
+                    if level_1 > 0: # filter in case level is -99
+                        # add to dict only receiver different from -99
+                        if id_edi in buildings_levels_from_receiverL1:
+                            buildings_levels_from_receiverL1[id_edi].append(level_1)
+                        else:
+                            buildings_levels_from_receiverL1[id_edi] = [level_1]
 
                 if receiver_points_layer_details['level_2'] != 'none':
-                    if level_2 < 0:
-                        level_2 = 0
-                    if id_edi in buildings_levels_from_receiverL2:
-                        buildings_levels_from_receiverL2[id_edi].append(level_2)
-                    else:
-                        buildings_levels_from_receiverL2[id_edi] = [level_2]
+                    if level_2 > 0:
+
+                        if id_edi in buildings_levels_from_receiverL2:
+                            buildings_levels_from_receiverL2[id_edi].append(level_2)
+                        else:
+                            buildings_levels_from_receiverL2[id_edi] = [level_2]
 
                 if receiver_points_layer_details['level_3'] != 'none':
-                    if level_3 < 0:
-                        level_3 = 0
-                    if id_edi in buildings_levels_from_receiverL3:
-                        buildings_levels_from_receiverL3[id_edi].append(level_3)
-                    else:
-                        buildings_levels_from_receiverL3[id_edi] = [level_3]
+                    if level_3 > 0:
+
+                        if id_edi in buildings_levels_from_receiverL3:
+                            buildings_levels_from_receiverL3[id_edi].append(level_3)
+                        else:
+                            buildings_levels_from_receiverL3[id_edi] = [level_3]
 
                 if receiver_points_layer_details['level_4'] != 'none':
-                    if level_4 < 0:
-                        level_4 = 0
-                    if id_edi in buildings_levels_from_receiverL4:
-                        buildings_levels_from_receiverL4[id_edi].append(level_4)
-                    else:
-                        buildings_levels_from_receiverL4[id_edi] = [level_4]
+                    if level_4 > 0:
+
+                        if id_edi in buildings_levels_from_receiverL4:
+                            buildings_levels_from_receiverL4[id_edi].append(level_4)
+                        else:
+                            buildings_levels_from_receiverL4[id_edi] = [level_4]
 
                 if receiver_points_layer_details['level_5'] != 'none':
-                    if level_5 < 0:
-                        level_5 = 0
-                    if id_edi in buildings_levels_from_receiverL5:
-                        buildings_levels_from_receiverL5[id_edi].append(level_5)
-                    else:
-                        buildings_levels_from_receiverL5[id_edi] = [level_5]
+                    if level_5 > 0:
 
+                        if id_edi in buildings_levels_from_receiverL5:
+                            buildings_levels_from_receiverL5[id_edi].append(level_5)
+                        else:
+                            buildings_levels_from_receiverL5[id_edi] = [level_5]
+
+        # POPULATION PART -- ADDED PART
         if building_pop_Field != '':
             # creation of dict that stores median e numbers of receiver relater to any buildings
             buildings_medianL1=dict()
@@ -564,39 +583,57 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
             # extract population from building layer and store in
             buildingPop = dict()
+            buildingDwell = dict()
+            buildingMethod = dict()
             for bFeat in buildings_layer.getFeatures():
                 buildingPop[bFeat.id()] = bFeat[building_pop_Field]
-            print('pop: ',buildingPop)
-            print('BLeve1: ', buildings_levels_from_receiverL1)
+                buildingDwell[bFeat.id()] = bFeat[dwelling_Field]
+                buildingMethod[bFeat.id()] = bFeat[method]
+
+            # create a dict sto store facade perc for each receiver
+            # TODO - il metodo non appende ma prende solo ultimo inserito
+            receiverFacadeDic = dict()
+            for recFeat in receiver_points_layer.getFeatures():
+                receiverFacadeDic[recFeat['id_bui']]=recFeat['facadeP']
+            # print('pop: ',buildingPop)
+            # print('BLeve1: ', buildings_levels_from_receiverL1)
+            # print('dwel: ',buildingDwell)
+            # print('Meth: ',buildingMethod)
+            # print('mediane: ',buildings_medianL1)
 
             if receiver_points_layer_details['level_1'] != 'none':
-                df1 = self.popMedianAssign(buildingPop,
-                                     buildings_levels_from_receiverL1,
-                                     buildings_medianL1)
+                df1 = self.EUpopCalculationMethod(buildingPop,
+                                                  buildings_levels_from_receiverL1,
+                                                  buildingDwell,
+                                                  buildingMethod)
                 self.outputTempTable(df1,"Noise Exposure - Lev1")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
-                df2 = self.popMedianAssign(buildingPop,
-                                     buildings_levels_from_receiverL2,
-                                     buildings_medianL2)
+                df2 = self.EUpopCalculationMethod(buildingPop,
+                                                  buildings_levels_from_receiverL2,
+                                                  buildingDwell,
+                                                  buildingMethod)
                 self.outputTempTable(df2,"Noise Exposure - Lev2")
                 print('L2 pop',df2)
             if receiver_points_layer_details['level_3'] != 'none':
-                df3 = self.popMedianAssign(buildingPop,
-                                     buildings_levels_from_receiverL3,
-                                     buildings_medianL3)
+                df3 = self.EUpopCalculationMethod(buildingPop,
+                                                  buildings_levels_from_receiverL3,
+                                                  buildingDwell,
+                                                  buildingMethod)
                 self.outputTempTable(df3,"Noise Exposure - Lev3")
                 print('L3 pop',df3)
             if receiver_points_layer_details['level_4'] != 'none':
-                df4 = self.popMedianAssign(buildingPop,
-                                     buildings_levels_from_receiverL4,
-                                     buildings_medianL4)
+                df4 = self.EUpopCalculationMethod(buildingPop,
+                                                  buildings_levels_from_receiverL4,
+                                                  buildingDwell,
+                                                  buildingMethod)
                 self.outputTempTable(df4,"Noise Exposure - Lev4")
                 print('L3 pop',df4)
             if receiver_points_layer_details['level_5'] != 'none':
-                df5 = self.popMedianAssign(buildingPop,
-                                     buildings_levels_from_receiverL5,
-                                     buildings_medianL5)
+                df5 = self.EUpopCalculationMethod(buildingPop,
+                                                  buildings_levels_from_receiverL5,
+                                                  buildingDwell,
+                                                  buildingMethod)
                 self.outputTempTable(df5,"Noise Exposure - Lev5")
                 print('L3 pop',df5)
 
@@ -607,11 +644,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             # del buildings_levels_from_receiverL4
             # del buildings_levels_from_receiverL5
 
-            print('L1:',buildings_medianL1)
-            print('L2',buildings_medianL2)
-            print('L3',buildings_medianL3)
-            print('L4',buildings_medianL4)
-            print('L5',buildings_medianL5)
+
         # -- end new part
 
         # puts the sound level in the buildings attribute table

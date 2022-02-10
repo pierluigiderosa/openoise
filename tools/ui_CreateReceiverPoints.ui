@@ -168,7 +168,7 @@
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:6pt; font-style:italic;&quot;&gt;Receiver at 4 m above the ground&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>Receiver at 4 m above the ground</string>
          </property>
         </widget>
        </item>
