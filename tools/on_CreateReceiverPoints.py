@@ -385,6 +385,9 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
         buildings_spIndex.insertFeature(buildings_feat)
         buildings_feat_all_dict[buildings_feat.id()] = buildings_feat
 
+    # defines distanze_point
+    distance_point = 0.1
+
     # re-gets features from layer
     buildings_feat_all = buildings_layer.dataProvider().getFeatures()
     buildings_feat_total = buildings_layer.dataProvider().featureCount()
@@ -392,18 +395,32 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
     pt_id = 0
     reachLen = 5 # variable storing distance steps
     buildings_feat_number = 0
+
+
+
     for buildings_feat in buildings_feat_all:
 
         buildings_feat_number = buildings_feat_number + 1
         barValue = buildings_feat_number / float(buildings_feat_total) * 100
         bar.setValue(barValue)
 
+        # creates the search rectangle to match the receiver point in the building and del them
+
+        rect = QgsRectangle()
+        rect.setXMinimum(buildings_feat.geometry().boundingBox().xMinimum() - distance_point)
+        rect.setXMaximum(buildings_feat.geometry().boundingBox().xMaximum() + distance_point)
+        rect.setYMinimum(buildings_feat.geometry().boundingBox().yMinimum() - distance_point)
+        rect.setYMaximum(buildings_feat.geometry().boundingBox().yMaximum() + distance_point)
+
+        buildings_selection = buildings_spIndex.intersects(rect)
+
         building_geom = buildings_feat.geometry()
         if building_geom.isMultipart():
             for ii in range(len(building_geom.asMultiPolygon())):
                 gLine = QgsGeometry.fromPolylineXY(building_geom.asMultiPolygon()[ii][0])
                 # distance 0.1 m from facades
-                gLine = gLine.buffer(0.1,5)
+                gLineBuf = gLine.buffer(0.1,5)
+                gLine = QgsGeometry.fromPolylineXY(gLineBuf.asPolygon()[0])
                 totLen = gLine.length()
                 prog = reachLen / 2.
                 startReach = 0
@@ -415,9 +432,16 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
                     pt = gLine.interpolate(prog)
                     steps.append(prog)
                     f.setGeometry(pt)
-                    f.setAttributes([pt_id,buildings_feat.id() ,(min(endReach, totLen) - startReach)/totLen*100])
-                    receiver_points_writer.addFeature(f)
-                    pt_id = pt_id + 1
+                    intersect = 0
+                    for buildings_id in buildings_selection:
+                        if buildings_feat_all_dict[buildings_id].geometry().intersects(f.geometry()) == 1:
+                            intersect = 1
+                            break
+
+                    if intersect == 0:
+                        f.setAttributes([pt_id,buildings_feat.id() ,(min(endReach, totLen) - startReach)/totLen*100])
+                        receiver_points_writer.addFeature(f)
+                        pt_id = pt_id + 1
                     prog = prog + reachLen
                     endReach = endReach + reachLen
                     startReach += reachLen
@@ -427,7 +451,8 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
             gLine = QgsGeometry.fromPolylineXY(building_geom.asPolygon()[0])
             # distance 0.1 m from facades
             gLine = gLine.buffer(0.1, 5)
-
+            gLineBuf = gLine.buffer(0.1, 5)
+            gLine = QgsGeometry.fromPolylineXY(gLineBuf.asPolygon()[0])
             totLen = gLine.length()
             prog = reachLen / 2.
             startReach = 0
@@ -439,9 +464,16 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
                 pt = gLine.interpolate(prog)
                 steps.append(prog)
                 f.setGeometry(pt)
-                f.setAttributes([str(pt_id),buildings_feat.id(), (min(endReach, totLen) - startReach)/totLen*100])
-                receiver_points_writer.addFeature(f)
-                pt_id += 1
+                intersect = 0
+                for buildings_id in buildings_selection:
+                    if buildings_feat_all_dict[buildings_id].geometry().intersects(f.geometry()) == 1:
+                        intersect = 1
+                        break
+
+                if intersect == 0:
+                    f.setAttributes([str(pt_id),buildings_feat.id(), (min(endReach, totLen) - startReach)/totLen*100])
+                    receiver_points_writer.addFeature(f)
+                    pt_id += 1
                 prog = prog + reachLen
                 endReach = endReach + reachLen
                 startReach += reachLen
@@ -456,11 +488,11 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
 
 
     # cleaning -- remove feature inside buildings
-    with edit(receiver_points_layer):
-        for receiverFeature in receiver_points_layer.getFeatures():
-            for builFeature in buildings_layer.getFeatures():
-                if builFeature.geometry().intersects(receiverFeature.geometry()):
-                    receiver_points_layer.deleteFeature(receiverFeature.id())
+    # with edit(receiver_points_layer):
+    #     for receiverFeature in receiver_points_layer.getFeatures():
+    #         for builFeature in buildings_layer.getFeatures():
+    #             if builFeature.geometry().intersects(receiverFeature.geometry()):
+    #                 receiver_points_layer.deleteFeature(receiverFeature.id())
 
     QgsProject.instance().addMapLayers([receiver_points_layer])
 
