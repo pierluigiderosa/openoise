@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- creation receiver case2B distance 0.1 and removed receiver inside buildings&#10;- implemented method 1 and 3 for population">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed remove receiver inside buildings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CreateReceiverPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateReceiverPoints.py" afterDir="false" />
     </list>
@@ -301,14 +301,8 @@
       <workItem from="1644405844123" duration="59000" />
       <workItem from="1644423330906" duration="5194000" />
       <workItem from="1644477229511" duration="6488000" />
-      <workItem from="1644652978444" duration="2318000" />
-    </task>
-    <task id="LOCAL-00006" summary="settings changes">
-      <created>1618922206982</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1618922206982</updated>
+      <workItem from="1644652978444" duration="2705000" />
+      <workItem from="1645546743856" duration="948000" />
     </task>
     <task id="LOCAL-00007" summary="- version 1.4 init">
       <created>1618928823085</created>
@@ -646,7 +640,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644486171334</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="- fixed remove receiver inside buildings">
+      <created>1644656579570</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1644656579571</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,7 +698,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- skip_diffraction complete - to test by ARPA" />
     <MESSAGE value="- create_grid initial commit" />
     <MESSAGE value="- create_grid fixed grid creation&#10;- fixe case empty output" />
     <MESSAGE value="added icon grid builder" />
@@ -722,7 +722,8 @@
     <MESSAGE value="fixed several bugs" />
     <MESSAGE value="modification updated 8 feb 22" />
     <MESSAGE value="- creation receiver case2B distance 0.1 and removed receiver inside buildings&#10;- implemented method 1 and 3 for population" />
-    <option name="LAST_COMMIT_MESSAGE" value="- creation receiver case2B distance 0.1 and removed receiver inside buildings&#10;- implemented method 1 and 3 for population" />
+    <MESSAGE value="- fixed remove receiver inside buildings" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixed remove receiver inside buildings" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />

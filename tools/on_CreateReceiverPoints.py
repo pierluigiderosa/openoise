@@ -274,8 +274,6 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
 
     del output
 
-    # TODO: segnare la progressiva con la funzione
-    #  https://qgis.org/pyqgis/3.4/core/QgsGeometry.html#qgis.core.QgsGeometry.lineLocatePoint
 
 
     ## Delete pts in buildings
@@ -415,6 +413,7 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
         buildings_selection = buildings_spIndex.intersects(rect)
 
         building_geom = buildings_feat.geometry()
+
         if building_geom.isMultipart():
             for ii in range(len(building_geom.asMultiPolygon())):
                 gLine = QgsGeometry.fromPolylineXY(building_geom.asMultiPolygon()[ii][0])
@@ -422,13 +421,15 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
                 gLineBuf = gLine.buffer(0.1,5)
                 gLine = QgsGeometry.fromPolylineXY(gLineBuf.asPolygon()[0])
                 totLen = gLine.length()
-                prog = reachLen / 2.
+                # prog = reachLen / 2.
                 startReach = 0
-                endReach = 5
+                # endReach = 5
 
                 steps = list()
-                while startReach < totLen and endReach < totLen:
+                while startReach < totLen:
                     f = QgsFeature()
+                    endReach = min(startReach + reachLen, totLen)
+                    prog = (startReach + endReach) / 2
                     pt = gLine.interpolate(prog)
                     steps.append(prog)
                     f.setGeometry(pt)
@@ -454,13 +455,15 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
             gLineBuf = gLine.buffer(0.1, 5)
             gLine = QgsGeometry.fromPolylineXY(gLineBuf.asPolygon()[0])
             totLen = gLine.length()
-            prog = reachLen / 2.
+            # prog = reachLen / 2.
             startReach = 0
-            endReach = 5
+            # endReach = 5
 
             steps = list()
             while startReach < totLen and endReach < totLen:
                 f = QgsFeature()
+                endReach = min(startReach + reachLen, totLen)
+                prog = (startReach + endReach) / 2
                 pt = gLine.interpolate(prog)
                 steps.append(prog)
                 f.setGeometry(pt)
