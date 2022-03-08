@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed remove receiver inside buildings">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed portion of facades less than 5 m">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_CreateReceiverPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateReceiverPoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_CreateGrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateGrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_RaysSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_RaysSearch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_AssignLevelsToBuildings.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_AssignLevelsToBuildings.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,14 +311,9 @@
       <workItem from="1644423330906" duration="5194000" />
       <workItem from="1644477229511" duration="6488000" />
       <workItem from="1644652978444" duration="2705000" />
-      <workItem from="1645546743856" duration="948000" />
-    </task>
-    <task id="LOCAL-00007" summary="- version 1.4 init">
-      <created>1618928823085</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1618928823085</updated>
+      <workItem from="1645546743856" duration="1285000" />
+      <workItem from="1645799907661" duration="762000" />
+      <workItem from="1646748177225" duration="5675000" />
     </task>
     <task id="LOCAL-00008" summary="- fixed UI for versione">
       <created>1618929899727</created>
@@ -647,7 +651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644656579571</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="- fixed portion of facades less than 5 m">
+      <created>1645547733699</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1645547733699</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,7 +709,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- create_grid initial commit" />
     <MESSAGE value="- create_grid fixed grid creation&#10;- fixe case empty output" />
     <MESSAGE value="added icon grid builder" />
     <MESSAGE value="custom 3d field height" />
@@ -723,7 +733,8 @@
     <MESSAGE value="modification updated 8 feb 22" />
     <MESSAGE value="- creation receiver case2B distance 0.1 and removed receiver inside buildings&#10;- implemented method 1 and 3 for population" />
     <MESSAGE value="- fixed remove receiver inside buildings" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fixed remove receiver inside buildings" />
+    <MESSAGE value="- fixed portion of facades less than 5 m" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixed portion of facades less than 5 m" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />

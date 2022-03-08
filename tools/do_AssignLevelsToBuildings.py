@@ -359,12 +359,10 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         log_errors.close()
 
-    def split_list(a_list):
-        half = len(a_list) // 2
-        return a_list[:half], a_list[half:]
 
     def EUpopCalculationMethod(self, popDic, buildingLevel,dwellings,Method):
         outPop = list()
+        outDewlling = list()
         for id_bui in buildingLevel.keys():
             livelli = buildingLevel[id_bui]
             abitanti = popDic[id_bui]
@@ -373,6 +371,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             if method.endswith('1'):
                 # method 1
                 outPop.append([max(livelli), abitanti, id_bui])
+                outDewlling.append([max(livelli), ndwelling, id_bui])
             # todo: implementare metodo 2
             # if method.endswith('2'):
             #     # method 2
@@ -384,18 +383,27 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                     livelli.remove(min(livelli))
 
                 # livelliFiltered = [x for x in livelli if x > mediane[id_bui][0]]
-                livelliFilteredLow, livelliFilteredHi = self.split_list(sorted(livelli))
+                a_list = sorted(livelli)
+                half = len(a_list) // 2
+                livelliFilteredLow = a_list[:half]
+                livelliFilteredHi = a_list[half:]
                 if len(livelliFilteredHi) == 0:
                     outPop.append([0, abitanti, id_bui])
+                    outDewlling.append([0, ndwelling, id_bui])
                 else:
                     for livello in livelliFilteredHi:
                         outPop.append([livello, abitanti / len(livelliFilteredHi), id_bui])
+                        outDewlling.append([livello, ndwelling / len(livelliFilteredHi), id_bui])
 
         df1 = pd.DataFrame(outPop, columns=['levels', 'popolazione', 'id_bui'])
+        df1Dwelling = pd.DataFrame(outDewlling, columns=['levels', 'dwellings', 'id_bui'])
         bins = pd.cut(df1['levels'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
+        binsDwell = pd.cut(df1Dwelling['levels'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
         df2=df1.groupby(bins)['popolazione'].agg(['sum'])
+        df2Dwell = df1Dwelling.groupby(binsDwell)['dwellings'].agg(['sum'])
         df3 = df2.rename({'sum': 'population'}, axis=1)
-        return df3
+        df3Dwell = df2Dwell.rename({'sum': 'dwellings'}, axis=1)
+        return df3,df3Dwell
 
 
 
@@ -602,39 +610,44 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             # print('mediane: ',buildings_medianL1)
 
             if receiver_points_layer_details['level_1'] != 'none':
-                df1 = self.EUpopCalculationMethod(buildingPop,
+                df1,df1Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
                                                   buildingMethod)
                 self.outputTempTable(df1,"Noise Exposure - Lev1")
+                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lev1")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
-                df2 = self.EUpopCalculationMethod(buildingPop,
+                df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL2,
                                                   buildingDwell,
                                                   buildingMethod)
                 self.outputTempTable(df2,"Noise Exposure - Lev2")
+                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lev2")
                 print('L2 pop',df2)
             if receiver_points_layer_details['level_3'] != 'none':
-                df3 = self.EUpopCalculationMethod(buildingPop,
+                df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL3,
                                                   buildingDwell,
                                                   buildingMethod)
                 self.outputTempTable(df3,"Noise Exposure - Lev3")
+                self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3")
                 print('L3 pop',df3)
             if receiver_points_layer_details['level_4'] != 'none':
-                df4 = self.EUpopCalculationMethod(buildingPop,
+                df4,df4Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL4,
                                                   buildingDwell,
                                                   buildingMethod)
                 self.outputTempTable(df4,"Noise Exposure - Lev4")
+                self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4")
                 print('L3 pop',df4)
             if receiver_points_layer_details['level_5'] != 'none':
-                df5 = self.EUpopCalculationMethod(buildingPop,
+                df5,df5Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL5,
                                                   buildingDwell,
                                                   buildingMethod)
                 self.outputTempTable(df5,"Noise Exposure - Lev5")
+                self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5")
                 print('L3 pop',df5)
 
 

@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>4</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -1022,7 +1022,7 @@ for receivers other than 4 m from the ground</string>
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Create diffracted (vertical obstacle) sound rays layer (output line layer)</string>
+         <string>Create diffracted (vertical obstacles) sound rays layer (output line layer)</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -1237,7 +1237,7 @@ for receivers other than 4 m from the ground</string>
       <item>
        <widget class="QCheckBox" name="diff3DRaysCheck">
         <property name="text">
-         <string>Create diffracted (horizontal obstacle) sound rays layer (output line layer)</string>
+         <string>Create diffracted (horizontal obstacles) sound rays layer (output line layer)</string>
         </property>
        </widget>
       </item>
@@ -1389,7 +1389,7 @@ for receivers other than 4 m from the ground</string>
       <rect>
        <x>20</x>
        <y>40</y>
-       <width>211</width>
+       <width>251</width>
        <height>23</height>
       </rect>
      </property>
@@ -1397,7 +1397,7 @@ for receivers other than 4 m from the ground</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reduces&lt;/span&gt; the calculation time with consequent&lt;span style=&quot; text-decoration: underline;&quot;&gt; loss of precision in sound levels estimates&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="text">
-      <string>Skip diffraction calculation.</string>
+      <string>Skip diffractions calculation.</string>
      </property>
     </widget>
     <widget class="QProgressBar" name="totalBar">

@@ -7,9 +7,9 @@
 
     <layers>
         <receivers>
-            <name>receveir_CNOSSOS</name>
-            <path>C:/Users/pierl/Desktop/Raggi diffratti/receveir_CNOSSOS.shp</path>
-            <custom3d>True</custom3d>
+            <name>ric5</name>
+            <path>C:/Users/pierl/Desktop/Raggi diffratti/ric5.shp</path>
+            <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
 
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>road_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/Raggi diffratti/road_CNOSSOS.shp</path>
+		<name>roads_CNOSSOS</name>
+		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name />
-            <path />
+            <name>buildings</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -51,7 +51,7 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <save_emission>False</save_emission>
-        <height_receiver>True</height_receiver>
+        <height_receiver>False</height_receiver>
         <threedglobal>False</threedglobal>
         <threedglobal_rays>False</threedglobal_rays>
         <field3D />

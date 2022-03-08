@@ -90,6 +90,77 @@
         </layout>
        </item>
        <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Choose the creation methods:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Receiver at 4 m above the ground, 0.1 m front of building</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="middle_pts_radioButton">
+           <property name="text">
+            <string>Receiver points in the half of the façades</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="spaced_pts_comboBox">
+           <property name="minimumSize">
+            <size>
+             <width>75</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>75</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="spaced_pts_radioButton">
+           <property name="text">
+            <string> Equidistant receiver points along the façades (m):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QRadioButton" name="case2b_radioButton">
+           <property name="toolTip">
+            <string> in according to case 2b - Directive 2002/49/EC  Annex II </string>
+           </property>
+           <property name="text">
+            <string>façades split up every 5 m from the start position</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="receivers_layer_verticalLayout">
          <property name="sizeConstraint">
           <enum>QLayout::SetMaximumSize</enum>
@@ -142,77 +213,6 @@
             </widget>
            </item>
           </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Choose the creation methods:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Receiver at 4 m above the ground</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0">
-          <widget class="QRadioButton" name="middle_pts_radioButton">
-           <property name="text">
-            <string>Receiver points in the half of the facades</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="spaced_pts_comboBox">
-           <property name="minimumSize">
-            <size>
-             <width>75</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>75</width>
-             <height>16777215</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QRadioButton" name="spaced_pts_radioButton">
-           <property name="text">
-            <string> Equidistant receiver points along the facades (m):</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QRadioButton" name="case2b_radioButton">
-           <property name="toolTip">
-            <string> in according to case 2b - Directive 2002/49/EC  Annex II </string>
-           </property>
-           <property name="text">
-            <string>façades split up every 5 m from the start position</string>
-           </property>
-          </widget>
          </item>
         </layout>
        </item>

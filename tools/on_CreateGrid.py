@@ -315,6 +315,8 @@ def removeLayer(path_layer):
             lyr = QgsProject.instance().mapLayersByName(diff_layer)[0]
             print('renaming layer1: ', lyr.id())
             QgsProject.instance().removeMapLayer(lyr.id())
+            lyr = None
+            del lyr
 
         if not QgsVectorFileWriter.deleteShapeFile(path_layer):
             iface.messageBar().pushMessage("Ooops", "You have to choose a new shapefile for "+diff_layer+" - Overwrite is not allowed!", level=Qgis.Critical, duration=3)
