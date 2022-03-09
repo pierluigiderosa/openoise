@@ -79,7 +79,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Choose the sound level fields to assign to the buildings layer (max level):</string>
+        <string>Choose the sound level fields to assign noise exposure:</string>
        </property>
       </widget>
      </item>
@@ -103,6 +103,13 @@
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="applyNoiseSimbology">
+     <property name="text">
+      <string>Apply level simbology to the buildings layer (max level):</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="Line" name="line">

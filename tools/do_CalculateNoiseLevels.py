@@ -515,6 +515,11 @@ loss of precision in sound levels estimates.</p>
 
         if self.height_receiver_check.isChecked() and self.field_height_receiver.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
+                                    self.tr("Please specify elevation field for receivers layer."))
+            return False
+
+        if self.height_building_check.isChecked() and self.field_height_building.currentText() == "":
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
                                     self.tr("Please specify elevation field for buildings layer."))
             return False
 

@@ -98,6 +98,22 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             QgsFieldProxyModel.String)
 
 
+    def checks(self):
+        if self.receiver_points_population_field.currentText() == "":
+            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                                    self.tr("Please specify the people field."))
+            return False
+
+        if self.dwellingCombobox.currentText() == "":
+            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                                    self.tr("Please specify the dwellings field."))
+            return False
+
+        if self.methodComboBox.currentText() == "":
+            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                                    self.tr("Please specify the method field."))
+            return False
+
     def populate_comboBox( self ):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.receiver_points_layer_comboBox.clear()
@@ -113,9 +129,10 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         self.receiver_points_population_field.setLayer(self.buildings_layer_comboBox.currentLayer())
         self.dwellingCombobox.setLayer(self.buildings_layer_comboBox.currentLayer())
         self.methodComboBox.setLayer(self.buildings_layer_comboBox.currentLayer())
-        self.receiver_points_population_field.setAllowEmptyFieldName(True)
-        self.dwellingCombobox.setAllowEmptyFieldName(True)
-        self.methodComboBox.setAllowEmptyFieldName(True)
+        # possibility to have a null field
+        # self.receiver_points_population_field.setAllowEmptyFieldName(True)
+        # self.dwellingCombobox.setAllowEmptyFieldName(True)
+        # self.methodComboBox.setAllowEmptyFieldName(True)
 
 
 
@@ -274,6 +291,9 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             self.run_buttonBox.setEnabled( True )
             return
 
+        if self.checks() == False:
+            return
+
         self.log_start()
         receiver_points_layer = QgsProject.instance().mapLayersByName(self.receiver_points_layer_comboBox.currentText())[0]
         receiver_points_layer_details = self.populate_receiver_points_fields()
@@ -281,6 +301,10 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         building_pop_Field = self.receiver_points_population_field.currentText()
         dwelling_Field = self.dwellingCombobox.currentText()
         methodPopField = self.methodComboBox.currentText()
+        if self.applyNoiseSimbology.isChecked():
+            applySimbology = True
+        else:
+            applySimbology = False
 
 
         # CRS control (each layer must have the same CRS)
@@ -299,7 +323,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         # Run
         try:
-            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField)
+            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField,applySimbology)
             run = 1
         except:
             error= traceback.format_exc()
@@ -360,7 +384,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         log_errors.close()
 
 
-    def EUpopCalculationMethod(self, popDic, buildingLevel,dwellings,Method):
+    def EUpopCalculationMethod(self, popDic, buildingLevel,dwellings,Method,receiverFacadeDic):
         outPop = list()
         outDewlling = list()
         for id_bui in buildingLevel.keys():
@@ -368,6 +392,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             abitanti = popDic[id_bui]
             ndwelling = dwellings[id_bui]
             method = Method[id_bui]
+            facade = receiverFacadeDic[id_bui]
             if method.endswith('1'):
                 # method 1
                 outPop.append([max(livelli), abitanti, id_bui])
@@ -407,7 +432,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
 
 
-    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method):
+    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method,applySimbology):
 
         CreateTempDir()
 
@@ -599,21 +624,19 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 buildingMethod[bFeat.id()] = bFeat[method]
 
             # create a dict sto store facade perc for each receiver
-            # TODO - il metodo non appende ma prende solo ultimo inserito
             receiverFacadeDic = dict()
             for recFeat in receiver_points_layer.getFeatures():
-                receiverFacadeDic[recFeat['id_bui']]=recFeat['facadeP']
-            # print('pop: ',buildingPop)
-            # print('BLeve1: ', buildings_levels_from_receiverL1)
-            # print('dwel: ',buildingDwell)
-            # print('Meth: ',buildingMethod)
-            # print('mediane: ',buildings_medianL1)
+                key = recFeat['id_bui']
+                receiverFacadeDic.setdefault(key, [])
+                receiverFacadeDic[key].append(recFeat['facadeP'])
+            # print('receiverFacadeDic: ',receiverFacadeDic)
+
 
             if receiver_points_layer_details['level_1'] != 'none':
                 df1,df1Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
-                                                  buildingMethod)
+                                                  buildingMethod,receiverFacadeDic)
                 self.outputTempTable(df1,"Noise Exposure - Lev1")
                 self.outputTempTable(df1Dwell, "Dwellings Exposure - Lev1")
                 print('L1 pop',df1)
@@ -621,7 +644,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL2,
                                                   buildingDwell,
-                                                  buildingMethod)
+                                                  buildingMethod,receiverFacadeDic)
                 self.outputTempTable(df2,"Noise Exposure - Lev2")
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lev2")
                 print('L2 pop',df2)
@@ -629,7 +652,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL3,
                                                   buildingDwell,
-                                                  buildingMethod)
+                                                  buildingMethod,receiverFacadeDic)
                 self.outputTempTable(df3,"Noise Exposure - Lev3")
                 self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3")
                 print('L3 pop',df3)
@@ -637,18 +660,18 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 df4,df4Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL4,
                                                   buildingDwell,
-                                                  buildingMethod)
+                                                  buildingMethod,receiverFacadeDic)
                 self.outputTempTable(df4,"Noise Exposure - Lev4")
                 self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4")
-                print('L3 pop',df4)
+                print('L5 pop',df4)
             if receiver_points_layer_details['level_5'] != 'none':
                 df5,df5Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL5,
                                                   buildingDwell,
-                                                  buildingMethod)
+                                                  buildingMethod,receiverFacadeDic)
                 self.outputTempTable(df5,"Noise Exposure - Lev5")
                 self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5")
-                print('L3 pop',df5)
+                print('L5 pop',df5)
 
 
 
@@ -679,5 +702,5 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         # render with noise colours
         level_fields_new = list(buildings_layer.dataProvider().fields())
-        if len(level_fields_new) > 0:
+        if len(level_fields_new) > 0 and applySimbology == True:
             on_ApplyNoiseSymbology.renderizeXY(buildings_layer, level_fields_new[len(level_fields_new) - 1].name())
