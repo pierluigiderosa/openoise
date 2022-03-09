@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/Raggi diffratti</last>
+        <last>/home/pierluigi/Scrivania/dataset_testing</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>ric5</name>
-            <path>C:/Users/pierl/Desktop/Raggi diffratti/ric5.shp</path>
+            <name>receiver5</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/receiver5.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
+		<name>strade_semplici_CNOSSOS3003</name>
+		<path>/home/pierluigi/Scrivania/dataset_testing/strade_semplici_CNOSSOS3003.shp|layername=strade_semplici_CNOSSOS3003</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>buildings</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -163,8 +163,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n>light_n</nig_1_n>
-            <nig_1_s>light_v</nig_1_s>            
+            <nig_1_n>N_leggeri</nig_1_n>
+            <nig_1_s>V_leggeri</nig_1_s>            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
@@ -174,8 +174,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface>Surface</surface>                    
-            <slope>Slope</slope>  
+            <surface>Superficie</surface>                    
+            <slope>Pendenza</slope>  
 
         </CNOSSOS>       
     </emission>    

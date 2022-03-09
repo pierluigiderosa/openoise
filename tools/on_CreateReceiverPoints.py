@@ -156,7 +156,7 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
                     x2 = buildings_pts[ii+1][0]
                     y1 = buildings_pts[ii][1]
                     y2 = buildings_pts[ii+1][1]
-                    facade_dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
+                    facade_dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )/building_geom.length()*100
 
                     xm = ( x1 + x2 )/2
                     ym = ( y1 + y2 )/2
