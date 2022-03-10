@@ -80,9 +80,10 @@ def createGrid(resolution, grid_path, extent,BarGridReceiver,BuildingMaskLayer):
             'PREDICATE': [2]
         }
 
-        result_difference = processing.run("native:extractbylocation", params_extract)
-        feedback.setProgress(85)
-        difference_output = result_difference['OUTPUT']
+        # result_difference = processing.run("native:extractbylocation", params_extract)
+        # feedback.setProgress(85)
+        # difference_output = result_difference['OUTPUT']
+        difference_output = result_grid['OUTPUT']
 
         # native:multipart to single partS
         params_multiTosingle = {
@@ -175,14 +176,31 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         'WIDTH': resolution
     }
     result_rasterize = processing.run("gdal:rasterize", params_rasterize, feedback=feedback)
-    feedback.setProgress(33)
+    feedback.setProgress(25)
     raster_output = result_rasterize['OUTPUT']
-    raster_layer = QgsRasterLayer(
-        raster_output,
+
+
+    '''procedure to fill nodata corresponding to -99 values'''
+    params_fillnull = {
+        'BAND': 1,
+        'DISTANCE': 5000,
+        'EXTRA': '',
+        'INPUT': raster_output,
+        'ITERATIONS': 0,
+        'MASK_LAYER': None,
+        'NO_MASK': False,
+        'OPTIONS': '',
+        'OUTPUT': 'TEMPORARY_OUTPUT'}
+
+    result_fillnodata = processing.run("gdal:fillnodata", params_fillnull, feedback=feedback)
+    feedback.setProgress(50)
+    raster_filled = result_fillnodata['OUTPUT']
+    raster_layer_filled = QgsRasterLayer(
+        raster_filled,
         'Raster'
     )
 
-    project.addMapLayer(raster_layer)
+    project.addMapLayer(raster_layer_filled)
 
     '''procedura da sviluppare per rimuovere i valori minore di zero
     { 'CELLSIZE' : 5, 'CRS' : QgsCoordinateReferenceSystem('EPSG:3003'), 
@@ -198,7 +216,7 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         'EXTRA': '',
         'FIELD_NAME': field,
         'IGNORE_NODATA': False,
-        'INPUT': raster_output,
+        'INPUT': raster_filled,
         'INTERVAL': interval,
         'NODATA': -99,
         'OFFSET': 0,
@@ -213,7 +231,7 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         params_contour['OUTPUT'] = removeLayer(contour_path)
 
     result_contour = processing.run("gdal:contour", params_contour, feedback=feedback)
-    feedback.setProgress(66)
+    feedback.setProgress(75)
     contour_output = result_contour['OUTPUT']
 
     contour_name = os.path.splitext(
@@ -234,7 +252,7 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         'FIELD_NAME_MAX': field+'_MAX',
         'FIELD_NAME_MIN': field+'_MIN',
         'IGNORE_NODATA': False,
-        'INPUT': raster_output,
+        'INPUT': raster_filled,
         'INTERVAL': interval,
         'NODATA': -99,
         'OFFSET': 0,
@@ -250,11 +268,12 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
     result_poly = processing.run("gdal:contour_polygon", parameter_poly_contour,feedback=feedback)
     feedback.setProgress(100)
     poly_output = result_poly['OUTPUT']
+
     poly_name = os.path.splitext(
         os.path.basename(poly_path))[0]
 
     poly_layer = QgsVectorLayer(
-        poly_path,
+        poly_output,
         poly_name
     )
 
@@ -297,7 +316,6 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
             attrs = {fareaidx: round(feature.geometry().area(), 2)}
             # We change the the value of Area Field for this feature.
             poly_layer.dataProvider().changeAttributeValues({feature.id(): attrs})
-
 
     return raster_output
 
