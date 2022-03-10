@@ -180,6 +180,7 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
     raster_output = result_rasterize['OUTPUT']
 
 
+
     '''procedure to fill nodata corresponding to -99 values'''
     params_fillnull = {
         'BAND': 1,

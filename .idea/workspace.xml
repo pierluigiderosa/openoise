@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- added checks for fields combobox">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer">
+      <change beforePath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_CalculateNoiseLevels_errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CreateGrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateGrid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
@@ -309,14 +309,7 @@
       <workItem from="1646748177225" duration="5805000" />
       <workItem from="1646817535442" duration="3154000" />
       <workItem from="1646832237104" duration="36000" />
-      <workItem from="1646896962746" duration="3642000" />
-    </task>
-    <task id="LOCAL-00010" summary="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver">
-      <created>1619009418059</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1619009418059</updated>
+      <workItem from="1646896962746" duration="3998000" />
     </task>
     <task id="LOCAL-00011" summary="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
       <created>1620145722603</created>
@@ -654,7 +647,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646832260859</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer">
+      <created>1646905791290</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1646905791291</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +705,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="custom 3d field height" />
     <MESSAGE value="first part correction Note 19-lug" />
     <MESSAGE value="second part correction Note 19-lug" />
     <MESSAGE value="threeD implementation - initial" />
@@ -730,7 +729,8 @@
     <MESSAGE value="- fixed portion of facades less than 5 m" />
     <MESSAGE value="- added calculation for dwellings" />
     <MESSAGE value="- added checks for fields combobox" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added checks for fields combobox" />
+    <MESSAGE value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
