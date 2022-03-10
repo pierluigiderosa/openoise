@@ -138,11 +138,11 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         #self.buildings_layer_comboBox.addItems(buildings_layers)
 
-    def outputTempTable(self,pddf,tablename):
+    def outputTempTable(self,pddf,tablename,filedname):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
         pr.addAttributes([QgsField("level", QVariant.String),
-                          QgsField("people", QVariant.Double)])
+                          QgsField(filedname, QVariant.Double)])
         vl.updateFields()
         labelsLev = ["<=35.0 dB(A)", "35 - 40 dB(A)", "40 - 45 dB(A)", "45 - 50 dB(A)",
                      "50 - 55 dB(A)", "55 - 60 dB(A)", "60 - 65 dB(A)", "65 - 70 dB(A)",
@@ -624,11 +624,33 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 buildingMethod[bFeat.id()] = bFeat[method]
 
             # create a dict sto store facade perc for each receiver
-            receiverFacadeDic = dict()
+            receiverFacadeDicL1 = dict()
+            receiverFacadeDicL2 = dict()
+            receiverFacadeDicL3 = dict()
+            receiverFacadeDicL4 = dict()
+            receiverFacadeDicL5 = dict()
             for recFeat in receiver_points_layer.getFeatures():
                 key = recFeat['id_bui']
-                receiverFacadeDic.setdefault(key, [])
-                receiverFacadeDic[key].append(recFeat['facadeP'])
+                if receiver_points_layer_details['level_1'] != 'none':
+                    receiverFacadeDicL1.setdefault(key, [])
+                    level_1 = recFeat.attributes()[receiver_points_fields_index['level_1']]
+                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_1)
+                if receiver_points_layer_details['level_2'] != 'none':
+                    receiverFacadeDicL1.setdefault(key, [])
+                    level_2 = recFeat.attributes()[receiver_points_fields_index['level_2']]
+                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_2)
+                if receiver_points_layer_details['level_3'] != 'none':
+                    receiverFacadeDicL1.setdefault(key, [])
+                    level_3 = recFeat.attributes()[receiver_points_fields_index['level_3']]
+                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_3)
+                if receiver_points_layer_details['level_4'] != 'none':
+                    receiverFacadeDicL1.setdefault(key, [])
+                    level_4 = recFeat.attributes()[receiver_points_fields_index['level_4']]
+                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_4)
+                if receiver_points_layer_details['level_5'] != 'none':
+                    receiverFacadeDicL1.setdefault(key, [])
+                    level_5 = recFeat.attributes()[receiver_points_fields_index['level_5']]
+                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_5)
             # print('receiverFacadeDic: ',receiverFacadeDic)
 
 
@@ -636,41 +658,41 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 df1,df1Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDic)
-                self.outputTempTable(df1,"Noise Exposure - Lev1")
-                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lev1")
+                                                  buildingMethod,receiverFacadeDicL1)
+                self.outputTempTable(df1,"Noise Exposure - Lev1","people")
+                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lev1","dwellings")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL2,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDic)
-                self.outputTempTable(df2,"Noise Exposure - Lev2")
-                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lev2")
+                                                  buildingMethod,receiverFacadeDicL2)
+                self.outputTempTable(df2,"Noise Exposure - Lev2","people")
+                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lev2","dwellings")
                 print('L2 pop',df2)
             if receiver_points_layer_details['level_3'] != 'none':
                 df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL3,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDic)
-                self.outputTempTable(df3,"Noise Exposure - Lev3")
-                self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3")
+                                                  buildingMethod,receiverFacadeDicL3)
+                self.outputTempTable(df3,"Noise Exposure - Lev3","people")
+                self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3","dwellings")
                 print('L3 pop',df3)
             if receiver_points_layer_details['level_4'] != 'none':
                 df4,df4Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL4,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDic)
-                self.outputTempTable(df4,"Noise Exposure - Lev4")
-                self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4")
+                                                  buildingMethod,receiverFacadeDicL4)
+                self.outputTempTable(df4,"Noise Exposure - Lev4","people")
+                self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4","dwellings")
                 print('L5 pop',df4)
             if receiver_points_layer_details['level_5'] != 'none':
                 df5,df5Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL5,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDic)
-                self.outputTempTable(df5,"Noise Exposure - Lev5")
-                self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5")
+                                                  buildingMethod,receiverFacadeDicL5)
+                self.outputTempTable(df5,"Noise Exposure - Lev5","people")
+                self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5","dwellings")
                 print('L5 pop',df5)
 
 
