@@ -92,7 +92,7 @@ class opeNoise(object):
 
         # AssignLevelsToBuildings
         self.AssignLevelsToBuildings_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_AssignLevelsToBuildings.png"),
-                                        self.tr("Assign Levels To Buildings"), self.iface.mainWindow())
+                                        self.tr("Noise exposure"), self.iface.mainWindow())
         self.AssignLevelsToBuildings_item.triggered.connect(self.AssignLevelsToBuildings_show)
         
         # AssignLevelsToBuildings

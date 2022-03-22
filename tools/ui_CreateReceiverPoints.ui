@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>417</height>
+    <height>440</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -141,11 +141,24 @@
             <string> in according to case 2b - Directive 2002/49/EC  Annex II </string>
            </property>
            <property name="text">
-            <string>façades split up every 5 m from the start position</string>
+            <string>Façades split up at set distance from start of polygon</string>
            </property>
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In according to case 2b Directive 2002/49/EC Annex II - Façades are &lt;br/&gt;split up every 5 m from the start position onwards, with a receiver&lt;br/&gt;position placed at the halfway the 5m segment. The remaining &lt;br/&gt;section has its receiver point in its mid-point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
+          <number>25</number>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer">

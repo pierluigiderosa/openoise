@@ -35,7 +35,7 @@ from qgis.PyQt.QtWidgets import QMessageBox
 
 from qgis.core import (QgsProject,QgsVectorLayer,QgsFeature,
                        QgsWkbTypes,QgsFieldProxyModel,
-                       QgsField, QgsMapLayerProxyModel)
+                       QgsField, QgsMapLayerProxyModel,NULL as qgisnull)
 try:
     from qgis.core import Qgis
 except ImportError:
@@ -80,7 +80,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                  self.tr("This script works correctly only if the receiver points layer ") + '\n' +\
                  self.tr("is created from a buildings layer with opeNoise") + '\n' +\
                  self.tr("and its structure is not modified.")
-        QMessageBox.information(self, self.tr("opeNoise - Assign Levels To Buildings"), self.tr(string))
+        QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(string))
 
         self.populate_comboBox()
 
@@ -90,6 +90,8 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         self.receiver_points_layer_comboBox.currentIndexChanged.connect(self.update_field_receiver_points_layer)
 
+        self.helpFacades.clicked.connect(self.HelpFacades_show)
+
         self.receiver_points_population_field.setFilters(
             QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
         self.dwellingCombobox.setFilters(
@@ -97,6 +99,11 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         self.methodComboBox.setFilters(
             QgsFieldProxyModel.String)
 
+    def HelpFacades_show(self):
+            QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+           <html><head/><body><p>In according to case 2b Directive 2002/49/EC Annex II </p><p>1 Single dwellings</p>
+           <p>2 Appartments single façade type exposition</p><p>3 Appartment multi façade type exposition </p></body></html>
+            '''))
 
     def checks(self):
         if self.receiver_points_population_field.currentText() == "":
@@ -141,7 +148,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
     def outputTempTable(self,pddf,tablename,filedname):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
-        pr.addAttributes([QgsField("level", QVariant.String),
+        pr.addAttributes([QgsField("level_band", QVariant.String),
                           QgsField(filedname, QVariant.Double)])
         vl.updateFields()
         labelsLev = ["<=35.0 dB(A)", "35 - 40 dB(A)", "40 - 45 dB(A)", "45 - 50 dB(A)",
@@ -189,18 +196,18 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
     def controls(self):
         self.run_buttonBox.setEnabled( False )
         if self.receiver_points_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Assign Levels To Buildings"), self.tr("Please specify the receiver points vector layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify the receiver points vector layer."))
             return 0
 
         if self.level_1_comboBox.currentText() == "" and self.level_2_comboBox.currentText() == ""\
            and self.level_3_comboBox.currentText() == "" and self.level_4_comboBox.currentText() == ""\
            and self.level_5_comboBox.currentText() == "":
                message = self.tr("Please specify at least one level field to assing") + "\n" + self.tr("to the buildings layer.")
-               QMessageBox.information(self, self.tr("opeNoise - Assign Levels To Buildings"), self.tr(message))
+               QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(message))
                return 0
 
         if self.buildings_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Assign Levels To Buildings"), self.tr("Please specify the buildings vector layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify the buildings vector layer."))
             return 0
 
         return 1
@@ -264,10 +271,10 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         if fields_already_present:
             overwrite_begin = self.tr("In buildings layer you already have the fields: ")
             overwrite_end = self.tr(" . Do you want to overwrite data in attribute table?")
-            reply = QMessageBox.question(self, self.tr("opeNoise - Assign Levels To Buildings"),
+            reply = QMessageBox.question(self, self.tr("opeNoise - Noise Exposure"),
                                            overwrite_begin + '\n' + str(fields_already_present) + overwrite_end, QMessageBox.Yes, QMessageBox.No)
             if reply == QMessageBox.No:
-                reply2 = QMessageBox.question(self, self.tr("opeNoise - Assign Levels To Buildings"),
+                reply2 = QMessageBox.question(self, self.tr("opeNoise - Noise Exposure"),
                                                self.tr("To mantain old data, copy them in a new field."), QMessageBox.Ok)
                 return False
             else:
@@ -309,7 +316,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         # CRS control (each layer must have the same CRS)
         if receiver_points_layer.crs().authid() != buildings_layer.crs().authid():
-            QMessageBox.information(self, self.tr("opeNoise - Assign Levels To Buildings"), self.tr("The layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS."))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("The layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS."))
             self.run_buttonBox.setEnabled( True )
             return
 
@@ -338,8 +345,8 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())
-            QMessageBox.information(self, self.tr("opeNoise - Assign Levels To Buildings"), self.tr(result_string))
-#            self.iface.messageBar().pushMessage(self.tr("opeNoise - Assign Levels To Buildings"), self.tr("Process complete"))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(result_string))
+#            self.iface.messageBar().pushMessage(self.tr("opeNoise - Noise Exposure"), self.tr("Process complete"))
         else:
             result_string = self.tr("Sorry, process not complete.") + "\n\n" +\
                             self.tr("View the log file to understand the problem:") + "\n" +\
@@ -347,8 +354,8 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S.%f") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S.%f") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())
-            QMessageBox.information(self, self.tr("opeNoise - Assign Levels To Buildings"), self.tr(result_string))
-#            self.iface.messageBar().pushMessage(self.tr("opeNoise - Assign Levels To Buildings"), self.tr("Process not complete"))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(result_string))
+#            self.iface.messageBar().pushMessage(self.tr("opeNoise - Noise Exposure"), self.tr("Process not complete"))
 
         self.log_end()
 
@@ -377,7 +384,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         dir_path = os.path.dirname(path)
         log_errors_path_name = os.path.join(dir_path,"log_AssignLevelsToBuildings_errors.txt")
         log_errors = open(log_errors_path_name,"w")
-        log_errors.write(self.tr("opeNoise") + " - " + self.tr("Assign Levels To Buildings") + " - " + self.tr("Errors") + "\n\n")
+        log_errors.write(self.tr("opeNoise") + " - " + self.tr("Noise Exposure") + " - " + self.tr("Errors") + "\n\n")
 
     def log_end(self):
 
@@ -389,8 +396,14 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
         outDewlling = list()
         for id_bui in buildingLevel.keys():
             livelli = buildingLevel[id_bui]
-            abitanti = popDic[id_bui]
-            ndwelling = dwellings[id_bui]
+            if popDic[id_bui] == qgisnull:
+                abitanti = 0
+            else:
+                abitanti = popDic[id_bui]
+            if dwellings[id_bui] == qgisnull:
+                ndwelling = 0
+            else:
+                ndwelling = dwellings[id_bui]
             method = Method[id_bui]
             facade = receiverFacadeDic[id_bui]
             if method.endswith('1'):
@@ -659,7 +672,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL1)
-                self.outputTempTable(df1,"Noise Exposure - Lev1","people")
+                self.outputTempTable(df1,"People Exposure - Lev1","people")
                 self.outputTempTable(df1Dwell, "Dwellings Exposure - Lev1","dwellings")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
@@ -667,7 +680,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                                                   buildings_levels_from_receiverL2,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL2)
-                self.outputTempTable(df2,"Noise Exposure - Lev2","people")
+                self.outputTempTable(df2,"People Exposure - Lev2","people")
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lev2","dwellings")
                 print('L2 pop',df2)
             if receiver_points_layer_details['level_3'] != 'none':
@@ -675,7 +688,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                                                   buildings_levels_from_receiverL3,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL3)
-                self.outputTempTable(df3,"Noise Exposure - Lev3","people")
+                self.outputTempTable(df3,"People Exposure - Lev3","people")
                 self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3","dwellings")
                 print('L3 pop',df3)
             if receiver_points_layer_details['level_4'] != 'none':
@@ -683,7 +696,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                                                   buildings_levels_from_receiverL4,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL4)
-                self.outputTempTable(df4,"Noise Exposure - Lev4","people")
+                self.outputTempTable(df4,"People Exposure - Lev4","people")
                 self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4","dwellings")
                 print('L5 pop',df4)
             if receiver_points_layer_details['level_5'] != 'none':
@@ -691,7 +704,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                                                   buildings_levels_from_receiverL5,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL5)
-                self.outputTempTable(df5,"Noise Exposure - Lev5","people")
+                self.outputTempTable(df5,"People Exposure - Lev5","people")
                 self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5","dwellings")
                 print('L5 pop',df5)
 

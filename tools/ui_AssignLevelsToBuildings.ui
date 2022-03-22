@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>713</width>
-    <height>350</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -22,13 +22,13 @@
   <property name="minimumSize">
    <size>
     <width>713</width>
-    <height>350</height>
+    <height>400</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>713</width>
-    <height>350</height>
+    <height>400</height>
    </size>
   </property>
   <property name="sizeIncrement">
@@ -38,7 +38,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>opeNoise - Assign Levels To Buildings</string>
+   <string>opeNoise - Noise Exposure</string>
   </property>
   <property name="locale">
    <locale language="Italian" country="Italy"/>
@@ -141,18 +141,11 @@
        <property name="horizontalSpacing">
         <number>7</number>
        </property>
+       <item row="3" column="1">
+        <widget class="QgsFieldComboBox" name="methodComboBox"/>
+       </item>
        <item row="0" column="1">
         <widget class="QgsMapLayerComboBox" name="buildings_layer_comboBox"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dwellings &lt;span style=&quot; font-style:italic;&quot;&gt;number of dwelling for each building&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
        </item>
        <item row="1" column="1">
         <widget class="QgsFieldComboBox" name="receiver_points_population_field">
@@ -161,6 +154,16 @@
          </property>
          <property name="statusTip">
           <string extracomment="population field"/>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dwellings &lt;span style=&quot; font-style:italic;&quot;&gt;number of dwelling for each building&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -197,21 +200,57 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>façade type exposition</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QgsFieldComboBox" name="methodComboBox"/>
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>façade type exposition</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="indent">
+            <number>150</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="helpFacades">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>?</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">

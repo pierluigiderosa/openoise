@@ -1,5 +1,6 @@
 import os
 from PyQt5.QtCore import QVariant
+from PyQt5.QtGui import QColor
 from qgis.core import (
     Qgis,
     QgsProject,
@@ -11,6 +12,10 @@ from qgis.core import (
     QgsWkbTypes,
 QgsProcessingFeedback,
     QgsVectorFileWriter,
+QgsRasterBandStats,
+QgsColorRampShader,
+QgsRasterShader,
+QgsSingleBandPseudoColorRenderer,
 QgsVectorDataProvider
 )
 
@@ -198,8 +203,32 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
     raster_filled = result_fillnodata['OUTPUT']
     raster_layer_filled = QgsRasterLayer(
         raster_filled,
-        'Raster'
+        'Raster noise distrubution'
     )
+    # apply noise color ramp to raster output layer
+    stats = raster_layer_filled.dataProvider().bandStatistics(1, QgsRasterBandStats.All)
+    fnc = QgsColorRampShader()
+    fnc.setColorRampType(QgsColorRampShader.Interpolated)
+    lst = [QgsColorRampShader.ColorRampItem(0, QColor(216, 216, 216)),
+           QgsColorRampShader.ColorRampItem(35, QColor(216, 216, 216)),
+           QgsColorRampShader.ColorRampItem(39, QColor(35, 132, 67)),
+           QgsColorRampShader.ColorRampItem(44, QColor(120, 198, 121)),
+           QgsColorRampShader.ColorRampItem(49, QColor(194, 230, 153)),
+           QgsColorRampShader.ColorRampItem(54, QColor(255, 255, 178)),
+           QgsColorRampShader.ColorRampItem(59, QColor(254, 204, 92)),
+           QgsColorRampShader.ColorRampItem(64, QColor(253, 141, 60)),
+           QgsColorRampShader.ColorRampItem(69, QColor(255, 9, 9)),
+           QgsColorRampShader.ColorRampItem(74, QColor(179, 6, 34)),
+           QgsColorRampShader.ColorRampItem(79, QColor(103, 3, 59)),
+           QgsColorRampShader.ColorRampItem(80, QColor(28, 0, 84)),
+           QgsColorRampShader.ColorRampItem(1500, QColor(28, 0, 84))]
+    fnc.setColorRampItemList(lst)
+
+    shader = QgsRasterShader()
+    shader.setRasterShaderFunction(fnc)
+
+    renderer = QgsSingleBandPseudoColorRenderer(raster_layer_filled.dataProvider(), 1, shader)
+    raster_layer_filled.setRenderer(renderer)
 
     project.addMapLayer(raster_layer_filled)
 
