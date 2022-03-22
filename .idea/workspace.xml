@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opeNoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/opeNoise.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_CreateReceiverPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CreateReceiverPoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_CreateGrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CreateGrid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_AssignLevelsToBuildings.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_AssignLevelsToBuildings.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,14 +309,8 @@
       <workItem from="1646817535442" duration="3154000" />
       <workItem from="1646832237104" duration="36000" />
       <workItem from="1646896962746" duration="4092000" />
-      <workItem from="1647935229742" duration="6588000" />
-    </task>
-    <task id="LOCAL-00012" summary="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
-      <created>1620145926694</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1620145926694</updated>
+      <workItem from="1647935229742" duration="7756000" />
+      <workItem from="1647945512858" duration="4396000" />
     </task>
     <task id="LOCAL-00013" summary="- added new data for testing">
       <created>1620223007154</created>
@@ -659,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646906126076</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello">
+      <created>1647944461705</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1647944461705</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +706,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first part correction Note 19-lug" />
     <MESSAGE value="second part correction Note 19-lug" />
     <MESSAGE value="threeD implementation - initial" />
     <MESSAGE value="threeD implementation - initial2" />
@@ -735,7 +730,8 @@
     <MESSAGE value="- added calculation for dwellings" />
     <MESSAGE value="- added checks for fields combobox" />
     <MESSAGE value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
+    <MESSAGE value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
+    <option name="LAST_COMMIT_MESSAGE" value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />

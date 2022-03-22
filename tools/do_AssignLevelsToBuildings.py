@@ -406,14 +406,24 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                 ndwelling = dwellings[id_bui]
             method = Method[id_bui]
             facade = receiverFacadeDic[id_bui]
+            # metodo 1
             if method.endswith('1'):
                 # method 1
                 outPop.append([max(livelli), abitanti, id_bui])
                 outDewlling.append([max(livelli), ndwelling, id_bui])
-            # todo: implementare metodo 2
-            # if method.endswith('2'):
-            #     # method 2
-            #     pass
+
+            # metodo 2
+            if method.endswith('2'):
+                if len(receiverFacadeDic[id_bui]) == 0:
+                    outPop.append([0, abitanti, id_bui])
+                    outDewlling.append([0, ndwelling, id_bui])
+                else:
+                    for facadeLev in receiverFacadeDic[id_bui]:
+                        facadeP = facadeLev[0]
+                        livello = facadeLev[1]
+                        outPop.append([livello, abitanti*facadeP/100., id_bui])
+                        outDewlling.append([livello, ndwelling*facadeP/100, id_bui])
+
             else:
                 # method 3
                 # method3 - part1 - remove minimum value in case even receivers
@@ -566,7 +576,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                             buildings_levels_from_receiverL1[id_edi].append(level_1)
                         else:
                             buildings_levels_from_receiverL1[id_edi] = [level_1]
-
+                print('buildingLelev:',buildings_levels_from_receiverL1)
                 if receiver_points_layer_details['level_2'] != 'none':
                     if level_2 > 0:
 
@@ -601,31 +611,6 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         # POPULATION PART -- ADDED PART
         if building_pop_Field != '':
-            # creation of dict that stores median e numbers of receiver relater to any buildings
-            buildings_medianL1=dict()
-            buildings_medianL2 = dict()
-            buildings_medianL3 = dict()
-            buildings_medianL4 = dict()
-            buildings_medianL5 = dict()
-            if receiver_points_layer_details['level_1'] != 'none':
-                for keysB, valueB in buildings_levels_from_receiverL1.items():
-                    buildings_medianL1[keysB] = (median(valueB), len(valueB) )
-
-            if receiver_points_layer_details['level_2'] != 'none':
-                for keysB, valueB in buildings_levels_from_receiverL2.items():
-                    buildings_medianL2[keysB] = (median(valueB), len(valueB))
-
-            if receiver_points_layer_details['level_3'] != 'none':
-                for keysB, valueB in buildings_levels_from_receiverL3.items():
-                    buildings_medianL3[keysB] = (median(valueB), len(valueB))
-
-            if receiver_points_layer_details['level_4'] != 'none':
-                for keysB, valueB in buildings_levels_from_receiverL4.items():
-                    buildings_medianL4[keysB] = (median(valueB), len(valueB))
-
-            if receiver_points_layer_details['level_5'] != 'none':
-                for keysB, valueB in buildings_levels_from_receiverL5.items():
-                    buildings_medianL5[keysB] = (median(valueB), len(valueB))
 
             # extract population from building layer and store in
             buildingPop = dict()
@@ -642,29 +627,36 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
             receiverFacadeDicL3 = dict()
             receiverFacadeDicL4 = dict()
             receiverFacadeDicL5 = dict()
+
             for recFeat in receiver_points_layer.getFeatures():
                 key = recFeat['id_bui']
                 if receiver_points_layer_details['level_1'] != 'none':
                     receiverFacadeDicL1.setdefault(key, [])
                     level_1 = recFeat.attributes()[receiver_points_fields_index['level_1']]
-                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_1)
+                    if level_1 > 0:
+                        receiverFacadeDicL1[key].append([recFeat['facadeP'],level_1])
+
                 if receiver_points_layer_details['level_2'] != 'none':
-                    receiverFacadeDicL1.setdefault(key, [])
+                    receiverFacadeDicL2.setdefault(key, [])
                     level_2 = recFeat.attributes()[receiver_points_fields_index['level_2']]
-                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_2)
+                    if level_2 > 0:
+                        receiverFacadeDicL2[key].append([recFeat['facadeP'],level_2])
                 if receiver_points_layer_details['level_3'] != 'none':
-                    receiverFacadeDicL1.setdefault(key, [])
+                    receiverFacadeDicL3.setdefault(key, [])
                     level_3 = recFeat.attributes()[receiver_points_fields_index['level_3']]
-                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_3)
+                    if level_3>0:
+                        receiverFacadeDicL3[key].append([recFeat['facadeP'],level_3])
                 if receiver_points_layer_details['level_4'] != 'none':
-                    receiverFacadeDicL1.setdefault(key, [])
+                    receiverFacadeDicL4.setdefault(key, [])
                     level_4 = recFeat.attributes()[receiver_points_fields_index['level_4']]
-                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_4)
+                    if level_4 > 0:
+                        receiverFacadeDicL4[key].append([recFeat['facadeP'],level_4])
                 if receiver_points_layer_details['level_5'] != 'none':
-                    receiverFacadeDicL1.setdefault(key, [])
+                    receiverFacadeDicL5.setdefault(key, [])
                     level_5 = recFeat.attributes()[receiver_points_fields_index['level_5']]
-                    receiverFacadeDicL1[key].append(recFeat['facadeP']*level_5)
-            # print('receiverFacadeDic: ',receiverFacadeDic)
+                    if level_5 > 0:
+                        receiverFacadeDicL5[key].append([recFeat['facadeP'],level_5])
+            print('receiverFacadeDic: ',receiverFacadeDicL1)
 
 
             if receiver_points_layer_details['level_1'] != 'none':
