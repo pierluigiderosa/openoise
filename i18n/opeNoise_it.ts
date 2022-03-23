@@ -27,22 +27,22 @@
 <context>
     <name>AssignLevelsToBuildings_window</name>
     <message>
-        <location filename="../tools/ui_AssignLevelsToBuildings.ui" line="41"/>
+        <location filename="../tools/ui_AssignNoiseExposure.ui" line="41"/>
         <source>opeNoise - Assign Levels To Buildings</source>
         <translation>opeNoise - Assegna i livelli agli edifici</translation>
     </message>
     <message>
-        <location filename="../tools/ui_AssignLevelsToBuildings.ui" line="61"/>
+        <location filename="../tools/ui_AssignNoiseExposure.ui" line="61"/>
         <source>Receiver points layer (input point layer)</source>
         <translation>Layer punti ricevitori</translation>
     </message>
     <message>
-        <location filename="../tools/ui_AssignLevelsToBuildings.ui" line="81"/>
+        <location filename="../tools/ui_AssignNoiseExposure.ui" line="81"/>
         <source>Choose the sound level fields to assign to the buildings layer (max level):</source>
         <translation>Scegli il campo per assegnare il livello all&apos;edificio (il massimo livello):</translation>
     </message>
     <message>
-        <location filename="../tools/ui_AssignLevelsToBuildings.ui" line="127"/>
+        <location filename="../tools/ui_AssignNoiseExposure.ui" line="127"/>
         <source>Buildings layer (input polygon layer)</source>
         <translation>Layer degli edifici (layer poligonale)</translation>
     </message>

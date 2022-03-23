@@ -38,7 +38,7 @@ currentPath = os.path.dirname(__file__)
 #import do_CreateReceiverPoints,do_CalculateNoiseLevels,do_AssignLevelsToBuildings,do_ApplyNoiseSymbology#,do_Credits
 
 from .tools import do_Credits,do_CreateReceiverPoints,do_CalculateNoiseLevels,\
-    do_AssignLevelsToBuildings,do_ApplyNoiseSymbology,do_Informations, do_CreateGrid
+    do_AssignNoiseExposure,do_ApplyNoiseSymbology,do_Informations, do_CreateGrid
 
 class opeNoise(object):
 
@@ -154,7 +154,7 @@ class opeNoise(object):
        
     def AssignLevelsToBuildings_show(self):
 
-        d = do_AssignLevelsToBuildings.Dialog(self.iface)
+        d = do_AssignNoiseExposure.Dialog(self.iface)
         flags = Qt.Window | Qt.WindowSystemMenuHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint | Qt.WindowCloseButtonHint
         d.setWindowFlags(flags)
         d.setWindowModality(Qt.ApplicationModal)

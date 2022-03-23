@@ -108,8 +108,10 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         self.sources_pts_pushButton.clicked.connect(self.sourcePts_show)
         self.sources_roads_pushButton.clicked.connect(self.sourceRoads_show)
-        # self.helpBuilding.clicked.connect(self.helpBuilding_show)
+        # self.helpBuilding.cliFcked.connect(self.helpBuilding_show)
         self.HelpParameters.clicked.connect(self.HelpParameters_show)
+        self.helpSkipdiffraction.clicked.connect(self.HelpSkipDiff_show)
+        self.helpSaveemission.clicked.connect(self.HelpSaveEmission_show)
 
         self.buildings_layer_checkBox.setChecked(0)
         self.buildings_layer_comboBox.setEnabled(False)
@@ -194,6 +196,15 @@ loss of precision in sound levels estimates.</p>
 <p><strong>Atmospheric absorption:</strong> air temperature and relative humidity, in accordance with the ISO 9613 - 1</p>
 <p><strong>Lden definition: </strong>in accordance with the Directive 2002/49/CE and the regulation of the specific nation. The plugin automatically calculates the value of Lden when data referred to the three reference periods are set (Day, Evening, Night).</p>
 <p>&nbsp;</p>
+        '''))
+
+    def HelpSkipDiff_show(self):
+        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+        Info skip diffraction
+        '''))
+    def HelpSaveEmission_show(self):
+        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+        Info save emission
         '''))
 
     def sourcePts_show(self):

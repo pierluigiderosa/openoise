@@ -47,8 +47,8 @@ import traceback
 #from math import *
 from datetime import datetime
 sys.path.append(os.path.dirname(__file__))
-Ui_AssignLevelsToBuildings_window, _ = uic.loadUiType(os.path.join(
-    os.path.dirname(__file__), 'ui_AssignLevelsToBuildings.ui'), resource_suffix='')
+Ui_AssignNoiseToBuildings_window, _ = uic.loadUiType(os.path.join(
+    os.path.dirname(__file__), 'ui_AssignNoiseExposure.ui'), resource_suffix='')
 
 from . import on_ApplyNoiseSymbology
 
@@ -68,7 +68,7 @@ def DeleteTempDir():
 
     shutil.rmtree(temp_dir)
 
-class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
+class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def __init__(self, iface):
         QDialog.__init__(self, iface.mainWindow())
@@ -90,6 +90,10 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
         self.receiver_points_layer_comboBox.currentIndexChanged.connect(self.update_field_receiver_points_layer)
 
+        self.level_3_comboBox.hide()
+        self.level_4_comboBox.hide()
+        self.level_5_comboBox.hide()
+
         self.helpFacades.clicked.connect(self.HelpFacades_show)
 
         self.receiver_points_population_field.setFilters(
@@ -101,11 +105,11 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
     def HelpFacades_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-           <html><head/><body><p>In according to case 2b Directive 2002/49/EC Annex II </p><p>1 Single dwellings</p>
+           <html><head/><body><p>In according Directive 2002/49/EC Annex II </p><p>1 Single dwellings</p>
            <p>2 Appartments single façade type exposition</p><p>3 Appartment multi façade type exposition </p></body></html>
             '''))
 
-    def checks(self):
+    def checkdata(self):
         if self.receiver_points_population_field.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
                                     self.tr("Please specify the people field."))
@@ -292,14 +296,16 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
 
 
     def accept(self):
-        self.run_buttonBox.setEnabled( False )
+
+        if self.checkdata() == False:
+            return
 
         if self.controls() == 0:
             self.run_buttonBox.setEnabled( True )
             return
 
-        if self.checks() == False:
-            return
+        self.run_buttonBox.setEnabled( False )
+
 
         self.log_start()
         receiver_points_layer = QgsProject.instance().mapLayersByName(self.receiver_points_layer_comboBox.currentText())[0]
@@ -422,7 +428,7 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                         facadeP = facadeLev[0]
                         livello = facadeLev[1]
                         outPop.append([livello, abitanti*facadeP/100., id_bui])
-                        outDewlling.append([livello, ndwelling*facadeP/100, id_bui])
+                        outDewlling.append([livello, ndwelling*facadeP/100., id_bui])
 
             else:
                 # method 3
@@ -664,16 +670,16 @@ class Dialog(QDialog,Ui_AssignLevelsToBuildings_window):
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL1)
-                self.outputTempTable(df1,"People Exposure - Lev1","people")
-                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lev1","dwellings")
+                self.outputTempTable(df1,"People Exposure - Lden","people")
+                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL2,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL2)
-                self.outputTempTable(df2,"People Exposure - Lev2","people")
-                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lev2","dwellings")
+                self.outputTempTable(df2,"People Exposure - Lnight","people")
+                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings")
                 print('L2 pop',df2)
             if receiver_points_layer_details['level_3'] != 'none':
                 df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,

@@ -71,26 +71,44 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="choose_fileds_label">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Choose the sound level fields to assign noise exposure:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Lden  </string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QgsFieldComboBox" name="level_1_comboBox"/>
        </item>
        <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Lnight  </string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QgsFieldComboBox" name="level_2_comboBox"/>
        </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QgsFieldComboBox" name="level_3_comboBox"/>
        </item>
