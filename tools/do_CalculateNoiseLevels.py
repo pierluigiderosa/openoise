@@ -112,6 +112,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.HelpParameters.clicked.connect(self.HelpParameters_show)
         self.helpSkipdiffraction.clicked.connect(self.HelpSkipDiff_show)
         self.helpSaveemission.clicked.connect(self.HelpSaveEmission_show)
+        self.helpSavexml.clicked.connect(self.HelpSavexml_show)
 
         self.buildings_layer_checkBox.setChecked(0)
         self.buildings_layer_comboBox.setEnabled(False)
@@ -200,12 +201,17 @@ loss of precision in sound levels estimates.</p>
 
     def HelpSkipDiff_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-        Info skip diffraction
+        The calculation will not take into account the diffraction of horizontal and vertical obstacles. 
+        This reduces the calculation time with consequent loss of precision in sound levels estimates. Receivers points beyond buildings return -99 value.
         '''))
     def HelpSaveEmission_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-        Info save emission
+        Allows you to save the roads emission in the input layer. The results are expressed in dB(A).
         '''))
+    def HelpSavexml_show(self):
+        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+                Allows you to save all settings. The saved settings can be reloaded later in the start tab.
+                '''))
 
     def sourcePts_show(self):
         if self.sources_pts_layer_comboBox.currentText() == "":

@@ -93,7 +93,7 @@
      <item>
       <widget class="QRadioButton" name="CNOSSOS_radioButton">
        <property name="text">
-        <string>CNOSSOS</string>
+        <string>CNOSSOS (traffic flow)</string>
        </property>
        <property name="checked">
         <bool>false</bool>
@@ -474,7 +474,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Speed (km/h)</string>
+             <string>Speed [km/h]</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -588,7 +588,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Speed (km/h)</string>
+             <string>Speed [km/h]</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1021,7 +1021,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Speed (km/h)</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Speed [km/h]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1145,7 +1145,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Speed (km/h)</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Speed [km/h]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1269,7 +1269,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Speed (km/h)</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Speed [km/h]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1393,7 +1393,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Speed (km/h)</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Speed [km/h]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1464,7 +1464,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Vehicle type</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Vehicle type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1555,7 +1555,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Speed (km/h)</string>
+             <string>Speed [km/h]</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1594,7 +1594,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Road slope</string>
+        <string>Road Slope</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1616,7 +1616,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Road surface</string>
+        <string>Road Surface</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1667,7 +1667,7 @@
       <widget class="QPushButton" name="HelpCNOSSOS">
        <property name="geometry">
         <rect>
-         <x>670</x>
+         <x>690</x>
          <y>530</y>
          <width>111</width>
          <height>25</height>

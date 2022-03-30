@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- method 2 implemetation">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_en.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_en.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_es.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_es.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_it.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opeNoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/opeNoise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_AssignLevelsToBuildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_AssignLevelsToBuildings.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_AssignNoiseExposure.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_AssignNoiseExposure.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_AssignNoiseExposure.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/ui_Credits.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Credits.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_Informations.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Informations.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_SourceDetailsPts.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_SourceDetailsPts.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,14 +320,8 @@
       <workItem from="1647935229742" duration="7756000" />
       <workItem from="1647945512858" duration="4900000" />
       <workItem from="1647950465596" duration="468000" />
-      <workItem from="1648052690790" duration="2624000" />
-    </task>
-    <task id="LOCAL-00014" summary="- added new data for testing">
-      <created>1620223067936</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1620223067936</updated>
+      <workItem from="1648052690790" duration="3242000" />
+      <workItem from="1648632842628" duration="614000" />
     </task>
     <task id="LOCAL-00015" summary="- removed bug when receiver is inside a buoding">
       <created>1620396263574</created>
@@ -665,7 +659,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647950160427</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods">
+      <created>1648058838363</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1648058838365</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -716,7 +717,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="threeD implementation - initial" />
     <MESSAGE value="threeD implementation - initial2" />
     <MESSAGE value="unique bar for overall process" />
     <MESSAGE value="correction for 3D diffraction" />
@@ -741,7 +741,8 @@
     <MESSAGE value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
     <MESSAGE value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
     <MESSAGE value="- method 2 implemetation" />
-    <option name="LAST_COMMIT_MESSAGE" value="- method 2 implemetation" />
+    <MESSAGE value="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />

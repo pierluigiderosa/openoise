@@ -50,14 +50,14 @@
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>50</y>
+       <x>30</x>
+       <y>20</y>
        <width>471</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>This script calculates noise levels.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;This Tool Calculates Noise Levels&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -66,7 +66,7 @@
     <widget class="QPushButton" name="reload_last_settings_pushButton">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>30</x>
        <y>270</y>
        <width>250</width>
        <height>31</height>
@@ -79,14 +79,14 @@
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>220</y>
+       <x>30</x>
+       <y>240</y>
        <width>471</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Otherwise you can reload the last or a saved Settings file:</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Otherwise you can reload the last or a saved Settings file&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -95,7 +95,7 @@
     <widget class="QPushButton" name="reload_saved_settings_pushButton">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>30</x>
        <y>320</y>
        <width>250</width>
        <height>31</height>
@@ -108,14 +108,14 @@
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>80</y>
+       <x>30</x>
+       <y>70</y>
        <width>471</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Compile the next sections to proceed with the calculation:</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Compile the next sections to proceed with the calculation:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -124,14 +124,14 @@
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>110</y>
+       <x>30</x>
+       <y>100</y>
        <width>471</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>1. INPUT: Insert the receivers, sources and buildings layers.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1. Input:  &lt;/span&gt; &lt;/span&gt; insert the receivers, sources and buildings layers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -140,14 +140,14 @@
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>130</y>
-       <width>661</width>
+       <x>30</x>
+       <y>128</y>
+       <width>441</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>2. OPTIONS: Select some option settings as the research distance.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2. Parameters:&lt;/span&gt; select some parameters settings as the research distance&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -156,14 +156,14 @@
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>30</x>
        <y>150</y>
        <width>661</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>3. CALCULATE: Calculate the levels to the receivers.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3. Calculate: &lt;/span&gt;Calculate the levels to the receivers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -190,7 +190,7 @@
         </font>
        </property>
        <property name="text">
-        <string>RECEIVERS</string>
+        <string>Receivers</string>
        </property>
       </widget>
      </item>
@@ -224,20 +224,13 @@
        <item>
         <widget class="QCheckBox" name="height_receiver_check">
          <property name="text">
-          <string>Activate custom receiver height (m)
-for receivers other than 4 m from the ground</string>
+          <string>Activate custom receiver height - Specifies the height of the receivers [m] - 
+default is 4m</string>
          </property>
         </widget>
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
-          <widget class="QLabel" name="label_17">
-           <property name="text">
-            <string>choose the label field containing the receveirs height attribute</string>
-           </property>
-          </widget>
-         </item>
          <item>
           <widget class="QgsFieldComboBox" name="field_height_receiver"/>
          </item>
@@ -272,7 +265,7 @@ for receivers other than 4 m from the ground</string>
           </font>
          </property>
          <property name="text">
-          <string>BUILDINGS</string>
+          <string>Buildings</string>
          </property>
          <property name="checked">
           <bool>false</bool>
@@ -322,14 +315,14 @@ for receivers other than 4 m from the ground</string>
             <string>to enable check that skip diffraction in disabled.</string>
            </property>
            <property name="text">
-            <string>Activate 3D calculation - Specifies the height of the buildings (m)</string>
+            <string>Activate 3D calculation - Specifies the height of the buildings [m]</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_18">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;      to also take into account the diffraction at horizontal obstacles.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;to also take into account the diffraction at horizontal obstacles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -378,7 +371,7 @@ for receivers other than 4 m from the ground</string>
         </font>
        </property>
        <property name="text">
-        <string>SOURCES</string>
+        <string>Sources </string>
        </property>
       </widget>
      </item>
@@ -388,7 +381,7 @@ for receivers other than 4 m from the ground</string>
         <bool>true</bool>
        </property>
        <property name="text">
-        <string>POINTS</string>
+        <string>Points</string>
        </property>
        <property name="checked">
         <bool>false</bool>
@@ -434,7 +427,7 @@ for receivers other than 4 m from the ground</string>
         <bool>true</bool>
        </property>
        <property name="text">
-        <string>ROADS</string>
+        <string>Roads</string>
        </property>
        <property name="checked">
         <bool>false</bool>
@@ -505,7 +498,7 @@ for receivers other than 4 m from the ground</string>
          </size>
         </property>
         <property name="text">
-         <string>Research ray (m)</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Research Ray [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -565,7 +558,7 @@ for receivers other than 4 m from the ground</string>
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Total hours</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total Hours for each Periods&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="L_den_penalty_label">
@@ -818,7 +811,7 @@ for receivers other than 4 m from the ground</string>
          </size>
         </property>
         <property name="text">
-         <string>Temperature (°C)</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Temperature [°C]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -868,7 +861,7 @@ for receivers other than 4 m from the ground</string>
          </size>
         </property>
         <property name="text">
-         <string>Relative Humidity (RH %)</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Relative Humidity [RH%]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -903,14 +896,14 @@ for receivers other than 4 m from the ground</string>
       </rect>
      </property>
      <property name="text">
-      <string>L den definition</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lden  definition&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="HelpParameters">
      <property name="geometry">
       <rect>
-       <x>660</x>
-       <y>400</y>
+       <x>640</x>
+       <y>520</y>
        <width>121</width>
        <height>25</height>
       </rect>
@@ -929,7 +922,7 @@ for receivers other than 4 m from the ground</string>
       </rect>
      </property>
      <property name="text">
-      <string>Atmospheric absorption</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Atmospheric Absorption&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -951,7 +944,7 @@ for receivers other than 4 m from the ground</string>
       </sizepolicy>
      </property>
      <property name="text">
-      <string>+5 dB penalization</string>
+      <string>+5 dB </string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -973,7 +966,7 @@ for receivers other than 4 m from the ground</string>
       </sizepolicy>
      </property>
      <property name="text">
-      <string>+10 dB penalization</string>
+      <string>+10 dB</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -990,14 +983,14 @@ for receivers other than 4 m from the ground</string>
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>30</y>
        <width>641</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Create the sound rays layers if you want to check the single noise level contribution.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Create the sound rays layers if you want to check the single noise level contribution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1022,7 +1015,7 @@ for receivers other than 4 m from the ground</string>
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Create diffracted (vertical obstacles) sound rays layer (output line layer)</string>
+         <string>Create Diffracted (Vertical Obstacles) Sound Rays Layer (output line layer)</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -1086,7 +1079,7 @@ for receivers other than 4 m from the ground</string>
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Create direct sound rays layer (output line layer)</string>
+         <string>Create Direct Sound Rays Layer (output line layer)</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -1134,14 +1127,14 @@ for receivers other than 4 m from the ground</string>
     <widget class="QLabel" name="label_15">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>60</y>
        <width>641</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>This operation can take a long time, select the rays creation only for little calculations.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;This operation can take a long time, select the rays creation only for little calculations&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1173,7 +1166,7 @@ for receivers other than 4 m from the ground</string>
       <item>
        <widget class="QCheckBox" name="diff3DRaysCheck">
         <property name="text">
-         <string>Create diffracted (horizontal obstacles) sound rays layer (output line layer)</string>
+         <string>Create Diffracted (Horizontal Obstacles) Sound Rays Layer (output line layer)</string>
         </property>
        </widget>
       </item>
@@ -1343,7 +1336,7 @@ for receivers other than 4 m from the ground</string>
       </rect>
      </property>
      <property name="text">
-      <string>overall process</string>
+      <string>Overall Process</string>
      </property>
     </widget>
     <widget class="QWidget" name="barsWidget" native="true">
@@ -1799,7 +1792,7 @@ for receivers other than 4 m from the ground</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reduces&lt;/span&gt; the calculation time with consequent&lt;span style=&quot; text-decoration: underline;&quot;&gt; loss of precision in sound levels estimates&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="text">
-      <string>Skip diffractions calculation.</string>
+      <string>Skip Diiffractions Calculation</string>
      </property>
     </widget>
     <widget class="QPushButton" name="helpSkipdiffraction">
@@ -1828,7 +1821,7 @@ for receivers other than 4 m from the ground</string>
       <string extracomment="This option is valid only in case of input road layers."/>
      </property>
      <property name="text">
-      <string>Save emission on input layer</string>
+      <string>Save Emission on Input Layer</string>
      </property>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget_8">
@@ -1850,7 +1843,7 @@ for receivers other than 4 m from the ground</string>
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Save current Settings in a xml file</string>
+         <string>Save Current Settings in a xml file</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -1894,6 +1887,19 @@ for receivers other than 4 m from the ground</string>
        </layout>
       </item>
      </layout>
+    </widget>
+    <widget class="QPushButton" name="helpSavexml">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>76</y>
+       <width>31</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>?</string>
+     </property>
     </widget>
    </widget>
   </widget>

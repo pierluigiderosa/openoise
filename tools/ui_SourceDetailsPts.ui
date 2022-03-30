@@ -45,7 +45,7 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string>Data type</string>
+    <string>Data Type</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -133,7 +133,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>L day</string>
+    <string>Lday</string>
    </property>
    <property name="checked">
     <bool>false</bool>
@@ -149,7 +149,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>L eve</string>
+    <string>Levening</string>
    </property>
    <property name="checked">
     <bool>false</bool>
@@ -178,7 +178,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>L nig</string>
+    <string>Lnight</string>
    </property>
    <property name="checked">
     <bool>false</bool>
