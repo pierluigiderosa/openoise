@@ -1032,7 +1032,8 @@ loss of precision in sound levels estimates.</p>
             self.label_time_end.setText(self.tr("End: ") + ' ' + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S"))
             self.label_time_duration.setText(self.tr("Duration: ") + ' ' + str(self.duration()))
 
-            result_string = self.tr("The calculation results have been successfully added at the receiver point layer.") + "\n\n" +\
+            result_string = self.tr("The calculation results have been successfully added at the receiver point layer. "
+                                    "The results are expressed in dB(A).") + "\n\n" +\
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())

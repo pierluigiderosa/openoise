@@ -102,7 +102,7 @@ class opeNoise(object):
 
         # Create Grid
         self.CreateGrid_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_PointSourceCalculation.png"),
-            QCoreApplication.translate("opeNoise", "Contours level"),
+            QCoreApplication.translate("opeNoise", "Contours Level"),
             self.iface.mainWindow())
         self.CreateGrid_item.triggered.connect(self.CreateGrid_show)
 

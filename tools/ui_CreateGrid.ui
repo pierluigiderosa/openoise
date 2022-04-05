@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>368</height>
+    <width>507</width>
+    <height>415</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Calculate Grid Noise</string>
+   <string>Contour Levels</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -111,7 +111,7 @@
      <item>
       <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>Contours Level (output layer) </string>
+        <string>Contour Levels (output layer) </string>
        </property>
       </widget>
      </item>
@@ -132,7 +132,7 @@
      <item>
       <widget class="QLabel" name="label_12">
        <property name="text">
-        <string>Polygon Level (output layer) </string>
+        <string>Polygon Levels (output layer) </string>
        </property>
       </widget>
      </item>
