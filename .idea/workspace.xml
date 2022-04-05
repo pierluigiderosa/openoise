@@ -4,51 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="Upgrade GUI&#10;help buttons">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/buildings.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/buildings.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/buildings.prj" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/buildings.prj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/buildings.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/buildings.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/buildings.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/buildings.shx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_points.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_points.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_points.qpj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_points.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_points.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/isolevel_curves.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/isolevel_curves.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/isolevel_curves.qpj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/isolevel_curves.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/isolevel_curves.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receveir_points.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receveir_points.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receveir_points.qpj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receveir_points.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receveir_points.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_CNOSSOS.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_CNOSSOS.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_CNOSSOS.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_CNOSSOS.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.prj" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.prj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.qpj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_emission.shx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.prj" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.prj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/roads_NMPB_traffic_flow.shx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/source_points.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/source_points.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/source_points.qpj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/source_points.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/source_points.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/opeNoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/opeNoise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateGrid.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Credits.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Credits.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Informations.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Informations.ui" afterDir="false" />
-    </list>
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -356,13 +312,7 @@
       <workItem from="1648632842628" duration="978000" />
       <workItem from="1649169191112" duration="1916000" />
       <workItem from="1649174062842" duration="1000" />
-    </task>
-    <task id="LOCAL-00016" summary="- removed bug on variable not assigned">
-      <created>1620654394238</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1620654394238</updated>
+      <workItem from="1649185764556" duration="54000" />
     </task>
     <task id="LOCAL-00017" summary="- removed bug on variable not assigned">
       <created>1620675864427</created>
@@ -700,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648633537027</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Upgrade GUI&#10;help buttons&#10;05-04-2022">
+      <created>1649185803473</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1649185803473</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -751,7 +708,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="unique bar for overall process" />
     <MESSAGE value="correction for 3D diffraction" />
     <MESSAGE value="correction for 3D diffraction&#10;added custom height" />
     <MESSAGE value="correction bug in diffraction" />
@@ -776,7 +732,8 @@
     <MESSAGE value="- method 2 implemetation" />
     <MESSAGE value="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods" />
     <MESSAGE value="Upgrade GUI&#10;help buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upgrade GUI&#10;help buttons" />
+    <MESSAGE value="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
