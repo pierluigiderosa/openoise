@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="method 2 implementation">
+      <change afterPath="$PROJECT_DIR$/icons/icon_Contour_Levels.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icons/icon_Help.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opeNoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/opeNoise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/resources.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_Credits.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Credits.ui" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +42,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1n4Fbnky2d2FmCxLkjRIJ4IWxHl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -55,10 +66,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
-  <component name="RunManager" selected="Python.opeNoise">
+  <component name="RunManager" selected="Python.on_CalculateNoiseLevels">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="openoise" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -290,29 +301,95 @@
       <workItem from="1643218059670" duration="2170000" />
       <workItem from="1643267516864" duration="10388000" />
       <workItem from="1643307041113" duration="4947000" />
-      <workItem from="1643381461679" duration="2276000" />
-      <workItem from="1643617541622" duration="873000" />
-      <workItem from="1643873235380" duration="4526000" />
-      <workItem from="1644340249802" duration="4922000" />
-      <workItem from="1644399626662" duration="1569000" />
-      <workItem from="1644405844123" duration="59000" />
-      <workItem from="1644423330906" duration="5194000" />
-      <workItem from="1644477229511" duration="6488000" />
-      <workItem from="1644652978444" duration="2705000" />
-      <workItem from="1645546743856" duration="1285000" />
-      <workItem from="1645799907661" duration="762000" />
-      <workItem from="1646748177225" duration="5805000" />
-      <workItem from="1646817535442" duration="3154000" />
-      <workItem from="1646832237104" duration="36000" />
-      <workItem from="1646896962746" duration="4092000" />
-      <workItem from="1647935229742" duration="7756000" />
-      <workItem from="1647945512858" duration="4900000" />
-      <workItem from="1647950465596" duration="468000" />
-      <workItem from="1648052690790" duration="3242000" />
-      <workItem from="1648632842628" duration="978000" />
-      <workItem from="1649169191112" duration="1916000" />
-      <workItem from="1649174062842" duration="1000" />
-      <workItem from="1649185764556" duration="54000" />
+      <workItem from="1643381461679" duration="2109000" />
+      <workItem from="1644388289688" duration="64000" />
+      <workItem from="1646834910538" duration="3995000" />
+      <workItem from="1647011622404" duration="602000" />
+      <workItem from="1649185721059" duration="981000" />
+    </task>
+    <task id="LOCAL-00005" summary="- added grid creation&#10;- attenuation for several temperatures">
+      <created>1617005383865</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617005383865</updated>
+    </task>
+    <task id="LOCAL-00006" summary="settings changes">
+      <created>1618922206982</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1618922206982</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- version 1.4 init">
+      <created>1618928823085</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618928823085</updated>
+    </task>
+    <task id="LOCAL-00008" summary="- fixed UI for versione">
+      <created>1618929899727</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1618929899727</updated>
+    </task>
+    <task id="LOCAL-00009" summary="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver">
+      <created>1618933847037</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1618933847037</updated>
+    </task>
+    <task id="LOCAL-00010" summary="- fixed Ch to 1 according to formula 2.5.21&#10;- sound speed depending on temperature&#10;- level_diff: geometrical attenuation consider the sum of Source-diff-receiver">
+      <created>1619009418059</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619009418059</updated>
+    </task>
+    <task id="LOCAL-00011" summary="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
+      <created>1620145722603</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620145722603</updated>
+    </task>
+    <task id="LOCAL-00012" summary="- changed some info in UI&#10;- limitation to 2m kmh in CNOSSOS">
+      <created>1620145926694</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1620145926694</updated>
+    </task>
+    <task id="LOCAL-00013" summary="- added new data for testing">
+      <created>1620223007154</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620223007154</updated>
+    </task>
+    <task id="LOCAL-00014" summary="- added new data for testing">
+      <created>1620223067936</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1620223067936</updated>
+    </task>
+    <task id="LOCAL-00015" summary="- removed bug when receiver is inside a buoding">
+      <created>1620396263574</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1620396263574</updated>
+    </task>
+    <task id="LOCAL-00016" summary="- removed bug on variable not assigned">
+      <created>1620654394238</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620654394238</updated>
     </task>
     <task id="LOCAL-00017" summary="- removed bug on variable not assigned">
       <created>1620675864427</created>
@@ -559,105 +636,21 @@
       <option name="project" value="LOCAL" />
       <updated>1643204645767</updated>
     </task>
-    <task id="LOCAL-00052" summary="fixed several bugs">
-      <created>1643384793052</created>
+    <task id="LOCAL-00052" summary="initial fix emission CNOSSOS&#10;initial popolation aggregation on buildings">
+      <created>1646838338388</created>
       <option name="number" value="00052" />
       <option name="presentableId" value="LOCAL-00052" />
       <option name="project" value="LOCAL" />
-      <updated>1643384793052</updated>
+      <updated>1646838338390</updated>
     </task>
-    <task id="LOCAL-00053" summary="modification updated 8 feb 22">
-      <created>1644344186696</created>
+    <task id="LOCAL-00053" summary="method 2 implementation">
+      <created>1646839029689</created>
       <option name="number" value="00053" />
       <option name="presentableId" value="LOCAL-00053" />
       <option name="project" value="LOCAL" />
-      <updated>1644344186696</updated>
+      <updated>1646839029689</updated>
     </task>
-    <task id="LOCAL-00054" summary="- creation receiver case2B distance 0.1 and removed receiver inside buildings&#10;- implemented method 1 and 3 for population">
-      <created>1644486171334</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1644486171334</updated>
-    </task>
-    <task id="LOCAL-00055" summary="- fixed remove receiver inside buildings">
-      <created>1644656579570</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1644656579571</updated>
-    </task>
-    <task id="LOCAL-00056" summary="- fixed portion of facades less than 5 m">
-      <created>1645547733699</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1645547733699</updated>
-    </task>
-    <task id="LOCAL-00057" summary="- added calculation for dwellings">
-      <created>1646760106912</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1646760106912</updated>
-    </task>
-    <task id="LOCAL-00058" summary="- added checks for fields combobox">
-      <created>1646832260858</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1646832260859</updated>
-    </task>
-    <task id="LOCAL-00059" summary="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer">
-      <created>1646905791290</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1646905791291</updated>
-    </task>
-    <task id="LOCAL-00060" summary="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer">
-      <created>1646906126076</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1646906126076</updated>
-    </task>
-    <task id="LOCAL-00061" summary="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello">
-      <created>1647944461705</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1647944461705</updated>
-    </task>
-    <task id="LOCAL-00062" summary="- method 2 implemetation">
-      <created>1647950160426</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1647950160427</updated>
-    </task>
-    <task id="LOCAL-00063" summary="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods">
-      <created>1648058838363</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1648058838365</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Upgrade GUI&#10;help buttons">
-      <created>1648633537027</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1648633537027</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Upgrade GUI&#10;help buttons&#10;05-04-2022">
-      <created>1649185803473</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1649185803473</updated>
-    </task>
-    <option name="localTasksCounter" value="66" />
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,37 +698,37 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="- fixed link in credits and information layer" />
+    <MESSAGE value="- added layer creato con contour plugin" />
+    <MESSAGE value="- skip_diffraction complete - to test by ARPA" />
+    <MESSAGE value="- create_grid initial commit" />
+    <MESSAGE value="- create_grid fixed grid creation&#10;- fixe case empty output" />
+    <MESSAGE value="added icon grid builder" />
+    <MESSAGE value="custom 3d field height" />
+    <MESSAGE value="first part correction Note 19-lug" />
+    <MESSAGE value="second part correction Note 19-lug" />
+    <MESSAGE value="threeD implementation - initial" />
+    <MESSAGE value="threeD implementation - initial2" />
+    <MESSAGE value="unique bar for overall process" />
     <MESSAGE value="correction for 3D diffraction" />
     <MESSAGE value="correction for 3D diffraction&#10;added custom height" />
     <MESSAGE value="correction bug in diffraction" />
     <MESSAGE value="correction bug in temperature emission for CNOSSOS" />
     <MESSAGE value="save emission on roads layer" />
-    <MESSAGE value="initial fix emission CNOSSOS&#10;initial popolation aggregation on buildings" />
     <MESSAGE value="fix delta_Lroad in case of speed out of range Vmin Vmax" />
     <MESSAGE value="correction param NL02 ref 3" />
     <MESSAGE value="fix for save emission only for CNOSSOS" />
     <MESSAGE value="first version population calculus" />
     <MESSAGE value="fixed save emission for NMPB" />
     <MESSAGE value="fixed bug in 3D diffraction on load emission" />
-    <MESSAGE value="fixed several bugs" />
-    <MESSAGE value="modification updated 8 feb 22" />
-    <MESSAGE value="- creation receiver case2B distance 0.1 and removed receiver inside buildings&#10;- implemented method 1 and 3 for population" />
-    <MESSAGE value="- fixed remove receiver inside buildings" />
-    <MESSAGE value="- fixed portion of facades less than 5 m" />
-    <MESSAGE value="- added calculation for dwellings" />
-    <MESSAGE value="- added checks for fields combobox" />
-    <MESSAGE value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
-    <MESSAGE value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
-    <MESSAGE value="- method 2 implemetation" />
-    <MESSAGE value="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods" />
-    <MESSAGE value="Upgrade GUI&#10;help buttons" />
-    <MESSAGE value="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
+    <MESSAGE value="initial fix emission CNOSSOS&#10;initial popolation aggregation on buildings" />
+    <MESSAGE value="method 2 implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="method 2 implementation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/openoise$openoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1612876823241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>opeNoise - Credits</string>
+   <string>opeNoise - Informations</string>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>

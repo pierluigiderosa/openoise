@@ -107,13 +107,13 @@ class opeNoise(object):
         self.CreateGrid_item.triggered.connect(self.CreateGrid_show)
 
         # Information
-        self.Informations_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Informations.png"),
-                                        QCoreApplication.translate("opeNoise", "Information"), self.iface.mainWindow())
+        self.Informations_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Help.png"),
+                                        QCoreApplication.translate("opeNoise", "Help"), self.iface.mainWindow())
         self.Informations_item.triggered.connect(self.Informations_show)
 
         # Credits
-        self.Credits_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Credits.png"),
-                                        QCoreApplication.translate("opeNoise", "Credits"), self.iface.mainWindow())
+        self.Credits_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Informations.png"),
+                                        QCoreApplication.translate("opeNoise", "Informations"), self.iface.mainWindow())
         self.Credits_item.triggered.connect(self.Credits_show)  
         
         # add items
