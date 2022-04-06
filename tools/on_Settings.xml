@@ -69,7 +69,7 @@
     <emission>
         <implementation>
 		<pts />
-		<roads>CNOSSOS</roads>
+		<roads />
         </implementation>
 
 	<period>
@@ -80,10 +80,10 @@
 		    <nig />  
 		</pts>
 		<roads>
-		    <gen>False</gen>
-		    <day>False</day>            
-		    <eve>False</eve>            
-		    <nig>True</nig>  
+		    <gen />
+		    <day />            
+		    <eve />            
+		    <nig />  
 		</roads>
 	    <den>False</den>                                                          	     
 	</period>
@@ -163,8 +163,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n>light_n</nig_1_n>
-            <nig_1_s>light_v</nig_1_s>            
+            <nig_1_n />
+            <nig_1_s />            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
@@ -174,8 +174,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface>Surface</surface>                    
-            <slope>Slope</slope>  
+            <surface />                    
+            <slope />  
 
         </CNOSSOS>       
     </emission>    

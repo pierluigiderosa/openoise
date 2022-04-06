@@ -302,9 +302,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="hundredCheck">
+    <widget class="QCheckBox" name="hundredsCheck">
      <property name="text">
-      <string>round to xxxx</string>
+      <string>round to nearest hundred</string>
      </property>
     </widget>
    </item>

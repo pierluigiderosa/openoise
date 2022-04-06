@@ -64,9 +64,19 @@ def CreateTempDir():
 
     os.mkdir(temp_dir)
 
+
 def DeleteTempDir():
 
     shutil.rmtree(temp_dir)
+
+def myround(x, base=100):
+    '''
+    function to round following the directive
+    :param base:
+    :return: rounded value required
+    '''
+    x = float(x)
+    return base * round(x/base)
 
 class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
@@ -113,6 +123,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
            <html><head/><body></body></html>
             '''))
 
+
+
     def checkdata(self):
         if self.receiver_points_population_field.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
@@ -153,18 +165,21 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         #self.buildings_layer_comboBox.addItems(buildings_layers)
 
-    def outputTempTable(self,pddf,tablename,filedname):
+    def outputTempTable(self,pddf,tablename,filedname,roundHundreds):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
         pr.addAttributes([QgsField("level_band", QVariant.String),
                           QgsField(filedname, QVariant.Double)])
         vl.updateFields()
-        labelsLev = ["<=35.0 dB(A)", "35 - 40 dB(A)", "40 - 45 dB(A)", "45 - 50 dB(A)",
-                     "50 - 55 dB(A)", "55 - 60 dB(A)", "60 - 65 dB(A)", "65 - 70 dB(A)",
-                     "70 - 75 dB(A)", "75 - 80 dB(A)", ">80 dB(A)"]
+        labelsLev = ["No level","<=35.0 dB(A)", "35 - 39 dB(A)", "40 - 44 dB(A)", "45 - 49 dB(A)",
+                     "50 - 54 dB(A)", "55 - 59 dB(A)", "60 - 64 dB(A)", "65 - 69 dB(A)",
+                     "70 - 74 dB(A)", "75 - 79 dB(A)", ">= 80 dB(A)"]
         for idx in range(len(pddf.values)):
             f = QgsFeature()
-            f.setAttributes([labelsLev[idx], round(float(pddf.values[idx]), 2)])
+            if roundHundreds == True:
+                f.setAttributes([labelsLev[idx], myround(pddf.values[idx])])
+            else:
+                f.setAttributes([labelsLev[idx], round(float(pddf.values[idx]), 2)])
             pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
@@ -318,10 +333,16 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         building_pop_Field = self.receiver_points_population_field.currentText()
         dwelling_Field = self.dwellingCombobox.currentText()
         methodPopField = self.methodComboBox.currentText()
+        # checkbox controls
         if self.applyNoiseSimbology.isChecked():
             applySimbology = True
         else:
             applySimbology = False
+
+        if self.hundredsCheck.isChecked():
+            roundHundreds = True
+        else:
+            roundHundreds = False
 
 
         # CRS control (each layer must have the same CRS)
@@ -340,7 +361,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         # Run
         try:
-            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField,applySimbology)
+            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField,applySimbology,roundHundreds)
             run = 1
         except:
             error= traceback.format_exc()
@@ -455,7 +476,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         df1 = pd.DataFrame(outPop, columns=['levels', 'popolazione', 'id_bui'])
         df1Dwelling = pd.DataFrame(outDewlling, columns=['levels', 'dwellings', 'id_bui'])
-        bins = pd.cut(df1['levels'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
+        bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
         binsDwell = pd.cut(df1Dwelling['levels'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
         df2=df1.groupby(bins)['popolazione'].agg(['sum'])
         df2Dwell = df1Dwelling.groupby(binsDwell)['dwellings'].agg(['sum'])
@@ -465,7 +486,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
 
-    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method,applySimbology):
+    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method,applySimbology,roundHundreds):
 
         CreateTempDir()
 
@@ -586,7 +607,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                             buildings_levels_from_receiverL1[id_edi].append(level_1)
                         else:
                             buildings_levels_from_receiverL1[id_edi] = [level_1]
-                print('buildingLelev:',buildings_levels_from_receiverL1)
+                # print('buildingLelev:',buildings_levels_from_receiverL1)
                 if receiver_points_layer_details['level_2'] != 'none':
                     if level_2 > 0:
 
@@ -674,40 +695,41 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL1)
-                self.outputTempTable(df1,"People Exposure - Lden","people")
-                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings")
+                self.outputTempTable(df1,"People Exposure - Lden","people",roundHundreds)
+                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds)
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL2,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL2)
-                self.outputTempTable(df2,"People Exposure - Lnight","people")
-                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings")
+                self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds)
+                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds)
                 print('L2 pop',df2)
             if receiver_points_layer_details['level_3'] != 'none':
                 df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL3,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDicL3)
-                self.outputTempTable(df3,"People Exposure - Lev3","people")
-                self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3","dwellings")
+                                                  buildingMethod,
+                                                           receiverFacadeDicL3)
+                self.outputTempTable(df3,"People Exposure - Lev3","people",roundHundreds)
+                self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3","dwellings",roundHundreds)
                 print('L3 pop',df3)
             if receiver_points_layer_details['level_4'] != 'none':
                 df4,df4Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL4,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL4)
-                self.outputTempTable(df4,"People Exposure - Lev4","people")
-                self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4","dwellings")
+                self.outputTempTable(df4,"People Exposure - Lev4","people",roundHundreds)
+                self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4","dwellings",roundHundreds)
                 print('L5 pop',df4)
             if receiver_points_layer_details['level_5'] != 'none':
                 df5,df5Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL5,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL5)
-                self.outputTempTable(df5,"People Exposure - Lev5","people")
-                self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5","dwellings")
+                self.outputTempTable(df5,"People Exposure - Lev5","people",roundHundreds)
+                self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5","dwellings",roundHundreds)
                 print('L5 pop',df5)
 
 
