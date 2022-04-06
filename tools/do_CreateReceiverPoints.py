@@ -63,7 +63,7 @@ class Dialog(QDialog,FORM_CLASS):
         self.setupUi(self)
                 
         self.populateLayers()
-        self.populate_overlayLayer()
+        # self.populate_overlayLayer()
         # added only distances of 5 m
         # spaced_distance_list = ['1','2','3','4','5']
         spaced_distance_list = ['5']
@@ -105,12 +105,12 @@ class Dialog(QDialog,FORM_CLASS):
             self.buildings_layer_comboBox.clear()
         self.buildings_layer_comboBox.setFilters(QgsMapLayerProxyModel.PolygonLayer)
 
-    def populate_overlayLayer(self):
-
-        if Qgis.QGIS_VERSION_INT < 31401:
-            self.BuildingMaskLayerCombo.clear()
-        self.BuildingMaskLayerCombo.allowEmptyLayer()
-        self.BuildingMaskLayerCombo.setFilters(QgsMapLayerProxyModel.PolygonLayer)
+    # def populate_overlayLayer(self):
+    #
+    #     if Qgis.QGIS_VERSION_INT < 31401:
+    #         self.BuildingMaskLayerCombo.clear()
+    #     self.BuildingMaskLayerCombo.allowEmptyLayer()
+    #     self.BuildingMaskLayerCombo.setFilters(QgsMapLayerProxyModel.PolygonLayer)
 
 
 
@@ -290,8 +290,7 @@ class Dialog(QDialog,FORM_CLASS):
 
         resolution = int(self.resolution_comboBox.currentText())
 
-        # get the building mask layer
-        BuildingMaskLayer = self.BuildingMaskLayerCombo.currentLayer()
+
 
         grid_path = self.gridpoint_lineEdit.text()
 
@@ -308,7 +307,7 @@ class Dialog(QDialog,FORM_CLASS):
             grid_path,
             extentSelected,
             BarGridReceiver,
-            BuildingMaskLayer,
+
         )
 
         self.close()

@@ -23,7 +23,7 @@ from qgis.utils import iface
 from qgis import processing
 
 
-def createGrid(resolution, grid_path, extent,BarGridReceiver,BuildingMaskLayer):
+def createGrid(resolution, grid_path, extent,BarGridReceiver):
 
     # feedback configuration
     feedback = QgsProcessingFeedback()
@@ -77,13 +77,13 @@ def createGrid(resolution, grid_path, extent,BarGridReceiver,BuildingMaskLayer):
         # difference_output = result_difference['OUTPUT']
 
         # native:extractbylocation
-        params_extract = {
-            'INPUT': grid_output,
-            'INTERSECT': BuildingMaskLayer,
-            'OUTPUT': 'memory:',
-            'OVERLAY': BuildingMaskLayer,
-            'PREDICATE': [2]
-        }
+        # params_extract = {
+        #     'INPUT': grid_output,
+        #     'INTERSECT': BuildingMaskLayer,
+        #     'OUTPUT': 'memory:',
+        #     'OVERLAY': BuildingMaskLayer,
+        #     'PREDICATE': [2]
+        # }
 
         # result_difference = processing.run("native:extractbylocation", params_extract)
         # feedback.setProgress(85)
