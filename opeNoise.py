@@ -91,7 +91,7 @@ class opeNoise(object):
         self.CalculateNoiseLevels_item.triggered.connect(self.CalculateNoiseLevels_show)
 
         # AssignLevelsToBuildings
-        self.AssignLevelsToBuildings_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_AssignLevelsToBuildings.png"),
+        self.AssignLevelsToBuildings_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Credits.png"),
                                         self.tr("Noise Exposure"), self.iface.mainWindow())
         self.AssignLevelsToBuildings_item.triggered.connect(self.AssignLevelsToBuildings_show)
         
@@ -101,7 +101,7 @@ class opeNoise(object):
         self.ApplyNoiseSymbology_item.triggered.connect(self.ApplyNoiseSymbology_show)
 
         # Create Grid
-        self.CreateGrid_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_PointSourceCalculation.png"),
+        self.CreateGrid_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Contour_Levels.png"),
             QCoreApplication.translate("opeNoise", "Contours Level"),
             self.iface.mainWindow())
         self.CreateGrid_item.triggered.connect(self.CreateGrid_show)

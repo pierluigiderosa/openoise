@@ -94,7 +94,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         self.level_4_comboBox.hide()
         self.level_5_comboBox.hide()
 
-        self.helpFacades.clicked.connect(self.HelpFacades_show)
+        self.helpNoiseExp.clicked.connect(self.HelpNoiseExposure_show)
 
         self.receiver_points_population_field.setFilters(
             QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
@@ -103,10 +103,14 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         self.methodComboBox.setFilters(
             QgsFieldProxyModel.String)
 
-    def HelpFacades_show(self):
+    def HelpNoiseExposure_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-           <html><head/><body><p>In according Directive 2002/49/EC Annex II </p><p>1 Single dwellings</p>
-           <p>2 Appartments single façade type exposition</p><p>3 Appartment multi façade type exposition </p></body></html>
+            <p><strong>Buildings: </strong>xxxxxx</p>
+            <p><strong>People: </strong>xxxxxx</p>
+            <p><strong>Dwellings: </strong>xxxxxx</p>
+            <p><strong>Façade type Exposition: </strong>In according Directive 2002/49/EC Annex II </p><p>1 Single dwellings</p>
+           <p>2 Appartments single façade type exposition</p><p>3 Appartment multi façade type exposition </p>
+           <html><head/><body></body></html>
             '''))
 
     def checkdata(self):

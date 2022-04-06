@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>griglia11</name>
-            <path>C:/Users/pierl/Desktop/Raggi diffratti/griglia11.shp</path>
+            <name>ric5</name>
+            <path>C:/Users/pierl/Desktop/Raggi diffratti/ric5.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>

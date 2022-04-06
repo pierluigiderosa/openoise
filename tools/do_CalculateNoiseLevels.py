@@ -110,9 +110,8 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.sources_roads_pushButton.clicked.connect(self.sourceRoads_show)
         # self.helpBuilding.cliFcked.connect(self.helpBuilding_show)
         self.HelpParameters.clicked.connect(self.HelpParameters_show)
-        self.helpSkipdiffraction.clicked.connect(self.HelpSkipDiff_show)
-        self.helpSaveemission.clicked.connect(self.HelpSaveEmission_show)
-        self.helpSavexml.clicked.connect(self.HelpSavexml_show)
+        self.helpCalculateOptions.clicked.connect(self.HelpCalculateOptions_show)
+
 
         self.buildings_layer_checkBox.setChecked(0)
         self.buildings_layer_comboBox.setEnabled(False)
@@ -199,19 +198,18 @@ loss of precision in sound levels estimates.</p>
 <p>&nbsp;</p>
         '''))
 
-    def HelpSkipDiff_show(self):
+    def HelpCalculateOptions_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+        <p><strong>Skip Diffraction:</strong>
         The calculation will not take into account the diffraction of horizontal and vertical obstacles. 
         This reduces the calculation time with consequent loss of precision in sound levels estimates. Receivers points beyond buildings return -99 value.
+        </p>
+        <p><strong>Save Emission in Input Layer:</strong>
+        Allows you to save the roads emission in the input layer. The results are expressed in dB(A).</p>
+        <p><strong>Save Current Settings in xml file:</strong>
+        Allows you to save all settings. The saved settings can be reloaded later in the start tab.</p>
         '''))
-    def HelpSaveEmission_show(self):
-        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-        Allows you to save the roads emission in the input layer. The results are expressed in dB(A).
-        '''))
-    def HelpSavexml_show(self):
-        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-                Allows you to save all settings. The saved settings can be reloaded later in the start tab.
-                '''))
+
 
     def sourcePts_show(self):
         if self.sources_pts_layer_comboBox.currentText() == "":
@@ -1032,7 +1030,7 @@ loss of precision in sound levels estimates.</p>
             self.label_time_end.setText(self.tr("End: ") + ' ' + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S"))
             self.label_time_duration.setText(self.tr("Duration: ") + ' ' + str(self.duration()))
 
-            result_string = self.tr("The calculation results have been successfully added at the receiver point layer. "
+            result_string = self.tr("The calculation results have been successfully stored into the receiver point layer. "
                                     "The results are expressed in dB(A).") + "\n\n" +\
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
