@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -1803,7 +1803,7 @@ default is 4m</string>
       <rect>
        <x>10</x>
        <y>80</y>
-       <width>201</width>
+       <width>231</width>
        <height>20</height>
       </rect>
      </property>

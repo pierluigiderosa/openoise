@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/Raggi diffratti</last>
+        <last>/home/pierluigi/Scrivania/dataset_testing</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>ric5</name>
-            <path>C:/Users/pierl/Desktop/Raggi diffratti/ric5.shp</path>
+            <name>ricevitori6aprile</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/ricevitori6aprile.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
+		<name>roads_CNOSSOS_traffic_flow</name>
+		<path>/home/pierluigi/Sviluppo/openoise/data set for testing/roads_CNOSSOS_traffic_flow.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>buildings</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
+            <path>/home/pierluigi/Sviluppo/openoise/data set for testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -52,9 +52,9 @@
         <diff_skip>False</diff_skip>
         <save_emission>False</save_emission>
         <height_receiver>False</height_receiver>
-        <threedglobal>False</threedglobal>
+        <threedglobal>True</threedglobal>
         <threedglobal_rays>False</threedglobal_rays>
-        <field3D />
+        <field3D>height_m</field3D>
 
         <den>
             <day_hours>14</day_hours> 
