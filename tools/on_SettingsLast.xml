@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>/home/pierluigi/Scrivania/dataset_testing</last>
+        <last>C:/Users/pierl/Desktop/Popolazione</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>ricevitori6aprile</name>
-            <path>/home/pierluigi/Scrivania/dataset_testing/ricevitori6aprile.shp</path>
+            <name>Ricettori</name>
+            <path>C:/Users/pierl/Desktop/Popolazione/Ricettori.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_CNOSSOS_traffic_flow</name>
-		<path>/home/pierluigi/Sviluppo/openoise/data set for testing/roads_CNOSSOS_traffic_flow.shp</path>
+		<name>read_CNOSSOS</name>
+		<path>C:/Users/pierl/Desktop/Popolazione/read_CNOSSOS.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>buildings</name>
-            <path>/home/pierluigi/Sviluppo/openoise/data set for testing/buildings.shp</path>
+            <name>Edificio</name>
+            <path>C:/Users/pierl/Desktop/Popolazione/Edificio.shp</path>
         </buildings>
 
         <emissions_points>
@@ -46,7 +46,7 @@
     </layers>
 
     <options>
-        <research_ray>50</research_ray>
+        <research_ray>250</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
@@ -54,7 +54,7 @@
         <height_receiver>False</height_receiver>
         <threedglobal>True</threedglobal>
         <threedglobal_rays>False</threedglobal_rays>
-        <field3D>height_m</field3D>
+        <field3D>H</field3D>
 
         <den>
             <day_hours>14</day_hours> 

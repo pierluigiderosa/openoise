@@ -444,7 +444,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 outDewlling.append([max(livelli), ndwelling, id_bui])
 
             # metodo 2
-            if method.endswith('2'):
+            elif method.endswith('2'):
                 if len(receiverFacadeDic[id_bui]) == 0:
                     outPop.append([0, abitanti, id_bui])
                     outDewlling.append([0, ndwelling, id_bui])
@@ -691,6 +691,11 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
             if receiver_points_layer_details['level_1'] != 'none':
+                print('buildingPop: ',buildingPop,
+                                                  'buildings_levels_from_receiverL1',buildings_levels_from_receiverL1,
+                                                  'buildingDwell',buildingDwell,
+                                                  'buildingMethod',buildingMethod,
+                      'receiverFacadeDicL1',receiverFacadeDicL1)
                 df1,df1Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
