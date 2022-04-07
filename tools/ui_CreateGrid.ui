@@ -26,7 +26,7 @@
      <item>
       <widget class="QLabel" name="label_7">
        <property name="text">
-        <string>Grid Points</string>
+        <string>Grid Points (input layer)</string>
        </property>
       </widget>
      </item>
@@ -111,7 +111,7 @@
      <item>
       <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>Contour Levels (output layer) </string>
+        <string>Contours Level (output layer) </string>
        </property>
       </widget>
      </item>
@@ -126,6 +126,13 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The total area in m&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; exposed to values interval is stored in the polygon levels&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
