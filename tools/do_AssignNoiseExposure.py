@@ -48,7 +48,7 @@ import traceback
 from datetime import datetime
 sys.path.append(os.path.dirname(__file__))
 Ui_AssignNoiseToBuildings_window, _ = uic.loadUiType(os.path.join(
-    os.path.dirname(__file__), 'ui_AssignNoiseExposure.ui'), resource_suffix='')
+    os.path.dirname(__file__), 'ui_NoiseExposure.ui'), resource_suffix='')
 
 from . import on_ApplyNoiseSymbology
 
@@ -86,8 +86,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         # Set up the user interface from Designer.
         self.setupUi(self)
 
-        string = self.tr("WARNING:") + '\n' +\
-                 self.tr("This script works correctly only if the receiver points layer ") + '\n' +\
+        string = self.tr("<b>WARNING:</b>") + '\n' +\
+                 self.tr("This tool works correctly only if the receiver points layer ") + '\n' +\
                  self.tr("is created from a buildings layer with opeNoise") + '\n' +\
                  self.tr("and its structure is not modified.")
         QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(string))
@@ -115,11 +115,13 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def HelpNoiseExposure_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-            <p><strong>Buildings: </strong>xxxxxx</p>
-            <p><strong>People: </strong>xxxxxx</p>
-            <p><strong>Dwellings: </strong>xxxxxx</p>
-            <p><strong>Façade type Exposition: </strong>In according Directive 2002/49/EC Annex II </p><p>1 Single dwellings</p>
-           <p>2 Appartments single façade type exposition</p><p>3 Appartment multi façade type exposition </p>
+            <p>In according to §2.8 Directive 2002/49/EC Annex II</p><br>       
+            <p><strong>People: </strong> the estimated number of people living in each building</p>
+            <p><strong>Dwellings: </strong>the estimated number of dwellings for each building</p>
+            <p><strong>Façade type Exposition: </strong>type of exposition for each building (type string)</p>
+            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>1</b>" Single dwellings</p>
+           <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>2</b>" appartments single façade type exposition</p>
+           <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>3</b>" appartment multi façade type exposition </p>
            <html><head/><body></body></html>
             '''))
 
@@ -477,9 +479,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         df1 = pd.DataFrame(outPop, columns=['levels', 'popolazione', 'id_bui'])
         df1Dwelling = pd.DataFrame(outDewlling, columns=['levels', 'dwellings', 'id_bui'])
         bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
-        binsDwell = pd.cut(df1Dwelling['levels'], [-np.inf, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, np.inf])
+        binsDwell = pd.cut(df1Dwelling['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
         df2=df1.groupby(bins)['popolazione'].agg(['sum'])
-        df2Dwell = df1Dwelling.groupby(binsDwell)['dwellings'].agg(['sum'])
+        df2Dwell = df1Dwelling.groupby(bins)['dwellings'].agg(['sum'])
         df3 = df2.rename({'sum': 'population'}, axis=1)
         df3Dwell = df2Dwell.rename({'sum': 'dwellings'}, axis=1)
         return df3,df3Dwell
@@ -711,31 +713,31 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds)
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds)
                 print('L2 pop',df2)
-            if receiver_points_layer_details['level_3'] != 'none':
-                df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
-                                                  buildings_levels_from_receiverL3,
-                                                  buildingDwell,
-                                                  buildingMethod,
-                                                           receiverFacadeDicL3)
-                self.outputTempTable(df3,"People Exposure - Lev3","people",roundHundreds)
-                self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3","dwellings",roundHundreds)
-                print('L3 pop',df3)
-            if receiver_points_layer_details['level_4'] != 'none':
-                df4,df4Dwell = self.EUpopCalculationMethod(buildingPop,
-                                                  buildings_levels_from_receiverL4,
-                                                  buildingDwell,
-                                                  buildingMethod,receiverFacadeDicL4)
-                self.outputTempTable(df4,"People Exposure - Lev4","people",roundHundreds)
-                self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4","dwellings",roundHundreds)
-                print('L5 pop',df4)
-            if receiver_points_layer_details['level_5'] != 'none':
-                df5,df5Dwell = self.EUpopCalculationMethod(buildingPop,
-                                                  buildings_levels_from_receiverL5,
-                                                  buildingDwell,
-                                                  buildingMethod,receiverFacadeDicL5)
-                self.outputTempTable(df5,"People Exposure - Lev5","people",roundHundreds)
-                self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5","dwellings",roundHundreds)
-                print('L5 pop',df5)
+            # if receiver_points_layer_details['level_3'] != 'none':
+            #     df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
+            #                                       buildings_levels_from_receiverL3,
+            #                                       buildingDwell,
+            #                                       buildingMethod,
+            #                                                receiverFacadeDicL3)
+            #     self.outputTempTable(df3,"People Exposure - Lev3","people",roundHundreds)
+            #     self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3","dwellings",roundHundreds)
+            #     print('L3 pop',df3)
+            # if receiver_points_layer_details['level_4'] != 'none':
+            #     df4,df4Dwell = self.EUpopCalculationMethod(buildingPop,
+            #                                       buildings_levels_from_receiverL4,
+            #                                       buildingDwell,
+            #                                       buildingMethod,receiverFacadeDicL4)
+            #     self.outputTempTable(df4,"People Exposure - Lev4","people",roundHundreds)
+            #     self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4","dwellings",roundHundreds)
+            #     print('L5 pop',df4)
+            # if receiver_points_layer_details['level_5'] != 'none':
+            #     df5,df5Dwell = self.EUpopCalculationMethod(buildingPop,
+            #                                       buildings_levels_from_receiverL5,
+            #                                       buildingDwell,
+            #                                       buildingMethod,receiverFacadeDicL5)
+            #     self.outputTempTable(df5,"People Exposure - Lev5","people",roundHundreds)
+            #     self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5","dwellings",roundHundreds)
+            #     print('L5 pop',df5)
 
 
 

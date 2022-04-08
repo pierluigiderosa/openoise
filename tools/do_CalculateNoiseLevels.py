@@ -201,13 +201,13 @@ loss of precision in sound levels estimates.</p>
     def HelpCalculateOptions_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
         <p><strong>Skip Diffraction:</strong>
-        The calculation will not take into account the diffraction of horizontal and vertical obstacles. 
+        the calculation will not take into account the diffraction of horizontal and vertical obstacles. 
         This reduces the calculation time with consequent loss of precision in sound levels estimates. Receivers points beyond buildings return -99 value.
         </p>
         <p><strong>Save Emission in Input Layer:</strong>
-        Allows you to save the roads emission in the input layer. The results are expressed in dB(A).</p>
+        allows you to save the roads emission in the input layer. The results are expressed in dB(A).</p>
         <p><strong>Save Current Settings in xml file:</strong>
-        Allows you to save all settings. The saved settings can be reloaded later in the start tab.</p>
+        allows you to save all settings. The saved settings can be reloaded later in the start tab.</p>
         '''))
 
 

@@ -35,7 +35,7 @@ from . import on_CreateGrid, on_Settings
 
 ui_path = os.path.join(
     os.path.dirname(__file__),
-    'ui_CreateGrid.ui'
+    'ui_CreateContours.ui'
 )
 
 FORM_CLASS, _ = uic.loadUiType(ui_path, resource_suffix='')
