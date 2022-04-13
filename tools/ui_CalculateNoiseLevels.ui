@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>0</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -311,7 +311,7 @@ default is 4m</string>
         </font>
        </property>
        <property name="text">
-        <string>In the calculation buildings are considered as obstacles. For this reason it is possible to insert noise barriers in this layer.</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In the calculation buildings are considered as obstacles. In this way it is possible to insert noise barriers in this layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>

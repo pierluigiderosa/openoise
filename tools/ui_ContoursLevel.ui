@@ -17,7 +17,7 @@
    <item>
     <widget class="QLabel" name="label_14">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Determination of contours level and the area exposed to noise&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;In according to §2.8 Directive 2002/49/EC Annex II &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Important&lt;/span&gt;: Run this tab after create a grid receivers and calculation noise levels for it&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Determination of contours level and the area exposed to noise&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;In according to §2.8 Directive 2002/49/EC Annex II &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Warning&lt;/span&gt;: Run this tool after create a grid receivers and calculation noise levels for it&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -40,7 +40,7 @@
      <item>
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Data Value dB(A)</string>
+        <string>Noise Level [dB(A)]</string>
        </property>
       </widget>
      </item>
@@ -54,7 +54,7 @@
      <item>
       <widget class="QLabel" name="label_11">
        <property name="text">
-        <string>Minimum dB(A)</string>
+        <string>Minimum [dB(A)]</string>
        </property>
       </widget>
      </item>
@@ -72,7 +72,7 @@
      <item>
       <widget class="QLabel" name="label_13">
        <property name="text">
-        <string>Maximum dB(A)</string>
+        <string>Maximum [dB(A)]</string>
        </property>
       </widget>
      </item>
@@ -93,7 +93,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Interval dB(A)</string>
+        <string>Interval [dB(A)]</string>
        </property>
       </widget>
      </item>

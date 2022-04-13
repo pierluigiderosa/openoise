@@ -59,7 +59,7 @@
       <string/>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -163,7 +163,7 @@
        <item>
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;In according to case 2b Directive 2002/49/EC Annex II - Façades are &lt;br/&gt;split up every 5 m from the start position onwards, with a receiver&lt;br/&gt;position placed at the halfway the 5m segment. The remaining &lt;br/&gt;section has its receiver point in its mid-point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;In according to case 2b Directive 2002/49/EC Annex II - Façades are &lt;br/&gt;split up every 5 m from the start position onwards, with a receiver&lt;br/&gt;position placed at the halfway the 5 m segment. The remaining &lt;br/&gt;section has its receiver point in its mid-point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="margin">
           <number>0</number>
@@ -291,7 +291,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="infoReceivers">
            <property name="text">
             <string>Info</string>
            </property>
@@ -400,7 +400,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="infoGrid">
            <property name="text">
             <string>Info</string>
            </property>

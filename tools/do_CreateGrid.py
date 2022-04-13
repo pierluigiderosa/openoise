@@ -35,7 +35,7 @@ from . import on_CreateGrid, on_Settings
 
 ui_path = os.path.join(
     os.path.dirname(__file__),
-    'ui_CreateContours.ui'
+    'ui_ContoursLevel.ui'
 )
 
 FORM_CLASS, _ = uic.loadUiType(ui_path, resource_suffix='')
@@ -139,7 +139,6 @@ class Dialog(QDialog, FORM_CLASS):
             'directory_last',
             os.path.dirname(self.polygon_lineEdit.text())
         )
-
 
 
 
