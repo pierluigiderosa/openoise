@@ -305,6 +305,13 @@ class Dialog(QDialog,FORM_CLASS):
                                     self.tr("Please specify output shapefile"))
             return
 
+        extentSelected = self.ExtentGrid.outputExtent()
+
+        if extentSelected.area()== 0:
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
+                                    self.tr("Please specify the extent layer"))
+            return
+
 
         resolution = int(self.resolution_comboBox.currentText())
 
@@ -317,7 +324,7 @@ class Dialog(QDialog,FORM_CLASS):
                                     self.tr("Please specify the output grid vector layer."))
             return 0
 
-        extentSelected = self.ExtentGrid.outputExtent()
+
 
 
         on_CreateGrid.createGrid(
