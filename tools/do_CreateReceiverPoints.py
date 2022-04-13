@@ -72,11 +72,11 @@ class Dialog(QDialog,FORM_CLASS):
             self.spaced_pts_comboBox.addItem(distance)
         self.spaced_pts_comboBox.setEnabled(False)
         
-        self.middle_pts_radioButton.setChecked(0)
+        self.middle_pts_radioButton.setChecked(1)
         self.spaced_pts_radioButton.setChecked(0)
         self.spaced_pts_radioButton.hide()
         self.spaced_pts_comboBox.hide()
-        self.case2b_radioButton.setChecked(1)
+        self.case2b_radioButton.setChecked(0)
         
         self.middle_pts_radioButton.toggled.connect(self.method_update)
         self.spaced_pts_radioButton.toggled.connect(self.method_update)
