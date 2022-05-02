@@ -115,7 +115,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def HelpNoiseExposure_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-            <p>In according to §2.8 Directive 2002/49/EC Annex II</p><br>       
+            <p><b>In according to §2.8 Directive 2002/49/EC Annex II</b></p><p></p>       
             <p><strong>People: </strong> the estimated number of people living in each building</p>
             <p><strong>Dwellings: </strong>the estimated number of dwellings for each building</p>
             <p><strong>Façade type Exposition: </strong>type of exposition for each building (type string)</p>
@@ -481,6 +481,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
         binsDwell = pd.cut(df1Dwelling['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
         df2=df1.groupby(bins)['popolazione'].agg(['sum'])
+        print('bins:',bins)
+        print('df1',df1)
         df2Dwell = df1Dwelling.groupby(bins)['dwellings'].agg(['sum'])
         df3 = df2.rename({'sum': 'population'}, axis=1)
         df3Dwell = df2Dwell.rename({'sum': 'dwellings'}, axis=1)
