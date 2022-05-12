@@ -115,13 +115,15 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def HelpNoiseExposure_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-            <p><b>In according to §2.8 Directive 2002/49/EC Annex II</b></p><p></p>       
+            <p><b>In according to §2.8 Directive 2002/49/EC Annex II</b></p><p></p>    
+            <p><i>For more information see also Help -> How it Works -> Noise Exposure</i></p>   
             <p><strong>People: </strong> the estimated number of people living in each building</p>
             <p><strong>Dwellings: </strong>the estimated number of dwellings for each building</p>
             <p><strong>Façade type Exposition: </strong>type of exposition for each building (type string)</p>
             <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>1</b>" Single dwellings</p>
            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>2</b>" appartments single façade type exposition</p>
            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>3</b>" appartment multi façade type exposition </p>
+           
            <html><head/><body></body></html>
             '''))
 
@@ -184,6 +186,47 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 f.setAttributes([labelsLev[idx], round(float(pddf.values[idx]), 2)])
             pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
+
+    def DETable(self,DF,tablename,fieldnames,type):
+        vl = QgsVectorLayer("None", tablename, "memory")
+        pr = vl.dataProvider()
+        pr.addAttributes([QgsField("people", QVariant.Double)])
+        for field in fieldnames:
+            pr.addAttributes([QgsField(field, QVariant.Double)])
+        vl.updateFields()
+
+        totPopulation = DF.sum()["population"]
+
+        f = QgsFeature()
+        # doseeffetto
+        # aggiungo colonna
+        if type == "den":
+            DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
+            # Lden
+            DF['ARHA'] = (78.927 - 3.1162 * DF['level_half'] + 0.0342 * np.power((DF['level_half']), 2)) / 100
+            DF['NHA'] = DF['population'] * DF['ARHA']
+            # sommo solo gli ultimi 6
+            NHAtotal = DF.iloc[-5:].sum()
+            NHAperc = NHAtotal['NHA'] / totPopulation * 100
+            #  write data in table
+            f.setAttributes([float(round(totPopulation,0)),
+                             float(NHAtotal['NHA']),
+                             float(NHAperc)])
+
+
+        else:
+            # Lnight
+            DF['ARHSD'] = (19.4312 - 0.9336 * DF['level_half'] + 0.0126 * np.power(DF['level_half'], 2)) / 100
+            DF['NHSD'] = DF['population'] * DF['ARHSD']
+            NHSDtotal = DF.iloc[-6:].sum()
+            NHSDperc = NHSDtotal['NHSD'] / totPopulation * 100
+            #  write data in table
+            f.setAttributes([float(round(totPopulation,0)),
+                             float(NHSDtotal["NHSD"]),
+                             float(NHSDperc)])
+        pr.addFeature(f)
+        QgsProject.instance().addMapLayer(vl)
+
 
 
     def update_field_receiver_points_layer(self):
@@ -346,6 +389,11 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         else:
             roundHundreds = False
 
+        if self.checkDoseEffetto.isChecked():
+            doseffetto = True
+        else:
+            doseffetto = False
+
 
         # CRS control (each layer must have the same CRS)
         if receiver_points_layer.crs().authid() != buildings_layer.crs().authid():
@@ -363,7 +411,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         # Run
         try:
-            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField,applySimbology,roundHundreds)
+            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField,applySimbology,roundHundreds,doseffetto)
             run = 1
         except:
             error= traceback.format_exc()
@@ -374,7 +422,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if run == 1:
             log_errors.write(self.tr("No errors.") + "\n\n")
-            result_string = self.tr("Noise levels assigned with success.") + "\n\n" +\
+            result_string = self.tr("Noise exposure assigned successfully.") + "\n\n" +\
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())
@@ -490,7 +538,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
 
-    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method,applySimbology,roundHundreds):
+    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method,applySimbology,roundHundreds,doseeffetto):
 
         CreateTempDir()
 
@@ -706,6 +754,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                                                   buildingMethod,receiverFacadeDicL1)
                 self.outputTempTable(df1,"People Exposure - Lden","people",roundHundreds)
                 self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds)
+                if doseeffetto:
+                    self.DETable(df1,"Dose Effetto - Lden",["NHA","%NHA"],"den")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
@@ -714,6 +764,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                                                   buildingMethod,receiverFacadeDicL2)
                 self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds)
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds)
+                if doseeffetto:
+                    self.DETable(df1,"Dose Effetto - Lnight",["NHSD","%NHSD"],"night")
                 print('L2 pop',df2)
             # if receiver_points_layer_details['level_3'] != 'none':
             #     df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,

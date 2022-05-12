@@ -20,7 +20,7 @@
    <enum>Qt::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>Calculate Noise Levels</string>
+   <string>OpeNoise - Calculate Noise Levels</string>
   </property>
   <property name="modal">
    <bool>false</bool>
@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -240,8 +240,8 @@
        <item>
         <widget class="QCheckBox" name="height_receiver_check">
          <property name="text">
-          <string>Activate custom receiver height - Specifies the height of the receivers [m] - 
-default is 4m</string>
+          <string>Activate custom receiver height
+Specifies the height of the receivers [m] - default is 4 m</string>
          </property>
         </widget>
        </item>
@@ -331,7 +331,8 @@ default is 4m</string>
             <string>to enable check that skip diffraction in disabled.</string>
            </property>
            <property name="text">
-            <string>Activate 3D calculation - Specifies the height of the buildings [m]</string>
+            <string>Activate 3D calculation
+Specifies the height of the buildings [m]</string>
            </property>
           </widget>
          </item>
@@ -918,9 +919,9 @@ default is 4m</string>
     <widget class="QPushButton" name="HelpParameters">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>680</x>
        <y>520</y>
-       <width>121</width>
+       <width>81</width>
        <height>25</height>
       </rect>
      </property>
@@ -1031,7 +1032,7 @@ default is 4m</string>
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Create Diffracted (Vertical Obstacles) Sound Rays Layer (output line layer)</string>
+         <string>Create Diffracted Sound Rays Layer - Vertical Obstacles (output line layer)</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -1150,7 +1151,7 @@ default is 4m</string>
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;This operation can take a long time, select the rays creation only for little calculations&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING: &lt;/span&gt;This operation can take a long time, select the rays creation only for little calculations&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1169,7 +1170,7 @@ default is 4m</string>
       <item>
        <widget class="QCheckBox" name="diff3DRaysCheck">
         <property name="text">
-         <string>Create Diffracted (Horizontal Obstacles) Sound Rays Layer (output line layer)</string>
+         <string>Create Diffracted Sound Rays Layer - Horizontal Obstacles (output line layer)</string>
         </property>
        </widget>
       </item>
@@ -1204,8 +1205,8 @@ default is 4m</string>
     <widget class="QPushButton" name="calculate_pushButton">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>210</y>
+       <x>330</x>
+       <y>220</y>
        <width>161</width>
        <height>61</height>
       </rect>
@@ -1339,7 +1340,7 @@ default is 4m</string>
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Overall Process&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Process Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QWidget" name="barsWidget" native="true">
@@ -1779,7 +1780,7 @@ default is 4m</string>
       </rect>
      </property>
      <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reduces&lt;/span&gt; the calculation time with consequent&lt;span style=&quot; text-decoration: underline;&quot;&gt; loss of precision in sound levels estimates&lt;/span&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>Skip Diffractions Calculation</string>
@@ -1788,10 +1789,10 @@ default is 4m</string>
     <widget class="QPushButton" name="helpCalculateOptions">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>18</y>
+       <x>160</x>
+       <y>20</y>
        <width>71</width>
-       <height>28</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -1820,7 +1821,7 @@ default is 4m</string>
        <x>10</x>
        <y>110</y>
        <width>771</width>
-       <height>71</height>
+       <height>75</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="rays_layer_verticalLayout_3">
