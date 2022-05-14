@@ -190,9 +190,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
     def DETable(self,DF,tablename,fieldnames,type):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
-        pr.addAttributes([QgsField("TOT_People", QVariant.Double)])
+        pr.addAttributes([QgsField("TOT_People", QVariant.Int)])
         for field in fieldnames:
-            pr.addAttributes([QgsField(field, QVariant.Int)])
+            pr.addAttributes([QgsField(field, QVariant.Double)])
         vl.updateFields()
 
         totPopulation = DF.sum()["population"]
@@ -206,24 +206,25 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             DF['ARHA'] = (78.927 - 3.1162 * DF['level_half'] + 0.0342 * np.power((DF['level_half']), 2)) / 100
             DF['NHA'] = DF['population'] * DF['ARHA']
             # sommo solo gli ultimi 6
-            NHAtotal = DF.iloc[-5:].sum()
+            NHAtotal = DF.iloc[-6:].sum()
             NHAperc = NHAtotal['NHA'] / totPopulation * 100
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
-                             float(NHAtotal['NHA']),
-                             float(round(NHAperc),1)])
+                             float(round(NHAtotal['NHA'],0)),
+                             float(round(NHAperc,2))])
 
 
         else:
             # Lnight
             DF['ARHSD'] = (19.4312 - 0.9336 * DF['level_half'] + 0.0126 * np.power(DF['level_half'], 2)) / 100
             DF['NHSD'] = DF['population'] * DF['ARHSD']
-            NHSDtotal = DF.iloc[-6:].sum()
+            # sommo gli ultimi 7 valori
+            NHSDtotal = DF.iloc[-7:].sum()
             NHSDperc = NHSDtotal['NHSD'] / totPopulation * 100
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
-                             float(NHSDtotal["NHSD"]),
-                             float(round(NHSDperc,1))])
+                             float(round(NHSDtotal["NHSD"],0)),
+                             float(round(NHSDperc,2))])
         pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
@@ -767,6 +768,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 if doseeffetto:
                     self.DETable(df1,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night")
                 print('L2 pop',df2)
+                print('Dose-Effetto: ',df1)
             # if receiver_points_layer_details['level_3'] != 'none':
             #     df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
             #                                       buildings_levels_from_receiverL3,
