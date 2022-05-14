@@ -190,9 +190,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
     def DETable(self,DF,tablename,fieldnames,type):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
-        pr.addAttributes([QgsField("people", QVariant.Double)])
+        pr.addAttributes([QgsField("TOT_People", QVariant.Double)])
         for field in fieldnames:
-            pr.addAttributes([QgsField(field, QVariant.Double)])
+            pr.addAttributes([QgsField(field, QVariant.Int)])
         vl.updateFields()
 
         totPopulation = DF.sum()["population"]
@@ -211,7 +211,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
                              float(NHAtotal['NHA']),
-                             float(NHAperc)])
+                             float(round(NHAperc),1)])
 
 
         else:
@@ -223,7 +223,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
                              float(NHSDtotal["NHSD"]),
-                             float(NHSDperc)])
+                             float(round(NHSDperc,1))])
         pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
@@ -755,7 +755,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 self.outputTempTable(df1,"People Exposure - Lden","people",roundHundreds)
                 self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds)
                 if doseeffetto:
-                    self.DETable(df1,"Dose Effetto - Lden",["NHA","%NHA"],"den")
+                    self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den")
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
@@ -765,7 +765,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds)
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds)
                 if doseeffetto:
-                    self.DETable(df1,"Dose Effetto - Lnight",["NHSD","%NHSD"],"night")
+                    self.DETable(df1,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night")
                 print('L2 pop',df2)
             # if receiver_points_layer_details['level_3'] != 'none':
             #     df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,

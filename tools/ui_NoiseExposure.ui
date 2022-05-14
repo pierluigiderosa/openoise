@@ -47,7 +47,7 @@
    <item>
     <widget class="QLabel" name="label_7">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Assigns dwellings and people living in dwellings to receiver points &lt;br/&gt;and the evaluation of the harmful effects of ambient noise &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;in according to § 2.8 Directive 2002/49/EC Annex II - III&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Assigns dwellings and people living in dwellings to receiver points &lt;br/&gt;and evaluetes the harmful effects of ambient noise &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;in according to § 2.8 Directive 2002/49/EC Annex II - III&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -201,7 +201,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3) &lt;/span&gt;Buildings Layer (input polygon layer) and field for people-dwellings-façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3) &lt;/span&gt;Buildings Layer (input polygon layer) and field for People-Dwellings-Façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -381,7 +381,7 @@
      <item>
       <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calculate &lt;span style=&quot; font-weight:600;&quot;&gt;%N&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:sub;&quot;&gt;HA,road  &lt;/span&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt; %N&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:sub;&quot;&gt;HSD,road&lt;/span&gt; - in according to Directive 2002/49/EC Annex III-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Evaluation of the Harmful Effects: &lt;span style=&quot; font-weight:600;&quot;&gt;N&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:sub;&quot;&gt;HA,road &lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;  N&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:sub;&quot;&gt;HSD,road&lt;/span&gt; - Directive 2002/49/EC Annex III&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -403,7 +403,7 @@
    <item>
     <widget class="QCheckBox" name="hundredsCheck">
      <property name="text">
-      <string>The estimated number of people and dwellings will be rounded to the nearest hundred</string>
+      <string>The Estimated Number of People and Dwellings will be Rounded to the Nearest Hundred</string>
      </property>
     </widget>
    </item>
