@@ -215,7 +215,7 @@
            </rect>
           </property>
           <attribute name="label">
-           <string>3 -   CONTOURS LEVEL</string>
+           <string>3  -   CONTOURS LEVEL</string>
           </attribute>
           <widget class="QLabel" name="label_9">
            <property name="geometry">
@@ -250,8 +250,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>695</width>
-            <height>1047</height>
+            <width>126</width>
+            <height>3885</height>
            </rect>
           </property>
           <attribute name="label">

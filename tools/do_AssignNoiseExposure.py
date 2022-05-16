@@ -200,8 +200,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         f = QgsFeature()
         # doseeffetto
         # aggiungo colonna
+        DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
         if type == "den":
-            DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
+
             # Lden
             DF['ARHA'] = (78.927 - 3.1162 * DF['level_half'] + 0.0342 * np.power((DF['level_half']), 2)) / 100
             DF['NHA'] = DF['population'] * DF['ARHA']
@@ -211,7 +212,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
                              float(round(NHAtotal['NHA'],0)),
-                             float(round(NHAperc,2))])
+                             float(round(NHAperc,1))])
 
 
         else:
@@ -224,7 +225,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
                              float(round(NHSDtotal["NHSD"],0)),
-                             float(round(NHSDperc,2))])
+                             float(round(NHSDperc,1))])
         pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
@@ -740,7 +741,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                     level_5 = recFeat.attributes()[receiver_points_fields_index['level_5']]
                     if level_5 > 0:
                         receiverFacadeDicL5[key].append([recFeat['facadeP'],level_5])
-            print('receiverFacadeDic: ',receiverFacadeDicL1)
+            # print('receiverFacadeDic: ',receiverFacadeDicL1)
 
 
             if receiver_points_layer_details['level_1'] != 'none':
@@ -766,9 +767,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds)
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds)
                 if doseeffetto:
-                    self.DETable(df1,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night")
+                    self.DETable(df2,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night")
                 print('L2 pop',df2)
-                print('Dose-Effetto: ',df1)
+                print('Dose-Effetto: ',df2)
             # if receiver_points_layer_details['level_3'] != 'none':
             #     df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
             #                                       buildings_levels_from_receiverL3,
@@ -811,12 +812,12 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             new_level_fields.append(QgsField(level_1_name, QVariant.Double,len=5,prec=1))
         if receiver_points_layer_details['level_2'] != 'none':
             new_level_fields.append(QgsField(level_2_name, QVariant.Double,len=5,prec=1))
-        if receiver_points_layer_details['level_3'] != 'none':
-            new_level_fields.append(QgsField(level_3_name, QVariant.Double,len=5,prec=1))
-        if receiver_points_layer_details['level_4'] != 'none':
-            new_level_fields.append(QgsField(level_4_name, QVariant.Double,len=5,prec=1))
-        if receiver_points_layer_details['level_5'] != 'none':
-            new_level_fields.append(QgsField(level_5_name, QVariant.Double,len=5,prec=1))
+        # if receiver_points_layer_details['level_3'] != 'none':
+        #     new_level_fields.append(QgsField(level_3_name, QVariant.Double,len=5,prec=1))
+        # if receiver_points_layer_details['level_4'] != 'none':
+        #     new_level_fields.append(QgsField(level_4_name, QVariant.Double,len=5,prec=1))
+        # if receiver_points_layer_details['level_5'] != 'none':
+        #     new_level_fields.append(QgsField(level_5_name, QVariant.Double,len=5,prec=1))
 
         buildings_layer.dataProvider().addAttributes( new_level_fields )
         buildings_layer.updateFields()
