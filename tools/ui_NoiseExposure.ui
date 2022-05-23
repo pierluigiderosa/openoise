@@ -47,7 +47,7 @@
    <item>
     <widget class="QLabel" name="label_7">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Assigns dwellings and people living in dwellings to receiver points &lt;br/&gt;and evaluetes the harmful effects of ambient noise &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;in according to § 2.8 Directive 2002/49/EC Annex II - III&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Assigns dwellings and people living in dwellings to receiver points, according to § 2.8 Directive 2002/49/EC Annex II&lt;br/&gt;and evaluates the harmful effects of ambient noise according to Directive 2002/49/EC Annex III&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -75,7 +75,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1)&lt;/span&gt; Receiver Layer (input point layer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1)&lt;/span&gt; Receiver Points Layer (input point layer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -410,7 +410,7 @@
    <item>
     <widget class="QCheckBox" name="applyNoiseSimbology">
      <property name="text">
-      <string>Apply Level Simbology to the Buildings Layer (Maximum  Level for Building):</string>
+      <string>Apply Level Simbology to the Buildings Layer (Maximum Level for Building):</string>
      </property>
     </widget>
    </item>

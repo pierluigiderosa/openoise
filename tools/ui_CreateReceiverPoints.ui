@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>467</height>
+    <height>470</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -38,7 +38,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>opeNoise - Create Receivers or Grid</string>
+   <string>opeNoise - Create Receiver or Grid Points</string>
   </property>
   <property name="locale">
    <locale language="Italian" country="Italy"/>
@@ -63,7 +63,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Receivers</string>
+       <string>Receiver Points</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -105,14 +105,20 @@
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2)&lt;/span&gt; Choose the Creation Methods:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2)&lt;/span&gt; Creation Method:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Receiver at 0.1 m front of building&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Receiver Points at 0.1 m in front of buildings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="margin">
+          <number>3</number>
+         </property>
+         <property name="indent">
+          <number>13</number>
          </property>
         </widget>
        </item>
@@ -121,7 +127,7 @@
          <item row="0" column="0">
           <widget class="QRadioButton" name="middle_pts_radioButton">
            <property name="text">
-            <string>Receiver points in the half of the façades</string>
+            <string>Receiver points in the middle of the façades</string>
            </property>
           </widget>
          </item>
@@ -163,13 +169,13 @@
        <item>
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;In according to case 2b Directive 2002/49/EC Annex II - Façades are &lt;br/&gt;split up every 5 m from the start position onwards, with a receiver&lt;br/&gt;position placed at the halfway the 5 m segment. The remaining &lt;br/&gt;section has its receiver point in its mid-point&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;According to case 2b Directive 2002/49/EC Annex II - Façades are &lt;br/&gt;split up every 5 m from starting position onwards, with a receiver&lt;br/&gt;position placed  halfway the 5 m segment. The remaining &lt;br/&gt;section has its receiver point in the middle&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="margin">
           <number>0</number>
          </property>
          <property name="indent">
-          <number>25</number>
+          <number>19</number>
          </property>
         </widget>
        </item>
@@ -203,7 +209,7 @@
             <string>Receiver at 4 m above the ground</string>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Receivers Layer (output point layer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Receiver Points Layer (output point layer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -303,7 +309,7 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Grid</string>
+       <string>Grid Points</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
@@ -317,7 +323,7 @@
             <string/>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1)&lt;/span&gt; Receiver Spacing [m] &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1)&lt;/span&gt; Receiver Points Spacing [m] &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -341,7 +347,7 @@
           </size>
          </property>
          <property name="title">
-          <string>2) Extent Layer</string>
+          <string>2) Extension Layer</string>
          </property>
         </widget>
        </item>
@@ -350,7 +356,7 @@
          <item>
           <widget class="QLabel" name="label_6">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Grid Layer (output point layer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Grid Points Layer (output point layer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>

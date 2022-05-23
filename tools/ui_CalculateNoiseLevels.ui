@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>848</width>
+    <width>837</width>
     <height>616</height>
    </rect>
   </property>
@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>0</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -57,7 +57,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;This Tool Calculates Noise Levels&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;This Tool Calculates Noise Levels at Receiver Points&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -68,7 +68,7 @@
       <rect>
        <x>30</x>
        <y>270</y>
-       <width>250</width>
+       <width>161</width>
        <height>31</height>
       </rect>
      </property>
@@ -97,7 +97,7 @@
       <rect>
        <x>30</x>
        <y>320</y>
-       <width>250</width>
+       <width>161</width>
        <height>31</height>
       </rect>
      </property>
@@ -131,7 +131,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1. Input:  &lt;/span&gt; &lt;/span&gt; insert the receivers, sources and buildings layers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1. Input: &lt;/span&gt;insert the receiver points, sources and buildings layers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -147,7 +147,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2. Parameters:&lt;/span&gt; select some parameters settings as the research distance&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2. Parameters:&lt;/span&gt; select some parameters settings&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -163,7 +163,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3. Options: &lt;/span&gt;Create the sound rays layers if you want to check the single noise level contribution&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3. Options: &lt;/span&gt;Create sound rays layers if you want to check the single noise level contribution at receiver points&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -179,7 +179,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;4. Calculate: &lt;/span&gt;Calculate the levels to the receivers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;4. Calculate: &lt;/span&gt;Calculate  levels at receiver points&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -206,7 +206,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Receivers</string>
+        <string>Receiver Points</string>
        </property>
       </widget>
      </item>
@@ -219,7 +219,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Choose a point layer as receiver (multipart layers are not supported)</string>
+        <string>Choose a point layer as receiver points (multipart layers are not supported)</string>
        </property>
       </widget>
      </item>
@@ -240,8 +240,8 @@
        <item>
         <widget class="QCheckBox" name="height_receiver_check">
          <property name="text">
-          <string>Activate custom receiver height
-Specifies the height of the receivers [m] - default is 4 m</string>
+          <string>Activate custom receiver points height
+Specify the height of the receiver [m] - default is 4 m</string>
          </property>
         </widget>
        </item>
@@ -311,7 +311,7 @@ Specifies the height of the receivers [m] - default is 4 m</string>
         </font>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In the calculation buildings are considered as obstacles. In this way it is possible to insert noise barriers in this layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Buildings are considered as obstacles. In this way it is possible to insert noise barriers in this layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -332,14 +332,14 @@ Specifies the height of the receivers [m] - default is 4 m</string>
            </property>
            <property name="text">
             <string>Activate 3D calculation
-Specifies the height of the buildings [m]</string>
+Specify the height of the buildings [m]</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_18">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;to also take into account the diffraction at horizontal obstacles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;this also takes into account the diffraction at horizontal obstacles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -515,7 +515,7 @@ Specifies the height of the buildings [m]</string>
          </size>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Research Ray [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Search Ray [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -575,7 +575,7 @@ Specifies the height of the buildings [m]</string>
       </sizepolicy>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total Hours for each Periods&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total Hours for each Period&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="L_den_penalty_label">
@@ -638,7 +638,7 @@ Specifies the height of the buildings [m]</string>
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Nigth</string>
+      <string>Night</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1007,7 +1007,7 @@ Specifies the height of the buildings [m]</string>
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Create the sound rays layers if you want to check the single noise level contribution&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Create sound rays layers if you want to check the single noise level contribution at receiver points&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1151,7 +1151,7 @@ Specifies the height of the buildings [m]</string>
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING: &lt;/span&gt;This operation can take a long time, select the rays creation only for little calculations&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING: &lt;/span&gt;This operation can take a long time, select the rays creation only for small area calculations&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1340,7 +1340,7 @@ Specifies the height of the buildings [m]</string>
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Process Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QWidget" name="barsWidget" native="true">
@@ -1812,7 +1812,7 @@ Specifies the height of the buildings [m]</string>
       <string extracomment="This option is valid only in case of input road layers."/>
      </property>
      <property name="text">
-      <string>Save Emission in Input Layer</string>
+      <string>Save Emission Level in Sources Layer</string>
      </property>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget_8">
@@ -1834,7 +1834,7 @@ Specifies the height of the buildings [m]</string>
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Save Current Settings in a xml file</string>
+         <string>Save Current Settings</string>
         </property>
         <property name="checked">
          <bool>false</bool>

@@ -2,13 +2,13 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/Popolazione</last>
+        <last>C:/Users/pierl/Desktop/Popolazione/test17maggio</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>Ricettori</name>
-            <path>C:/Users/pierl/Desktop/Popolazione/Ricettori.shp</path>
+            <name>ricevitori</name>
+            <path>C:/Users/pierl/Desktop/Popolazione/test17maggio/ricevitori.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>read_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/Popolazione/read_CNOSSOS.shp</path>
+		<name>roads_CNOSSOS_traffic_flow</name>
+		<path>C:/Users/pierl/Desktop/Popolazione/test17maggio/roads_CNOSSOS_traffic_flow.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name>Edificio</name>
-            <path>C:/Users/pierl/Desktop/Popolazione/Edificio.shp</path>
+            <name>buildings</name>
+            <path>C:/Users/pierl/Desktop/Popolazione/test17maggio/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -46,15 +46,15 @@
     </layers>
 
     <options>
-        <research_ray>250</research_ray>
+        <research_ray>50</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <save_emission>False</save_emission>
         <height_receiver>False</height_receiver>
-        <threedglobal>True</threedglobal>
+        <threedglobal>False</threedglobal>
         <threedglobal_rays>False</threedglobal_rays>
-        <field3D>H</field3D>
+        <field3D />
 
         <den>
             <day_hours>14</day_hours> 
@@ -81,7 +81,7 @@
 		</pts>
 		<roads>
 		    <gen>False</gen>
-		    <day>False</day>            
+		    <day>True</day>            
 		    <eve>False</eve>            
 		    <nig>True</nig>  
 		</roads>
@@ -141,8 +141,8 @@
             <gen_4b_n />
             <gen_4b_s />            
             
-            <day_1_n />
-            <day_1_s />            
+            <day_1_n>light_n</day_1_n>
+            <day_1_s>light_v</day_1_s>            
             <day_2_n />
             <day_2_s />
             <day_3_n />

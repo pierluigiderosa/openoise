@@ -118,18 +118,19 @@ class Dialog(QDialog,FORM_CLASS):
 
     def infoReceivers_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-         <p><strong>Create receivers: </strong>By default, the level calculations are performed 4m above the ground. 
-         Otherwise, after creating the receivers, you can add a new attribute with a numeric field of a height other than 4m. 
-         In the Calculate Noise Level tool, you can activate the custom height of the receivers. 
-         In this way it is possible to create receptor points at different floors of the building, making a copy of the points created by the tool</p>
+         <p><strong>Create Receiver Points: </strong>By default, level calculations are performed 4m above the ground.  
+         After creating the receivers, you can add a new attribute with a numeric field of a height other than 4m. 
+         In the Calculate Noise Levels tool, you can activate the custom height of the receivers. 
+         In this way it is possible to create receptor points at different floors of the building, making a copy of the points created by the tool.</p>
          '''))
 
     def infoGrid_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-         <p><strong>Create grid points: </strong>By default, the level calculations are performed 4m above the ground. 
-         Otherwise, after creating the receivers grid, you can add a new attribute with a numeric field of a height other than 4m. 
-         In the Calculate Noise Level tool, you can activate the custom height of the receivers. 
-         In this way it is possible to create receptor points at different floors of the building, making a copy of the points created by the tool</p>
+         <p><strong>Create Grid Points: </strong>By default, level calculations are performed 4m above the ground.  
+         After creating the receivers, you can add a new attribute with a numeric field of a height other than 4m. 
+         In the Calculate Noise Levels tool, you can activate the custom height of the receivers. 
+         In this way it is possible to create receptor points at different height, making a copy of the points created by the tool. 
+        </p>
          '''))
 
     def extent_layer_definition2(self):
