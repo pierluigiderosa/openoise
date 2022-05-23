@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed night population aggregation&#10;- fixed write field in buildings">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/buildings.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/buildings.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_receivers.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_receivers.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_receivers.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/grid_receivers.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/polygon_levels.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/polygon_levels.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/polygon_levels.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/polygon_levels.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receivers_points.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receivers_points.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receivers_points.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data set for testing/receivers_points.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_CreateReceiverPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CreateReceiverPoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_ContoursLevel.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_ContoursLevel.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CreateReceiverPoints.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Helps.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Helps.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Informations.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Informations.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_NoiseExposure.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_NoiseExposure.ui" afterDir="false" />
-    </list>
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- new data for testing&#10;- new GUIs&#10;- some text info modified" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -355,14 +330,7 @@
       <workItem from="1652516660179" duration="228000" />
       <workItem from="1652531676066" duration="1324000" />
       <workItem from="1652706002520" duration="3844000" />
-      <workItem from="1653290668273" duration="761000" />
-    </task>
-    <task id="LOCAL-00035" summary="threeD implementation - initial2">
-      <created>1627123135495</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1627123135495</updated>
+      <workItem from="1653290668273" duration="1066000" />
     </task>
     <task id="LOCAL-00036" summary="unique bar for overall process">
       <created>1627634724096</created>
@@ -700,7 +668,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652710469542</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="- new data for testing&#10;- new GUIs&#10;- some text info modified">
+      <created>1653291605163</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1653291605164</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -751,7 +726,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- added calculation for dwellings" />
     <MESSAGE value="- added checks for fields combobox" />
     <MESSAGE value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
     <MESSAGE value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
@@ -776,7 +750,8 @@
     <MESSAGE value="- new names for table output&#10;- GIU improvements" />
     <MESSAGE value="- new names for table output&#10;- fixed erroc il dose-effetto aggregation&#10;- GIU improvements" />
     <MESSAGE value="- fixed night population aggregation&#10;- fixed write field in buildings" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fixed night population aggregation&#10;- fixed write field in buildings" />
+    <MESSAGE value="- new data for testing&#10;- new GUIs&#10;- some text info modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="- new data for testing&#10;- new GUIs&#10;- some text info modified" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
