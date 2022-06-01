@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -939,7 +939,7 @@ Specify the height of the buildings [m]</string>
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Atmospheric Absorption&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Atmospheric Absorption - ISO 9613-1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1968,8 +1968,8 @@ Specify the height of the buildings [m]</string>
      <y>295</y>
     </hint>
     <hint type="destinationlabel">
-     <x>552</x>
-     <y>323</y>
+     <x>824</x>
+     <y>348</y>
     </hint>
    </hints>
   </connection>
@@ -1984,8 +1984,24 @@ Specify the height of the buildings [m]</string>
      <y>334</y>
     </hint>
     <hint type="destinationlabel">
-     <x>459</x>
-     <y>326</y>
+     <x>824</x>
+     <y>348</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buildings_layer_comboBox</sender>
+   <signal>activated(QString)</signal>
+   <receiver>field_height_building</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>574</x>
+     <y>287</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>583</x>
+     <y>343</y>
     </hint>
    </hints>
   </connection>

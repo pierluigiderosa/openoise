@@ -100,9 +100,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         self.receiver_points_layer_comboBox.currentIndexChanged.connect(self.update_field_receiver_points_layer)
 
-        self.level_3_comboBox.hide()
-        self.level_4_comboBox.hide()
-        self.level_5_comboBox.hide()
+
 
         self.helpNoiseExp.clicked.connect(self.HelpNoiseExposure_show)
 
@@ -115,14 +113,14 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def HelpNoiseExposure_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-            <p><b>In according to §2.8 Directive 2002/49/EC Annex II</b></p><p></p>    
+            <p><b>According to §2.8 Directive 2002/49/EC Annex II</b></p><p></p>    
             <p><i>For more information see also Help -> How it Works -> Noise Exposure</i></p>   
-            <p><strong>People: </strong> the estimated number of people living in each building</p>
+            <p><strong>People: </strong>the estimated number of people living in each building </p>
             <p><strong>Dwellings: </strong>the estimated number of dwellings for each building</p>
             <p><strong>Façade type Exposition: </strong>type of exposition for each building (type string)</p>
-            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>1</b>" Single dwellings</p>
-           <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>2</b>" appartments single façade type exposition</p>
-           <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>3</b>" appartment multi façade type exposition </p>
+            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>1</b>" single dwellings</p>
+           <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>2</b>" apartment building - single façade type exposition</p>
+           <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"<b>3</b>" apartment building - multi façade type exposition</p>
            
            <html><head/><body></body></html>
             '''))
@@ -243,9 +241,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         #self.id_field_comboBox.clear()
         self.level_1_comboBox.clear()
         self.level_2_comboBox.clear()
-        self.level_3_comboBox.clear()
-        self.level_4_comboBox.clear()
-        self.level_5_comboBox.clear()
+
 
         receiver_points_layer_fields_number = [""]
 
@@ -258,9 +254,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 #self.id_field_comboBox.addItem(f_label)
                 self.level_1_comboBox.addItem(f_label)
                 self.level_2_comboBox.addItem(f_label)
-                self.level_3_comboBox.addItem(f_label)
-                self.level_4_comboBox.addItem(f_label)
-                self.level_5_comboBox.addItem(f_label)
+
 
 
     def controls(self):
@@ -269,9 +263,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify the receiver points vector layer."))
             return 0
 
-        if self.level_1_comboBox.currentText() == "" and self.level_2_comboBox.currentText() == ""\
-           and self.level_3_comboBox.currentText() == "" and self.level_4_comboBox.currentText() == ""\
-           and self.level_5_comboBox.currentText() == "":
+        if self.level_1_comboBox.currentText() == "" and self.level_2_comboBox.currentText() == "":
                message = self.tr("Please specify at least one level field to assing") + "\n" + self.tr("to the buildings layer.")
                QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(message))
                return 0
@@ -298,20 +290,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         else:
             receiver_points_dict['level_2'] = self.level_2_comboBox.currentText()
 
-        if self.level_3_comboBox.currentText() == '':
-            receiver_points_dict['level_3'] = 'none'
-        else:
-            receiver_points_dict['level_3'] = self.level_3_comboBox.currentText()
 
-        if self.level_4_comboBox.currentText() == '':
-            receiver_points_dict['level_4'] = 'none'
-        else:
-            receiver_points_dict['level_4'] = self.level_4_comboBox.currentText()
-
-        if self.level_5_comboBox.currentText() == '':
-            receiver_points_dict['level_5'] = 'none'
-        else:
-            receiver_points_dict['level_5'] = self.level_5_comboBox.currentText()
 
         return receiver_points_dict
 
@@ -328,12 +307,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             fields_to_calculate.append(self.level_1_comboBox.currentText())
         if self.level_2_comboBox.currentText() != "":
             fields_to_calculate.append(self.level_2_comboBox.currentText())
-        if self.level_3_comboBox.currentText() != "":
-            fields_to_calculate.append(self.level_3_comboBox.currentText())
-        if self.level_4_comboBox.currentText() != "":
-            fields_to_calculate.append(self.level_4_comboBox.currentText())
-        if self.level_5_comboBox.currentText() != "":
-            fields_to_calculate.append(self.level_5_comboBox.currentText())
+
 
         #print("fields_to_calculate",fields_to_calculate)
         #personal_fields = ['gen', 'day', 'eve', 'nig','den']
@@ -425,6 +399,12 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         if run == 1:
             log_errors.write(self.tr("No errors.") + "\n\n")
             result_string = self.tr("Noise exposure assigned successfully.") + "\n\n" +\
+                            self.tr("Receiver: ")+receiver_points_layer.name()+"\n"+ \
+                            self.tr("Receiver field Den: ") + receiver_points_layer_details['level_1'] +"\n"+ \
+                            self.tr("Receiver field Ing: ") + receiver_points_layer_details['level_2'] +"\n"+ \
+                            self.tr("Building layer: ") + buildings_layer.name() + "\n"+ \
+                            self.tr("Building population field: ") + building_pop_Field + "\n" + \
+                            self.tr("Building dwelling field: ") + dwelling_Field + "\n" + \
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())
@@ -557,15 +537,6 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         if receiver_points_layer_details['level_2'] != 'none':
             level_2_name = receiver_points_layer_details['level_2']
             receiver_points_fields_index['level_2'] = receiver_points_layer.dataProvider().fieldNameIndex(receiver_points_layer_details['level_2'])
-        if receiver_points_layer_details['level_3'] != 'none':
-            level_3_name = receiver_points_layer_details['level_3']
-            receiver_points_fields_index['level_3'] = receiver_points_layer.dataProvider().fieldNameIndex(receiver_points_layer_details['level_3'])
-        if receiver_points_layer_details['level_4'] != 'none':
-            level_4_name = receiver_points_layer_details['level_4']
-            receiver_points_fields_index['level_4'] = receiver_points_layer.dataProvider().fieldNameIndex(receiver_points_layer_details['level_4'])
-        if receiver_points_layer_details['level_5'] != 'none':
-            level_5_name = receiver_points_layer_details['level_5']
-            receiver_points_fields_index['level_5'] = receiver_points_layer.dataProvider().fieldNameIndex(receiver_points_layer_details['level_5'])
 
         # gets fields from buildings layer and initializes the final buildings_levels_fields to populate the buildings layer attribute table
         buildings_fields_index = {}
@@ -576,15 +547,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         if receiver_points_layer_details['level_2'] != 'none':
             buildings_fields_index['level_2'] = buildings_fields_number
             buildings_fields_number = buildings_fields_number + 1
-        if receiver_points_layer_details['level_3'] != 'none':
-            buildings_fields_index['level_3'] = buildings_fields_number
-            buildings_fields_number = buildings_fields_number + 1
-        if receiver_points_layer_details['level_4'] != 'none':
-            buildings_fields_index['level_4'] = buildings_fields_number
-            buildings_fields_number = buildings_fields_number + 1
-        if receiver_points_layer_details['level_5'] != 'none':
-            buildings_fields_index['level_5'] = buildings_fields_number
-            buildings_fields_number = buildings_fields_number + 1
+
 
         receiver_points_feat_number = 0
 
@@ -615,15 +578,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             if receiver_points_layer_details['level_2'] != 'none':
                 level_2 = featReceiver.attributes()[receiver_points_fields_index['level_2']]
                 feat_levels_fields[buildings_fields_index['level_2']] = level_2
-            if receiver_points_layer_details['level_3'] != 'none':
-                level_3 = featReceiver.attributes()[receiver_points_fields_index['level_3']]
-                feat_levels_fields[buildings_fields_index['level_3']] = level_3
-            if receiver_points_layer_details['level_4'] != 'none':
-                level_4 = featReceiver.attributes()[receiver_points_fields_index['level_4']]
-                feat_levels_fields[buildings_fields_index['level_4']] = level_4
-            if receiver_points_layer_details['level_5'] != 'none':
-                level_5 = featReceiver.attributes()[receiver_points_fields_index['level_5']]
-                feat_levels_fields[buildings_fields_index['level_5']] = level_5
+
 
             # assing maximum value level to building
             if (id_edi in buildings_levels_fields) == True:
@@ -635,18 +590,6 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                     if (buildings_levels_fields[id_edi][buildings_fields_index['level_2']] < level_2 and level_2 != None) or\
                       buildings_levels_fields[id_edi][buildings_fields_index['level_2']] == None:
                         buildings_levels_fields[id_edi][buildings_fields_index['level_2']] = level_2
-                if receiver_points_layer_details['level_3'] != 'none':
-                    if (buildings_levels_fields[id_edi][buildings_fields_index['level_3']] < level_3 and level_3 != None) or\
-                      buildings_levels_fields[id_edi][buildings_fields_index['level_3']] == None:
-                        buildings_levels_fields[id_edi][buildings_fields_index['level_3']] = level_3
-                if receiver_points_layer_details['level_4'] != 'none':
-                    if (buildings_levels_fields[id_edi][buildings_fields_index['level_4']] < level_4 and level_4 != None) or\
-                      buildings_levels_fields[id_edi][buildings_fields_index['level_4']] == None:
-                        buildings_levels_fields[id_edi][buildings_fields_index['level_4']] = level_4
-                if receiver_points_layer_details['level_5'] != 'none':
-                    if (buildings_levels_fields[id_edi][buildings_fields_index['level_5']] < level_5 and level_5 != None) or\
-                      buildings_levels_fields[id_edi][buildings_fields_index['level_5']] == None:
-                        buildings_levels_fields[id_edi][buildings_fields_index['level_5']] = level_5
 
             else:
                 buildings_levels_fields[id_edi] = feat_levels_fields
@@ -670,29 +613,6 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                         else:
                             buildings_levels_from_receiverL2[id_edi] = [level_2]
 
-                if receiver_points_layer_details['level_3'] != 'none':
-                    if level_3 > 0:
-
-                        if id_edi in buildings_levels_from_receiverL3:
-                            buildings_levels_from_receiverL3[id_edi].append(level_3)
-                        else:
-                            buildings_levels_from_receiverL3[id_edi] = [level_3]
-
-                if receiver_points_layer_details['level_4'] != 'none':
-                    if level_4 > 0:
-
-                        if id_edi in buildings_levels_from_receiverL4:
-                            buildings_levels_from_receiverL4[id_edi].append(level_4)
-                        else:
-                            buildings_levels_from_receiverL4[id_edi] = [level_4]
-
-                if receiver_points_layer_details['level_5'] != 'none':
-                    if level_5 > 0:
-
-                        if id_edi in buildings_levels_from_receiverL5:
-                            buildings_levels_from_receiverL5[id_edi].append(level_5)
-                        else:
-                            buildings_levels_from_receiverL5[id_edi] = [level_5]
 
         # POPULATION PART -- ADDED PART
         if building_pop_Field != '':
@@ -726,21 +646,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                     level_2 = recFeat.attributes()[receiver_points_fields_index['level_2']]
                     if level_2 > 0:
                         receiverFacadeDicL2[key].append([recFeat['facadeP'],level_2])
-                if receiver_points_layer_details['level_3'] != 'none':
-                    receiverFacadeDicL3.setdefault(key, [])
-                    level_3 = recFeat.attributes()[receiver_points_fields_index['level_3']]
-                    if level_3>0:
-                        receiverFacadeDicL3[key].append([recFeat['facadeP'],level_3])
-                if receiver_points_layer_details['level_4'] != 'none':
-                    receiverFacadeDicL4.setdefault(key, [])
-                    level_4 = recFeat.attributes()[receiver_points_fields_index['level_4']]
-                    if level_4 > 0:
-                        receiverFacadeDicL4[key].append([recFeat['facadeP'],level_4])
-                if receiver_points_layer_details['level_5'] != 'none':
-                    receiverFacadeDicL5.setdefault(key, [])
-                    level_5 = recFeat.attributes()[receiver_points_fields_index['level_5']]
-                    if level_5 > 0:
-                        receiverFacadeDicL5[key].append([recFeat['facadeP'],level_5])
+
             # print('receiverFacadeDic: ',receiverFacadeDicL1)
 
 
@@ -770,30 +676,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                     self.DETable(df2,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night")
                 print('L2 pop',df2)
                 print('Dose-Effetto: ',df2)
-            # if receiver_points_layer_details['level_3'] != 'none':
-            #     df3,df3Dwell = self.EUpopCalculationMethod(buildingPop,
-            #                                       buildings_levels_from_receiverL3,
-            #                                       buildingDwell,
-            #                                       buildingMethod,
-            #                                                receiverFacadeDicL3)
-            #     self.outputTempTable(df3,"People Exposure - Lev3","people",roundHundreds)
-            #     self.outputTempTable(df3Dwell, "Dwellings Exposure - Lev3","dwellings",roundHundreds)
-            #     print('L3 pop',df3)
-            # if receiver_points_layer_details['level_4'] != 'none':
-            #     df4,df4Dwell = self.EUpopCalculationMethod(buildingPop,
-            #                                       buildings_levels_from_receiverL4,
-            #                                       buildingDwell,
-            #                                       buildingMethod,receiverFacadeDicL4)
-            #     self.outputTempTable(df4,"People Exposure - Lev4","people",roundHundreds)
-            #     self.outputTempTable(df4Dwell, "Dwellings Exposure - Lev4","dwellings",roundHundreds)
-            #     print('L5 pop',df4)
-            # if receiver_points_layer_details['level_5'] != 'none':
-            #     df5,df5Dwell = self.EUpopCalculationMethod(buildingPop,
-            #                                       buildings_levels_from_receiverL5,
-            #                                       buildingDwell,
-            #                                       buildingMethod,receiverFacadeDicL5)
-            #     self.outputTempTable(df5,"People Exposure - Lev5","people",roundHundreds)
-            #     self.outputTempTable(df5Dwell, "Dwellings Exposure - Lev5","dwellings",roundHundreds)
+
             #     print('L5 pop',df5)
 
 
@@ -812,12 +695,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             new_level_fields.append(QgsField(level_1_name, QVariant.Double,len=5,prec=1))
         if receiver_points_layer_details['level_2'] != 'none':
             new_level_fields.append(QgsField(level_2_name, QVariant.Double,len=5,prec=1))
-        # if receiver_points_layer_details['level_3'] != 'none':
-        #     new_level_fields.append(QgsField(level_3_name, QVariant.Double,len=5,prec=1))
-        # if receiver_points_layer_details['level_4'] != 'none':
-        #     new_level_fields.append(QgsField(level_4_name, QVariant.Double,len=5,prec=1))
-        # if receiver_points_layer_details['level_5'] != 'none':
-        #     new_level_fields.append(QgsField(level_5_name, QVariant.Double,len=5,prec=1))
+
 
         buildings_layer.dataProvider().addAttributes( new_level_fields )
         buildings_layer.updateFields()

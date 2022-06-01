@@ -71,12 +71,16 @@ class Dialog(QDialog,FORM_CLASS):
         for distance in spaced_distance_list:
             self.spaced_pts_comboBox.addItem(distance)
         self.spaced_pts_comboBox.setEnabled(False)
-        
+        # scurisco in partenza l'opzione non default
+        self.case2b_radioButton.setStyleSheet("color: gray;")
+        self.label_5.setStyleSheet("color: gray;")
+
         self.middle_pts_radioButton.setChecked(1)
         self.spaced_pts_radioButton.setChecked(0)
         self.spaced_pts_radioButton.hide()
         self.spaced_pts_comboBox.hide()
         self.case2b_radioButton.setChecked(0)
+
         
         self.middle_pts_radioButton.toggled.connect(self.method_update)
         self.spaced_pts_radioButton.toggled.connect(self.method_update)
@@ -181,11 +185,26 @@ class Dialog(QDialog,FORM_CLASS):
         function to deactivate the combobox to select the distances
         :return:
         '''
-        
+        self.spaced_pts_radioButton.setEnabled(False)
+
+        # metodo mezzeria facciata
         if self.middle_pts_radioButton.isChecked():
-            self.spaced_pts_comboBox.setEnabled(False)
+            # self.case2b_radioButton.setEnabled(True)
+            self.case2b_radioButton.setStyleSheet("color: gray;")
+            self.middle_pts_radioButton.setStyleSheet("color: black;")
+            self.label_5.setStyleSheet("color: gray;")
+
+        # metodo obsoleto
         if self.spaced_pts_radioButton.isChecked():
-            self.spaced_pts_comboBox.setEnabled(True)
+            pass
+        # metodo nuovo
+        if self.case2b_radioButton.isChecked():
+            # self.middle_pts_radioButton.setEnabled(False)
+            self.case2b_radioButton.setStyleSheet("color: black;")
+            self.middle_pts_radioButton.setStyleSheet("color: gray;")
+            self.label_5.setStyleSheet("color: black;")
+
+
 
 
     def log_start(self):

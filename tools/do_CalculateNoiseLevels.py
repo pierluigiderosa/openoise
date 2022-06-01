@@ -190,24 +190,15 @@ class Dialog(QDialog,NoiseLevel_ui):
     #                             self.tr("Buildings are considered as obstacles to the propagation, diffraction effects are taken into account"))
     def HelpParameters_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-       <p><strong>Research ray:</strong> maximum distance of influence of the source to the receiver in meters. Receivers points
-beyond research ray return -99 value. A smaller research ray reduces the calculation time with consequent
-loss of precision in sound levels estimates.</p>
-<p><strong>Atmospheric absorption:</strong> air temperature and relative humidity, in accordance with the ISO 9613 - 1</p>
-<p><strong>Lden definition: </strong>in accordance with the Directive 2002/49/CE and the regulation of the specific nation. The plugin automatically calculates the value of Lden when data referred to the three reference periods are set (Day, Evening, Night).</p>
-<p>&nbsp;</p>
+<p><strong>Search ray: </strong>maximum distance of influence of the source to the receiver is expressed in meters. Receiver points beyond research ray return a -99 value. Setting a smaller search ray reduces the calculation time with consequent loss of precision in noise levels estimates.
+</p><p><strong>Lden definition: </strong>in accordance with Directive 2002/49/CE and regulations of each Country. The plugin automatically calculates the value of Lden when emission levels referred to the three reference periods are set (Day, Evening, Night).</p>
         '''))
 
     def HelpCalculateOptions_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-        <p><strong>Skip Diffraction:</strong>
-        the calculation will not take into account the diffraction of horizontal and vertical obstacles. 
-        This reduces the calculation time with consequent loss of precision in sound levels estimates. Receivers points beyond buildings return -99 value.
-        </p>
-        <p><strong>Save Emission in Input Layer:</strong>
-        allows you to save the roads emission in the input layer. The results are expressed in dB(A).</p>
-        <p><strong>Save Current Settings in xml file:</strong>
-        allows you to save all settings. The saved settings can be reloaded later in the start tab.</p>
+        <p><strong>Skip Diffraction Calculation: </strong>the calculation will not take into account the diffraction of horizontal and vertical obstacles. This reduces the calculation time with consequent loss of precision in sound levels estimates. Receiver points beyond buildings return a -99 value.</p>
+<p><strong>Save Emission Level in Source Layer: </strong>allows you to save road emissions in the input layer. The results are expressed in dB(A).</p> 
+<p><strong>Save Current Settings: </strong>allows you to save all settings. Saved settings can be reloaded later in the start tab.</p>
         '''))
 
 
@@ -225,7 +216,7 @@ loss of precision in sound levels estimates.</p>
 
     def sourceRoads_show(self):
         if self.sources_roads_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the road sources layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the road source layer."))
             return False
         else:
             d = do_SourceDetailsRoads.Dialog(self.iface, self.sources_roads_layer_comboBox.currentText())
@@ -522,7 +513,7 @@ loss of precision in sound levels estimates.</p>
 
         if self.sources_roads_layer_checkBox.isChecked():
             if self.sources_roads_layer_comboBox.currentText() == "":
-                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the road sources layer."))
+                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the road source layer."))
                 return False
             if not (settings['period_roads_gen'] == 'True' or settings['period_roads_day'] == 'True' or settings['period_roads_eve'] == 'True' or settings['period_roads_nig'] == 'True'):
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify at least one power for a reference period in the road source."))
@@ -775,6 +766,7 @@ loss of precision in sound levels estimates.</p>
 
         # 3D Settings
         if self.height_receiver_check.isChecked():
+            settings['height_receiver'] = 'True'
             settings['height_receiver'] = 'True'
         else:
             settings['height_receiver'] = 'False'
@@ -1030,7 +1022,7 @@ loss of precision in sound levels estimates.</p>
             self.label_time_end.setText(self.tr("End: ") + ' ' + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S"))
             self.label_time_duration.setText(self.tr("Duration: ") + ' ' + str(self.duration()))
 
-            result_string = self.tr("The calculation results have been successfully stored into the receiver point layer. "
+            result_string = self.tr("The calculation results have been successfully saved into the receiver point layer."
                                     "The results are expressed in dB(A).") + "\n\n" +\
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
