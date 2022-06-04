@@ -149,7 +149,7 @@ class Dialog(QDialog, FORM_CLASS):
         # test is linedit are compiled
         if self.polygon_lineEdit.text() == "" or self.polygon_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
-                                    self.tr("Please specify the output vector polygon layer."))
+                                    self.tr("Please specify output layer"))
             return
         if self.isoline_lineEdit.text() == "" or self.isoline_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),

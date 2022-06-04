@@ -225,7 +225,7 @@ class Dialog(QDialog,FORM_CLASS):
       
         self.buttonBox.setEnabled( False )
         if self.buildings_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify the buildings vector layer"))
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify buildings layer"))
             self.buttonBox.setEnabled( True )
             return
         elif self.receiver_layer_lineEdit.text() == "" or self.receiver_layer_lineEdit.text() == ".shp":
@@ -329,7 +329,7 @@ class Dialog(QDialog,FORM_CLASS):
 
         if extentSelected.area()== 0:
             QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
-                                    self.tr("Please specify the extent layer"))
+                                    self.tr("Please specify extent layer"))
             return
 
 

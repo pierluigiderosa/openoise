@@ -204,7 +204,7 @@ class Dialog(QDialog,NoiseLevel_ui):
 
     def sourcePts_show(self):
         if self.sources_pts_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the point sources layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify points source layer"))
             return False
         else:
             d = do_SourceDetailsPts.Dialog(self.iface, self.sources_pts_layer_comboBox.currentText())
@@ -216,7 +216,7 @@ class Dialog(QDialog,NoiseLevel_ui):
 
     def sourceRoads_show(self):
         if self.sources_roads_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the road source layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify roads source layer"))
             return False
         else:
             d = do_SourceDetailsRoads.Dialog(self.iface, self.sources_roads_layer_comboBox.currentText())
@@ -491,7 +491,7 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         # TAB Geometry
         if self.receivers_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the receivers point layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify receiver points layer"))
             return False
 
         if self.sources_pts_layer_checkBox.isChecked() is False and self.sources_roads_layer_checkBox.isChecked() is False:
@@ -521,7 +521,7 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         if self.height_receiver_check.isChecked() and self.field_height_receiver.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
-                                    self.tr("Please specify elevation field for receivers layer."))
+                                    self.tr("Please specify elevation field for receiver points layer"))
             return False
 
         if self.height_building_check.isChecked() and self.field_height_building.currentText() == "":
@@ -537,7 +537,7 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         ## TAB Option
         if self.save_settings_checkBox.isChecked() and self.save_settings_lineEdit.text() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify a file to save Settings."))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify a file to save Settings"))
             return False
 
         if  self.L_den_checkBox.isChecked() and int(self.L_day_hours_spinBox.value()) + int(self.L_eve_hours_spinBox.value()) + int(self.L_nig_hours_spinBox.value()) != 24:
@@ -1022,8 +1022,8 @@ class Dialog(QDialog,NoiseLevel_ui):
             self.label_time_end.setText(self.tr("End: ") + ' ' + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S"))
             self.label_time_duration.setText(self.tr("Duration: ") + ' ' + str(self.duration()))
 
-            result_string = self.tr("The calculation results have been successfully saved into the receiver point layer."
-                                    "The results are expressed in dB(A).") + "\n\n" +\
+            result_string = self.tr("The calculation results have been successfully saved into the receivers point layer."
+                                    "The results are expressed in dB(A)") + "\n\n" +\
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())

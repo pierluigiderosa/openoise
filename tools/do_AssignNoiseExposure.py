@@ -130,17 +130,17 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
     def checkdata(self):
         if self.receiver_points_population_field.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
-                                    self.tr("Please specify the people field."))
+                                    self.tr("Please specify people field"))
             return False
 
         if self.dwellingCombobox.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
-                                    self.tr("Please specify the dwellings field."))
+                                    self.tr("Please specify dwellings field"))
             return False
 
         if self.methodComboBox.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
-                                    self.tr("Please specify the method field."))
+                                    self.tr("Please specify façade type exposition field (type string)"))
             return False
 
     def populate_comboBox( self ):
@@ -260,16 +260,16 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
     def controls(self):
         self.run_buttonBox.setEnabled( False )
         if self.receiver_points_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify the receiver points vector layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify receiver points layer"))
             return 0
 
         if self.level_1_comboBox.currentText() == "" and self.level_2_comboBox.currentText() == "":
-               message = self.tr("Please specify at least one level field to assing") + "\n" + self.tr("to the buildings layer.")
+               message = self.tr("Please specify noise level")
                QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(message))
                return 0
 
         if self.buildings_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify the buildings vector layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify buildings layer"))
             return 0
 
         return 1
@@ -398,13 +398,14 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if run == 1:
             log_errors.write(self.tr("No errors.") + "\n\n")
-            result_string = self.tr("Noise exposure assigned successfully.") + "\n\n" +\
-                            self.tr("Receiver: ")+receiver_points_layer.name()+"\n"+ \
-                            self.tr("Receiver field Den: ") + receiver_points_layer_details['level_1'] +"\n"+ \
-                            self.tr("Receiver field Ing: ") + receiver_points_layer_details['level_2'] +"\n"+ \
-                            self.tr("Building layer: ") + buildings_layer.name() + "\n"+ \
-                            self.tr("Building population field: ") + building_pop_Field + "\n" + \
-                            self.tr("Building dwelling field: ") + dwelling_Field + "\n" + \
+            result_string = self.tr("Noise exposure assigned successfully, in temporary scratch layer, with followings input settings:") + "\n" +\
+                            self.tr("Receiver Points: ")+receiver_points_layer.name()+"\n"+ \
+                            self.tr("Noise Levels Lden: ") + receiver_points_layer_details['level_1'] +"\n"+ \
+                            self.tr("Noise Levels Lnight: ") + receiver_points_layer_details['level_2'] +"\n"+ \
+                            self.tr("Buildings: ") + buildings_layer.name() + "\n"+ \
+                            self.tr("People: ") + building_pop_Field + "\n" + \
+                            self.tr("Dwellings: ") + dwelling_Field + "\n" + \
+                            self.tr("Façade type exposition: ") + methodPopField + "\n\n" + \
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())

@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -919,9 +919,9 @@ Specify the height of the buildings [m]</string>
     <widget class="QPushButton" name="HelpParameters">
      <property name="geometry">
       <rect>
-       <x>680</x>
+       <x>690</x>
        <y>520</y>
-       <width>81</width>
+       <width>110</width>
        <height>25</height>
       </rect>
      </property>
