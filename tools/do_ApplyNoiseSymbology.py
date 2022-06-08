@@ -78,7 +78,7 @@ class Dialog(QDialog,Ui_ApplyNoiseSymbology_window):
     def controls(self):
         self.run_buttonBox.setEnabled( False )
         if self.layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"), self.tr("Please specify input vector layer."))
+            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"), self.tr("Please specify input layer"))
             return 0
         
         if self.level_comboBox.currentText() == "":
