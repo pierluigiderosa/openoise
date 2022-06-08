@@ -147,13 +147,17 @@ class Dialog(QDialog, FORM_CLASS):
         ProgressBarGrid = self.progressBarGrid
         ProgressBarGrid.setMaximum(100)
         # test is linedit are compiled
+        if self.layerTOrasterize_ComboBox.currentLayer() is None:
+            QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
+                                    self.tr("Please specify output layer for grid level"))
+            return
         if self.polygon_lineEdit.text() == "" or self.polygon_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
-                                    self.tr("Please specify output layer"))
+                                    self.tr("Please specify output layer for polygons level"))
             return
         if self.isoline_lineEdit.text() == "" or self.isoline_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
-                                    self.tr("Please specify the output vector isolines layer."))
+                                    self.tr("Please specify output layer for contours level"))
             return
         resolution = 5
         layerTOrasterize = self.layerTOrasterize_ComboBox.currentLayer()

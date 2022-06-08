@@ -96,13 +96,13 @@ def get_levels(settings,source_layer,source_feat):
     # POWER_P
     if source_layer.geometryType() == QgsWkbTypes.PointGeometry and settings['implementation_pts'] == 'True':
         if settings['POWER_P_gen'] != None:
-            level_global['gen'] = source_feat[ settings['POWER_P_gen'] ]
+            level_global['Lgeneric'] = source_feat[ settings['POWER_P_gen'] ]
         if settings['POWER_P_day'] != None:
-            level_global['day'] = source_feat[ settings['POWER_P_day'] ]
+            level_global['Lday'] = source_feat[ settings['POWER_P_day'] ]
         if settings['POWER_P_eve'] != None:
-            level_global['eve'] = source_feat[ settings['POWER_P_eve'] ]
+            level_global['Levening'] = source_feat[ settings['POWER_P_eve'] ]
         if settings['POWER_P_nig'] != None:
-            level_global['nig'] = source_feat[ settings['POWER_P_nig'] ]
+            level_global['Lnight'] = source_feat[ settings['POWER_P_nig'] ]
 
 
         for key in list(level_global.keys()):
@@ -111,13 +111,13 @@ def get_levels(settings,source_layer,source_feat):
     # POWER_R
     elif source_layer.geometryType() == QgsWkbTypes.LineGeometry and settings['implementation_roads'] == 'POWER_R':
         if settings['POWER_R_gen'] != None:
-            level_global['gen'] = source_feat[ settings['POWER_R_gen'] ]
+            level_global['Lgeneric'] = source_feat[ settings['POWER_R_gen'] ]
         if settings['POWER_R_day'] != None:
-            level_global['day'] = source_feat[ settings['POWER_R_day'] ]
+            level_global['Lday'] = source_feat[ settings['POWER_R_day'] ]
         if settings['POWER_R_eve'] != None:
-            level_global['eve'] = source_feat[ settings['POWER_R_eve'] ]
+            level_global['Levening'] = source_feat[ settings['POWER_R_eve'] ]
         if settings['POWER_R_nig'] != None:
-            level_global['nig'] = source_feat[ settings['POWER_R_nig'] ]
+            level_global['Lnight'] = source_feat[ settings['POWER_R_nig'] ]
 
 
         for key in list(level_global.keys()):
@@ -148,8 +148,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['gen'] = on_Acoustics.NMPB(input_dict).bands()
-            level_global['gen'] = on_Acoustics.OctaveBandsToGlobal(level_bands['gen'])
+            level_bands['Lgeneric'] = on_Acoustics.NMPB(input_dict).bands()
+            level_global['Lgeneric'] = on_Acoustics.OctaveBandsToGlobal(level_bands['Lgeneric'])
 
 
 
@@ -159,8 +159,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['day'] = on_Acoustics.NMPB(input_dict).bands()
-            level_global['day'] = on_Acoustics.OctaveBandsToGlobal(level_bands['day'])
+            level_bands['Lday'] = on_Acoustics.NMPB(input_dict).bands()
+            level_global['Lday'] = on_Acoustics.OctaveBandsToGlobal(level_bands['Lday'])
 
         if settings['period_roads_eve'] == 'True':
             for key in NMPB_keys:
@@ -168,8 +168,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['eve'] = on_Acoustics.NMPB(input_dict).bands()
-            level_global['eve'] = on_Acoustics.OctaveBandsToGlobal(level_bands['eve'])
+            level_bands['Levening'] = on_Acoustics.NMPB(input_dict).bands()
+            level_global['Levening'] = on_Acoustics.OctaveBandsToGlobal(level_bands['Levening'])
 
         if settings['period_roads_nig'] == 'True':
             for key in NMPB_keys:
@@ -177,8 +177,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['nig'] = on_Acoustics.NMPB(input_dict).bands()
-            level_global['nig'] = on_Acoustics.OctaveBandsToGlobal(level_bands['nig'])
+            level_bands['Lnight'] = on_Acoustics.NMPB(input_dict).bands()
+            level_global['Lnight'] = on_Acoustics.OctaveBandsToGlobal(level_bands['Lnight'])
 
     # CNOSSOS
     elif source_layer.geometryType() == QgsWkbTypes.LineGeometry and settings['implementation_roads'] == 'CNOSSOS':
@@ -213,8 +213,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['gen'] = on_Acoustics.CNOSSOS(input_dict).bands()
-            level_global['gen'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['gen'])
+            level_bands['Lgeneric'] = on_Acoustics.CNOSSOS(input_dict).bands()
+            level_global['Lgeneric'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['Lgeneric'])
 
 
         if settings['period_roads_day'] == 'True':
@@ -223,8 +223,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['day'] = on_Acoustics.CNOSSOS(input_dict).bands()
-            level_global['day'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['day'])
+            level_bands['Lday'] = on_Acoustics.CNOSSOS(input_dict).bands()
+            level_global['Lday'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['Lday'])
 
         if settings['period_roads_eve'] == 'True':
             for key in CNOSSOS_keys:
@@ -232,8 +232,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['eve'] = on_Acoustics.CNOSSOS(input_dict).bands()
-            level_global['eve'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['eve'])
+            level_bands['Levening'] = on_Acoustics.CNOSSOS(input_dict).bands()
+            level_global['Levening'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['Levening'])
 
         if settings['period_roads_nig'] == 'True':
             for key in CNOSSOS_keys:
@@ -241,8 +241,8 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
-            level_bands['nig'] = on_Acoustics.CNOSSOS(input_dict).bands()
-            level_global['nig'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['nig'])
+            level_bands['Lnight'] = on_Acoustics.CNOSSOS(input_dict).bands()
+            level_global['Lnight'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['Lnight'])
 
 
     levels = {}
@@ -357,27 +357,27 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         if saveEmi == True:
             # check thathe the field Emission is not already present, in case I will create it
             if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                if 'gen_emi' not in source_roads_layer.fields().names():
+                if 'Lgeneric' not in source_roads_layer.fields().names():
                     source_roads_dataprovider = source_roads_layer.dataProvider()
-                    source_roads_dataprovider.addAttributes([QgsField('gen_emi',
+                    source_roads_dataprovider.addAttributes([QgsField('Lgeneric',
                                                                       QVariant.Double, len=5, prec=1)])
                     source_roads_layer.updateFields()
             if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                if 'day_emi' not in source_roads_layer.fields().names():
+                if 'Lday' not in source_roads_layer.fields().names():
                     source_roads_dataprovider = source_roads_layer.dataProvider()
-                    source_roads_dataprovider.addAttributes([QgsField('day_emi',
+                    source_roads_dataprovider.addAttributes([QgsField('Lday',
                                                                       QVariant.Double, len=5, prec=1)])
                     source_roads_layer.updateFields()
             if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                if 'eve_emi' not in source_roads_layer.fields().names():
+                if 'Levening' not in source_roads_layer.fields().names():
                     source_roads_dataprovider = source_roads_layer.dataProvider()
-                    source_roads_dataprovider.addAttributes([QgsField('eve_emi',
+                    source_roads_dataprovider.addAttributes([QgsField('Levening',
                                                                       QVariant.Double, len=5, prec=1)])
                     source_roads_layer.updateFields()
             if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                if 'nig_emi' not in source_roads_layer.fields().names():
+                if 'Lnight' not in source_roads_layer.fields().names():
                     source_roads_dataprovider = source_roads_layer.dataProvider()
-                    source_roads_dataprovider.addAttributes([QgsField('nig_emi',
+                    source_roads_dataprovider.addAttributes([QgsField('Lnight',
                                                                       QVariant.Double, len=5, prec=1)])
                     source_roads_layer.updateFields()
 
@@ -385,16 +385,16 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                 for source_feat in source_roads_layer.getFeatures():
                     levelsEmi = source_roads_levels_dict[source_feat.id()]
                     if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                        source_feat['gen_emi'] = levelsEmi['global']['gen']
+                        source_feat['Lgeneric'] = levelsEmi['global']['Lgeneric']
                         source_roads_layer.updateFeature(source_feat)
                     if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                        source_feat['day_emi'] = levelsEmi['global']['day']
+                        source_feat['Lday'] = levelsEmi['global']['Lday']
                         source_roads_layer.updateFeature(source_feat)
                     if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                        source_feat['eve_emi'] = levelsEmi['global']['eve']
+                        source_feat['Levening'] = levelsEmi['global']['Levening']
                         source_roads_layer.updateFeature(source_feat)
                     if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                        source_feat['nig_emi'] = levelsEmi['global']['nig']
+                        source_feat['Lnight'] = levelsEmi['global']['Lnight']
                         source_roads_layer.updateFeature(source_feat)
 
 
@@ -566,10 +566,10 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         # initializes the receiver point lin level
         receiver_point_lin_level = {}
-        receiver_point_lin_level['gen'] = 0
-        receiver_point_lin_level['day'] = 0
-        receiver_point_lin_level['eve'] = 0
-        receiver_point_lin_level['nig'] = 0
+        receiver_point_lin_level['Lgeneric'] = 0
+        receiver_point_lin_level['Lday'] = 0
+        receiver_point_lin_level['Levening'] = 0
+        receiver_point_lin_level['Lnight'] = 0
 
         if Skip_intersection == False:
 
@@ -637,30 +637,30 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                             attributes = [ray_id, receiver_feat.id(), source_feat.id(), d_recTOsource, d_recTOsource_4m]
 
                             if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                                if 'gen' in level_emi:
-                                    attributes.append(level_emi['gen'])
-                                    attributes.append(level_dir['gen'])
+                                if 'Lgeneric' in level_emi:
+                                    attributes.append(level_emi['Lgeneric'])
+                                    attributes.append(level_dir['Lgeneric'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
                             if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                                if 'day' in level_emi:
-                                    attributes.append(level_emi['day'])
-                                    attributes.append(level_dir['day'])
+                                if 'Lday' in level_emi:
+                                    attributes.append(level_emi['Lday'])
+                                    attributes.append(level_dir['Lday'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
                             if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                                if 'eve' in level_emi:
-                                    attributes.append(level_emi['eve'])
-                                    attributes.append(level_dir['eve'])
+                                if 'Levening' in level_emi:
+                                    attributes.append(level_emi['Levening'])
+                                    attributes.append(level_dir['Levening'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
                             if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                                if 'nig' in level_emi:
-                                    attributes.append(level_emi['nig'])
-                                    attributes.append(level_dir['nig'])
+                                if 'Lnight' in level_emi:
+                                    attributes.append(level_emi['Lnight'])
+                                    attributes.append(level_dir['Lnight'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
@@ -761,30 +761,30 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                                           d_recTOdiff, d_diffTOsource, d_recTOsource]
 
                                             if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                                                if 'gen' in level_emi:
-                                                    attributes.append(level_emi['gen'])
-                                                    attributes.append(level_dif['gen'])
+                                                if 'Lgeneric' in level_emi:
+                                                    attributes.append(level_emi['Lgeneric'])
+                                                    attributes.append(level_dif['Lgeneric'])
                                                 else:
                                                     attributes.append(None)
                                                     attributes.append(None)
                                             if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                                                if 'day' in level_emi:
-                                                    attributes.append(level_emi['day'])
-                                                    attributes.append(level_dif['day'])
+                                                if 'Lday' in level_emi:
+                                                    attributes.append(level_emi['Lday'])
+                                                    attributes.append(level_dif['Lday'])
                                                 else:
                                                     attributes.append(None)
                                                     attributes.append(None)
                                             if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                                                if 'eve' in level_emi:
-                                                    attributes.append(level_emi['eve'])
-                                                    attributes.append(level_dif['eve'])
+                                                if 'Levening' in level_emi:
+                                                    attributes.append(level_emi['Levening'])
+                                                    attributes.append(level_dif['Levening'])
                                                 else:
                                                     attributes.append(None)
                                                     attributes.append(None)
                                             if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                                                if 'nig' in level_emi:
-                                                    attributes.append(level_emi['nig'])
-                                                    attributes.append(level_dif['nig'])
+                                                if 'Lnight' in level_emi:
+                                                    attributes.append(level_emi['Lnight'])
+                                                    attributes.append(level_dif['Lnight'])
                                                 else:
                                                     attributes.append(None)
                                                     attributes.append(None)
@@ -914,30 +914,30 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                           epsilon]
 
                             if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                                if 'gen' in level_emi:
-                                    attributes.append(level_emi['gen'])
-                                    attributes.append(level_dif['gen'])
+                                if 'Lgeneric' in level_emi:
+                                    attributes.append(level_emi['Lgeneric'])
+                                    attributes.append(level_dif['Lgeneric'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
                             if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                                if 'day' in level_emi:
-                                    attributes.append(level_emi['day'])
-                                    attributes.append(level_dif['day'])
+                                if 'Lday' in level_emi:
+                                    attributes.append(level_emi['Lday'])
+                                    attributes.append(level_dif['Lday'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
                             if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                                if 'eve' in level_emi:
-                                    attributes.append(level_emi['eve'])
-                                    attributes.append(level_dif['eve'])
+                                if 'Levening' in level_emi:
+                                    attributes.append(level_emi['Levening'])
+                                    attributes.append(level_dif['Levening'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
                             if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                                if 'nig' in level_emi:
-                                    attributes.append(level_emi['nig'])
-                                    attributes.append(level_dif['nig'])
+                                if 'Lnight' in level_emi:
+                                    attributes.append(level_emi['Lnight'])
+                                    attributes.append(level_dif['Lnight'])
                                 else:
                                     attributes.append(None)
                                     attributes.append(None)
@@ -949,13 +949,13 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                             diff3D_ray_id = diff3D_ray_id +1
 
             if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-                    if receiver_point_lin_level['gen'] > 0:
-                        Lgen = 10*log10(receiver_point_lin_level['gen'])
+                    if receiver_point_lin_level['Lgeneric'] > 0:
+                        Lgen = 10*log10(receiver_point_lin_level['Lgeneric'])
                         if Lgen < 0:
                             Lgen = 0
-                        receiver_feat_new_fields[level_field_index['gen']] =  Lgen
+                        receiver_feat_new_fields[level_field_index['Lgeneric']] =  Lgen
                     else:
-                        receiver_feat_new_fields[level_field_index['gen']] = -99
+                        receiver_feat_new_fields[level_field_index['Lgeneric']] = -99
 
             Lday = 0
             Leve = 0
@@ -963,35 +963,35 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
             #added control on final data if negative set to zero
             if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-                    if receiver_point_lin_level['day'] > 0:
-                        Lday = 10*log10(receiver_point_lin_level['day'])
+                    if receiver_point_lin_level['Lday'] > 0:
+                        Lday = 10*log10(receiver_point_lin_level['Lday'])
                         if Lday < 0:
                             Lday = 0
-                        receiver_feat_new_fields[level_field_index['day']] = Lday
+                        receiver_feat_new_fields[level_field_index['Lday']] = Lday
                     else:
-                        receiver_feat_new_fields[level_field_index['day']] = -99
+                        receiver_feat_new_fields[level_field_index['Lday']] = -99
 
             if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-                    if receiver_point_lin_level['eve'] > 0:
-                        Leve = 10*log10(receiver_point_lin_level['eve'])
+                    if receiver_point_lin_level['Levening'] > 0:
+                        Leve = 10*log10(receiver_point_lin_level['Levening'])
                         if Leve <0:
                             Leve=0
-                        receiver_feat_new_fields[level_field_index['eve']] = Leve
+                        receiver_feat_new_fields[level_field_index['Levening']] = Leve
                     else:
-                        receiver_feat_new_fields[level_field_index['eve']] = -99
+                        receiver_feat_new_fields[level_field_index['Levening']] = -99
 
             if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-                    if receiver_point_lin_level['nig'] > 0:
-                        Lnig = 10*log10(receiver_point_lin_level['nig'])
+                    if receiver_point_lin_level['Lnight'] > 0:
+                        Lnig = 10*log10(receiver_point_lin_level['Lnight'])
                         if Lnig <0:
                             Lnig=0
-                        receiver_feat_new_fields[level_field_index['nig']] = Lnig
+                        receiver_feat_new_fields[level_field_index['Lnight']] = Lnig
 
                     else:
-                        receiver_feat_new_fields[level_field_index['nig']] = -99
+                        receiver_feat_new_fields[level_field_index['Lnight']] = -99
 
             if settings['period_den'] == "True":
-                    receiver_feat_new_fields[level_field_index['den']] = on_Acoustics.Lden(Lday,Leve,Lnig,
+                    receiver_feat_new_fields[level_field_index['Lden']] = on_Acoustics.Lden(Lday,Leve,Lnig,
                                                                                            int(settings['day_hours']),
                                                                                            int(settings['eve_hours']),
                                                                                            int(settings['nig_hours']),
@@ -1057,16 +1057,16 @@ def run(settings,progress_bars,totalBar):
 
         if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
             rays_fields.append(QgsField("gen_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("gen", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lgeneric", QVariant.Double,len=5,prec=1))
         if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
             rays_fields.append(QgsField("day_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("day", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lday", QVariant.Double,len=5,prec=1))
         if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
             rays_fields.append(QgsField("eve_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("eve", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Levening", QVariant.Double,len=5,prec=1))
         if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
             rays_fields.append(QgsField("nig_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("nig", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lnight", QVariant.Double,len=5,prec=1))
 
         rays_writer = QgsVectorFileWriter(rays_layer_path,"System",rays_fields,QgsWkbTypes.LineString,
                                           receiver_layer.crs(), "ESRI Shapefile")
@@ -1090,16 +1090,16 @@ def run(settings,progress_bars,totalBar):
 
         if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
             rays_fields.append(QgsField("gen_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("gen", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lgeneric", QVariant.Double,len=5,prec=1))
         if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
             rays_fields.append(QgsField("day_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("day", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lday", QVariant.Double,len=5,prec=1))
         if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
             rays_fields.append(QgsField("eve_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("eve", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Levening", QVariant.Double,len=5,prec=1))
         if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
             rays_fields.append(QgsField("nig_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("nig", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lnight", QVariant.Double,len=5,prec=1))
 
         diff_rays_writer = QgsVectorFileWriter(diff_rays_layer_path, "System", rays_fields, QgsWkbTypes.LineString,
                                                receiver_layer.crs(), "ESRI Shapefile")
@@ -1120,16 +1120,16 @@ def run(settings,progress_bars,totalBar):
 
         if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
             rays_fields.append(QgsField("gen_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("gen", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lgeneric", QVariant.Double,len=5,prec=1))
         if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
             rays_fields.append(QgsField("day_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("day", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lday", QVariant.Double,len=5,prec=1))
         if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
             rays_fields.append(QgsField("eve_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("eve", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Levening", QVariant.Double,len=5,prec=1))
         if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
             rays_fields.append(QgsField("nig_emi", QVariant.Double,len=5,prec=1))
-            rays_fields.append(QgsField("nig", QVariant.Double,len=5,prec=1))
+            rays_fields.append(QgsField("Lnight", QVariant.Double,len=5,prec=1))
 
         diff3D_rays_writer = QgsVectorFileWriter(diff3D_layer_path, "System", rays_fields, QgsWkbTypes.LineString,
                                                receiver_layer.crs(), "ESRI Shapefile")
@@ -1150,24 +1150,24 @@ def run(settings,progress_bars,totalBar):
     receiver_layer.startEditing()
     #level_fields = []
     if settings['period_pts_gen'] == "True" or settings['period_roads_gen'] == "True":
-        receiver_layer.addAttribute(QgsField('gen', QVariant.Double, len=5, prec=1))
-        level_field_index['gen'] = fields_number
+        receiver_layer.addAttribute(QgsField('Lgeneric', QVariant.Double, len=5, prec=1))
+        level_field_index['Lgeneric'] = fields_number
         fields_number = fields_number + 1
     if settings['period_pts_day'] == "True" or settings['period_roads_day'] == "True":
-        receiver_layer.addAttribute((QgsField('day', QVariant.Double, len=5, prec=1)))
-        level_field_index['day'] = fields_number
+        receiver_layer.addAttribute((QgsField('Lday', QVariant.Double, len=5, prec=1)))
+        level_field_index['Lday'] = fields_number
         fields_number = fields_number + 1
     if settings['period_pts_eve'] == "True" or settings['period_roads_eve'] == "True":
-        receiver_layer.addAttribute(QgsField('eve', QVariant.Double,len=5,prec=1))
-        level_field_index['eve'] = fields_number
+        receiver_layer.addAttribute(QgsField('Levening', QVariant.Double,len=5,prec=1))
+        level_field_index['Levening'] = fields_number
         fields_number = fields_number + 1
     if settings['period_pts_nig'] == "True" or settings['period_roads_nig'] == "True":
-        receiver_layer.addAttribute(QgsField('nig', QVariant.Double,len=5,prec=1))
-        level_field_index['nig'] = fields_number
+        receiver_layer.addAttribute(QgsField('Lnight', QVariant.Double,len=5,prec=1))
+        level_field_index['Lnight'] = fields_number
         fields_number = fields_number + 1
     if settings['period_den'] == "True":
-        receiver_layer.addAttribute(QgsField('den', QVariant.Double,len=5,prec=1))
-        level_field_index['den'] = fields_number
+        receiver_layer.addAttribute(QgsField('Lden', QVariant.Double,len=5,prec=1))
+        level_field_index['Lden'] = fields_number
         fields_number = fields_number + 1
 
 
@@ -1193,32 +1193,32 @@ def run(settings,progress_bars,totalBar):
                     Skip_intersectionDD = True
 
 
-        if 'gen' in level_field_index:
+        if 'Lgeneric' in level_field_index:
             if Skip_intersectionDD is False:
-                f['gen'] = receiver_feat_new_fields[f.id()][level_field_index['gen']]
-                #print(receiver_feat_new_fields,f.id(),f['gen'])
+                f['Lgeneric'] = receiver_feat_new_fields[f.id()][level_field_index['Lgeneric']]
+                #print(receiver_feat_new_fields,f.id(),f['Lgeneric'])
             else:
-                f['gen'] = -99
-        if 'day' in level_field_index:
+                f['Lgeneric'] = -99
+        if 'Lday' in level_field_index:
             if Skip_intersectionDD is False:
-                f['day'] = receiver_feat_new_fields[f.id()][level_field_index['day']]
+                f['Lday'] = receiver_feat_new_fields[f.id()][level_field_index['Lday']]
             else:
-                f['day'] = -99
-        if 'eve' in level_field_index:
+                f['Lday'] = -99
+        if 'Levening' in level_field_index:
             if Skip_intersectionDD is False:
-                f['eve'] = receiver_feat_new_fields[f.id()][level_field_index['eve']]
+                f['Levening'] = receiver_feat_new_fields[f.id()][level_field_index['Levening']]
             else:
-                f['eve'] = -99
-        if 'nig' in level_field_index:
+                f['Levening'] = -99
+        if 'Lnight' in level_field_index:
             if Skip_intersectionDD is False:
-                f['nig'] = receiver_feat_new_fields[f.id()][level_field_index['nig']]
+                f['Lnight'] = receiver_feat_new_fields[f.id()][level_field_index['Lnight']]
             else:
-                f['nig'] = -99
-        if 'den' in level_field_index:
+                f['Lnight'] = -99
+        if 'Lden' in level_field_index:
             if Skip_intersectionDD is False:
-                f['den'] = receiver_feat_new_fields[f.id()][level_field_index['den']]
+                f['Lden'] = receiver_feat_new_fields[f.id()][level_field_index['Lden']]
             else:
-                f['den'] = -99
+                f['Lden'] = -99
         receiver_layer.updateFeature(f)
 
     receiver_layer.updateExtents()

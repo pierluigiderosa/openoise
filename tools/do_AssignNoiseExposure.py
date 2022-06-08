@@ -310,7 +310,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
         #print("fields_to_calculate",fields_to_calculate)
-        #personal_fields = ['gen', 'day', 'eve', 'nig','den']
+        #personal_fields = ['Lgeneric', 'Lday', 'Levening', 'Lnight','Lden']
         fields_already_present = list(set(fields_to_calculate) & set(fields))
         if fields_already_present:
             overwrite_begin = self.tr("In buildings layer you already have the fields: ")

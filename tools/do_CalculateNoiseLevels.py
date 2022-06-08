@@ -587,29 +587,29 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         if self.sources_pts_layer_checkBox.isChecked():
             if settings['period_pts_gen'] == 'True':
-                fields_to_calculate.append('gen')
+                fields_to_calculate.append('Lgeneric')
             if settings['period_pts_day'] == 'True':
-                fields_to_calculate.append('day')
+                fields_to_calculate.append('Lday')
             if settings['period_pts_eve'] == 'True':
-                fields_to_calculate.append('eve')
+                fields_to_calculate.append('Levening')
             if settings['period_pts_nig'] == 'True':
-                fields_to_calculate.append('nig')
+                fields_to_calculate.append('Lnight')
 
         if self.sources_roads_layer_checkBox.isChecked():
             if settings['period_roads_gen'] == 'True':
-                fields_to_calculate.append('gen')
+                fields_to_calculate.append('Lgeneric')
             if settings['period_roads_day'] == 'True':
-                fields_to_calculate.append('day')
+                fields_to_calculate.append('Lday')
             if settings['period_roads_eve'] == 'True':
-                fields_to_calculate.append('eve')
+                fields_to_calculate.append('Levening')
             if settings['period_roads_nig'] == 'True':
-                fields_to_calculate.append('nig')
+                fields_to_calculate.append('Lnight')
 
-        if ('day' in fields_to_calculate) and ('eve' in fields_to_calculate) and ('nig' in fields_to_calculate):
-            fields_to_calculate.append('den')
+        if ('Lday' in fields_to_calculate) and ('Levening' in fields_to_calculate) and ('Lnight' in fields_to_calculate):
+            fields_to_calculate.append('Lden')
 
         #print("fields_to_calculate",fields_to_calculate)
-        #personal_fields = ['gen', 'day', 'eve', 'nig','den']
+        #personal_fields = ['Lgeneric', 'Lday', 'Levening', 'Lnight','Lden']
         fields_already_present = list(set(fields_to_calculate) & set(fields))
         if fields_already_present:
             overwrite_begin = self.tr("In the receivers point layer the following fields already exist: ")
