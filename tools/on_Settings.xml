@@ -7,10 +7,10 @@
 
     <layers>
         <receivers>
-            <name>ricevitori1</name>
-            <path>C:/Users/pierl/Desktop/Popolazione/test17maggio/ricevitori1.shp</path>
-            <custom3d>False</custom3d>
-            <custom3dfield />
+            <name>ricettori</name>
+            <path>C:/Users/pierl/Desktop/Popolazione/Noise_Exposure/ricettori.shp</path>
+            <custom3d>True</custom3d>
+            <custom3dfield>id_pt</custom3dfield>
         </receivers>
 
         <sources>
@@ -51,10 +51,10 @@
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
         <save_emission>True</save_emission>
-        <height_receiver>False</height_receiver>
-        <threedglobal>False</threedglobal>
+        <height_receiver>True</height_receiver>
+        <threedglobal>True</threedglobal>
         <threedglobal_rays>False</threedglobal_rays>
-        <field3D />
+        <field3D>h</field3D>
 
         <den>
             <day_hours>14</day_hours> 

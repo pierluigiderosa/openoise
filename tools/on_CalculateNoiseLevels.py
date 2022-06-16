@@ -864,9 +864,13 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                         dInclinata = compute_distance(p1,pLast)
                         distSUP3D = out_ring.length() - dInclinata
                         # determination of epsilon
-                        ePoints = out_ring.asPolygon()[0][1:-2]
+                        if len(out_ring.asPolygon()[0][1:-2])==1:
+                            ePoints = out_ring.asPolygon()[0][1:-1]
+                        else:
+                            ePoints = out_ring.asPolygon()[0][1:-2]
                         eLine = QgsGeometry.fromPolylineXY(ePoints)
                         epsilon=eLine.length()
+
 
                         level_emi = source_feat_value['global']
                         level_emi_bands = source_feat_value['bands']
