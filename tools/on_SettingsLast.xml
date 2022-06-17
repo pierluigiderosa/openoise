@@ -41,7 +41,7 @@
             <path />
         </diff_rays>
         <diff3D_rays>
-            <path />
+            <path>C:/Users/pierl/Desktop/Popolazione/test17maggio/diff3d.shp</path>
         </diff3D_rays>
     </layers>
 
@@ -53,7 +53,7 @@
         <save_emission>True</save_emission>
         <height_receiver>True</height_receiver>
         <threedglobal>True</threedglobal>
-        <threedglobal_rays>False</threedglobal_rays>
+        <threedglobal_rays>True</threedglobal_rays>
         <field3D>h</field3D>
 
         <den>

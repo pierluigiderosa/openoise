@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -1809,7 +1809,7 @@ Specify the height of the buildings [m]</string>
       </rect>
      </property>
      <property name="statusTip">
-      <string extracomment="This option is valid only in case of input road layers."/>
+      <string extracomment="This option is valid only in case of input road layers"/>
      </property>
      <property name="text">
       <string>Save Emission Level in Sources Layer</string>
@@ -1993,7 +1993,7 @@ Specify the height of the buildings [m]</string>
    <sender>buildings_layer_comboBox</sender>
    <signal>activated(QString)</signal>
    <receiver>field_height_building</receiver>
-   <slot>clear()</slot>
+   <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>574</x>

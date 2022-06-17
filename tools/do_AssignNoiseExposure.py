@@ -128,6 +128,11 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
     def checkdata(self):
+        if self.buildings_layer_comboBox.currentText() == "":
+            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                                    self.tr("Please specify buildings layer"))
+            return False
+
         if self.receiver_points_population_field.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
                                     self.tr("Please specify people field"))
@@ -319,7 +324,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                                            overwrite_begin + '\n' + str(fields_already_present) + overwrite_end, QMessageBox.Yes, QMessageBox.No)
             if reply == QMessageBox.No:
                 reply2 = QMessageBox.question(self, self.tr("opeNoise - Noise Exposure"),
-                                               self.tr("To mantain old data, copy them in a new field."), QMessageBox.Ok)
+                                               self.tr("To mantain old data, copy them in a new field"), QMessageBox.Ok)
                 return False
             else:
                 fList = []
@@ -373,7 +378,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         # CRS control (each layer must have the same CRS)
         if receiver_points_layer.crs().authid() != buildings_layer.crs().authid():
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("The layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS."))
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("The layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS"))
             self.run_buttonBox.setEnabled( True )
             return
 
@@ -398,7 +403,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if run == 1:
             log_errors.write(self.tr("No errors.") + "\n\n")
-            result_string = self.tr("Noise exposure assigned successfully, in temporary scratch layer, with followings input settings:") + "\n" +\
+            result_string = self.tr("Noise exposure assigned successfully, in temporary scratch layer, with followings input settings:") + "\n\n" +\
                             self.tr("Receiver Points: ")+receiver_points_layer.name()+"\n"+ \
                             self.tr("Noise Levels Lden: ") + receiver_points_layer_details['level_1'] +"\n"+ \
                             self.tr("Noise Levels Lnight: ") + receiver_points_layer_details['level_2'] +"\n"+ \

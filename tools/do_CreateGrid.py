@@ -176,7 +176,7 @@ class Dialog(QDialog, FORM_CLASS):
 
         if contour_path == "" or poly_path == "":
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
-                                    self.tr("Please specify the output vector layers."))
+                                    self.tr("Please specify the output vector layers"))
             return 0
 
         # create isolines
