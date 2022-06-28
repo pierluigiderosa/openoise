@@ -229,7 +229,7 @@ class Dialog(QDialog,FORM_CLASS):
             self.buttonBox.setEnabled( True )
             return
         elif self.receiver_layer_lineEdit.text() == "" or self.receiver_layer_lineEdit.text() == ".shp":
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify output shapefile"))
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify output receiver points layer"))
             
             self.buttonBox.setEnabled( True )
             return
@@ -320,17 +320,19 @@ class Dialog(QDialog,FORM_CLASS):
         BarGridReceiver = self.progressBarGridReceiver
         BarGridReceiver.setMaximum(100)
 
+        extentSelected = self.ExtentGrid.outputExtent()
+        if extentSelected.area() == 0:
+            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
+                                    self.tr("Please specify extension layer"))
+            return
+
         if self.gridpoint_lineEdit.text()== "" or self.gridpoint_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
-                                    self.tr("Please specify output shapefile"))
+                                    self.tr("Please specify output grid points layer"))
             return
 
-        extentSelected = self.ExtentGrid.outputExtent()
 
-        if extentSelected.area()== 0:
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
-                                    self.tr("Please specify extent layer"))
-            return
+
 
 
         resolution = int(self.resolution_comboBox.currentText())
@@ -341,7 +343,7 @@ class Dialog(QDialog,FORM_CLASS):
 
         if grid_path == "":
             QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
-                                    self.tr("Please specify the output grid vector layer."))
+                                    self.tr("Please specify the output grid vector layer"))
             return 0
 
 

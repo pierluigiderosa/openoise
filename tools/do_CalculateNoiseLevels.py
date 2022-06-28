@@ -197,7 +197,7 @@ class Dialog(QDialog,NoiseLevel_ui):
     def HelpCalculateOptions_show(self):
         QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
         <p><strong>Skip Diffraction Calculation: </strong>the calculation will not take into account the diffraction of horizontal and vertical obstacles. This reduces the calculation time with consequent loss of precision in sound levels estimates. Receiver points beyond buildings return a -99 value.</p>
-<p><strong>Save Emission Level in Source Layer: </strong>allows you to save road emissions in the input layer. The results are expressed in dB(A).</p> 
+<p><strong>Save Emission Level in Source Layer: </strong>allows you to save road emissions in the input layer.&nbsp; The results are expressed in dB(A).</p> 
 <p><strong>Save Current Settings: </strong>allows you to save all settings. Saved settings can be reloaded later in the start tab.</p>
         '''))
 
@@ -229,6 +229,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.receivers_layer_comboBox.clear()
         self.receivers_layer_comboBox.setFilters(QgsMapLayerProxyModel.PointLayer)
+        self.field_height_receiver.setLayer(self.receivers_layer_comboBox.currentLayer())
 
 
 
@@ -236,7 +237,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.sources_pts_layer_comboBox.clear()
         self.sources_pts_layer_comboBox.setFilters(QgsMapLayerProxyModel.PointLayer)
-        self.field_height_receiver.setLayer(self.receivers_layer_comboBox.currentLayer())
+
 
 
     def populateLayersSourceRoads( self ):
@@ -538,11 +539,11 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         ## TAB Option
         if self.save_settings_checkBox.isChecked() and self.save_settings_lineEdit.text() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify a file to save Settings"))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify a file to save current settings"))
             return False
 
         if  self.L_den_checkBox.isChecked() and int(self.L_day_hours_spinBox.value()) + int(self.L_eve_hours_spinBox.value()) + int(self.L_nig_hours_spinBox.value()) != 24:
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("In the Parameters section, to calculate Lden, the total amount of the hours of day, evening and night period must be 24."))
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("In the Parameters section, to calculate Lden, the total amount of the hours of day, evening and night period must be 24"))
             return False
 
 

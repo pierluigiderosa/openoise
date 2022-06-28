@@ -403,7 +403,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if run == 1:
             log_errors.write(self.tr("No errors.") + "\n\n")
-            result_string = self.tr("Noise exposure assigned successfully, in temporary scratch layer, with followings input settings:") + "\n\n" +\
+            result_string = self.tr("Noise exposure assigned successfully,\n in temporary scratch layer,\n with followings input settings:") + "\n\n" +\
                             self.tr("Receiver Points: ")+receiver_points_layer.name()+"\n"+ \
                             self.tr("Noise Levels Lden: ") + receiver_points_layer_details['level_1'] +"\n"+ \
                             self.tr("Noise Levels Lnight: ") + receiver_points_layer_details['level_2'] +"\n"+ \

@@ -149,16 +149,19 @@ class Dialog(QDialog, FORM_CLASS):
         # test is linedit are compiled
         if self.layerTOrasterize_ComboBox.currentLayer() is None:
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
-                                    self.tr("Please specify output layer for grid level"))
+                                    self.tr("Please specify grid receiver points layer"))
             return
-        if self.polygon_lineEdit.text() == "" or self.polygon_lineEdit.text() == ".shp":
-            QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
-                                    self.tr("Please specify output layer for polygons level"))
-            return
+
         if self.isoline_lineEdit.text() == "" or self.isoline_lineEdit.text() == ".shp":
             QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
                                     self.tr("Please specify output layer for contours level"))
             return
+
+        if self.polygon_lineEdit.text() == "" or self.polygon_lineEdit.text() == ".shp":
+            QMessageBox.information(self, self.tr("opeNoise - Create Grid tool"),
+                                    self.tr("Please specify output layer for polygons level"))
+            return
+
         resolution = 5
         layerTOrasterize = self.layerTOrasterize_ComboBox.currentLayer()
         layerTOrasterize_path = layerTOrasterize.source()
@@ -189,6 +192,8 @@ class Dialog(QDialog, FORM_CLASS):
             poly_path,
             ProgressBarGrid
         )
+
+        self.close()
 
         # create polygon from reclassified raster
         # on_CreateGrid.polygonize(

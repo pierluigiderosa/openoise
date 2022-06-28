@@ -130,8 +130,8 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
     project = QgsProject.instance()
 
     #feedback configuration
-    feedback = QgsProcessingFeedback()
-    feedback.progressChanged.connect(ProgressBarGrid.setValue)
+    # feedback = QgsProcessingFeedback()
+    # feedback.progressChanged.connect(ProgressBarGrid.setValue)
 
     layerTOrasterize_name = os.path.splitext(
         os.path.basename(layerTOrasterize_path))[0]
@@ -180,8 +180,9 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         'UNITS': 1,
         'WIDTH': resolution
     }
-    result_rasterize = processing.run("gdal:rasterize", params_rasterize, feedback=feedback)
-    feedback.setProgress(25)
+    result_rasterize = processing.run("gdal:rasterize", params_rasterize,)# feedback=feedback)
+    # feedback.setProgress(25)
+    ProgressBarGrid.setValue(25)
     raster_output = result_rasterize['OUTPUT']
 
 
@@ -198,8 +199,9 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
         'OPTIONS': '',
         'OUTPUT': 'TEMPORARY_OUTPUT'}
 
-    result_fillnodata = processing.run("gdal:fillnodata", params_fillnull, feedback=feedback)
-    feedback.setProgress(50)
+    result_fillnodata = processing.run("gdal:fillnodata", params_fillnull,)# feedback=feedback)
+    # feedback.setProgress(50)
+    ProgressBarGrid.setValue(50)
     raster_filled = result_fillnodata['OUTPUT']
     raster_layer_filled = QgsRasterLayer(
         raster_filled,
@@ -260,8 +262,9 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
     else:
         params_contour['OUTPUT'] = removeLayer(contour_path)
 
-    result_contour = processing.run("gdal:contour", params_contour, feedback=feedback)
-    feedback.setProgress(75)
+    result_contour = processing.run("gdal:contour", params_contour,)# feedback=feedback)
+    # feedback.setProgress(75)
+    ProgressBarGrid.setValue(75)
     contour_output = result_contour['OUTPUT']
 
     contour_name = os.path.splitext(
@@ -295,8 +298,9 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
     else:
         parameter_poly_contour['OUTPUT']=removeLayer(poly_path)
 
-    result_poly = processing.run("gdal:contour_polygon", parameter_poly_contour,feedback=feedback)
-    feedback.setProgress(100)
+    result_poly = processing.run("gdal:contour_polygon", parameter_poly_contour,)#feedback=feedback)
+    # feedback.setProgress(100)
+    ProgressBarGrid.setValue(100)
     poly_output = result_poly['OUTPUT']
 
     poly_name = os.path.splitext(
