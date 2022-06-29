@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- Fix in contour lavel&#10;- new GUI for calculate noise">
-      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,14 +346,8 @@
       <workItem from="1655449204278" duration="1917000" />
       <workItem from="1655456352588" duration="1651000" />
       <workItem from="1655486037821" duration="1042000" />
-      <workItem from="1656408773394" duration="3445000" />
-    </task>
-    <task id="LOCAL-00047" summary="correction param NL02 ref 3">
-      <created>1640261776693</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1640261776693</updated>
+      <workItem from="1656408773394" duration="4282000" />
+      <workItem from="1656493580442" duration="2079000" />
     </task>
     <task id="LOCAL-00048" summary="fix for save emission only for CNOSSOS">
       <created>1640268513519</created>
@@ -691,7 +685,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656413052023</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="- Fix in contour lavel&#10;- new GUI for calculate noise">
+      <created>1656413277278</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1656413277278</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
