@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- version for testing ARPA">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="remover layer vector">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_en.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_en.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_es.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_es.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_it.qm" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.qm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/opeNoise_it.ts" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n/translation.pro" beforeDir="false" afterPath="$PROJECT_DIR$/i18n/translation.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,30 +43,24 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1n4Fbnky2d2FmCxLkjRIJ4IWxHl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TODO_SCOPE" value="All Places" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../../../../../Program Files/QGIS 3.18/apps/Python37" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/snap/pycharm-professional/290/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;
+  }
+}</component>
   <component name="RunManager" selected="Python.opeNoise">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="openoise" />
@@ -317,37 +318,172 @@
       <workItem from="1649185764556" duration="54000" />
       <workItem from="1649186093585" duration="126000" />
       <workItem from="1649234259939" duration="4190000" />
-      <workItem from="1649254771470" duration="5221000" />
-      <workItem from="1649314644506" duration="5055000" />
-      <workItem from="1649426676419" duration="5007000" />
-      <workItem from="1649839689923" duration="2820000" />
-      <workItem from="1650785874197" duration="452000" />
-      <workItem from="1651225510953" duration="91000" />
-      <workItem from="1651225759346" duration="3526000" />
-      <workItem from="1651499301329" duration="44000" />
-      <workItem from="1652197485546" duration="2381000" />
-      <workItem from="1652263817379" duration="668000" />
-      <workItem from="1652283635740" duration="1956000" />
-      <workItem from="1652337544417" duration="3064000" />
-      <workItem from="1652516660179" duration="228000" />
-      <workItem from="1652531676066" duration="1324000" />
-      <workItem from="1652706002520" duration="3844000" />
-      <workItem from="1653290668273" duration="1271000" />
-      <workItem from="1653472539997" duration="1259000" />
-      <workItem from="1653659699554" duration="5817000" />
-      <workItem from="1654094877952" duration="3508000" />
-      <workItem from="1654098819034" duration="233000" />
-      <workItem from="1654328987772" duration="2449000" />
-      <workItem from="1654677330481" duration="4352000" />
-      <workItem from="1654682090843" duration="238000" />
-      <workItem from="1654785536993" duration="871000" />
-      <workItem from="1655372733358" duration="3848000" />
-      <workItem from="1655388258477" duration="3550000" />
-      <workItem from="1655449204278" duration="1917000" />
-      <workItem from="1655456352588" duration="1651000" />
-      <workItem from="1655486037821" duration="1042000" />
-      <workItem from="1656408773394" duration="4282000" />
-      <workItem from="1656493580442" duration="2180000" />
+      <workItem from="1649254771470" duration="4991000" />
+      <workItem from="1651128514953" duration="540000" />
+      <workItem from="1657286337873" duration="282000" />
+      <workItem from="1657897180431" duration="3575000" />
+      <workItem from="1661261382133" duration="1692000" />
+    </task>
+    <task id="LOCAL-00026" summary="added icon grid builder">
+      <created>1624950031903</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1624950031903</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added icon grid builder">
+      <created>1624950278646</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1624950278646</updated>
+    </task>
+    <task id="LOCAL-00028" summary="custom 3d field height">
+      <created>1626181367242</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1626181367242</updated>
+    </task>
+    <task id="LOCAL-00029" summary="first part correction Note 19-lug">
+      <created>1626694079099</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1626694079099</updated>
+    </task>
+    <task id="LOCAL-00030" summary="second part correction Note 19-lug">
+      <created>1626786878882</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1626786878882</updated>
+    </task>
+    <task id="LOCAL-00031" summary="second part correction Note 19-lug">
+      <created>1626786977411</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1626786977411</updated>
+    </task>
+    <task id="LOCAL-00032" summary="second part correction Note 19-lug">
+      <created>1626959926603</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1626959926603</updated>
+    </task>
+    <task id="LOCAL-00033" summary="threeD implementation - initial">
+      <created>1627046164086</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1627046164086</updated>
+    </task>
+    <task id="LOCAL-00034" summary="threeD implementation - initial">
+      <created>1627046184851</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1627046184851</updated>
+    </task>
+    <task id="LOCAL-00035" summary="threeD implementation - initial2">
+      <created>1627123135495</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1627123135495</updated>
+    </task>
+    <task id="LOCAL-00036" summary="unique bar for overall process">
+      <created>1627634724096</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1627634724096</updated>
+    </task>
+    <task id="LOCAL-00037" summary="correction for 3D diffraction">
+      <created>1633704853753</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1633704853753</updated>
+    </task>
+    <task id="LOCAL-00038" summary="correction for 3D diffraction&#10;added custom height">
+      <created>1634119198450</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1634119198450</updated>
+    </task>
+    <task id="LOCAL-00039" summary="correction for 3D diffraction&#10;added custom height">
+      <created>1634120872432</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1634120872433</updated>
+    </task>
+    <task id="LOCAL-00040" summary="correction for 3D diffraction&#10;added custom height">
+      <created>1636384474912</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1636384474912</updated>
+    </task>
+    <task id="LOCAL-00041" summary="correction bug in diffraction">
+      <created>1637094682212</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1637094682212</updated>
+    </task>
+    <task id="LOCAL-00042" summary="correction bug in temperature emission for CNOSSOS">
+      <created>1638374630196</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1638374630196</updated>
+    </task>
+    <task id="LOCAL-00043" summary="save emission on roads layer">
+      <created>1638434737014</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1638434737014</updated>
+    </task>
+    <task id="LOCAL-00044" summary="initial fix emission CNOSSOS&#10;initial popolation aggregation on buildings">
+      <created>1639989754344</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1639989754344</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix delta_Lroad in case of speed out of range Vmin Vmax">
+      <created>1640260736019</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1640260736019</updated>
+    </task>
+    <task id="LOCAL-00046" summary="correction param NL02 ref 3">
+      <created>1640260921437</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1640260921437</updated>
+    </task>
+    <task id="LOCAL-00047" summary="correction param NL02 ref 3">
+      <created>1640261776693</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1640261776693</updated>
+    </task>
+    <task id="LOCAL-00048" summary="fix for save emission only for CNOSSOS">
+      <created>1640268513519</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1640268513520</updated>
     </task>
     <task id="LOCAL-00049" summary="first version population calculus">
       <created>1642011614261</created>
@@ -503,196 +639,35 @@
       <option name="project" value="LOCAL" />
       <updated>1649259847064</updated>
     </task>
-    <task id="LOCAL-00071" summary="new GUIs">
-      <created>1649260208549</created>
+    <task id="LOCAL-00071" summary="remover layer vector">
+      <created>1649263262815</created>
       <option name="number" value="00071" />
       <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1649260208549</updated>
+      <updated>1649263262815</updated>
     </task>
-    <task id="LOCAL-00072" summary="- renamed shapefile contours_level&#10;- new GUI for Informations, contour level, create grid&#10;- GUI create grid added label fom m^2&#10;- fixed spaces for GUI information">
-      <created>1649315775099</created>
+    <task id="LOCAL-00072" summary="remover layer vector">
+      <created>1649263487171</created>
       <option name="number" value="00072" />
       <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1649315775100</updated>
+      <updated>1649263487171</updated>
     </task>
-    <task id="LOCAL-00073" summary="- renamed shapefile contours_level&#10;- new GUI for Informations, contour level, create grid&#10;- GUI create grid added label fom m^2&#10;- fixed spaces for GUI information">
-      <created>1649316240316</created>
+    <task id="LOCAL-00073" summary="remover layer vector">
+      <created>1649263547636</created>
       <option name="number" value="00073" />
       <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1649316240316</updated>
+      <updated>1649263547636</updated>
     </task>
-    <task id="LOCAL-00074" summary="- fix errore calcolo popolazione esposta">
-      <created>1649320958747</created>
+    <task id="LOCAL-00074" summary="remover layer vector">
+      <created>1649263568551</created>
       <option name="number" value="00074" />
       <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1649320958747</updated>
+      <updated>1649263568551</updated>
     </task>
-    <task id="LOCAL-00075" summary="- fix errore calcolo dwellings&#10;- new GUI&#10;- some minor updates">
-      <created>1649432607006</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1649432607007</updated>
-    </task>
-    <task id="LOCAL-00076" summary="- added text in info button&#10;- new GUI">
-      <created>1649840826328</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1649840826328</updated>
-    </task>
-    <task id="LOCAL-00077" summary="- added control missing extent">
-      <created>1649842292666</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1649842292666</updated>
-    </task>
-    <task id="LOCAL-00078" summary="- changed radio button initial for create receivers">
-      <created>1649842431593</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1649842431593</updated>
-    </task>
-    <task id="LOCAL-00079" summary="- version checked population">
-      <created>1651499325204</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1651499325204</updated>
-    </task>
-    <task id="LOCAL-00080" summary="- dose effetto implementazione&#10;- GIU improvements">
-      <created>1652341673447</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1652341673447</updated>
-    </task>
-    <task id="LOCAL-00081" summary="- new names for table output&#10;- GIU improvements">
-      <created>1652516883017</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1652516883017</updated>
-    </task>
-    <task id="LOCAL-00082" summary="- new names for table output&#10;- fixed erroc il dose-effetto aggregation&#10;- GIU improvements">
-      <created>1652533001547</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1652533001549</updated>
-    </task>
-    <task id="LOCAL-00083" summary="- fixed night population aggregation&#10;- fixed write field in buildings">
-      <created>1652710469542</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1652710469542</updated>
-    </task>
-    <task id="LOCAL-00084" summary="- new data for testing&#10;- new GUIs&#10;- some text info modified">
-      <created>1653291605163</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1653291605164</updated>
-    </task>
-    <task id="LOCAL-00085" summary="- new data for testing&#10;- new GUIs&#10;- some text info modified">
-      <created>1653291781811</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1653291781811</updated>
-    </task>
-    <task id="LOCAL-00086" summary="- new data for testing&#10;- new GUIs&#10;- some text info modified">
-      <created>1653291828129</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1653291828129</updated>
-    </task>
-    <task id="LOCAL-00087" summary="- fix for fields names&#10;- new GUIs Help&#10;- some improvment">
-      <created>1654098387618</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1654098387619</updated>
-    </task>
-    <task id="LOCAL-00088" summary="- fix for text help and infos&#10;- new GUIs">
-      <created>1654331380542</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1654331380543</updated>
-    </task>
-    <task id="LOCAL-00089" summary="- fix for text help and infos&#10;- new GUIs">
-      <created>1654677383160</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1654677383160</updated>
-    </task>
-    <task id="LOCAL-00090" summary="- change in output fields name&#10;- added control in contour layer">
-      <created>1654681789214</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1654681789214</updated>
-    </task>
-    <task id="LOCAL-00091" summary="- change in output fields name&#10;- added control in contour layer">
-      <created>1654682151411</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1654682151412</updated>
-    </task>
-    <task id="LOCAL-00092" summary="- Fix for epsilon determination for 3D in same cases for strange values">
-      <created>1655392570762</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1655392570763</updated>
-    </task>
-    <task id="LOCAL-00093" summary="- Fix in xml saving">
-      <created>1655451304829</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1655451304829</updated>
-    </task>
-    <task id="LOCAL-00094" summary="- Fix in contour lavel&#10;- new GUI for calculate noise">
-      <created>1656412936863</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1656412936864</updated>
-    </task>
-    <task id="LOCAL-00095" summary="- Fix in contour lavel&#10;- new GUI for calculate noise">
-      <created>1656413052023</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1656413052023</updated>
-    </task>
-    <task id="LOCAL-00096" summary="- Fix in contour lavel&#10;- new GUI for calculate noise">
-      <created>1656413277278</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1656413277278</updated>
-    </task>
-    <task id="LOCAL-00097" summary="- version for testing ARPA">
-      <created>1656497250348</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1656497250349</updated>
-    </task>
-    <option name="localTasksCounter" value="98" />
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -740,38 +715,38 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix delta_Lroad in case of speed out of range Vmin Vmax" />
+    <MESSAGE value="correction param NL02 ref 3" />
+    <MESSAGE value="fix for save emission only for CNOSSOS" />
+    <MESSAGE value="first version population calculus" />
+    <MESSAGE value="fixed save emission for NMPB" />
+    <MESSAGE value="fixed bug in 3D diffraction on load emission" />
+    <MESSAGE value="fixed several bugs" />
+    <MESSAGE value="modification updated 8 feb 22" />
+    <MESSAGE value="- creation receiver case2B distance 0.1 and removed receiver inside buildings&#10;- implemented method 1 and 3 for population" />
+    <MESSAGE value="- fixed remove receiver inside buildings" />
+    <MESSAGE value="- fixed portion of facades less than 5 m" />
+    <MESSAGE value="- added calculation for dwellings" />
+    <MESSAGE value="- added checks for fields combobox" />
+    <MESSAGE value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
+    <MESSAGE value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
+    <MESSAGE value="- method 2 implemetation" />
+    <MESSAGE value="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods" />
+    <MESSAGE value="Upgrade GUI&#10;help buttons" />
+    <MESSAGE value="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
     <MESSAGE value="new examples data" />
     <MESSAGE value="severa issued fixed in GUI and texts" />
     <MESSAGE value="round to nearest hundred" />
     <MESSAGE value="removed build mask layer" />
     <MESSAGE value="new icons" />
-    <MESSAGE value="new GUIs" />
-    <MESSAGE value="- renamed shapefile contours_level&#10;- new GUI for Informations, contour level, create grid&#10;- GUI create grid added label fom m^2&#10;- fixed spaces for GUI information" />
-    <MESSAGE value="- fix errore calcolo popolazione esposta" />
-    <MESSAGE value="- fix errore calcolo dwellings&#10;- new GUI&#10;- some minor updates" />
-    <MESSAGE value="- added text in info button&#10;- new GUI" />
-    <MESSAGE value="- added control missing extent" />
-    <MESSAGE value="- changed radio button initial for create receivers" />
-    <MESSAGE value="- version checked population" />
-    <MESSAGE value="- dose effetto implementazione&#10;- GIU improvements" />
-    <MESSAGE value="- new names for table output&#10;- GIU improvements" />
-    <MESSAGE value="- new names for table output&#10;- fixed erroc il dose-effetto aggregation&#10;- GIU improvements" />
-    <MESSAGE value="- fixed night population aggregation&#10;- fixed write field in buildings" />
-    <MESSAGE value="- new data for testing&#10;- new GUIs&#10;- some text info modified" />
-    <MESSAGE value="- fix for fields names&#10;- new GUIs Help&#10;- some improvment" />
-    <MESSAGE value="- fix for text help and infos&#10;- new GUIs" />
-    <MESSAGE value="- change in output fields name&#10;- added control in contour layer" />
-    <MESSAGE value="- Fix for epsilon determination for 3D in same cases for strange values" />
-    <MESSAGE value="- Fix in xml saving" />
-    <MESSAGE value="- Fix in contour lavel&#10;- new GUI for calculate noise" />
-    <MESSAGE value="- version for testing ARPA" />
-    <option name="LAST_COMMIT_MESSAGE" value="- version for testing ARPA" />
+    <MESSAGE value="remover layer vector" />
+    <option name="LAST_COMMIT_MESSAGE" value="remover layer vector" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/openoise$openoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1612876823241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/openoise$on_CalculateNoiseLevels.coverage" NAME="on_CalculateNoiseLevels Coverage Results" MODIFIED="1613392881941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
   </component>
 </project>
