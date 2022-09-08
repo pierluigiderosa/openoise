@@ -194,7 +194,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3) &lt;/span&gt;Buildings Layer (input polygon layer) and field for People-Dwellings-Façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;3) Buildings Layer (input polygon layer) and information about People-Dwellings-Façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -406,7 +406,7 @@
    <item>
     <widget class="QCheckBox" name="applyNoiseSimbology">
      <property name="text">
-      <string>Apply Level Simbology to the Buildings Layer (Maximum Level for Building):</string>
+      <string>Apply Level Simbology to the Buildings Layer (Maximum Level for Building)</string>
      </property>
     </widget>
    </item>

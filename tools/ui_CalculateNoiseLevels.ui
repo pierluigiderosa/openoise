@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -67,8 +67,8 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>270</y>
-       <width>161</width>
+       <y>300</y>
+       <width>215</width>
        <height>31</height>
       </rect>
      </property>
@@ -80,8 +80,8 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>240</y>
-       <width>471</width>
+       <y>270</y>
+       <width>461</width>
        <height>17</height>
       </rect>
      </property>
@@ -91,13 +91,16 @@
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPushButton" name="reload_saved_settings_pushButton">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>320</y>
-       <width>161</width>
+       <y>350</y>
+       <width>215</width>
        <height>31</height>
       </rect>
      </property>
@@ -157,7 +160,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>147</y>
+       <y>150</y>
        <width>661</width>
        <height>17</height>
       </rect>
@@ -173,7 +176,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>174</y>
+       <y>190</y>
        <width>661</width>
        <height>30</height>
       </rect>
@@ -188,8 +191,8 @@
     <widget class="QLabel" name="label_20">
      <property name="geometry">
       <rect>
-       <x>92</x>
-       <y>157</y>
+       <x>110</x>
+       <y>165</y>
        <width>661</width>
        <height>20</height>
       </rect>
@@ -602,7 +605,7 @@ Specify the height of the buildings [m]</string>
       <rect>
        <x>452</x>
        <y>300</y>
-       <width>111</width>
+       <width>131</width>
        <height>20</height>
       </rect>
      </property>
@@ -1018,15 +1021,18 @@ Specify the height of the buildings [m]</string>
       <rect>
        <x>20</x>
        <y>30</y>
-       <width>641</width>
-       <height>17</height>
+       <width>570</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Create sound rays layers if you want to check the single noise level contribution at receiver points&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget_12">
@@ -1161,16 +1167,19 @@ Specify the height of the buildings [m]</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>60</y>
-       <width>641</width>
-       <height>17</height>
+       <y>80</y>
+       <width>570</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING: &lt;/span&gt;This operation can take a long time, select the rays creation only for small area calculations&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget">
@@ -1791,7 +1800,7 @@ Specify the height of the buildings [m]</string>
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>251</width>
+       <width>291</width>
        <height>23</height>
       </rect>
      </property>
@@ -1820,7 +1829,7 @@ Specify the height of the buildings [m]</string>
       <rect>
        <x>10</x>
        <y>80</y>
-       <width>231</width>
+       <width>371</width>
        <height>20</height>
       </rect>
      </property>
