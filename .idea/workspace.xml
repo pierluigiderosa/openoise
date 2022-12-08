@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- added italian translation">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n/opeNoise_it.qm" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.qm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/openoise.iml" afterPath="$PROJECT_DIR$/.idea/openoise.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n/opeNoise_en.ts" afterPath="$PROJECT_DIR$/i18n/opeNoise_en.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n/opeNoise_es.ts" afterPath="$PROJECT_DIR$/i18n/opeNoise_es.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n/opeNoise_it.ts" afterPath="$PROJECT_DIR$/i18n/opeNoise_it.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" afterPath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" afterPath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/ui_Helps.ui" afterPath="$PROJECT_DIR$/tools/ui_Helps.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/ui_Informations.ui" afterPath="$PROJECT_DIR$/tools/ui_Informations.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" afterPath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +17,11 @@
   </component>
   <component name="ChangesViewManager" flattened_view="false" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="do_AssignNoiseExposure.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/do_AssignNoiseExposure.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36">
+            <state relative-caret-position="396">
               <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
@@ -43,8 +31,8 @@
       <file leaf-file-name="do_CalculateNoiseLevels.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+            <state relative-caret-position="270">
+              <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -776,13 +764,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2401" y="75" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26508024" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26840067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.51079136" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.51300496" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.48920864" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925472" sideWeight="0.486995" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958494" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -879,16 +868,9 @@
     <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/do_SourceDetailsRoads.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="928" column="17" lean-forward="false" selection-start-line="928" selection-start-column="17" selection-end-line="928" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/do_AssignNoiseExposure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
+        <state relative-caret-position="396">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
@@ -898,6 +880,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/do_SourceDetailsRoads.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="928" column="17" lean-forward="false" selection-start-line="928" selection-start-column="17" selection-end-line="928" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/do_AssignNoiseExposure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding />
         </state>
       </provider>
