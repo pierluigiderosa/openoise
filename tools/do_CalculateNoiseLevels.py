@@ -523,12 +523,12 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         if self.height_receiver_check.isChecked() and self.field_height_receiver.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
-                                    self.tr("Please specify elevation field for receiver points layer"))
+                                    self.tr("Please specify the field containing elevation for receiver points"))
             return False
 
         if self.height_building_check.isChecked() and self.field_height_building.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
-                                    self.tr("Please specify elevation field for buildings layer"))
+                                    self.tr("Please specify the field containing elevation for buildings"))
             return False
 
 

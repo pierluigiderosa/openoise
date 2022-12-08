@@ -16,10 +16,10 @@
     <message>
         <location filename="../tools/ui_ApplyNoiseSymbology.ui" line="84"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2)&lt;/span&gt; Choose Sound Level fields to Apply Noise Symbology&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2)&lt;/span&gt; Schegli il campo con il livello sonoro per applicare la simbologia del ruomore&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2)&lt;/span&gt; Schegli il campo con il livello sonoro per applicare la simbologia del rumore&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_ApplyNoiseSymbology.ui" line="113"/>
+        <location filename="../tools/ui_ApplyNoiseSymbology.ui" line="119"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;NOTE&lt;/span&gt;: For negative values (-99) the legend is &apos;No Level&apos;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;NOTA&lt;/span&gt;: I valori negativi (-99) verranno visualizzati come &apos;No Level&apos;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../tools/ui_NoiseExposure.ui" line="50"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Assigns dwellings and people living in dwellings to receiver points&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;according to § 2.8 Directive 2002/49/EC Annex II&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&lt;br/&gt;&lt;br/&gt;Evaluates the harmful effects of ambient noise&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;according to Directive 2002/49/EC Annex III &lt;br/&gt;&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING:  &lt;/span&gt;Run this tool after calculating noise levels at receiver points&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assegnazione delle abitazioni e delle persone che vivono nelle abitazioni ai punti ricettore&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;in accordo al § 2.8 Direttiva 2002/49/CE Allegato II&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&lt;br/&gt;&lt;br/&gt;Valuta gli effetti nocivi del rumore ambientale&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;in accordo alla Direttiva 2002/49/CE Allegato III &lt;br/&gt;&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ATTENZIONE:&lt;/span&gt;Esegui questo strumento dopo aver calcolato i livelli di rumore ai punti ricettori&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Assegnazione delle abitazioni e delle persone che vivono nelle abitazioni ai punti &lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;in accordo al § 2.8 Direttiva 2002/49/CE Allegato II&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&lt;br/&gt;&lt;br/&gt;Valuta gli effetti nocivi del rumore ambientale&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;in accordo alla Direttiva 2002/49/CE Allegato III &lt;br/&gt;&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ATTENZIONE:&lt;/span&gt; Esegui questo strumento dopo aver calcolato i livelli di rumore ai punti ricettori points&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tools/ui_NoiseExposure.ui" line="113"/>
@@ -57,9 +57,13 @@
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lnight  &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_NoiseExposure.ui" line="197"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3) &lt;/span&gt;Buildings Layer (input polygon layer) and field for People-Dwellings-Façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Layer degli Edifici ( layer poligonale di input ) e i campi contenenti &lt;br&gt;Persone-Abitazioni-Facciata&lt;/p&gt;&lt;body&gt;&lt;/html&gt;</translation>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Layer degli Edifici ( layer poligonale di input ) e i campi contenenti &lt;br&gt;Persone-Abitazioni-Facciata&lt;/p&gt;&lt;body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_NoiseExposure.ui" line="197"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;3) Buildings Layer (input polygon layer) and information about People-Dwellings-Façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;3) Layer degli Edifici ( layer poligonale di input ) e i campi contenenti Persone-Abitazioni-Facciata&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tools/ui_NoiseExposure.ui" line="229"/>
@@ -110,8 +114,12 @@
     </message>
     <message>
         <location filename="../tools/ui_NoiseExposure.ui" line="409"/>
+        <source>Apply Level Simbology to the Buildings Layer (Maximum Level for Building)</source>
+        <translation>Applica la Simbologia del Rumore agli Edifici ( Livello Massimo per Edificio ):</translation>
+    </message>
+    <message>
         <source>Apply Level Simbology to the Buildings Layer (Maximum Level for Building):</source>
-        <translation>Applica la Simbologia del Rumore agli Edifici ( Livello Massimo per Edificio )</translation>
+        <translation type="obsolete">Applica la Simbologia del Rumore agli Edifici ( Livello Massimo per Edificio ):</translation>
     </message>
 </context>
 <context>
@@ -132,117 +140,130 @@
         <translation>Ricarica le ultime Impostazioni</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="105"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="108"/>
         <source>Reload a saved Settings file</source>
         <translation>Carica un file di Impostazioni</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="207"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="210"/>
         <source>Input</source>
         <translation>Input</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="497"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="454"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="500"/>
         <source>Details</source>
         <translation>Dettagli</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="507"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="510"/>
         <source>Parameters</source>
         <translation>Parametri</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="572"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="575"/>
         <source> L den  calculation</source>
         <translation> L den calculation</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="616"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="619"/>
         <source>Penalizations (dB)</source>
         <translation>Penalizzazione (dB)</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1014"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1017"/>
         <source>Options</source>
         <translation>Opzioni</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1890"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1094"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1158"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1217"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1899"/>
         <source>Browse</source>
         <translation>Sfoglia</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1219"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1228"/>
         <source>Calculate</source>
         <translation>Calcola</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1231"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1240"/>
         <source>CALCULATE</source>
         <translation>CALCOLA</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1404"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1413"/>
         <source>Create diffraction points</source>
         <translation>Crea i punti di diffrazione</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1777"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1271"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1305"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1339"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1451"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1518"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1585"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1652"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1719"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1786"/>
         <source>Done in HH:MM:SS.sss</source>
         <translation>Eseguito in HH:MM:SS.sss</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1474"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1483"/>
         <source>Prepare emission points</source>
         <translation>Preparazione dei punti di emissione</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1541"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1550"/>
         <source>Find receivers-sources rays</source>
         <translation>Cerca i raggi ricettori-sorgente</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1608"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1617"/>
         <source>Find diffractors-sources rays</source>
         <translation>Cerca i raggi diffrazione-sorgenti</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1675"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1684"/>
         <source>Find receivers-diffractors rays</source>
         <translation>Cerca i raggi ricettori-diffratti</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1742"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1751"/>
         <source>Calculate levels</source>
         <translation>Calcola i livelli sonori</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="635"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="638"/>
         <source>Day</source>
         <translation>Giorno</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="701"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="704"/>
         <source>Evening</source>
         <translation>Sera</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="318"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="321"/>
         <source>Choose a polygon layer as buildings (multipart layers are not supported)</source>
         <translation>Scegli un  layer poligonale come edifici ( layer multiparti non sono supportati )</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="433"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="436"/>
         <source>Choose a point layer as source (multipart layers are not supported)</source>
         <translation>Scegli un layer puntuale come sorgente ( layer multiparti non sono supportati )</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="479"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="482"/>
         <source>Choose a line layer as source (multipart layers are not supported)</source>
         <translation>Scegli un layer lineare come sorgente ( layer multiparti non sono supportati )</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1815"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="948"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1824"/>
         <source>Info</source>
         <translation>Info</translation>
     </message>
@@ -257,186 +278,187 @@
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Altrimenti puoi ricaricare le ultime impostazioni o impostazioni salvate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="118"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="121"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Compile the next sections to proceed with the calculation:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Compilare le sezioni successive per procedere con il calcolo:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="134"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="137"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1. Input: &lt;/span&gt;insert the receiver points, sources and buildings layers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1. Input: &lt;/span&gt; inserire i layers dei punti ricettori, sorgenti ed edifici&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="150"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="153"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2. Parameters:&lt;/span&gt; select some parameters settings&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2.Parametri:&lt;/span&gt; seleziona le impostazioni dei parametri&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="166"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="169"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3. Options: &lt;/span&gt;Create sound rays layers if you want to check the single &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3. Opzioni:&lt;/span&gt; Crea il layer dei raggi sonori se vuoi controllare il singolo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="182"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="185"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;4. Calculate: &lt;/span&gt;Calculate  levels at receiver points&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;4. Calcola:&lt;/span&gt; Calcolare  i livelli nei punti di ricezione&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="198"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="201"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;noise level contribution at receiver points&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;contributo del livello di rumore ai punti di ricezione&lt;p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="225"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="228"/>
         <source>Receiver Points</source>
         <translation>Punti Ricettori</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="238"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="241"/>
         <source>Choose a point layer as receiver points (multipart layers are not supported)</source>
         <translation>Scegli un layer puntuale come punti ricevitori ( layer multiparti non sono supportati )</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="259"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="262"/>
         <source>Activate custom receiver points height
 Specify the height of the receiver [m] - default is 4 m</source>
         <translation>Attiva l&apos;altezza dei punti ricevitore personalizzata
 Specificare l&apos;altezza del ricevitore [m] - il valore predefinito è 4 m-</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="300"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="303"/>
         <source>Buildings</source>
         <translation>Edifici</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="330"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="333"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Buildings are considered as obstacles. In this way it is possible to insert noise barriers in this layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Gli edifici sono considerati ostacoli. In questo modo è possibile inserire delle barriere antirumore in questo layer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Gli edifici sono considerati come ostacoli. In questo modo è possibile inserire delle barriere antirumore in questo layer&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="367"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="350"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="370"/>
         <source>to enable check that skip diffraction in disabled.</source>
         <translation>per abilitare controlla che la diffrazione non sia disabilitata nella sezione &apos;Calcola&apos;.</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="350"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="353"/>
         <source>Activate 3D calculation
 Specify the height of the buildings [m]</source>
         <translation>Attiva il calcolo in 3D 
 Specifica l&apos;altezza degli edifici [m]</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="358"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="361"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;this also takes into account the diffraction at horizontal obstacles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;questo tiene conto anche della diffrazione agli ostacoli orizzontali&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="407"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="410"/>
         <source>Sources </source>
         <translation>Sorgenti </translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="417"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="420"/>
         <source>Points</source>
         <translation>Punti</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="463"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="466"/>
         <source>Roads</source>
         <translation>Strade</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="534"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="537"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Search Ray [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Raggio di Ricerca [m]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="594"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="597"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total Hours for each Period&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ore Totali per ogni Periodo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="657"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="660"/>
         <source>Night</source>
         <translation>Notte</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="847"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="850"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Temperature [°C]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Temperatura [°C]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="897"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="900"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Relative Humidity [RH%]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Umidità Relativa [UR%]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="932"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="935"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lden  definition&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lden definizione&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="958"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="961"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Atmospheric Absorption - ISO 9613-1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assorbimento Atmosferico - ISO 9613-1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="980"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="983"/>
         <source>+5 dB </source>
         <translation>+5 dB </translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1002"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1005"/>
         <source>+10 dB</source>
         <translation>+10 dB</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1026"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1029"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Create sound rays layers if you want to check the single noise level contribution at receiver points&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Crea il layer dei raggi sonori se vuoi visionare il singolo contributo del livello sonoro al punto ricevitore&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1051"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1057"/>
         <source>Create Diffracted Sound Rays Layer - Vertical Obstacles (output line layer)</source>
         <translation>Crea un Layer dei Raggi Sonori Diffratti - Ostacoli Verticali ( layer lineare)</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1115"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1121"/>
         <source>Create Direct Sound Rays Layer (output line layer)</source>
         <translation>Crea un Layer dei Raggi Sonori Diretti ( layer lineare)</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1170"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1176"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING: &lt;/span&gt;This operation can take a long time, select the rays creation only for small area calculations&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ATTENZIONE:&lt;/span&gt; Questa operazione necessita di molto tempo di calcolo, seleziona la creazione dei raggi sonori per piccole aree di calcolo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1189"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1198"/>
         <source>Create Diffracted Sound Rays Layer - Horizontal Obstacles (output line layer)</source>
         <translation>Crea un Layer dei Raggi Sonori Diffratti - Ostacoli Orizzontali ( layer lineare)</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1359"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1368"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Stato&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1802"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1811"/>
         <source>Skip Diffractions Calculation</source>
         <translation>Ignora il Calcolo della Diffrazione</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1831"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1840"/>
         <source>Save Emission Level in Sources Layer</source>
         <translation>Salva il Livello di Emissione nel layer Sorgente</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1853"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1862"/>
         <source>Save Current Settings</source>
-        <translation>Salva le Iimpostazioni  correnti</translation>
+        <translation>Salva le Iimpostazioni Correnti</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1908"/>
+        <location filename="../tools/ui_CalculateNoiseLevels.ui" line="1917"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a name=&quot;docs-internal-guid-b803694e-7fff-8a22-09e3-33141def2d60&quot;/&gt;&lt;span style=&quot; font-family:&apos;Calibri,sans-serif&apos;; font-size:10pt; font-weight:696; color:#000000; background-color:transparent;&quot;&gt;C&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Calibri,sans-serif&apos;; font-size:10pt; font-weight:696; color:#000000; background-color:transparent;&quot;&gt;alculation Options&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a name=&quot;docs-internal-guid-b803694e-7fff-8a22-09e3-33141def2d60&quot;/&gt;&lt;span style=&quot; font-family:&apos;Calibri,sans-serif&apos;; font-size:10pt; font-weight:696; color:#000000; background-color:transparent;&quot;&gt;Opzioni di Calcolo&lt;span style=&quot; font-family:&apos;Calibri,sans-serif&apos;; font-size:10pt; font-weight:696; color:#000000; background-color:transparent;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -449,6 +471,7 @@ Specifica l&apos;altezza degli edifici [m]</translation>
         <translation>opeNoise - Crea Punti Ricevitore o Griglia</translation>
     </message>
     <message>
+        <location filename="../tools/ui_CreateReceiverPoints.ui" line="243"/>
         <location filename="../tools/ui_CreateReceiverPoints.ui" line="369"/>
         <source>Browse</source>
         <translation>Sfoglia</translation>
@@ -509,6 +532,7 @@ Specifica l&apos;altezza degli edifici [m]</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Layer dei Ricettori ( layer puntuale di output )&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../tools/ui_CreateReceiverPoints.ui" line="302"/>
         <location filename="../tools/ui_CreateReceiverPoints.ui" line="411"/>
         <source>Info</source>
         <translation>Info</translation>
@@ -572,7 +596,12 @@ Specifica l&apos;altezza degli edifici [m]</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://www.arpa.piemonte.it&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.arpa.piemonte.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="372"/>
+        <location filename="../tools/ui_Informations.ui" line="312"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;COLLABORATE&lt;/span&gt;: &lt;br/&gt;Help us translate OpenNoise into your language, thank you&lt;br/&gt;&lt;a href=&quot;https://www.transifex.com/openoise/openoise-qgis/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.transifex.com/openoise/openoise-qgis/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;COLLABORA&lt;/span&gt;: &lt;br/&gt;Aiutaci a tradurre OpenNoise nella tua lingua, grazie&lt;br/&gt;&lt;a href=&quot;https://www.transifex.com/openoise/openoise-qgis/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.transifex.com/openoise/openoise-qgis/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../tools/ui_Informations.ui" line="385"/>
         <source>openoise@arpa.piemonte.it</source>
         <translation>openoise@arpa.piemonte.it</translation>
     </message>
@@ -612,7 +641,7 @@ Specifica l&apos;altezza degli edifici [m]</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pierluigi De Rosa &lt;br/&gt;&lt;a href=&quot;https://www.onegis.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.onegis.it&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_Informations.ui" line="350"/>
+        <location filename="../tools/ui_Informations.ui" line="363"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;CONTACTS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;CONTATTI&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -620,107 +649,86 @@ Specifica l&apos;altezza degli edifici [m]</translation>
 <context>
     <name>Dialog</name>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="345"/>
         <source>opeNoise - Apply Noise Symbology</source>
-        <translation>opeNoise - Applica la simbologia del rumore</translation>
+        <translation type="vanished">opeNoise - Applica la simbologia del rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_ApplyNoiseSymbology.py" line="81"/>
         <source>Please specify input layer</source>
-        <translation>Prego, specifica il layer di input</translation>
+        <translation type="vanished">Prego, specifica il layer di input</translation>
     </message>
     <message>
-        <location filename="../tools/do_ApplyNoiseSymbology.py" line="85"/>
         <source>Please specify the level field to apply</source>
-        <translation>Prego, specifica il campo contenente il livello sonoro da applicare</translation>
+        <translation type="vanished">Prego, specifica il campo contenente il livello sonoro da applicare</translation>
     </message>
     <message>
-        <location filename="../tools/do_ApplyNoiseSymbology.py" line="85"/>
         <source>the noise symbology</source>
-        <translation>La simbologia del rumore</translation>
+        <translation type="vanished">La simbologia del rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="273"/>
         <source>No errors.</source>
-        <translation>Nessun errore.</translation>
+        <translation type="vanished">Nessun errore.</translation>
     </message>
     <message>
-        <location filename="../tools/do_ApplyNoiseSymbology.py" line="119"/>
         <source>Noise symbology assigned with success</source>
-        <translation>Assegnata con successo la simbologia del rumore</translation>
+        <translation type="vanished">Assegnata con successo la simbologia del rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="284"/>
         <source>Start: </source>
-        <translation>Avvio: </translation>
+        <translation type="vanished">Avvio: </translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="285"/>
         <source>End: </source>
-        <translation>Fine: </translation>
+        <translation type="vanished">Fine: </translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="286"/>
         <source>Duration: </source>
-        <translation>Durata: </translation>
+        <translation type="vanished">Durata: </translation>
     </message>
     <message>
-        <location filename="../tools/do_ApplyNoiseSymbology.py" line="126"/>
         <source>Sorry, process not complete</source>
-        <translation>Processo non completato</translation>
+        <translation type="vanished">Processo non completato</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="282"/>
         <source>View the log file to understand the problem:</source>
-        <translation>Consulta il file log per capire il problema:</translation>
+        <translation type="vanished">Consulta il file log per capire il problema:</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="217"/>
         <source>opeNoise</source>
-        <translation>opeNoise</translation>
+        <translation type="vanished">opeNoise</translation>
     </message>
     <message>
-        <location filename="../tools/do_ApplyNoiseSymbology.py" line="162"/>
         <source>Apply Noise Symbology</source>
-        <translation>Applica la simbologia del rumore</translation>
+        <translation type="vanished">Applica la simbologia del rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="217"/>
         <source>Errors</source>
-        <translation>Errori</translation>
+        <translation type="vanished">Errori</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="89"/>
         <source>&lt;b&gt;WARNING:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;AVVERTENZA:&lt;/b&gt;</translation>
+        <translation type="vanished">&lt;b&gt;AVVERTENZA:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="90"/>
         <source>This tool works correctly only if the receiver points layer </source>
-        <translation>Questo strumento funziona correttamente solo se il layer dei punti ricettori </translation>
+        <translation type="vanished">Questo strumento funziona correttamente solo se il layer dei punti ricettori </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="91"/>
         <source>is created from a buildings layer with opeNoise</source>
-        <translation>è creato mediante opeNoise dal layer degli edifici</translation>
+        <translation type="vanished">è creato mediante opeNoise dal layer degli edifici</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="92"/>
         <source>and its structure is not modified.</source>
-        <translation>e la sua struttura non viene modificata.</translation>
+        <translation type="vanished">e la sua struttura non viene modificata.</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="426"/>
         <source>opeNoise - Noise Exposure</source>
-        <translation>opeNoise - Esposizione al  Rumore</translation>
+        <translation type="vanished">opeNoise - Esposizione al  Rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="257"/>
         <source>opeNoise - Help</source>
-        <translation>opeNoise - Aiuto</translation>
+        <translation type="vanished">opeNoise - Aiuto</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="115"/>
         <source>
             &lt;p&gt;&lt;b&gt;According to Â§2.8 Directive 2002/49/EC Annex II&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;    
             &lt;p&gt;&lt;i&gt;For more information see also Help -&gt; How it Works -&gt; Noise Exposure&lt;/i&gt;&lt;/p&gt;   
@@ -733,7 +741,7 @@ Specifica l&apos;altezza degli edifici [m]</translation>
            
            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;
             </source>
-        <translation>
+        <translation type="vanished">
             &lt;p&gt;&lt;b&gt;In accordo al §2.8 Direttiva 2002/49/CE Allegato II &lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
             &lt;p&gt;&lt;i&gt; Per maggiori informazioni guarda anche Aiuto-&gt; Come funziona-&gt; Esposizione al Rumore&lt;/i&gt;&lt;/p&gt;
             &lt;p&gt;&lt;strong&gt;Persone:&lt;/strong&gt;il numero stimato di persone che vivono in ogni edificio&lt;/p&gt;
@@ -747,320 +755,262 @@ Specifica l&apos;altezza degli edifici [m]</translation>
             </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="147"/>
         <source>opeNoise - Assign levels to people</source>
-        <translation>opeNoise - Assegna i livelli alle persone</translation>
+        <translation type="vanished">opeNoise - Assegna i livelli alle persone</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="228"/>
         <source>Please specify buildings layer</source>
-        <translation>Prego, specificare il layer degli edifici</translation>
+        <translation type="vanished">Prego, specificare il layer degli edifici</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="137"/>
         <source>Please specify people field</source>
-        <translation>Prego, specificare il campo contenente il numero di persone in ogni edificio</translation>
+        <translation type="vanished">Prego, specificare il campo contenente il numero di persone in ogni edificio</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="142"/>
         <source>Please specify dwellings field</source>
-        <translation>Prego, specifica il campo contenente il numero di abitazioni per ogni edificio</translation>
+        <translation type="vanished">Prego, specifica il campo contenente il numero di abitazioni per ogni edificio</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="147"/>
         <source>Please specify faÃ§ade type exposition field (type string)</source>
-        <translation>Prego, specifica il campo contennete il tipo di esposizione della facciata ( tipo stringa )</translation>
+        <translation type="vanished">Prego, specifica il campo contennete il tipo di esposizione della facciata ( tipo stringa )</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="496"/>
         <source>Please specify receiver points layer</source>
-        <translation>Prego, specifica il layer dei punti ricettori</translation>
+        <translation type="vanished">Prego, specifica il layer dei punti ricettori</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="272"/>
         <source>Please specify noise level</source>
-        <translation>Prego, specifica il livello del rumore</translation>
+        <translation type="vanished">Prego, specifica il livello del rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="321"/>
         <source>In buildings layer you already have the fields: </source>
-        <translation>Nel layer edifici i seguenti livelli sonori sono presenti: </translation>
+        <translation type="vanished">Nel layer edifici i seguenti livelli sonori sono presenti: </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="322"/>
         <source> . Do you want to overwrite data in attribute table?</source>
-        <translation> .  Vuoi sovrascrivere i dati nella tabella degli attributi?</translation>
+        <translation type="vanished"> .  Vuoi sovrascrivere i dati nella tabella degli attributi?</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="622"/>
         <source>To mantain old data, copy them in a new field</source>
-        <translation>Per conservare i vecchi risultati, copiali in un nuovo campo</translation>
+        <translation type="vanished">Per conservare i vecchi risultati, copiali in un nuovo campo</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="381"/>
         <source>The layers don&apos;t have the same CRS (Coordinate Reference System). Please use layers with same CRS</source>
-        <translation>Il layer non ha la stessa proiezione CRS ( Coordinate Reference System ). Prego, utilizza layers con stesso CRS</translation>
+        <translation type="vanished">Il layer non ha la stessa proiezione CRS ( Coordinate Reference System ). Prego, utilizza layers con stesso CRS</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="406"/>
         <source>Noise exposure assigned successfully,
  in temporary scratch layer,
  with followings input settings:</source>
-        <translation>L&apos;esposizione al rumore è stata assegnata con successo,
+        <translation type="vanished">L&apos;esposizione al rumore è stata assegnata con successo,
 nel layer temporale,
 con le seguenti impostazioni di input:</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="407"/>
         <source>Receiver Points: </source>
-        <translation>Punti Ricevitori: </translation>
+        <translation type="vanished">Punti Ricevitori: </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="408"/>
         <source>Noise Levels Lden: </source>
-        <translation>Livelli Sonori Lden: </translation>
+        <translation type="vanished">Livelli Sonori Lden: </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="409"/>
         <source>Noise Levels Lnight: </source>
-        <translation>Livelli Sonori Lnight: </translation>
+        <translation type="vanished">Livelli Sonori Lnight: </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="410"/>
         <source>Buildings: </source>
-        <translation>Edifici: </translation>
+        <translation type="vanished">Edifici: </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="411"/>
         <source>People: </source>
-        <translation>Persone: </translation>
+        <translation type="vanished">Persone: </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="412"/>
         <source>Dwellings: </source>
-        <translation>Abitazioni: </translation>
+        <translation type="vanished">Abitazioni: </translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="413"/>
         <source>FaÃ§ade type exposition: </source>
-        <translation>Tipo di Facciata Esposta: </translation>
+        <translation type="vanished">Tipo di Facciata Esposta: </translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="281"/>
         <source>Sorry, process not complete.</source>
-        <translation>Attenzione, processo non completato.</translation>
+        <translation type="vanished">Attenzione, processo non completato.</translation>
     </message>
     <message>
-        <location filename="../tools/do_AssignNoiseExposure.py" line="456"/>
         <source>Noise Exposure</source>
-        <translation>Esposizione al Rumore</translation>
+        <translation type="vanished">Esposizione al Rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="192"/>
         <source>
 &lt;p&gt;&lt;strong&gt;Search ray: &lt;/strong&gt;maximum distance of influence of the source to the receiver is expressed in meters. Receiver points beyond research ray return a -99 value. Setting a smaller search ray reduces the calculation time with consequent loss of precision in noise levels estimates.
 &lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lden definition: &lt;/strong&gt;in accordance with Directive 2002/49/CE and regulations of each Country. The plugin automatically calculates the value of Lden when emission levels referred to the three reference periods are set (Day, Evening, Night).&lt;/p&gt;
         </source>
-        <translation>
+        <translation type="vanished">
 &lt;p&gt;&lt;strong&gt;Ricerca dei raggi: &lt;/strong&gt; distanza massima di influenza della sorgente al ricevitore è espressa in metri. I punti ricevitore oltre il raggio di ricerca restituiscono un valore -99. L&apos;impostazione di un raggio di ricerca più piccolo riduce il tempo di calcolo con conseguente perdita di precisione nelle stime dei livelli di rumore.
 &lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lden definition:&lt;/strong&gt;in accordo con la Direttiva 2002/49/CE  e le regolazioni Nazionali. Il plugin automaticamente calcola il valore di Ldem quando sono impostati livelli di emissione  per i tre periodi di riferimento (Giorno,Sera,Notte).&lt;/p&gt;
         </translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="198"/>
         <source>
         &lt;p&gt;&lt;strong&gt;Skip Diffraction Calculation: &lt;/strong&gt;the calculation will not take into account the diffraction of horizontal and vertical obstacles. This reduces the calculation time with consequent loss of precision in sound levels estimates. Receiver points beyond buildings return a -99 value.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Save Emission Level in Source Layer: &lt;/strong&gt;allows you to save road emissions in the input layer.&amp;nbsp; The results are expressed in dB(A).&lt;/p&gt; 
 &lt;p&gt;&lt;strong&gt;Save Current Settings: &lt;/strong&gt;allows you to save all settings. Saved settings can be reloaded later in the start tab.&lt;/p&gt;
         </source>
-        <translation>
-        &lt;p&gt;&lt;strong&gt;Ignora il Calcolo della Diffrazione:&lt;/strong&gt; il calcolo non terrà conto della diffrazione degli ostacoli orizzontali e verticali. Ciò riduce i tempi di calcolo con conseguente perdita di precisione nelle stime dei livelli sonori. I punti ricevitore oltre gli edifici restituiscono un valore -99.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt; Salva il Livello di Emissione nel layer della sorgente:&lt;/strong&gt; consente di salvare l&apos;emissioni stradali nel layer di input. I risultati sono espressi in dB(A).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Salvataggio delle Impostazioni Correnti:&lt;/strong&gt; consente di salvare tutte le impostazioni. Le impostazioni salvate possono essere ricaricate in seguito nella scheda di avvio.&lt;/p&gt;
+        <translation type="vanished">
+        &lt;p&gt;&lt;strong&gt;Ignora il Calcolo della Diffrazione:&lt;/strong&gt; il calcolo non terrà conto della diffrazione degli ostacoli orizzontali e verticali. Ciò riduce i tempi di calcolo con conseguente perdita di precisione nelle stime dei livelli sonori. I punti ricevitore oltre gli edifici restituiscono un valore -99&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; Salva il Livello di Emissione nel layer della sorgente:&lt;/strong&gt; consente di salvare l&apos;emissioni stradali nel layer di input. I risultati sono espressi in dB(A)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Salvataggio delle Impostazioni Correnti:&lt;/strong&gt; consente di salvare tutte le impostazioni. Le impostazioni salvate possono essere ricaricate in seguito nella scheda di avvio&lt;/p&gt;
         </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="1199"/>
         <source>opeNoise - Calculate Noise Levels</source>
-        <translation>opeNoise - Calcola i Liveli Sonori</translation>
+        <translation type="vanished">opeNoise - Calcola i Liveli Sonori</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="207"/>
         <source>Please specify points source layer</source>
-        <translation>Please, specifica il layer dei punti sorgente</translation>
+        <translation type="vanished">Please, specifica il layer dei punti sorgente</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="219"/>
         <source>Please specify roads source layer</source>
-        <translation>Prego, specifica il layer delle sorgenti stradali</translation>
+        <translation type="vanished">Prego, specifica il layer delle sorgenti stradali</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="361"/>
         <source>Calculate levels and draw rays</source>
-        <translation>Calcolo dei livelli sonori e creazione dei raggi</translation>
+        <translation type="vanished">Calcolo dei livelli sonori e creazione dei raggi</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="363"/>
         <source>Calculate levels</source>
-        <translation>Calcola i livelli sonori</translation>
+        <translation type="vanished">Calcola i livelli sonori</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="500"/>
         <source>Please specify at least one source layer</source>
-        <translation>Prego, specifica almeno un tipo di sorgente</translation>
+        <translation type="vanished">Prego, specifica almeno un tipo di sorgente</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="507"/>
         <source>Please specify the points sources layer</source>
-        <translation>Please, specifica il layer dei punti sorgente</translation>
+        <translation type="vanished">Please, specifica il layer dei punti sorgente</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="510"/>
         <source>Please specify at least one power for a reference period in the point source</source>
-        <translation>Prego, specifica almeno per un periodo di riferimento la potenza sonora della sorgente puntuale</translation>
+        <translation type="vanished">Prego, specifica almeno per un periodo di riferimento la potenza sonora della sorgente puntuale</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="513"/>
         <source>The receivers point layer and the source point layer are the same</source>
-        <translation>Il layer del punto ricevitore e il layer del punto sorgente coincidono</translation>
+        <translation type="vanished">Il layer del punto ricevitore e il layer del punto sorgente coincidono</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="518"/>
         <source>Please specify the road source layer</source>
-        <translation>Prego, specifica il layer della sorgente stradale</translation>
+        <translation type="vanished">Prego, specifica il layer della sorgente stradale</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="521"/>
         <source>Please specify at least one power for a reference period in the road source</source>
-        <translation>Prego, specifica almeno per un periodo di riferimento la potenza sonora della sorgente stradale</translation>
+        <translation type="vanished">Prego, specifica almeno per un periodo di riferimento la potenza sonora della sorgente stradale</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="525"/>
         <source>Please specify elevation field for receiver points layer</source>
-        <translation>Prego, specifica il campo contenete l&apos;altezza dei punti ricettori</translation>
+        <translation type="vanished">Prego, specifica il campo contenete l&apos;altezza dei punti ricettori</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="530"/>
         <source>Please specify elevation field for buildings layer</source>
-        <translation>Prego, specifica il campo contenente l&apos;altezza degli edifici</translation>
+        <translation type="vanished">Prego, specifica il campo contenente l&apos;altezza degli edifici</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="536"/>
         <source>Please specify the buildings layer</source>
-        <translation>Prego, specifica il layer degli edifici</translation>
+        <translation type="vanished">Prego, specifica il layer degli edifici</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="542"/>
         <source>Please specify a file to save current settings</source>
-        <translation>Prego, specifica il file per salvare le impostazioni correnti</translation>
+        <translation type="vanished">Prego, specifica il file per salvare le impostazioni correnti</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="546"/>
         <source>In the Parameters section, to calculate Lden, the total amount of the hours of day, evening and night period must be 24</source>
-        <translation>Nella sezione Parametri, per il calcolo di Lden, la somma dei periodi giorno, sera, notte deve essere 24</translation>
+        <translation type="vanished">Nella sezione Parametri, per il calcolo di Lden, la somma dei periodi giorno, sera, notte deve essere 24</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="551"/>
         <source>Please specify the direct sound rays layer</source>
-        <translation>Prego, specifica il layer dei raggi diretti</translation>
+        <translation type="vanished">Prego, specifica il layer dei raggi diretti</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="555"/>
         <source>Please specify the diffracted vertical sound rays layer</source>
-        <translation>Prego, specifica il layer dei raggi di diffrazione verticali</translation>
+        <translation type="vanished">Prego, specifica il layer dei raggi di diffrazione verticali</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="560"/>
         <source>Please specify the diffracted horizontal sound rays layer</source>
-        <translation>Prego, specifica il layer dei raggi di diffrazione orizzontali</translation>
+        <translation type="vanished">Prego, specifica il layer dei raggi di diffrazione orizzontali</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="564"/>
         <source>Please activate the 3D global in Input tab</source>
-        <translation>Prego, attiva il 3D nella scheda Input</translation>
+        <translation type="vanished">Prego, attiva il 3D nella scheda Input</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="570"/>
         <source>Please use different name for the diffracted and rays layer</source>
-        <translation>Prego usa nomi differenti per i layer dei raggi diffratti e diretti</translation>
+        <translation type="vanished">Prego usa nomi differenti per i layer dei raggi diffratti e diretti</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="617"/>
         <source>In the receivers point layer the following fields already exist: </source>
-        <translation>Nel layer dei punti ricettori i seguenti livelli sonori sono presenti: </translation>
+        <translation type="vanished">Nel layer dei punti ricettori i seguenti livelli sonori sono presenti: </translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="618"/>
         <source> . Do you want to overwrite them?</source>
-        <translation> .Vuoi sovrascriverli?</translation>
+        <translation type="vanished"> .Vuoi sovrascriverli?</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="658"/>
         <source>The source layer have to use a projected CRS (Coordinate Reference System)</source>
-        <translation>Il layer sorgente deve utilizzare la proiezione CRS ( Coordinate Reference System )</translation>
+        <translation type="vanished">Il layer sorgente deve utilizzare la proiezione CRS ( Coordinate Reference System )</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="651"/>
         <source>The receivers and the points sources layers don&apos;t have the same CRS (Coordinate Reference System). Please use layers with same CRS</source>
-        <translation>Il layer ricettori e il layer delle sorgenti puntuali non hanno lo stesso CRS ( Coordinate Reference System ). Prego usare lo stesso CRS</translation>
+        <translation type="vanished">Il layer ricettori e il layer delle sorgenti puntuali non hanno lo stesso CRS ( Coordinate Reference System ). Prego usare lo stesso CRS</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="663"/>
         <source>The receivers and the road sources layers don&apos;t have the same CRS (Coordinate Reference System). Please use layers with same CRS</source>
-        <translation>Il layer ricettori e il layer delle sorgenti stradali non hanno lo stesso CRS ( Coordinate Reference System ). Prego usare lo stesso CRS</translation>
+        <translation type="vanished">Il layer ricettori e il layer delle sorgenti stradali non hanno lo stesso CRS ( Coordinate Reference System ). Prego usare lo stesso CRS</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="670"/>
         <source>The building layer have to use a projected CRS (Coordinate Reference System)</source>
-        <translation>Il layer edifici deve utilizzare la proiezione CRS ( Coordinate Reference System )</translation>
+        <translation type="vanished">Il layer edifici deve utilizzare la proiezione CRS ( Coordinate Reference System )</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="675"/>
         <source>opeNoise - Road Source Calculation</source>
-        <translation>opeNoise -  Calcolo della Sorgente Stradale</translation>
+        <translation type="vanished">opeNoise -  Calcolo della Sorgente Stradale</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="675"/>
         <source>The receivers and buildings layers don&apos;t have the same CRS (Coordinate Reference System). Please use layers with same CRS</source>
-        <translation>Il layer ricettori e il layer degli edifici non hanno lo stesso CRS ( Coordinate Reference System ). Prego, usare lo stesso CRS</translation>
+        <translation type="vanished">Il layer ricettori e il layer degli edifici non hanno lo stesso CRS ( Coordinate Reference System ). Prego, usare lo stesso CRS</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsPts.py" line="213"/>
         <source>Sorry, but somethigs wrong in import last settings</source>
-        <translation>Spiacente, si è verificato un errore nell&apos;importazione delle ultime impostazioni</translation>
+        <translation type="vanished">Spiacente, si è verificato un errore nell&apos;importazione delle ultime impostazioni</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="937"/>
         <source>Sorry, but somethigs wrong in import saved settings</source>
-        <translation>Spiacente, si è verificato un errore nell&apos;importazione delle impostazioni salvate</translation>
+        <translation type="vanished">Spiacente, si è verificato un errore nell&apos;importazione delle impostazioni salvate</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="969"/>
         <source>Calculate Noise Levels</source>
-        <translation>Calcola i livelli di rumore</translation>
+        <translation type="vanished">Calcola i livelli di rumore</translation>
     </message>
     <message>
-        <location filename="../tools/do_CalculateNoiseLevels.py" line="1032"/>
         <source>The calculation results have been successfully saved into the receivers point layer.The results are expressed in dB(A)</source>
-        <translation>I risultati del calcolo sono stati salvati con successo nel layer dei punti ricettori. I risultati sono espressi in dB(A)</translation>
+        <translation type="vanished">I risultati del calcolo sono stati salvati con successo nel layer dei punti ricettori. I risultati sono espressi in dB(A)</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="124"/>
         <source>
          &lt;p&gt;&lt;strong&gt;Create Receiver Points: &lt;/strong&gt;By default, level calculations are performed 4m above the ground.  
          After creating the receivers, you can add a new attribute with a numeric field of a height other than 4m. 
          In the Calculate Noise Levels tool, you can activate the custom height of the receivers. 
          In this way it is possible to create receptor points at different floors of the building, making a copy of the points created by the tool.&lt;/p&gt;
          </source>
-        <translation>
-         &lt;p&gt;&lt;strong&gt;Creazione dei Punti Ricettori:&lt;/strong&gt;I calcoli dei livelli sonori sono eseguiti considerando il ricettore a 4m dal terreno.
+        <translation type="vanished">
+         &lt;p&gt;&lt;strong&gt;Creazione dei Punti Ricettori:&lt;/strong&gt; I calcoli dei livelli sonori sono eseguiti considerando il ricettore a 4m dal terreno.
          Dopo aver creato i ricettori, è possibile creare un nuovo attributo con campo di tipo numerico con altezza personalizzata diversa da 4m.
          Dallo strumento Calcola i Livelli di Rumore è possibile attivare l&apos;altezza personalizzata.
-         In questo modo è possibile creare punti ricettori a differenti piani degli edifici, eseguendo una copia dei punti creati dallo stesso strumento.&lt;/p&gt;
+         In questo modo è possibile creare punti ricettori a differenti piani degli edifici, eseguendo una copia dei punti creati dallo stesso strumento&lt;/p&gt;
          </translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="132"/>
         <source>
          &lt;p&gt;&lt;strong&gt;Create Grid Points: &lt;/strong&gt;By default, level calculations are performed 4m above the ground.  
          After creating the receivers, you can add a new attribute with a numeric field of a height other than 4m. 
@@ -1068,177 +1018,146 @@ con le seguenti impostazioni di input:</translation>
          In this way it is possible to create receptor points at different height, making a copy of the points created by the tool. 
         &lt;/p&gt;
          </source>
-        <translation>
-         &lt;p&gt;&lt;strong&gt;Creazione dei Punti Griglia:&lt;/strong&gt;I calcoli dei livelli sonori sono eseguiti considerando il ricettore a 4m dal terreno.
+        <translation type="vanished">
+         &lt;p&gt;&lt;strong&gt;Creazione dei Punti Griglia:&lt;/strong&gt; I calcoli dei livelli sonori sono eseguiti considerando il ricettore a 4m dal terreno.
          Dopo aver creato i ricettori, è possibile creare un nuovo attributo con campo di tipo numerico con altezza personalizzata diversa da 4m.
           Dallo strumento Calcola i Livelli è possibile attivare l&apos;altezza personalizzata.
-         In questo modo è possibile creare punti ricettori a differenze altezze, eseguendo una copia dei punti creati dallo stesso strumento.
+         In questo modo è possibile creare punti ricettori a differenze altezze, eseguendo una copia dei punti creati dallo stesso strumento
          &lt;/p&gt;
          </translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="217"/>
         <source>Create Receiver or Grid Points</source>
-        <translation>Crea Punti Ricevitore o Griglia</translation>
+        <translation type="vanished">Crea Punti Ricevitore o Griglia</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="330"/>
         <source>opeNoise - Create Receiver or Grid Points</source>
-        <translation>opeNoise - Crea Punti Ricevitore o Griglia</translation>
+        <translation type="vanished">opeNoise - Crea Punti Ricevitore o Griglia</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="232"/>
         <source>Please specify output receiver points layer</source>
-        <translation>Prego, specifica il layer dei punti ricevitori di output</translation>
+        <translation type="vanished">Prego, specifica il layer dei punti ricevitori di output</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="274"/>
         <source>Receiver points created with success.</source>
-        <translation>Punti ricettori creati con successo</translation>
+        <translation type="vanished">Punti ricettori creati con successo.</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="315"/>
         <source>The project have to use a projected CRS (Coordinate Reference System).</source>
-        <translation>Il progetto deve utilizzare una proiezione CRS ( Coordinate Reference System )</translation>
+        <translation type="vanished">Il progetto deve utilizzare una proiezione CRS ( Coordinate Reference System ).</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="325"/>
         <source>Please specify extension layer</source>
-        <translation>Prego, specificare l&apos;estensione del layer</translation>
+        <translation type="vanished">Prego, specificare l&apos;estensione del layer</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="330"/>
         <source>Please specify output grid points layer</source>
-        <translation>Prego, specificare il layer di output dei punti griglia</translation>
+        <translation type="vanished">Prego, specificare il layer di output dei punti griglia</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateReceiverPoints.py" line="345"/>
         <source>Please specify the output grid vector layer</source>
-        <translation>Prego, specificare il layer di output dei punti griglia</translation>
+        <translation type="vanished">Prego, specificare il layer di output dei punti griglia</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="962"/>
         <source>Please select a field</source>
-        <translation>Prego, sceli un campo</translation>
+        <translation type="vanished">Prego, sceli un campo</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsPts.py" line="150"/>
         <source>Please specify at least one power value for a reference period</source>
-        <translation>Prego, specifica almeno un valore di potenza sonora per un periodo di riferimento</translation>
+        <translation type="vanished">Prego, specifica almeno un valore di potenza sonora per un periodo di riferimento</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="252"/>
         <source>Errors in field: </source>
-        <translation>Errori nel campo: </translation>
+        <translation type="vanished">Errori nel campo: </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="252"/>
         <source> for values: </source>
-        <translation> per i valori: </translation>
+        <translation type="vanished"> per i valori: </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="257"/>
         <source>
         &lt;p&gt;&lt;strong&gt;Sound Emission level â dB(A):&lt;/strong&gt; Sound emission level expressed in dB(A) corresponding to the Laeq(1h) 
         measured at a height of 10 meters above the ground, 30 meters away from the border of an infinitely long straight road placed directly on the ground, 28 meters wide, produced by the passage of vehicles at a given speed for propagation without obstacles on a perfectly reflecting flat surface&lt;/p&gt;
         </source>
-        <translation>
+        <translation type="vanished">
         &lt;p&gt;&lt;strong&gt;Livello di Emissione Sonora - dB(A):&lt;/strong&gt; Livello di Emissione Sonora espressa in dB(A) corrispondente a Laeq(1h)
         misurata ad un&apos;altezza di 10 metri dal suolo, a 30 metri di distanza dal bordo di un rettilineo infinitamente lungo posto direttamente a terra, largo 28 metri, prodotta dal passaggio di veicoli ad una determinata velocità con propagazione senza ostacoli su una superficie perfettamente piana riflettente&lt;/p&gt;
         </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="912"/>
         <source>Choose from a numeric field of the source layer</source>
-        <translation>Scegli da un campo di tipo numerico dal layer sorgente</translation>
+        <translation type="vanished">Scegli da un campo di tipo numerico dal layer sorgente</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="917"/>
         <source>Choose from a string field of the source layer</source>
-        <translation>Scegli da un campo di tipo stringa dal layer sorgente</translation>
+        <translation type="vanished">Scegli da un campo di tipo stringa dal layer sorgente</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="919"/>
         <source>Possible Values: &apos;continuous&apos;, &apos;pulsed accelerated&apos;, &apos;pulsed decelerated&apos;, &apos;non-differentiated pulsed&apos;</source>
-        <translation>Valori Possibili: &apos;continuous&apos;, &apos;pulsed accelerated&apos;, &apos;pulsed decelerated&apos;, &apos;non-differentiated pulsed&apos;</translation>
+        <translation type="vanished">Valori Possibili: &apos;continuous&apos;, &apos;pulsed accelerated&apos;, &apos;pulsed decelerated&apos;, &apos;non-differentiated pulsed&apos;</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="937"/>
         <source>Possible Values:  &apos;down&apos;, &apos;flat&apos;, &apos;up&apos;</source>
-        <translation>Valori possibili: &apos;down&apos;, &apos;flat&apos;, &apos;up&apos;</translation>
+        <translation type="vanished">Valori possibili: &apos;down&apos;, &apos;flat&apos;, &apos;up&apos;</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="943"/>
         <source>Possible Values: &apos;smooth&apos;, &apos;porous&apos;, &apos;stones&apos;, &apos;cement&apos;, &apos;corrugated&apos;</source>
-        <translation>Valori possibili: &apos;smooth&apos;, &apos;porous&apos;, &apos;stones&apos;, &apos;cement&apos;, &apos;corrugated&apos;</translation>
+        <translation type="vanished">Valori possibili: &apos;smooth&apos;, &apos;porous&apos;, &apos;stones&apos;, &apos;cement&apos;, &apos;corrugated&apos;</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="973"/>
         <source>Please specify at least one power for a reference period</source>
-        <translation>Prego, specifica almeno una potenza sonora per il periodo di riferimento</translation>
+        <translation type="vanished">Prego, specifica almeno una potenza sonora per il periodo di riferimento</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="996"/>
         <source>Error in NMPB Traffic type: </source>
-        <translation>Errore nel tipo di Traffico in NMPB: </translation>
+        <translation type="vanished">Errore nel tipo di Traffico in NMPB: </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="1008"/>
         <source>Error in NMPB Slope type: </source>
-        <translation>Errore nel tipo di Pendenza in NMPB: </translation>
+        <translation type="vanished">Errore nel tipo di Pendenza in NMPB: </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="1021"/>
         <source>Error in NMPB Surface type: </source>
-        <translation>Errore nel tipo di Superficie in NMPB: </translation>
+        <translation type="vanished">Errore nel tipo di Superficie in NMPB: </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="1059"/>
         <source>Please specify at least one type of vehicle and reference period</source>
-        <translation>Prego, specifica almeno un tipo di veicolo nel periodo di riferimento</translation>
+        <translation type="vanished">Prego, specifica almeno un tipo di veicolo nel periodo di riferimento</translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="1055"/>
         <source>Error in CNOSSOS Surface  type: </source>
-        <translation>Errore nel tipo di Superficie Stradale di CNOSSOS: </translation>
+        <translation type="vanished">Errore nel tipo di Superficie Stradale di CNOSSOS: </translation>
     </message>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="1199"/>
         <source>Sorry, but somethigs wrong importing last settings</source>
-        <translation>Spiacente, ma si è verificato un errore durante l&apos;importazione delle ultime impostazioni</translation>
+        <translation type="vanished">Spiacente, ma si è verificato un errore durante l&apos;importazione delle ultime impostazioni</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateGrid.py" line="181"/>
         <source>opeNoise - Create Grid tool</source>
-        <translation>opeNoise - Strumento Creazione della Griglia</translation>
+        <translation type="vanished">opeNoise - Strumento Creazione della Griglia</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateGrid.py" line="151"/>
         <source>Please specify grid receiver points layer</source>
-        <translation>Prego, specifica il layer dei punti ricevitori della griglia</translation>
+        <translation type="vanished">Prego, specifica il layer dei punti ricevitori della griglia</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateGrid.py" line="156"/>
         <source>Please specify output layer for contours level</source>
-        <translation>Prego, specifica il layer deile curve di Isolivello di output</translation>
+        <translation type="vanished">Prego, specifica il layer deile curve di Isolivello di output</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateGrid.py" line="161"/>
         <source>Please specify output layer for polygons level</source>
-        <translation>Prego, specifica il layer dei poligoni di Isolivello di output</translation>
+        <translation type="vanished">Prego, specifica il layer dei poligoni di Isolivello di output</translation>
     </message>
     <message>
-        <location filename="../tools/do_CreateGrid.py" line="181"/>
         <source>Please specify the output vector layers</source>
-        <translation>Prego, specifica il layer vettoriale di output</translation>
+        <translation type="vanished">Prego, specifica il layer vettoriale di output</translation>
     </message>
 </context>
 <context>
     <name>ScrollMessageBox</name>
     <message>
-        <location filename="../tools/do_SourceDetailsRoads.py" line="1218"/>
         <source>opeNoise - Help CNOSSOS</source>
-        <translation>opeNoise - Aiuto CNOSSOS</translation>
+        <translation type="vanished">opeNoise - Aiuto CNOSSOS</translation>
     </message>
 </context>
 <context>
@@ -1312,6 +1231,8 @@ con le seguenti impostazioni di input:</translation>
         <translation>CNOSSOS (fllussi di traffico)</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="193"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="322"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="936"/>
         <source>Generic</source>
         <translation>Generico</translation>
@@ -1322,16 +1243,20 @@ con le seguenti impostazioni di input:</translation>
         <translation>Tipo di dati</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="454"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1579"/>
         <source>LIGHT</source>
         <translation>LEGGERI</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="565"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1166"/>
         <source>HEAVY</source>
         <translation>PESANTI</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="269"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="867"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1768"/>
         <source>Info</source>
         <translation>Info</translation>
@@ -1357,16 +1282,22 @@ con le seguenti impostazioni di input:</translation>
         <translation>2-RUOTE&gt; 50cc</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="231"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="370"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="952"/>
         <source>Evening</source>
         <translation>Sera</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="247"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="386"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="968"/>
         <source>Day</source>
         <translation>Giorno</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="161"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="338"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="920"/>
         <source>Night</source>
         <translation>Notte</translation>
@@ -1377,21 +1308,32 @@ con le seguenti impostazioni di input:</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Tipo di Dato&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="288"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="886"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1787"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reference Periods&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Periodo di Riferimento&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="467"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="581"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="1049"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="1179"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="1303"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="1427"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1592"/>
         <source>number/ hour</source>
         <translation>numero/ ora</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="515"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="629"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1640"/>
         <source>speed  [km/ h]</source>
         <translation>velocità [km/ h]</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="668"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1546"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Vehicle type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Tipo di Veicolo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -1417,6 +1359,7 @@ con le seguenti impostazioni di input:</translation>
         <translation>Superficie Stradale (tipo stringa)</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="819"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1726"/>
         <source>Features not depending on vehicles type or reference periods, see also Info:</source>
         <translation>Caratteristiche che non dipendono dal tipo di veicolo o dai periodi di riferimento, vedi anche Info:</translation>
@@ -1427,6 +1370,9 @@ con le seguenti impostazioni di input:</translation>
         <translation>Tipo di Dati</translation>
     </message>
     <message>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="1097"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="1227"/>
+        <location filename="../tools/ui_SourceDetailsRoads.ui" line="1351"/>
         <location filename="../tools/ui_SourceDetailsRoads.ui" line="1475"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;speed  [km/ h]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;velocità [km/h]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -1482,7 +1428,7 @@ con le seguenti impostazioni di input:</translation>
     <message>
         <location filename="../tools/ui_Helps.ui" line="47"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;OpeNoise&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;The plugin allows to estimate noise levels generated by point sources or by road sources at fixed receiver points and buildings. NMPB-Routes-96 and CNOSSOS methods for road emission are implemented.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;WARNING:&lt;/span&gt; the plugin supports only projected CRS files&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Please consider the following conditions&lt;/p&gt;&lt;p&gt;1) taking into account:&lt;br/&gt;- geometrical divergence&lt;br/&gt;- atmospheric absorption ISO 9613-1&lt;br/&gt;- pure diffraction without ground effects, for horizontal and vertical obstacles &lt;br/&gt;- modelization is 3D&lt;br/&gt;&lt;/p&gt;&lt;p&gt;2) not taking into account:&lt;br/&gt;- reflection&lt;br/&gt;- terrain is flat&lt;br/&gt;- ground effect&lt;br/&gt;- meteorological conditions&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reference Documentation:&lt;br/&gt;&lt;/span&gt;- &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32002L0049&amp;amp;from=EN&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Directive 2002/49/EC&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;- Annex II to Directive 2002/49/EC &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;amp;from=PT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2015/996&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;- amends Annex II to Directive 2002/49/EC &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32021L1226&amp;amp;from=IT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2021/1226&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;- amends Annex III to Directive 2002/49/EC &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32020L0367&amp;amp;from=IT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2020/367&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;OpeNoise&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Il plugin permette di stimare i livelli di rumore generati da sorgenti puntiformi o da sorgenti stradali in punti di ricezione fissi ed edifici. Vengono implementati i metodi NMPB-Routes-96 e CNOSSOS per le emissioni stradali.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ATTENZIONE:&lt;/span&gt;il plugin supporta solo file con proiezioni CRS&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Prego considerare le seguenti condizioni&lt;/p&gt;&lt;p&gt;1) Tiene conto:&lt;br/&gt;- divergenza geometrica&lt;br/&gt;- assorbimento atmosferico  ISO 9613-1&lt;br/&gt;- diffrazione pura senza l&apos;effetto del terreno per ostacoli orizzontali e verticali&lt;br/&gt;- modellizzazione è in 3D&lt;br/&gt;&lt;/p&gt;&lt;p&gt;2) Non tiene conto:&lt;br/&gt;- riflessioni&lt;br/&gt;- il terreno è piatto&lt;br/&gt; - effetto del terreno&lt;br/&gt;- condizioni metereologiche&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Documentazione di Riferimento&lt;br/&gt;&lt;/span&gt;- &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32002L0049&amp;amp;from=EN&quot;&gt; Direttiva 2002/49/CE&lt;br/&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;&lt;/a&gt;- Allegato II alla Direttiva 2002/49/CE &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;amp;from=PT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2015/996&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;-
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;OpeNoise&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Il plugin permette di stimare i livelli di rumore generati da sorgenti puntiformi o da sorgenti stradali in punti di ricezione fissi ed edifici. Vengono implementati i metodi NMPB-Routes-96 e CNOSSOS per le emissioni stradali.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ATTENZIONE:&lt;/span&gt; il plugin supporta solo file con proiezioni CRS&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Prego considerare le seguenti condizioni&lt;/p&gt;&lt;p&gt;1) Tiene conto:&lt;br/&gt;- divergenza geometrica&lt;br/&gt;- assorbimento atmosferico  ISO 9613-1&lt;br/&gt;- diffrazione pura senza l&apos;effetto del terreno per ostacoli orizzontali e verticali&lt;br/&gt;- modellizzazione è in 3D&lt;br/&gt;&lt;/p&gt;&lt;p&gt;2) Non tiene conto:&lt;br/&gt;- riflessioni&lt;br/&gt;- il terreno è piatto&lt;br/&gt; - effetto del terreno&lt;br/&gt;- condizioni metereologiche&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Documentazione di Riferimento&lt;br/&gt;&lt;/span&gt;- &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32002L0049&amp;amp;from=EN&quot;&gt; Direttiva 2002/49/CE&lt;br/&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;&lt;/a&gt;- Allegato II alla Direttiva 2002/49/CE &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32015L0996&amp;amp;from=PT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2015/996&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;-
 modifica Allegato II alla Directive 2002/49/CE &lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32021L1226&amp;amp;from=IT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2021/1226&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;- modifica Allegato III all Directive 2002/49/CE &lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;COMMISSION DIRECTIVE (EU) 2020/367&lt;/span&gt;&lt;a href=&quot;https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32020L0367&amp;amp;from=IT&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -1498,17 +1444,17 @@ modifica Allegato II alla Directive 2002/49/CE &lt;a href=&quot;https://eur-lex.
     <message>
         <location filename="../tools/ui_Helps.ui" line="102"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Create Receiver Points &lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;The tool generates a series of receiver points around buildings&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- choose the buildings to which you will create the receiving points (polygons layer)&lt;br/&gt;- choose the dwo althernative methods of creation: &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1) Receiver points in the middle of façades; &lt;br/&gt;2) Façades split up at set distance from start of polygon (according to case 2b - § 2.8 Directive 2002/49/EC Annex II - Façades are split up every 5 meters from starting position onwards, with a receiver position placed halfway the 5 meters segment. The remaining section has its receiver point in the middle).&lt;br/&gt;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - &lt;br/&gt;- By default, receiver points are located 0.1 meters from the building.&lt;br/&gt;- By default, the level calculations are performed 4 meters above the ground. &lt;br/&gt;- After creating the receivers, you can add a new attribute with a numeric field of a height other than 4 meters. In &lt;span style=&quot; font-size:10pt;&quot;&gt;CALCULATE NOISE LEVELS&lt;/span&gt; tool, you can activate the custom height of the receivers. In this way it is possible to create receptor points at different floors of the building, making a copy of the points created by the tool.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Grid Points&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;The tool generates a series of receiver points with a certain spacing &lt;br/&gt;according to § 2.8 Directive 2002/49/EC Annex II&lt;br/&gt;&lt;br/&gt;&lt;/span&gt;- By default, receiving points are located 0.1 meters from the building&lt;br/&gt;- By default, level calculations are performed 4 meters above the ground.&lt;br/&gt;- After creating the receivers, you can add a new attribute with a numeric field of a height other than 4 meters. In &lt;span style=&quot; font-size:10pt;&quot;&gt;CALCULATE NOISE LEVELS&lt;/span&gt; tool, you can activate the custom height of the receivers. In this way it is possible to create receptor points at different height, making a copy of the points created by the tool.&lt;br/&gt;- Subsequently, the sound levels can be calculated with tool &lt;span style=&quot; font-size:10pt;&quot;&gt;CALCULATE NOISE LEVELS&lt;/span&gt;, after with the tool &lt;span style=&quot; font-size:10pt;&quot;&gt;CONTOURS LEVEL&lt;/span&gt; draw the level curves.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;- Buildings (Polygons layer)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;OUTPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;- Receiver points (Points layer)&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Reference Layer in - Data Set for Testing -&lt;/span&gt;&lt;/p&gt;&lt;p&gt;1. buildings&lt;br/&gt;2. receveir_points (layer created with the tool &apos;Create Receiver or Grid Points&apos;)&lt;br/&gt;7. grid_receivers (layer created with the tool &apos;Create Receiver or Grid Points&apos;)&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Crea i Punti Ricettori&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Lo strumento genera una serie di punti di ricezione intorno agli edifici&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt; - scegli gli edifici a cui vuoi creare i punti di ricezione (layer poligonale)&lt;br/&gt;- scegli i due metodi di creazione alternativi:&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1) I punti ricettori sono collocati alla metà di ogni facciata;&lt;br/&gt;2) Facciate suddivise a distanze fisse dal punto di origine del poligono (in accordo al caso 2b - § 2.8 Direttiva2002/49/CE Allegato II - Le facciate sono suddivise in segmenti di 5 m a partire dal punto iniziale e il punto ricettore è posto a metà della facciata o del segmento di 5 m).&lt;br/&gt; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - &lt;br/&gt;- Per impostazione predefinita, i punti di ricezione si trovano a 0,1 metri dall&apos;edificio.&lt;br/&gt;- Per impostazione predefinita, i calcoli del livello vengono eseguiti a 4 metri dal suolo.&lt;br/&gt;- Dopo aver creato i ricevitori, puoi aggiungere un nuovo attributo con un campo numerico di altezza diversa da 4 metri. Con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CALCOLO DEI LIVELLI SONORI&lt;/span&gt; è possibile attivare l&apos;altezza personalizzata dei ricevitori. In questo modo è possibile creare punti ricettori a diversi piani dell&apos;edificio, facendo una copia dei punti creati.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Punti Griglia&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Lo strumento genera una serie di punti ricevitore con una spaziatura impostatata&lt;br/&gt;in accordo al § 2.8 Direttiva 2002/49/CE Allegato II&lt;br/&gt;&lt;br/&gt;&lt;/span&gt;- Per impostazione predefinita, i punti di ricezione si trovano a 0,1 metri dall&apos;edificio.&lt;br/&gt;- Per impostazione predefinita, i calcoli del livello vengono eseguiti a 4 metri dal suolo.&lt;br/&gt; Dopo aver creato i ricevitori, puoi aggiungere un nuovo attributo con un campo numerico di altezza diversa da 4 metri. Con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CALCOLO DEI LIVELLI SONORI&lt;/span&gt; è possibile attivare l&apos;altezza personalizzata dei ricevitori. In questo modo è possibile creare punti ricettori a diversi piani dell&apos;edificio, facendo una copia dei punti creati.&lt;br/&gt;Successivamente, i livelli sonori possono essere calcolati con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CALCOLO DEI LIVELLI SONORI&lt;/span&gt; e ancora dopo con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CURVE DI LIVELLO &lt;/span&gt;si possono disegnare le curve di isolivello.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;- Buildings (layer poligonale)&lt;span style=&quot; font-style:italic;&quot;&gt;&lt;p&gt;- Punti Ricettori (layer puntuale)&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Layer di Riferimento - Dati di Test -&lt;/span&gt;&lt;/p&gt;&lt;p&gt;1. buildings&lt;br/&gt;2. receveir_points (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia&apos;)&lt;br/&gt;7. grid_receivers (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia&apos;)&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Crea i Punti Ricettori&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Lo strumento genera una serie di punti di ricezione intorno agli edifici&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt; - scegli gli edifici a cui vuoi creare i punti di ricezione (layer poligonale)&lt;br/&gt;- scegli i due metodi di creazione alternativi:&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1) I punti ricettori sono collocati alla metà di ogni facciata;&lt;br/&gt;2) Facciate suddivise a distanze fisse dal punto di origine del poligono (in accordo al caso 2b - § 2.8 Direttiva 2002/49/CE Allegato II - Le facciate sono suddivise in segmenti di 5 m a partire dal punto iniziale e il punto ricettore è posto a metà della facciata o del segmento di 5 m).&lt;br/&gt; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - &lt;br/&gt;- Per impostazione predefinita, i punti di ricezione si trovano a 0,1 metri dall&apos;edificio.&lt;br/&gt;- Per impostazione predefinita, i calcoli del livello vengono eseguiti a 4 metri dal suolo.&lt;br/&gt;- Dopo aver creato i ricevitori, puoi aggiungere un nuovo attributo con un campo numerico di altezza diversa da 4 metri. Con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CALCOLO DEI LIVELLI SONORI&lt;/span&gt; è possibile attivare l&apos;altezza personalizzata dei ricevitori. In questo modo è possibile creare punti ricettori a diversi piani dell&apos;edificio, facendo una copia dei punti creati.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Punti Griglia&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Lo strumento genera una serie di punti ricevitore con una spaziatura impostatata&lt;br/&gt;in accordo al § 2.8 Direttiva 2002/49/CE Allegato II&lt;br/&gt;&lt;br/&gt;&lt;/span&gt;- Per impostazione predefinita, i punti di ricezione si trovano a 0,1 metri dall&apos;edificio.&lt;br/&gt;- Per impostazione predefinita, i calcoli del livello vengono eseguiti a 4 metri dal suolo.&lt;br/&gt; Dopo aver creato i ricevitori, puoi aggiungere un nuovo attributo con un campo numerico di altezza diversa da 4 metri. Con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CALCOLO DEI LIVELLI SONORI&lt;/span&gt; è possibile attivare l&apos;altezza personalizzata dei ricevitori. In questo modo è possibile creare punti ricettori a diversi piani dell&apos;edificio, facendo una copia dei punti creati.&lt;br/&gt;Successivamente, i livelli sonori possono essere calcolati con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CALCOLO DEI LIVELLI SONORI&lt;/span&gt; e ancora dopo con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt; CURVE DI LIVELLO &lt;/span&gt;si possono disegnare le curve di isolivello.&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;- Buildings (layer poligonale)&lt;span style=&quot; font-style:italic;&quot;&gt;&lt;p&gt;- Punti Ricettori (layer puntuale)&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Layer di Riferimento - Dati di Test -&lt;/span&gt;&lt;/p&gt;&lt;p&gt;1. buildings&lt;br/&gt;2. receveir_points (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia&apos;)&lt;br/&gt;7. grid_receivers (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia&apos;)&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tools/ui_Helps.ui" line="156"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;This tool estimates noise levels at receiver points from point sources &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;A ray is traced between each point source and each receiver point and then, if the length of the ray is less than a fixed distance (chosen in Parameters-&amp;gt; Search Ray), noise level will be calculated.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;The calculation takes into account the geometrical divergence for a spherical point source, atmospheric absorption and pure diffraction without ground effects, for horizontal and vertical obstacles. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;The receiving points are located 4 meters above ground level, by default. &lt;br/&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;O&lt;/span&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;therwise you can create a new attribute with a height field other than 4m.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;If the ray crosses an obstacle, it won&apos;t be considered. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;It&apos;s possible to create the rays layer.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;In the calculation the buldings are considered as obstacles. To take into account the building in 3D you can create a new attribute with a height field of buildings.&lt;br/&gt;For this reason it is possible to insert noise barrier in this layer.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;The computation is available for 4 reference periods: &lt;br/&gt;Generic, Day, Evening, Night. In addition, it is possible to calculate Lden using the indication of the European Directive 2002/49/EC (defining the lasting time for each reference period).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;The results are written in the attribute table of the receiver points layer and are expressed in dB(A). &lt;br/&gt;If the level is not calculated or it is less than zero the value -99 is assigned.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Receiver points (Point layer)&lt;br/&gt;- Point sources (Point layer with a field containing the power level of the sources)&lt;br/&gt;- Buildings (Polygon layer) - optional –&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;OUTPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Direct sound rays (Polyline layer) - optional -&lt;br/&gt;- Diffracted sound rays (Polyline layer) - optional -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Reference Layer in - Data Set for Testing -&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. buildings&lt;br/&gt;2. receveirs_points (layer created with the tool &apos;Create Receiver or Grid Points&apos;)&lt;br/&gt;3. source_points&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Questo strumento stima i livelli di rumore nei punti di ricezione da sorgenti puntiformi &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Viene tracciato un raggio tra ciascuna sorgente puntiforme e ciascun punto ricevitore e quindi, se la lunghezza del raggio è inferiore a una distanza fissa (scelta in Parametri-&gt; Raggio di Ricerca), verrà calcolato il livello di rumore.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Il calcolo tiene conto della divergenza geometrica per una sorgente puntiforme sferica, dell&apos;assorbimento atmosferico e della diffrazione pura senza effetti suolo, per ostacoli orizzontali e verticali. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Per impostazione predefinita, i punti di ricezione si trovano a 4 metri sopra il livello del suolo.&lt;br/&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;&lt;/span&gt;Altrimenti puoi creare un nuovo attributo con un campo di altezza diverso da 4 m. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Se il raggio attraversa un ostacolo, non verrà considerato.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;È possibile creare il layer dei raggi.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Nel calcolo, gli edifici sono considerati come ostacoli. Per tenere conto dell&apos;edificio in 3D è possibile creare un nuovo attributo con un campo di altezza degli edifici. &lt;br/&gt;Per questo motivo è possibile inserire in questo layer una barriera antirumore.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Il calcolo è disponibile per 4 periodi di riferimento: &lt;br/&gt;Generico, Giorno, Sera, Notte. Inoltre, è possibile calcolare Lden utilizzando l&apos;indicazione della Direttiva Europea 2002/49/CE (definendo il tempo di durata per ciascun periodo di riferimento).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;I risultati sono scritti nella tabella degli attributi del livello dei punti ricevitore e sono espressi in dB(A).&lt;br/&gt;Se il livello non viene calcolato o è inferiore a zero viene assegnato il valore -99.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI INPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Receiver points (Layer puntuale)&lt;br/&gt;- Point sources (Layer di punti con un campo contenente il livello di potenza delle sorgenti)&lt;br/&gt;- Buildings (Polygon layer) - optionale –&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI OUTPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Direct sound rays (Layer lineare) - optionale -&lt;br/&gt;- Diffracted sound rays (Layer polilinea) - optionale -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Reference Layer in - Dati di Test -&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. buildings&lt;br/&gt;2. receveirs_points (layer creato con lo strumento &apos;Crea Ricettori o Griglia di Punti&apos;)&lt;br/&gt;3. source_points&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Questo strumento stima i livelli di rumore nei punti di ricezione da sorgenti puntiformi &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Viene tracciato un raggio tra ciascuna sorgente puntiforme e ciascun punto ricevitore e quindi, se la lunghezza del raggio è inferiore a una distanza fissa (scelta in Parametri -&gt; Raggio di Ricerca), verrà calcolato il livello di rumore.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Il calcolo tiene conto della divergenza geometrica per una sorgente puntiforme sferica, dell&apos;assorbimento atmosferico e della diffrazione pura senza effetti suolo, per ostacoli orizzontali e verticali. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Per impostazione predefinita, i punti di ricezione si trovano a 4 metri sopra il livello del suolo.&lt;br/&gt;&lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;&lt;/span&gt;Altrimenti puoi creare un nuovo attributo con un campo di altezza diverso da 4 m. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Se il raggio attraversa un ostacolo, non verrà considerato.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;È possibile creare il layer dei raggi.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Nel calcolo, gli edifici sono considerati come ostacoli. Per tenere conto dell&apos;edificio in 3D è possibile creare un nuovo attributo con un campo di altezza degli edifici. &lt;br/&gt;Per questo motivo è possibile inserire in questo layer una barriera antirumore.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Il calcolo è disponibile per 4 periodi di riferimento: &lt;br/&gt;Generico, Giorno, Sera, Notte. Inoltre, è possibile calcolare Lden utilizzando l&apos;indicazione della Direttiva Europea 2002/49/CE (definendo il tempo di durata per ciascun periodo di riferimento).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;I risultati sono scritti nella tabella degli attributi del livello dei punti ricevitore e sono espressi in dB(A).&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;ATTENZIONE: &lt;/span&gt;se il livello non è calcolato o è inferiore a zero viene assegnato il valore -99..&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI INPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Receiver points (Layer puntuale)&lt;br/&gt;- Point sources (Layer di punti con un campo contenente il livello di potenza delle sorgenti)&lt;br/&gt;- Buildings (Polygon layer) - optionale –&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI OUTPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Direct sound rays (Layer lineare) - optionale -&lt;br/&gt;- Diffracted sound rays (Layer polilinea) - optionale -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Reference Layer in - Dati di Test -&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. buildings&lt;br/&gt;2. receveirs_points (layer creato con lo strumento &apos;Crea Ricettori o Griglia di Punti&apos;)&lt;br/&gt;3. source_points&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tools/ui_Helps.ui" line="192"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;The tool estimates noise levels at receiver points generated by road sources &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;For each road (line of the polyline layer) the sound power level is calculated in accordance with NMPB &apos;96 or CNOSSOS standards - Annex II to Directive 2002/49/EC COMMISSION DIRECTIVE (EU) 2015/996 and amends Annex II to Directive 2002/49/EC COMMISSION DIRECTIVE (EU) 2021/1226.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Then each road is divided in emission points spaced half of the minimum distance receiver points - road. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;A ray is traced between each emission point and each receiver point and then, if the length of the ray is less than a fixed distance (chosen in Parameters-&amp;gt; Search Ray), noise level will be calculated (the distance is calculated considering the receiver points at 4m above the ground, by default. &lt;a name=&quot;tw-target-text&quot;/&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;O&lt;/span&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;therwise you can create a new attribute with a height field other than 4 meters.&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;In the calculation it&apos;s taken into account the geometrical divergence, atmospheric absorption and pure diffraction without ground effects, for horizontal and vertical obstacles.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;If the ray crosses an obstacle, it won&apos;t be considered.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;It&apos;s possible to create the emission points and rays layers. &lt;br/&gt;&lt;br/&gt;In the calculation the buldings are considerable as obstacles. For this reason it is possible to insert noise barrier in this layer.&lt;br/&gt;&lt;br/&gt;To take into account the building in 3D you can create a new attribute with a height field of buildings.&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;The computation is available for 4 reference periods: Generic, Day, Evening, Nigth. &lt;br/&gt;In addition, it is possible to calculate Lden using the indication of the European Directive 2002/49/EC (defining the lasting time for each reference period). &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;The results are written in the attribute table of the receiver points layer and are expressed in dB(A). &lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;WARNING: &lt;/span&gt;if the level is not calculated or is less than zero the value -99 is assigned.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA: &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Receiver points (Point layer)&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Roads (Polyline layer) - In the attributes table it&apos;s necessary to have some fields with information about the characteristic of the single road to estimates the sound power level in accordance with NMPB &apos;96 and CNOSSOS (Example can be viewed in the Data Set for testing).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Buildings (Polygon layer) - optional -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;OUTPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Direct sound rays (Polyline layer) - optional -&lt;br/&gt;- Diffracted sound rays (Polyline layer) - optional -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Reference Layer in - Data Set for Testing -&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. buildings&lt;br/&gt;2. receveir_points (layer created with the tool &apos;Create Receiver or Grid Points&apos;)&lt;br/&gt;4. roads_NMPB_emission&lt;br/&gt;5. roads_NMPB_traffic_flow&lt;br/&gt;6. roads_CNOSSOS_traffic_flow&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lo strumento stima i livelli di rumore nei punti di ricezione generati dalle sorgenti stradali &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;Per ciascuna strada (linea del layer lineare) il livello di potenza sonora è calcolato secondo le norme NMPB &apos;96 o CNOSSOS - Allegato II alla Direttiva 2002/49/CE DIRETTIVA DELLA COMMISSIONE (UE) 2015/996 e modifica all&apos;Allegato II alla Direttiva 2002 /49/CE DIRETTIVA (UE) 2021/1226 DELLA COMMISSIONE.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Quindi ogni strada è divisa in punti di emissione distanziati a metà della distanza minima dei punti ricevitore - strada.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Viene tracciato un raggio tra ciascun punto di emissione e ciascun punto ricevitore e quindi, se la lunghezza del raggio è inferiore a una distanza fissa (scelta in Parametri-&gt; Raggio di ricerca), verrà calcolato il livello di rumore (la distanza viene calcolata considerando il punto ricevitore a 4 m dal suolo, come impostazione predefinita. Altrimenti puoi creare un nuovo attributo con un campo di altezza diverso da 4 metri.&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Nel calcolo si tiene conto della divergenza geometrica, dell&apos;assorbimento atmosferico e della diffrazione pura senza effetti del suolo, per ostacoli orizzontali e verticali.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Se il raggio attraversa un ostacolo, non verrà considerato.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;E&apos; possibile creare i punti di emissione e i layer dei raggi.&lt;br/&gt;&lt;br/&gt;Nel calcolo gli edifici sono considerevoli come ostacoli. Per questo motivo è possibile inserire in questo layer una barriera antirumore.&lt;br/&gt;&lt;br/&gt;Per tenere conto dell&apos;edificio in 3D è possibile creare un nuovo attributo con un campo di altezza degli edifici.&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;Il calcolo è disponibile per 4 periodi di riferimento: Generico, Giorno, Sera, Notte.&lt;br/&gt;Inoltre, è possibile calcolare Lden utilizzando l&apos;indicazione della Direttiva Europea 2002/49/CE (definendo il tempo di durata per ciascun periodo di riferimento).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;I risultati sono scritti nella tabella degli attributi del layer dei punti ricevitore e sono espressi in dB(A).&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;ATTENZIONE: &lt;/span&gt;se il livello non è calcolato o è inferiore a zero viene assegnato il valore -99.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA: &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Receiver points (layer puntuale)&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Roads (layer lineare) -Nella tabella degli attributi è necessario avere dei campi con informazioni sulle caratteristiche della singola strada per stimare il livello di potenza sonora secondo NMPB &apos;96 e CNOSSOS (Esempio visibile nei Dati di Test).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Buildings (layer poligonale) - opzionale -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI OUTPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Direct sound rays (layer lineare) - opzionale -&lt;br/&gt;- Diffracted sound rays (Polyline layer) - opzionale -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Layer di Riferimento - Data di Test-&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. buildings&lt;br/&gt;2. receveir_points (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia&apos;)&lt;br/&gt;4. roads_NMPB_emission&lt;br/&gt;5. roads_NMPB_traffic_flow&lt;br/&gt;6. roads_CNOSSOS_traffic_flow&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lo strumento stima i livelli di rumore nei punti di ricezione generati dalle sorgenti stradali &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;Per ciascuna strada (linea del layer lineare) il livello di potenza sonora è calcolato secondo le norme NMPB &apos;96 o CNOSSOS - Allegato II alla Direttiva 2002/49/CE DIRETTIVA DELLA COMMISSIONE (UE) 2015/996 e modifica all&apos;Allegato II alla Direttiva 2002/49/CE DIRETTIVA (UE) 2021/1226 DELLA COMMISSIONE.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Quindi ogni strada è divisa in punti di emissione distanziati a metà della distanza minima dei punti ricevitore - strada.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Viene tracciato un raggio tra ciascun punto di emissione e ciascun punto ricevitore e quindi, se la lunghezza del raggio è inferiore a una distanza fissa (scelta in Parametri -&gt; Raggio di ricerca), verrà calcolato il livello di rumore (la distanza viene calcolata considerando il punto ricevitore a 4 m dal suolo, come impostazione predefinita. Altrimenti puoi creare un nuovo attributo con un campo di altezza diverso da 4 metri).&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Nel calcolo si tiene conto della divergenza geometrica, dell&apos;assorbimento atmosferico e della diffrazione pura senza effetti del suolo, per ostacoli orizzontali e verticali.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Se il raggio attraversa un ostacolo, non verrà considerato.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;E&apos; possibile creare i punti di emissione e i layer dei raggi.&lt;br/&gt;&lt;br/&gt;Nel calcolo gli edifici sono considerevoli come ostacoli. Per questo motivo è possibile inserire in questo layer una barriera antirumore.&lt;br/&gt;&lt;br/&gt;Per tenere conto dell&apos;edificio in 3D è possibile creare un nuovo attributo con un campo di altezza degli edifici.&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;Il calcolo è disponibile per 4 periodi di riferimento: Generico, Giorno, Sera, Notte.&lt;br/&gt;Inoltre, è possibile calcolare Lden utilizzando l&apos;indicazione della Direttiva Europea 2002/49/CE (definendo il tempo di durata per ciascun periodo di riferimento).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;I risultati sono scritti nella tabella degli attributi del layer dei punti ricevitore e sono espressi in dB(A).&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;ATTENZIONE: &lt;/span&gt;se il livello non è calcolato o è inferiore a zero viene assegnato il valore -99.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA: &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Receiver points (layer puntuale)&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Roads (layer lineare) -Nella tabella degli attributi è necessario avere dei campi con informazioni sulle caratteristiche della singola strada per stimare il livello di potenza sonora secondo NMPB &apos;96 e CNOSSOS (Esempio visibile nei Dati di Test).&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Buildings (layer poligonale) - opzionale -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI OUTPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Direct sound rays (layer lineare) - opzionale -&lt;br/&gt;- Diffracted sound rays (Polyline layer) - opzionale -&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Layer di Riferimento - Data di Test-&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. buildings&lt;br/&gt;2. receveir_points (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia&apos;)&lt;br/&gt;4. roads_NMPB_emission&lt;br/&gt;5. roads_NMPB_traffic_flow&lt;br/&gt;6. roads_CNOSSOS_traffic_flow&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tools/ui_Helps.ui" line="218"/>
@@ -1519,7 +1465,7 @@ modifica Allegato II alla Directive 2002/49/CE &lt;a href=&quot;https://eur-lex.
         <location filename="../tools/ui_Helps.ui" line="235"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;The tool draws a layer of contours starting from the previously&lt;br/&gt;calculated grid receiver points&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;NOTE: Run this tool after creating grid receiver points and calculating noise levels&lt;br/&gt;&lt;br/&gt;- choose the receptor grid previously created with the tool &lt;span style=&quot; font-size:10pt;&quot;&gt;CREATE RECEIVERS OR GRID POINTS&lt;/span&gt;;&lt;br/&gt;- choose the noise levels for which you want to draw the contours line;&lt;br/&gt;- &lt;a name=&quot;tw-target-text&quot;/&gt;choose the minimum and maximum noise level you want to draw;&lt;br/&gt;- choose the range of contours line;&lt;br/&gt;- save countours line and contours (polygon layer);&lt;br/&gt;- the total area in m&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; exposed to values interval is saved in the polygons level. &lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;INPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Point layer - In the attributes table it&apos;s necessary to have at least a field with noise levels&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;OUTPUT DATA:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;- &lt;/span&gt;polilyne layer - contours level&lt;br/&gt;- polygon layer - polygons level - the total area in m&lt;span style=&quot; font-style:italic; vertical-align:super;&quot;&gt;2&lt;/span&gt; exposed to values interval is stored &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Reference Layer in - Data Set for Testing -&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;7. grid_receiver (layer created with the tool &apos;Create Receiver or Grid Points&apos;)&lt;br/&gt;8. contours_level (layer created with the tool &apos;Contours Levels&apos;)&lt;br/&gt;9. polygons_level (layer created with the tool &apos;Contours Levels&apos;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Lo strumento disegna il layer di isolivello partendo dai punti ricevitori della griglia calcolati in precedenza&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;NOTA: Esegui questo strumento dopo aver creato i punti ricettori della griglia e calcolato i livelli di rumore&lt;br/&gt;&lt;br/&gt;- scegliere la griglia del ricettore precedentemente creata con lo strumento&lt;span style=&quot; font-size:10pt;&quot;&gt;CREA PUNTI RICETTORI o GRIGLIA&lt;/span&gt;:&lt;br/&gt;
-- scegli i livelli di rumore per i quali vuoi tracciare le curve di isolivello;&lt;br/&gt;-&lt;a name=&quot;tw-target-text&quot;/&gt; scegli il minimo e massimo livello sonoro che vuoi rappresentare;&lt;br/&gt;- scegli l&apos;intervallo delle curve di isolivello&lt;br/&gt;- salva le curve di isolivello e il poligono delle curve (layer poligonale);&lt;br/&gt; L&apos;area totale in m&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; di esposizione è salvata nel poligono delle curve.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI INPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Layer puntuale - Nella tabella degli attributi è necessario avere almeno un campo con i livelli di rumore&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI OUTPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;-&lt;/span&gt; layer poligonale - contours level &lt;br/&gt;- layer poligonale - contours level &lt;br/&gt;- l&apos;area totale di esposizione in m&lt;span style=&quot; font-style:italic; vertical-align:super;&quot;&gt;2&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Layer di Riferimento - Dati di Test -&lt;p align=&quot;justify&quot;&gt;7. grid_receiver (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia)&lt;br/&gt;8. contours_level  (layer creato con lo strumento &apos;Curve di Livello&apos;)&lt;br/&gt;9. polygons_level (layer creato con lo strumento &apos;Curve di Livello&apos;)&lt;/body&gt;&lt;/html&gt;</translation>
+- scegli i livelli di rumore per i quali vuoi tracciare le curve di isolivello;&lt;br/&gt;-&lt;a name=&quot;tw-target-text&quot;/&gt; scegli il minimo e massimo livello sonoro che vuoi rappresentare;&lt;br/&gt;- scegli l&apos;intervallo delle curve di isolivello&lt;br/&gt;- salva le curve di isolivello e il poligono delle curve (layer poligonale);&lt;br/&gt; L&apos;area totale in m&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt; di esposizione è salvata nel poligono delle curve.&lt;br/&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI INPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;- Layer puntuale - Nella tabella degli attributi è necessario avere almeno un campo con i livelli di rumore&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;DATI DI OUTPUT:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;-&lt;/span&gt; layer poligonale - contours level &lt;br/&gt;- layer poligonale - contours level &lt;br/&gt;- l&apos;area totale di esposizione in m&lt;span style=&quot; font-style:italic; vertical-align:super;&quot;&gt;2&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Layer di Riferimento - Dati di Test -&lt;p align=&quot;justify&quot;&gt;7. grid_receiver (layer creato con lo strumento &apos;Crea Punti Ricettori o Griglia&apos;)&lt;br/&gt;8. contours_level  (layer creato con lo strumento &apos;Curve di Livello&apos;)&lt;br/&gt;9. polygons_level (layer creato con lo strumento &apos;Curve di Livello&apos;)&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../tools/ui_Helps.ui" line="258"/>
@@ -1560,6 +1506,7 @@ modifica Allegato II alla Directive 2002/49/CE &lt;a href=&quot;https://eur-lex.
 <context>
     <name>calculateGridNoise_window</name>
     <message>
+        <location filename="../tools/ui_ContoursLevel.ui" line="14"/>
         <location filename="../tools/ui_CreateContours.ui" line="14"/>
         <source>OpeNoise - Contours Level</source>
         <translation>OpenNoise - Curve di Livello</translation>
@@ -1595,12 +1542,16 @@ modifica Allegato II alla Directive 2002/49/CE &lt;a href=&quot;https://eur-lex.
         <translation>Intervallo dei Livelli Sonori [dB(A)]</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="114"/>
+        <location filename="../tools/ui_ContoursLevel.ui" line="114"/>
+        <location filename="../tools/ui_CreateContours.ui" line="117"/>
         <source>Contours Level (output layer) </source>
         <translation>Curve di Livello ( layer di output ) </translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="145"/>
+        <location filename="../tools/ui_ContoursLevel.ui" line="124"/>
+        <location filename="../tools/ui_ContoursLevel.ui" line="145"/>
+        <location filename="../tools/ui_CreateContours.ui" line="127"/>
+        <location filename="../tools/ui_CreateContours.ui" line="148"/>
         <source>Browse</source>
         <translation>Sfoglia</translation>
     </message>
@@ -1615,47 +1566,48 @@ modifica Allegato II alla Directive 2002/49/CE &lt;a href=&quot;https://eur-lex.
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;La superficie totale in m&lt;/span&gt;&lt;span style=&quot; font-style:italic; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;di esposizione nell&apos;intervallo di valori è salvata nei poligoni di isolivello&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="183"/>
+        <location filename="../tools/ui_ContoursLevel.ui" line="186"/>
+        <location filename="../tools/ui_CreateContours.ui" line="210"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="20"/>
+        <location filename="../tools/ui_CreateContours.ui" line="23"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Determination of contours level and the area exposed to noise&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;In according to §2.8 Directive 2002/49/EC Annex II &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Warning&lt;/span&gt;: Run this tool after create a grid receivers and calculation noise levels for it&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Determina le Curve di Livello e le Aree di Esposizione al Rumore&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt; in accordo al §2.8 della DIrettiva 2002/49/CE  Allegato II&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ATTENZIONE&lt;/span&gt;: esegui lo strumento dopo aver creato i punti ricevitori&lt;br/&gt; della griglia e aver calcolato i livelli sonori&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="29"/>
+        <location filename="../tools/ui_CreateContours.ui" line="32"/>
         <source>Grid Receivers (input layer)</source>
         <translation>Ricettori della Griglia ( layer di input )</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="43"/>
+        <location filename="../tools/ui_CreateContours.ui" line="46"/>
         <source>Noise Level [dB(A)]</source>
         <translation>Livello Sonoro [dB(A)]</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="57"/>
+        <location filename="../tools/ui_CreateContours.ui" line="60"/>
         <source>Minimum [dB(A)]</source>
         <translation>Minimo [dB(A)]</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="75"/>
+        <location filename="../tools/ui_CreateContours.ui" line="78"/>
         <source>Maximum [dB(A)]</source>
         <translation>Massimo [dB(A)]</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="96"/>
+        <location filename="../tools/ui_CreateContours.ui" line="99"/>
         <source>Interval [dB(A)]</source>
         <translation>Intervallo [dB(A)]</translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="135"/>
+        <location filename="../tools/ui_CreateContours.ui" line="138"/>
         <source>Polygon Levels (output layer) </source>
         <translation>Poligoni di Isolivello ( layer di output ) </translation>
     </message>
     <message>
-        <location filename="../tools/ui_CreateContours.ui" line="154"/>
+        <location filename="../tools/ui_CreateContours.ui" line="175"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;The total area in m&lt;/span&gt;&lt;span style=&quot; font-style:italic; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt; exposed to values interval is stored in the polygon levels&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;La superficie totale in m&lt;/span&gt;&lt;span style=&quot; font-style:italic; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;di esposizione nell&apos;intervallo di valori è salvata nei poligoni di isolivello&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1668,37 +1620,34 @@ modifica Allegato II alla Directive 2002/49/CE &lt;a href=&quot;https://eur-lex.
         <translation>&amp;opeNoise</translation>
     </message>
     <message>
-        <location filename="../opeNoise.py" line="99"/>
+        <location filename="../opeNoise.py" line="100"/>
         <source>Apply Noise Symbology</source>
         <translation>Applica la Simbologia del Rumore</translation>
     </message>
     <message>
-        <location filename="../opeNoise.py" line="82"/>
         <source>Create Receiver or Grid Points</source>
-        <translation>Crea Punti Ricevitore o Griglia</translation>
+        <translation type="vanished">Crea Punti Ricevitore o Griglia</translation>
     </message>
     <message>
-        <location filename="../opeNoise.py" line="89"/>
         <source>Calculate Noise Levels</source>
-        <translation>Calcola i Livelli di Rumore</translation>
+        <translation type="vanished">Calcola i Livelli di Rumore</translation>
     </message>
     <message>
-        <location filename="../opeNoise.py" line="94"/>
         <source>Noise Exposure</source>
-        <translation>Esposizione al Rumore</translation>
+        <translation type="vanished">Esposizione al Rumore</translation>
     </message>
     <message>
-        <location filename="../opeNoise.py" line="104"/>
+        <location filename="../opeNoise.py" line="105"/>
         <source>Contours Level</source>
         <translation>Curve di Livello</translation>
     </message>
     <message>
-        <location filename="../opeNoise.py" line="110"/>
+        <location filename="../opeNoise.py" line="111"/>
         <source>Help</source>
         <translation>Aiuto</translation>
     </message>
     <message>
-        <location filename="../opeNoise.py" line="115"/>
+        <location filename="../opeNoise.py" line="116"/>
         <source>Informations</source>
         <translation>Informazioni</translation>
     </message>

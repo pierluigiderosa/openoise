@@ -105,7 +105,7 @@
    <item>
     <widget class="QStackedWidget" name="road_stackedWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="road_power_page">
       <widget class="QWidget" name="layoutWidget">
@@ -761,7 +761,7 @@
         <rect>
          <x>20</x>
          <y>362</y>
-         <width>161</width>
+         <width>261</width>
          <height>20</height>
         </rect>
        </property>
@@ -783,8 +783,8 @@
         <rect>
          <x>20</x>
          <y>392</y>
-         <width>161</width>
-         <height>20</height>
+         <width>231</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -797,7 +797,10 @@
         <string>Road Surface (type string)</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="implementation_label_27">
@@ -825,7 +828,7 @@
       <widget class="QgsFieldComboBox" name="NMPB_surface_comboBox">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>270</x>
          <y>390</y>
          <width>131</width>
          <height>27</height>
@@ -835,7 +838,7 @@
       <widget class="QgsFieldComboBox" name="NMPB_slope_comboBox">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>270</x>
          <y>360</y>
          <width>131</width>
          <height>27</height>
@@ -1530,9 +1533,9 @@
       <widget class="QLabel" name="implementation_label_20">
        <property name="geometry">
         <rect>
-         <x>-24</x>
+         <x>10</x>
          <y>26</y>
-         <width>121</width>
+         <width>131</width>
          <height>16</height>
         </rect>
        </property>
@@ -1546,7 +1549,7 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Vehicle type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
       <widget class="QWidget" name="verticalLayoutWidget_13">
@@ -1668,7 +1671,7 @@
         <rect>
          <x>20</x>
          <y>457</y>
-         <width>161</width>
+         <width>181</width>
          <height>20</height>
         </rect>
        </property>
@@ -1690,7 +1693,7 @@
         <rect>
          <x>20</x>
          <y>470</y>
-         <width>161</width>
+         <width>191</width>
          <height>60</height>
         </rect>
        </property>
@@ -1705,6 +1708,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="implementation_label_26">
@@ -1732,7 +1738,7 @@
       <widget class="QgsFieldComboBox" name="CNOSSOS_slope_comboBox">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>220</x>
          <y>454</y>
          <width>131</width>
          <height>27</height>
@@ -1742,7 +1748,7 @@
       <widget class="QgsFieldComboBox" name="CNOSSOS_surface_comboBox">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>220</x>
          <y>485</y>
          <width>131</width>
          <height>27</height>
@@ -1773,7 +1779,7 @@
         <rect>
          <x>500</x>
          <y>0</y>
-         <width>121</width>
+         <width>161</width>
          <height>16</height>
         </rect>
        </property>
@@ -1787,7 +1793,7 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reference Periods&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
       <widget class="Line" name="line_11">

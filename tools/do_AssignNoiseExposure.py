@@ -135,17 +135,17 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if self.receiver_points_population_field.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
-                                    self.tr("Please specify people field"))
+                                    self.tr("Please specify the field containing the number of people in each building"))
             return False
 
         if self.dwellingCombobox.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
-                                    self.tr("Please specify dwellings field"))
+                                    self.tr("Please specify the field containing the number of dwellings in each building"))
             return False
 
         if self.methodComboBox.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
-                                    self.tr("Please specify façade type exposition field (type string)"))
+                                    self.tr("Please specify the field containing façade type exposition (type string)"))
             return False
 
     def populate_comboBox( self ):
@@ -318,7 +318,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         #personal_fields = ['Lgeneric', 'Lday', 'Levening', 'Lnight','Lden']
         fields_already_present = list(set(fields_to_calculate) & set(fields))
         if fields_already_present:
-            overwrite_begin = self.tr("In buildings layer you already have the fields: ")
+            overwrite_begin = self.tr("In the buildings layer the following sound levels are present: ")
             overwrite_end = self.tr(" . Do you want to overwrite data in attribute table?")
             reply = QMessageBox.question(self, self.tr("opeNoise - Noise Exposure"),
                                            overwrite_begin + '\n' + str(fields_already_present) + overwrite_end, QMessageBox.Yes, QMessageBox.No)
