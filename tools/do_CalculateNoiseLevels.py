@@ -614,7 +614,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         #personal_fields = ['Lgeneric', 'Lday', 'Levening', 'Lnight','Lden']
         fields_already_present = list(set(fields_to_calculate) & set(fields))
         if fields_already_present:
-            overwrite_begin = self.tr("In the receivers point layer the following fields already exist: ")
+            overwrite_begin = self.tr("In  the receiver points layer the following sound levels already exist: ")
             overwrite_end = self.tr(" . Do you want to overwrite them?")
             reply = QMessageBox.question(self, self.tr("opeNoise - Calculate Noise Levels"),
                                            overwrite_begin + '\n' + str(fields_already_present) + overwrite_end, QMessageBox.Yes, QMessageBox.No)
