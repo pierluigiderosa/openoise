@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>grid1</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/grid1.shp</path>
+            <name>receiver5</name>
+            <path>/home/pierluigi/Scrivania/dataset_testing/receiver5.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -19,14 +19,14 @@
 		<path />
 	    </pts>
 	    <roads>	
-		<name>roads_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
+		<name>strade_semplici_CNOSSOS3003</name>
+		<path>/home/pierluigi/Scrivania/dataset_testing/strade_semplici_CNOSSOS3003.shp|layername=strade_semplici_CNOSSOS3003</path>
 	    </roads>
         </sources>
 
         <buildings>
             <name>buildings</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
+            <path>/home/pierluigi/Scrivania/dataset_testing/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -46,7 +46,7 @@
     </layers>
 
     <options>
-        <research_ray>50</research_ray>
+        <research_ray>100</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
@@ -82,8 +82,8 @@
 		<roads>
 		    <gen>False</gen>
 		    <day>False</day>            
-		    <eve>False</eve>            
-		    <nig>True</nig>  
+		    <eve>True</eve>            
+		    <nig>False</nig>  
 		</roads>
 	    <den>False</den>                                                          	     
 	</period>
@@ -152,8 +152,8 @@
             <day_4b_n />
             <day_4b_s />
                            
-            <eve_1_n />
-            <eve_1_s />            
+            <eve_1_n>N_leggeri</eve_1_n>
+            <eve_1_s>V_leggeri</eve_1_s>            
             <eve_2_n />
             <eve_2_s />
             <eve_3_n />
@@ -163,8 +163,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n>light_n</nig_1_n>
-            <nig_1_s>light_v</nig_1_s>            
+            <nig_1_n />
+            <nig_1_s />            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
@@ -174,8 +174,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface>Surface</surface>                    
-            <slope>Slope</slope>  
+            <surface>Superficie</surface>                    
+            <slope>Pendenza</slope>  
 
         </CNOSSOS>       
     </emission>    
