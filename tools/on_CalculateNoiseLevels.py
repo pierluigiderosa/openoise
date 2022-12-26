@@ -298,7 +298,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
 
     # Create emission layer that will contain all the emission pts from source_pts and source_roads
-    # emission_pts_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "emission_pts.shp"))
+    emission_pts_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "emission_pts.shp"))
     # emission_pts_fields = [QgsField("type", QVariant.String),
     #                        QgsField("id_source", QVariant.Int),
     #                        QgsField("segment", QVariant.String),]
@@ -308,14 +308,9 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
     emission_pts_fields.append(QgsField("segment", QVariant.String))
 
 
-    # emission_pts_writer = QgsVectorFileWriter(emission_pts_layer_path, "System",
-    #                                           emission_pts_fields, QgsWkbTypes.Point,
-    #                                           receiver_layer.crs(), "ESRI Shapefile")
-
-    # cp building layer to delete all fields
-    emission_pts_writer = QgsVectorLayer("Polygon?crs=" + str(receiver_layer.crs().authid()),
-                                            "polygon_memory_layer", "memory")
-    emission_pts_writer.dataProvider().addAttributes(emission_pts_fields)
+    emission_pts_writer = QgsVectorFileWriter(emission_pts_layer_path, "System",
+                                              emission_pts_fields, QgsWkbTypes.Point,
+                                              receiver_layer.crs(), "ESRI Shapefile")
 
     bar = progress_bars['prepare_emi']['bar']
     bar.setValue(1)
@@ -418,11 +413,11 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
             source_feat.setAttributes(['road',id_source,segment_source])
             emission_pts_writer.addFeature(source_feat)
 
-    # del emission_pts_writer
+    del emission_pts_writer
 
     # Create dict with all the data
     source_feat_all_dict = {}
-    source_layer = emission_pts_writer
+    source_layer = QgsVectorLayer(emission_pts_layer_path,'emission pts',"ogr")
     source_feat_all = source_layer.dataProvider().getFeatures()
     source_feat_total = source_layer.dataProvider().featureCount()
     source_feat_number = 0
