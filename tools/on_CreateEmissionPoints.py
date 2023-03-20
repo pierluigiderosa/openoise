@@ -24,7 +24,7 @@
 
 from builtins import range
 from qgis.PyQt.QtCore import QVariant
-from qgis.core import (QgsVectorLayer,
+from qgis.core import (QgsVectorLayer,QgsProject,
                        QgsFeature, QgsSpatialIndex,
                        QgsField, QgsRectangle, QgsPoint,
                        QgsGeometry, QgsVectorFileWriter, QgsWkbTypes, QgsFields, QgsPointXY)
@@ -40,9 +40,10 @@ def compute_distance(QgsPoint1, QgsPoint2):
 def add_point_to_layer(writer, point, attributes):
     geometry = QgsGeometry.fromPointXY(point)
     feature = QgsFeature()
-    feature.setAttributes(attributes)
     feature.setGeometry(geometry)
+    feature.setAttributes(attributes)
     writer.addFeature(feature)
+    writer.updateExtents()
 
 
 def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, research_ray):
@@ -58,17 +59,26 @@ def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, resea
         receivers_spIndex.insertFeature(receivers_feat)
         receivers_feat_all_dict[receivers_feat.id()] = receivers_feat
 
-    emission_pts_fields = QgsFields()
-    emission_pts_fields.append(QgsField("id_emi", QVariant.Int))
-    emission_pts_fields.append(QgsField("id_emi_source", QVariant.Int))
-    emission_pts_fields.append(QgsField("id_source", QVariant.Int))
-    emission_pts_fields.append(QgsField("d_rTOe", QVariant.Double, len=10, prec=2))
+    # emission_pts_fields = QgsFields()
+    # emission_pts_fields.append(QgsField("id_emi", QVariant.Int))
+    # emission_pts_fields.append(QgsField("id_emi_source", QVariant.Int))
+    # emission_pts_fields.append(QgsField("id_source", QVariant.Int))
+    # emission_pts_fields.append(QgsField("d_rTOe", QVariant.Double, len=10, prec=2))
     # update for QGIS 3 converting VectorWriter to QgsVectorFileWriter
     # emission_pts_writer = VectorWriter(emission_pts_layer_path, None, emission_pts_fields, 0, sources_layer.crs())
 
-    emission_pts_writer = QgsVectorFileWriter(emission_pts_layer_path, "System",
-                                              emission_pts_fields, QgsWkbTypes.Point, sources_layer.crs(),
-                                              "ESRI Shapefile")
+    # emission_pts_writer = QgsVectorFileWriter(emission_pts_layer_path, "System",
+    #                                           emission_pts_fields, QgsWkbTypes.Point, sources_layer.crs(),
+    #                                           "ESRI Shapefile")
+    emission_pts_writer = QgsVectorLayer("Point", "temporary_points", "memory")
+    emission_pts_writer.setCrs(sources_layer.crs())
+    pr = emission_pts_writer.dataProvider()
+    pr.addAttributes([QgsField("id_emi", QVariant.Int),
+                      QgsField("id_emi_source", QVariant.Int),
+                      QgsField("id_source", QVariant.Int),
+                      QgsField("d_rTOe", QVariant.Double, len=10, prec=2)
+                      ])
+    emission_pts_writer.updateFields()
 
     # initializes ray and emission point id
     emission_pt_id = 0
@@ -173,4 +183,5 @@ def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, resea
                     emission_pt_id = emission_pt_id + 1
                     emission_pt_id_road = emission_pt_id_road + 1
 
-    del emission_pts_writer
+
+    return emission_pts_writer
