@@ -346,7 +346,6 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         emission_pts_roads_layer = on_CreateEmissionPoints.run(source_roads_layer.source(),receiver_layer.source(),emission_pts_roads_layer_path,research_ray)
 
         # emission_pts_roads_layer = QgsVectorLayer(emission_pts_roads_layer_path,'emission_pts_roads',"ogr")
-        QgsProject.instance().addMapLayer(emission_pts_roads_layer)
 
         # get levels from the road source
         source_roads_levels_dict = {}

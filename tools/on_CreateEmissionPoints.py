@@ -79,6 +79,7 @@ def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, resea
                       QgsField("d_rTOe", QVariant.Double, len=10, prec=2)
                       ])
     emission_pts_writer.updateFields()
+    emission_pts_pr = emission_pts_writer.dataProvider()
 
     # initializes ray and emission point id
     emission_pt_id = 0
@@ -125,8 +126,14 @@ def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, resea
 
             pt1 = QgsPointXY(sources_feat_vertex_pt_all[i])
 
-            add_point_to_layer(emission_pts_writer, pt1,
-                               [emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
+            # add_point_to_layer(emission_pts_writer, pt1,
+            #                    [emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
+            feature = QgsFeature()
+            feature.setGeometry(QgsGeometry.fromPointXY(pt1))
+            feature.setAttributes([emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
+            emission_pts_pr.addFeatures([feature])
+            emission_pts_writer.updateExtents()
+
 
             emission_pt_id = emission_pt_id + 1
             emission_pt_id_road = emission_pt_id_road + 1
@@ -177,8 +184,13 @@ def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, resea
                         else:
                             pt = QgsPointXY(x_temp, y_temp - dy)
 
-                    add_point_to_layer(emission_pts_writer, pt,
-                                       [emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
+                    # add_point_to_layer(emission_pts_writer, pt,
+                    #                    [emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
+                    feature = QgsFeature()
+                    feature.setGeometry(QgsGeometry.fromPointXY(pt1))
+                    feature.setAttributes([emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
+                    emission_pts_pr.addFeatures([feature])
+                    emission_pts_writer.updateExtents()
 
                     emission_pt_id = emission_pt_id + 1
                     emission_pt_id_road = emission_pt_id_road + 1
