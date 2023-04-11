@@ -38,7 +38,7 @@ import processing
 
 
 
-def middle(bar,buildings_layer_path,receiver_points_layer_path):
+def middle(bar, buildings_layer_path, receiver_points_layer_path, IDs_selected_receiver):
     
     buildings_layer_name = os.path.splitext(os.path.basename(buildings_layer_path))[0]
     buildings_layer = QgsVectorLayer(buildings_layer_path,buildings_layer_name,"ogr")
@@ -55,7 +55,11 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
 
 
     # gets features from layer
-    buildings_feat_all = buildings_layer.dataProvider().getFeatures()    
+    if len(IDs_selected_receiver) > 0:
+        request = IDs_selected_receiver
+    else:
+        request = QgsFeatureRequest()
+    buildings_feat_all = buildings_layer.getFeatures(request)
     
     # creates SpatialIndex
     buildings_spIndex = QgsSpatialIndex()
@@ -68,13 +72,16 @@ def middle(bar,buildings_layer_path,receiver_points_layer_path):
     distance_point = 0.1
     
     # re-gets features from layer
-    buildings_feat_all = buildings_layer.dataProvider().getFeatures()    
-    buildings_feat_total = buildings_layer.dataProvider().featureCount()
-    
+    buildings_feat_all = buildings_layer.getFeatures(request)
+    if len(IDs_selected_receiver) > 0:
+        buildings_feat_total = len(request)
+    else:
+        buildings_feat_total = buildings_layer.featureCount()
+
     pt_id = 0
     buildings_feat_number = 0
     for buildings_feat in buildings_feat_all:
-        
+
         buildings_feat_number = buildings_feat_number + 1
         barValue = buildings_feat_number/float(buildings_feat_total)*100
         bar.setValue(barValue)
@@ -229,7 +236,7 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
     buildings_memory_layer = QgsVectorLayer("Polygon?crs=" + str(buildings_layer.crs().authid()), "polygon_memory_layer", "memory")
     buildings_memory_layer.dataProvider().addAttributes([])
     
-    buildings_feat_all = buildings_layer.dataProvider().getFeatures()    
+    buildings_feat_all = buildings_layer.dataProvider().getFeatures()
     buildings_feat_list = []
     for buildings_feat in buildings_feat_all:
         buildings_feat_list.append(buildings_feat)
@@ -278,7 +285,7 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
 
     ## Delete pts in buildings
     # creates SpatialIndex
-    buildings_feat_all = buildings_layer.dataProvider().getFeatures()    
+    buildings_feat_all = buildings_layer.dataProvider().getFeatures()
     buildings_spIndex = QgsSpatialIndex()
     buildings_feat_all_dict = {}
     for buildings_feat in buildings_feat_all:
@@ -358,7 +365,7 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
 
     QgsProject.instance().reloadAllLayers()
 
-def case2b(bar,buildings_layer_path,receiver_points_layer_path):
+def case2b(bar,buildings_layer_path,receiver_points_layer_path,IDs_selected_receiver):
     buildings_layer_name = os.path.splitext(os.path.basename(buildings_layer_path))[0]
     buildings_layer = QgsVectorLayer(buildings_layer_path, buildings_layer_name, "ogr")
 
@@ -374,7 +381,11 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
 
 
     # gets features from layer
-    buildings_feat_all = buildings_layer.dataProvider().getFeatures()
+    if len(IDs_selected_receiver) > 0:
+        request = IDs_selected_receiver
+    else:
+        request = QgsFeatureRequest()
+    buildings_feat_all = buildings_layer.getFeatures(request)
 
     # creates SpatialIndex
     buildings_spIndex = QgsSpatialIndex()
@@ -387,8 +398,11 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path):
     distance_point = 0.1
 
     # re-gets features from layer
-    buildings_feat_all = buildings_layer.dataProvider().getFeatures()
-    buildings_feat_total = buildings_layer.dataProvider().featureCount()
+    buildings_feat_all = buildings_layer.getFeatures(request)
+    if len(IDs_selected_receiver) > 0:
+        buildings_feat_total = len(request)
+    else:
+        buildings_feat_total = buildings_layer.featureCount()
 
     pt_id = 0
     reachLen = 5 # variable storing distance steps

@@ -85,6 +85,13 @@
           </widget>
          </item>
          <item>
+          <widget class="QCheckBox" name="selected_receivers">
+           <property name="text">
+            <string>only selected buildings</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QgsMapLayerComboBox" name="buildings_layer_comboBox"/>
          </item>
         </layout>

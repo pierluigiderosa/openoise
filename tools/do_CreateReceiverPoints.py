@@ -103,10 +103,11 @@ class Dialog(QDialog,FORM_CLASS):
 
         self.progressBar.setValue(0)
 
-        spacing = ['5', '10', '20', '30', '40', '50']
+        spacing = ['1','2','3','4','5', '10', '20', '30', '40', '50']
         self.resolution_comboBox.clear()
         for space in spacing:
             self.resolution_comboBox.addItem(space)
+        self.resolution_comboBox.setCurrentIndex(4)
     
     def populateLayers( self ):
         if Qgis.QGIS_VERSION_INT < 31401:
@@ -237,6 +238,16 @@ class Dialog(QDialog,FORM_CLASS):
             
             #buildings_layer = QgsProject.instance().mapLayersByName(self.buildings_layer_comboBox.currentText())[0]
             buildings_layer = self.buildings_layer_comboBox.currentLayer()
+            if self.selected_receivers.isChecked():
+                if  buildings_layer.selectedFeatureCount() == 0:
+                    QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
+                                            self.tr("Please select at least one feature in building layer"))
+                    ID_selected_receiver = []
+                else:
+                    ID_selected_receiver= buildings_layer.selectedFeatureIds()
+            else:
+                ID_selected_receiver = list()
+
             buildings_layer_path = buildings_layer.source()
             receiver_points_layer_path = self.receiver_layer_lineEdit.text()
             
@@ -253,12 +264,14 @@ class Dialog(QDialog,FORM_CLASS):
                 # CreateReceiverPoints
             
                 if self.middle_pts_radioButton.isChecked():
-                    on_CreateReceiverPoints.middle(bar,buildings_layer_path,receiver_points_layer_path)
+                    on_CreateReceiverPoints.middle(bar,buildings_layer_path,receiver_points_layer_path,ID_selected_receiver)
+                # metodo rimosso dalla GUI
                 if self.spaced_pts_radioButton.isChecked():
                     spaced_pts_distance = float(self.spaced_pts_comboBox.currentText())
                     on_CreateReceiverPoints.spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distance)
+
                 if self.case2b_radioButton.isChecked():
-                    on_CreateReceiverPoints.case2b(bar,buildings_layer_path,receiver_points_layer_path)
+                    on_CreateReceiverPoints.case2b(bar,buildings_layer_path,receiver_points_layer_path,ID_selected_receiver)
 
                 run = 1
 
