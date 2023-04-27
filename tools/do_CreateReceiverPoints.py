@@ -107,7 +107,7 @@ class Dialog(QDialog,FORM_CLASS):
         self.resolution_comboBox.clear()
         for space in spacing:
             self.resolution_comboBox.addItem(space)
-        self.resolution_comboBox.setCurrentIndex(4)
+        # self.resolution_comboBox.setCurrentIndex(4)
     
     def populateLayers( self ):
         if Qgis.QGIS_VERSION_INT < 31401:

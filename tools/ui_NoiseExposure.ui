@@ -154,6 +154,16 @@
          </property>
         </spacer>
        </item>
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interval&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboInterval"/>
+       </item>
       </layout>
      </item>
     </layout>
@@ -194,7 +204,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;3) Buildings Layer (input polygon layer) and information about People-Dwellings-Façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;3)&lt;/span&gt; Buildings Layer (input polygon layer) and information about People-Dwellings-Façade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>

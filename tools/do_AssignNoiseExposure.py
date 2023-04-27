@@ -100,6 +100,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         self.receiver_points_layer_comboBox.currentIndexChanged.connect(self.update_field_receiver_points_layer)
 
+        # populate combo interval classification
+        self.comboInterval.addItems(['1 dB','5 dB'])
+
 
 
         self.helpNoiseExp.clicked.connect(self.HelpNoiseExposure_show)
@@ -172,15 +175,23 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         #self.buildings_layer_comboBox.addItems(buildings_layers)
 
-    def outputTempTable(self,pddf,tablename,filedname,roundHundreds):
+    def outputTempTable(self,pddf,tablename,filedname,roundHundreds,intervalNoise):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
         pr.addAttributes([QgsField("level_band", QVariant.String),
                           QgsField(filedname, QVariant.Double)])
         vl.updateFields()
-        labelsLev = ["No level","<=35.0 dB(A)", "35 - 39 dB(A)", "40 - 44 dB(A)", "45 - 49 dB(A)",
-                     "50 - 54 dB(A)", "55 - 59 dB(A)", "60 - 64 dB(A)", "65 - 69 dB(A)",
-                     "70 - 74 dB(A)", "75 - 79 dB(A)", ">= 80 dB(A)"]
+        if intervalNoise == '1 dB':
+            labelsLev = ["No level","<=35.0 dB(A)","35 db(A)","36 db(A)" ,"37 db(A)" ,"38 db(A)" ,"39 db(A)" ,"40 db(A)" ,
+                         "41 db(A)","42 db(A)","43 db(A)","44 db(A)","45 db(A)","46 db(A)","47 db(A)","48 db(A)","49 db(A)",
+                         "50 db(A)","51 db(A)","52 db(A)","53 db(A)","54 db(A)","55 db(A)","56 db(A)","57 db(A)","58 db(A)","59 db(A)",
+                         "60 db(A)", "61 db(A)", "62 db(A)", "63 db(A)", "64 db(A)", "65 db(A)", "66 db(A)", "67 db(A)","68 db(A)", "69 db(A)",
+                         "70 db(A)", "71 db(A)", "72 db(A)", "73 db(A)", "74 db(A)", "75 db(A)", "76 db(A)", "77 db(A)","78 db(A)", "79 db(A)",
+                         ">= 80 dB(A)"]
+        else:
+            labelsLev = ["No level", "<=35.0 dB(A)", "35 - 39 dB(A)", "40 - 44 dB(A)", "45 - 49 dB(A)",
+                         "50 - 54 dB(A)", "55 - 59 dB(A)", "60 - 64 dB(A)", "65 - 69 dB(A)",
+                         "70 - 74 dB(A)", "75 - 79 dB(A)", ">= 80 dB(A)"]
         for idx in range(len(pddf.values)):
             f = QgsFeature()
             if roundHundreds == True:
@@ -190,7 +201,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
-    def DETable(self,DF,tablename,fieldnames,type):
+    def DETable(self,DF,tablename,fieldnames,type,intervalNoise):
         vl = QgsVectorLayer("None", tablename, "memory")
         pr = vl.dataProvider()
         pr.addAttributes([QgsField("TOT_People", QVariant.Int)])
@@ -203,7 +214,12 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         f = QgsFeature()
         # doseeffetto
         # aggiungo colonna
-        DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
+        if intervalNoise == '1 dB':
+            # todo: quali sono gli intervalli?
+            DF['level_half'] = [32, 32, 33, 34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,
+            54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80, 82]
+        else:
+            DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
         if type == "den":
 
             # Lden
@@ -359,6 +375,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         building_pop_Field = self.receiver_points_population_field.currentText()
         dwelling_Field = self.dwellingCombobox.currentText()
         methodPopField = self.methodComboBox.currentText()
+        intervalNoise = self.comboInterval.currentText()
         # checkbox controls
         if self.applyNoiseSimbology.isChecked():
             applySimbology = True
@@ -392,7 +409,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         # Run
         try:
-            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,methodPopField,applySimbology,roundHundreds,doseffetto)
+            self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,
+                                  building_pop_Field,dwelling_Field,methodPopField,applySimbology,
+                                  roundHundreds,doseffetto,intervalNoise)
             run = 1
         except:
             error= traceback.format_exc()
@@ -460,7 +479,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         log_errors.close()
 
 
-    def EUpopCalculationMethod(self, popDic, buildingLevel,dwellings,Method,receiverFacadeDic):
+    def EUpopCalculationMethod(self, popDic, buildingLevel,dwellings,Method,receiverFacadeDic,intervalNoise):
         outPop = list()
         outDewlling = list()
         for id_bui in buildingLevel.keys():
@@ -514,7 +533,15 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         df1 = pd.DataFrame(outPop, columns=['levels', 'popolazione', 'id_bui'])
         df1Dwelling = pd.DataFrame(outDewlling, columns=['levels', 'dwellings', 'id_bui'])
-        bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
+        if intervalNoise == '1 dB':
+            bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
+            bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 35.4,36.4,37.4,38.4,39.4,40.4,41.4,42.4,
+                                          43.4,44.4,45.4,46.4,47.4,48.4, 49.4,50.4,51.4,52.4,53.4, 54.4,
+                                          55.4,56.4,57.4,58.4,59.4,60.4,61.4,62.4,63.4, 64.4, 65.4,66.4,
+                                          67.4,68.4,69.4,70.4,71.4,72.4,73.4, 74.4, 75.4,76.4,77.4,78.4,79.4, np.inf])
+        else:
+            bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
+
         binsDwell = pd.cut(df1Dwelling['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
         df2=df1.groupby(bins)['popolazione'].agg(['sum'])
         print('bins:',bins)
@@ -526,7 +553,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
 
-    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,building_pop_Field,dwelling_Field,method,applySimbology,roundHundreds,doseeffetto):
+    def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,
+                         building_pop_Field,dwelling_Field,method,applySimbology,
+                         roundHundreds,doseeffetto,intervalNoise):
 
         CreateTempDir()
 
@@ -665,21 +694,21 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 df1,df1Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDicL1)
-                self.outputTempTable(df1,"People Exposure - Lden","people",roundHundreds)
-                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds)
+                                                  buildingMethod,receiverFacadeDicL1,intervalNoise)
+                self.outputTempTable(df1,"People Exposure - Lden","people",roundHundreds,intervalNoise)
+                self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds,intervalNoise)
                 if doseeffetto:
-                    self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den")
+                    self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den",intervalNoise)
                 print('L1 pop',df1)
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL2,
                                                   buildingDwell,
-                                                  buildingMethod,receiverFacadeDicL2)
-                self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds)
-                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds)
+                                                  buildingMethod,receiverFacadeDicL2,intervalNoise)
+                self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds,intervalNoise)
+                self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds,intervalNoise)
                 if doseeffetto:
-                    self.DETable(df2,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night")
+                    self.DETable(df2,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night",intervalNoise)
                 print('L2 pop',df2)
                 print('Dose-Effetto: ',df2)
 
