@@ -1,18 +1,4 @@
 opeNoise - Noise Exposure - Errors
 
-Traceback (most recent call last):
-  File "C:\Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\do_AssignNoiseExposure.py", line 407, in accept
-    self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,
-  File "C:\Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\do_AssignNoiseExposure.py", line 696, in runLevelBuilding
-    self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den")
-  File "C:\Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise\tools\do_AssignNoiseExposure.py", line 217, in DETable
-    DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
-  File "C:\PROGRA~1\QGIS32~2.1\apps\Python39\lib\site-packages\pandas\core\frame.py", line 3040, in __setitem__
-    self._set_item(key, value)
-  File "C:\PROGRA~1\QGIS32~2.1\apps\Python39\lib\site-packages\pandas\core\frame.py", line 3116, in _set_item
-    value = self._sanitize_column(key, value)
-  File "C:\PROGRA~1\QGIS32~2.1\apps\Python39\lib\site-packages\pandas\core\frame.py", line 3764, in _sanitize_column
-    value = sanitize_index(value, self.index)
-  File "C:\PROGRA~1\QGIS32~2.1\apps\Python39\lib\site-packages\pandas\core\internals\construction.py", line 747, in sanitize_index
-    raise ValueError(
-ValueError: Length of values (12) does not match length of index (48)
+No errors.
+

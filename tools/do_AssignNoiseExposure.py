@@ -216,8 +216,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         # aggiungo colonna
         if intervalNoise == '1 dB':
             # todo: quali sono gli intervalli?
-            DF['level_half'] = [32, 32, 33, 34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,
-            54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80, 82]
+            DF['level_half'] = [32, 34,35, 36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,
+            54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,  82]
         else:
             DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
         if type == "den":
@@ -225,8 +225,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             # Lden
             DF['ARHA'] = (78.927 - 3.1162 * DF['level_half'] + 0.0342 * np.power((DF['level_half']), 2)) / 100
             DF['NHA'] = DF['population'] * DF['ARHA']
-            # sommo solo gli ultimi 6
-            NHAtotal = DF.iloc[-6:].sum()
+            # sommo solo gli ultimi 6 - todo chiede a daniele
+            NHAtotal = DF.iloc[-6:].sum() #-- old method
+            NHAtotal = DF[DF['level_half'] > 55].sum()
             NHAperc = NHAtotal['NHA'] / totPopulation * 100
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
@@ -239,7 +240,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             DF['ARHSD'] = (19.4312 - 0.9336 * DF['level_half'] + 0.0126 * np.power(DF['level_half'], 2)) / 100
             DF['NHSD'] = DF['population'] * DF['ARHSD']
             # sommo gli ultimi 7 valori
-            NHSDtotal = DF.iloc[-7:].sum()
+            NHSDtotal = DF.iloc[-7:].sum() #-- old method
+            NHSDtotal = DF[DF['level_half'] > 50].sum()
             NHSDperc = NHSDtotal['NHSD'] / totPopulation * 100
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
@@ -687,9 +689,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
             if receiver_points_layer_details['level_1'] != 'none':
                 print('buildingPop: ',buildingPop,
-                                                  'buildings_levels_from_receiverL1',buildings_levels_from_receiverL1,
-                                                  'buildingDwell',buildingDwell,
-                                                  'buildingMethod',buildingMethod,
+                     'buildings_levels_from_receiverL1',buildings_levels_from_receiverL1,
+                      'buildingDwell',buildingDwell,
+                    'buildingMethod',buildingMethod,
                       'receiverFacadeDicL1',receiverFacadeDicL1)
                 df1,df1Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL1,
@@ -697,9 +699,10 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                                                   buildingMethod,receiverFacadeDicL1,intervalNoise)
                 self.outputTempTable(df1,"People Exposure - Lden","people",roundHundreds,intervalNoise)
                 self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds,intervalNoise)
+                print('L1 pop',df1)
                 if doseeffetto:
                     self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den",intervalNoise)
-                print('L1 pop',df1)
+
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL2,
