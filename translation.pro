@@ -30,5 +30,4 @@ SOURCES = __init__.py \
         tools/on_Settings.py \
         opeNoise.py
 
-TRANSLATIONS = i18n/opeNoise_en.ts \
-               i18n/opeNoise_it.ts
+TRANSLATIONS = i18n/opeNoise_it.ts

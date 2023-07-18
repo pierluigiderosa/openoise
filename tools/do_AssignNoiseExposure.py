@@ -101,7 +101,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         self.receiver_points_layer_comboBox.currentIndexChanged.connect(self.update_field_receiver_points_layer)
 
         # populate combo interval classification
-        self.comboInterval.addItems(['1 dB','5 dB'])
+        self.comboInterval.addItems(['1','5'])
+        self.comboInterval.setCurrentIndex(1)
 
 
 
@@ -151,6 +152,23 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                                     self.tr("Please specify the field containing façade type exposition (type string)"))
             return False
 
+    def checkMethodField(self):
+        buildingLayer = QgsProject.instance().mapLayersByName(self.buildings_layer_comboBox.currentText())[0]
+        fieldMethod = self.methodComboBox.currentText()
+        for feat in buildingLayer.getFeatures():
+            if feat[fieldMethod] == qgisnull:
+                QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                                        self.tr(
+                                            "remove a NULL data inside the field containing façade type exposition (type string)"))
+                return False
+            result = feat[fieldMethod].endswith(('1', '2', '3'))
+            if result is not True:
+                QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                                        self.tr(
+                                            "a method not in the case of 1,2,3 is provided in the field containing façade type exposition (type string)"))
+                return False
+
+
     def populate_comboBox( self ):
         if Qgis.QGIS_VERSION_INT < 31401:
             self.receiver_points_layer_comboBox.clear()
@@ -181,12 +199,12 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         pr.addAttributes([QgsField("level_band", QVariant.String),
                           QgsField(filedname, QVariant.Double)])
         vl.updateFields()
-        if intervalNoise == '1 dB':
-            labelsLev = ["No level","<=35.0 dB(A)","35 db(A)","36 db(A)" ,"37 db(A)" ,"38 db(A)" ,"39 db(A)" ,"40 db(A)" ,
-                         "41 db(A)","42 db(A)","43 db(A)","44 db(A)","45 db(A)","46 db(A)","47 db(A)","48 db(A)","49 db(A)",
-                         "50 db(A)","51 db(A)","52 db(A)","53 db(A)","54 db(A)","55 db(A)","56 db(A)","57 db(A)","58 db(A)","59 db(A)",
-                         "60 db(A)", "61 db(A)", "62 db(A)", "63 db(A)", "64 db(A)", "65 db(A)", "66 db(A)", "67 db(A)","68 db(A)", "69 db(A)",
-                         "70 db(A)", "71 db(A)", "72 db(A)", "73 db(A)", "74 db(A)", "75 db(A)", "76 db(A)", "77 db(A)","78 db(A)", "79 db(A)",
+        if intervalNoise == '1':
+            labelsLev = ["No level","<=35.0 dB(A)","35 - 36 db(A)","36 -37 db(A)" ,"37 -38 db(A)" ,"38 -39 db(A)" ,"39- 40 db(A)" ,"40 -41 db(A)" ,
+                         "41 -42 db(A)","42 -43 db(A)","43 -44 db(A)","44 -45 db(A)","45 -46 db(A)","46 -47 db(A)","47 -48 db(A)","48 -49 db(A)","49 -50 db(A)",
+                         "50 -51 db(A)","51 -52 db(A)","52 -53 db(A)","53 -54 db(A)","54 -55 db(A)","55 -56 db(A)","56 -57  db(A)","57 -58 db(A)","58 -59 db(A)","59 -60 db(A)",
+                         "60 -61 db(A)", "61 -62 db(A)", "62 -63 db(A)", "63 -64 db(A)", "64 -65 db(A)", "65 -66 db(A)", "66 -67 db(A)", "67 - 68 db(A)","68 - 69 db(A)", "69 - 70 db(A)",
+                         "70 -71 db(A)", "71 -72 db(A)", "72 -73 db(A)", "73 -74 db(A)", "74 -75 db(A)", "75 -76 db(A)", "76 -77 db(A)", "77 -78 db(A)","78 -79 db(A)", "79 -80 db(A)",
                          ">= 80 dB(A)"]
         else:
             labelsLev = ["No level", "<=35.0 dB(A)", "35 - 39 dB(A)", "40 - 44 dB(A)", "45 - 49 dB(A)",
@@ -214,21 +232,26 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         f = QgsFeature()
         # doseeffetto
         # aggiungo colonna
-        if intervalNoise == '1 dB':
-            # todo: quali sono gli intervalli?
-            DF['level_half'] = [32, 34,35, 36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,
-            54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,  82]
+        if intervalNoise == '1':
+            # intervals for 1 db
+            DF['level_half'] = [32, 32,35.5, 36.5,37.5,38.5,39.5,40.5,41.5,42.5,43.5,44.5,
+                                45.5,46.5,47.5,48.5,49.5,50.5,51.5,52.5,53.5,54.5,55.5,56.5,
+                                57.5,58.5,59.5,60.5,61.5,62.5,63.5,64.5,65.5,66.5,67.5,68.5,
+                                69.5,70.5,71.5,72.5,73.5,74.5,75.5,76.5,77.5,78.5,79.5,80.5]
         else:
             DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
         if type == "den":
-
             # Lden
             DF['ARHA'] = (78.927 - 3.1162 * DF['level_half'] + 0.0342 * np.power((DF['level_half']), 2)) / 100
             DF['NHA'] = DF['population'] * DF['ARHA']
-            # sommo solo gli ultimi 6 - todo chiede a daniele
-            NHAtotal = DF.iloc[-6:].sum() #-- old method
-            NHAtotal = DF[DF['level_half'] > 55].sum()
-            NHAperc = NHAtotal['NHA'] / totPopulation * 100
+            if intervalNoise == '1':
+                NHAtotal = DF[DF['level_half'] > 50].sum()
+                NHAperc = NHAtotal['NHA'] / totPopulation * 100
+            else:
+                # sum for level half more than 55
+                NHAtotal = DF.iloc[-6:].sum() #-- old method
+                NHAtotal = DF[DF['level_half'] > 55].sum()
+                NHAperc = NHAtotal['NHA'] / totPopulation * 100
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
                              float(round(NHAtotal['NHA'],0)),
@@ -239,9 +262,11 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             # Lnight
             DF['ARHSD'] = (19.4312 - 0.9336 * DF['level_half'] + 0.0126 * np.power(DF['level_half'], 2)) / 100
             DF['NHSD'] = DF['population'] * DF['ARHSD']
-            # sommo gli ultimi 7 valori
-            NHSDtotal = DF.iloc[-7:].sum() #-- old method
-            NHSDtotal = DF[DF['level_half'] > 50].sum()
+            if intervalNoise == '1':
+                NHSDtotal = DF[DF['level_half'] > 40].sum()
+            else:
+                NHSDtotal = DF[DF['level_half'] > 50].sum()
+
             NHSDperc = NHSDtotal['NHSD'] / totPopulation * 100
             #  write data in table
             f.setAttributes([float(round(totPopulation,0)),
@@ -361,6 +386,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
     def accept(self):
 
         if self.checkdata() == False:
+            return
+
+        if self.checkMethodField() == False:
             return
 
         if self.controls() == 0:
@@ -535,8 +563,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         df1 = pd.DataFrame(outPop, columns=['levels', 'popolazione', 'id_bui'])
         df1Dwelling = pd.DataFrame(outDewlling, columns=['levels', 'dwellings', 'id_bui'])
-        if intervalNoise == '1 dB':
-            bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
+        if intervalNoise == '1':
+            # bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
             bins = pd.cut(df1['levels'], [-np.inf,0, 34.4, 35.4,36.4,37.4,38.4,39.4,40.4,41.4,42.4,
                                           43.4,44.4,45.4,46.4,47.4,48.4, 49.4,50.4,51.4,52.4,53.4, 54.4,
                                           55.4,56.4,57.4,58.4,59.4,60.4,61.4,62.4,63.4, 64.4, 65.4,66.4,
@@ -546,7 +574,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         binsDwell = pd.cut(df1Dwelling['levels'], [-np.inf,0, 34.4, 39.4, 44.4, 49.4, 54.4, 59.4, 64.4, 69.4, 74.4, 79.4, np.inf])
         df2=df1.groupby(bins)['popolazione'].agg(['sum'])
-        print('bins:',bins)
+        print('Copia per debug','bins:',bins)
         print('df1',df1)
         df2Dwell = df1Dwelling.groupby(bins)['dwellings'].agg(['sum'])
         df3 = df2.rename({'sum': 'population'}, axis=1)
