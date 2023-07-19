@@ -44,7 +44,7 @@ from qgis.PyQt import uic
 import os, sys, shutil
 import traceback
 
-#from math import *
+from math import exp,log
 from datetime import datetime
 sys.path.append(os.path.dirname(__file__))
 Ui_AssignNoiseToBuildings_window, _ = uic.loadUiType(os.path.join(
@@ -275,33 +275,74 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
+    def IschemicTable(self,DF,tablename,fieldnames,intervalNoise,IHDvalue):
+        vl = QgsVectorLayer("None", tablename, "memory")
+        pr = vl.dataProvider()
+        pr.addAttributes([QgsField("TOT_People", QVariant.Int)])
+        for field in fieldnames:
+            pr.addAttributes([QgsField(field, QVariant.Double)])
+        vl.updateFields()
+
+        totPopulation = DF.sum()["population"]
+
+        f = QgsFeature()
+        # doseeffetto
+        # aggiungo colonna
+        if intervalNoise == '1':
+            # intervals for 1 db
+            DF['level_half'] = [32, 32, 35.5, 36.5, 37.5, 38.5, 39.5, 40.5, 41.5, 42.5, 43.5, 44.5,
+                                45.5, 46.5, 47.5, 48.5, 49.5, 50.5, 51.5, 52.5, 53.5, 54.5, 55.5, 56.5,
+                                57.5, 58.5, 59.5, 60.5, 61.5, 62.5, 63.5, 64.5, 65.5, 66.5, 67.5, 68.5,
+                                69.5, 70.5, 71.5, 72.5, 73.5, 74.5, 75.5, 76.5, 77.5, 78.5, 79.5, 80.5]
+        else:
+            DF['level_half'] = [32, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82]
+
+        # ischemia
+        # df1['level_half'] = df1['level_half'].astype(float)
+        DF['RRHD'] = np.exp(np.log(1.08) / 10. * (DF['level_half'] - 53.0))
+        # set value of RRHD to 1 if level_hal below 53
+        DF['RRHD'].mask(DF['level_half'] < 53, 1, inplace=True)
+        DF['pj'] = DF['population'] / totPopulation
+        DF['PAFnum'] = DF['pj'] * (DF['RRHD'] - 1)
+
+        PAF = DF.sum()['PAFnum'] / (DF.sum()['PAFnum'] + 1)
+
+        IIHAD = IHDvalue/ 10000
+        NIHDroad = IIHAD * PAF * totPopulation
+        NIHAperc = NIHDroad * 100 / totPopulation
+
+        f.setAttributes([float(round(totPopulation, 0)),
+                         float(round(NIHDroad, 2)),
+                         float(round(NIHAperc, 5))])
+        pr.addFeature(f)
+        QgsProject.instance().addMapLayer(vl)
 
 
     def update_field_receiver_points_layer(self):
 
-        if str(self.receiver_points_layer_comboBox.currentText()) == "":
-            return
+            if str(self.receiver_points_layer_comboBox.currentText()) == "":
+                return
 
-        receiver_points_layer = QgsProject.instance().mapLayersByName(self.receiver_points_layer_comboBox.currentText())[0]
-        receiver_points_layer_fields = list(receiver_points_layer.dataProvider().fields())
-
-
-        #self.id_field_comboBox.clear()
-        self.level_1_comboBox.clear()
-        self.level_2_comboBox.clear()
+            receiver_points_layer = QgsProject.instance().mapLayersByName(self.receiver_points_layer_comboBox.currentText())[0]
+            receiver_points_layer_fields = list(receiver_points_layer.dataProvider().fields())
 
 
-        receiver_points_layer_fields_number = [""]
+            #self.id_field_comboBox.clear()
+            self.level_1_comboBox.clear()
+            self.level_2_comboBox.clear()
 
-        for f in receiver_points_layer_fields:
-            if f.type() == QVariant.Int or f.type() == QVariant.Double:
-                receiver_points_layer_fields_number.append(str(f.name()))
 
-        if Qgis.QGIS_VERSION_INT < 31401:
-            for f_label in receiver_points_layer_fields_number:
-                #self.id_field_comboBox.addItem(f_label)
-                self.level_1_comboBox.addItem(f_label)
-                self.level_2_comboBox.addItem(f_label)
+            receiver_points_layer_fields_number = [""]
+
+            for f in receiver_points_layer_fields:
+                if f.type() == QVariant.Int or f.type() == QVariant.Double:
+                    receiver_points_layer_fields_number.append(str(f.name()))
+
+            if Qgis.QGIS_VERSION_INT < 31401:
+                for f_label in receiver_points_layer_fields_number:
+                    #self.id_field_comboBox.addItem(f_label)
+                    self.level_1_comboBox.addItem(f_label)
+                    self.level_2_comboBox.addItem(f_label)
 
 
 
@@ -406,6 +447,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         dwelling_Field = self.dwellingCombobox.currentText()
         methodPopField = self.methodComboBox.currentText()
         intervalNoise = self.comboInterval.currentText()
+        IHDvalue = self.IHDdouble.value()
+
         # checkbox controls
         if self.applyNoiseSimbology.isChecked():
             applySimbology = True
@@ -421,6 +464,11 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             doseffetto = True
         else:
             doseffetto = False
+
+        if self.IschemicEvaluation.isChecked():
+            ischemicEval = True
+        else:
+            ischemicEval = False
 
 
         # CRS control (each layer must have the same CRS)
@@ -441,7 +489,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         try:
             self.runLevelBuilding(receiver_points_layer,receiver_points_layer_details,buildings_layer,
                                   building_pop_Field,dwelling_Field,methodPopField,applySimbology,
-                                  roundHundreds,doseffetto,intervalNoise)
+                                  roundHundreds,doseffetto,intervalNoise,ischemicEval,IHDvalue)
             run = 1
         except:
             error= traceback.format_exc()
@@ -585,7 +633,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def runLevelBuilding(self,receiver_points_layer,receiver_points_layer_details,buildings_layer,
                          building_pop_Field,dwelling_Field,method,applySimbology,
-                         roundHundreds,doseeffetto,intervalNoise):
+                         roundHundreds,doseeffetto,intervalNoise,ischemicEval,IHDvalue):
 
         CreateTempDir()
 
@@ -730,6 +778,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 print('L1 pop',df1)
                 if doseeffetto:
                     self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den",intervalNoise)
+                if ischemicEval:
+                    self.IschemicTable(df1,"Ischemic Annoyance - Lden",["NIHD road","%NIHD road"],intervalNoise,IHDvalue)
 
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,
