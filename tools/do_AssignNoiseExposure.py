@@ -157,15 +157,15 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         fieldMethod = self.methodComboBox.currentText()
         for feat in buildingLayer.getFeatures():
             if feat[fieldMethod] == qgisnull:
-                QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"),
                                         self.tr(
-                                            "remove a NULL data inside the field containing façade type exposition (type string)"))
+                                            "Please check: one or more buildings contain a NULL value in the field containing the façade type exposition (string type 1,2,3)"))
                 return False
             result = feat[fieldMethod].endswith(('1', '2', '3'))
             if result is not True:
-                QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+                QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"),
                                         self.tr(
-                                            "a method not in the case of 1,2,3 is provided in the field containing façade type exposition (type string)"))
+                                            "Please check: one or more buildings contain a wrong value in the field containing the façade type exposition (string type 1,2,3)"))
                 return False
 
 
@@ -200,11 +200,11 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                           QgsField(filedname, QVariant.Double)])
         vl.updateFields()
         if intervalNoise == '1':
-            labelsLev = ["No level","<=35.0 dB(A)","35 - 36 db(A)","36 -37 db(A)" ,"37 -38 db(A)" ,"38 -39 db(A)" ,"39- 40 db(A)" ,"40 -41 db(A)" ,
-                         "41 -42 db(A)","42 -43 db(A)","43 -44 db(A)","44 -45 db(A)","45 -46 db(A)","46 -47 db(A)","47 -48 db(A)","48 -49 db(A)","49 -50 db(A)",
-                         "50 -51 db(A)","51 -52 db(A)","52 -53 db(A)","53 -54 db(A)","54 -55 db(A)","55 -56 db(A)","56 -57  db(A)","57 -58 db(A)","58 -59 db(A)","59 -60 db(A)",
-                         "60 -61 db(A)", "61 -62 db(A)", "62 -63 db(A)", "63 -64 db(A)", "64 -65 db(A)", "65 -66 db(A)", "66 -67 db(A)", "67 - 68 db(A)","68 - 69 db(A)", "69 - 70 db(A)",
-                         "70 -71 db(A)", "71 -72 db(A)", "72 -73 db(A)", "73 -74 db(A)", "74 -75 db(A)", "75 -76 db(A)", "76 -77 db(A)", "77 -78 db(A)","78 -79 db(A)", "79 -80 db(A)",
+            labelsLev = ["No level","<=35.0 dB(A)","35 - 36 dB(A)","36 -37 dB(A)" ,"37 -38 dB(A)" ,"38 -39 dB(A)" ,"39- 40 dB(A)" ,"40 -41 dB(A)" ,
+                         "41 -42 dB(A)","42 -43 dB(A)","43 -44 dB(A)","44 -45 dB(A)","45 -46 dB(A)","46 -47 dB(A)","47 -48 dB(A)","48 -49 dB(A)","49 -50 dB(A)",
+                         "50 -51 dB(A)","51 -52 dB(A)","52 -53 dB(A)","53 -54 dB(A)","54 -55 dB(A)","55 -56 dB(A)","56 -57  dB(A)","57 -58 dB(A)","58 -59 dB(A)","59 -60 dB(A)",
+                         "60 -61 dB(A)", "61 -62 dB(A)", "62 -63 dB(A)", "63 -64 dB(A)", "64 -65 dB(A)", "65 -66 dB(A)", "66 -67 dB(A)", "67 - 68 dB(A)","68 - 69 dB(A)", "69 - 70 dB(A)",
+                         "70 -71 dB(A)", "71 -72 dB(A)", "72 -73 dB(A)", "73 -74 dB(A)", "74 -75 dB(A)", "75 -76 dB(A)", "76 -77 dB(A)", "77 -78 dB(A)","78 -79 dB(A)", "79 -80 dB(A)",
                          ">= 80 dB(A)"]
         else:
             labelsLev = ["No level", "<=35.0 dB(A)", "35 - 39 dB(A)", "40 - 44 dB(A)", "45 - 49 dB(A)",
@@ -779,7 +779,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 if doseeffetto:
                     self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den",intervalNoise)
                 if ischemicEval:
-                    self.IschemicTable(df1,"Ischemic Annoyance - Lden",["NIHD road","%NIHD road"],intervalNoise,IHDvalue)
+                    self.IschemicTable(df1,"Ischaemic Heart Disease - Lden",["NIHD road","%NIHD road"],intervalNoise,IHDvalue)
 
             if receiver_points_layer_details['level_2'] != 'none':
                 df2,df2Dwell = self.EUpopCalculationMethod(buildingPop,

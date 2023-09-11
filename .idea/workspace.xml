@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed calculation of noise exposure for 1 dB class&#10;- added control in method fielf that does not contain NULL or valude different from 1,2,3">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fixed external link on information GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_NoiseExposure.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_NoiseExposure.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_ApplyNoiseSymbology.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_ContoursLevel.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_ContoursLevel.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_Helps.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Helps.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -418,21 +421,8 @@
       <workItem from="1689690126302" duration="2026000" />
       <workItem from="1689708181109" duration="1844000" />
       <workItem from="1689753633601" duration="6665000" />
-      <workItem from="1689774372733" duration="2765000" />
-    </task>
-    <task id="LOCAL-00036" summary="unique bar for overall process">
-      <created>1627634724096</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1627634724096</updated>
-    </task>
-    <task id="LOCAL-00037" summary="correction for 3D diffraction">
-      <created>1633704853753</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1633704853753</updated>
+      <workItem from="1689774372733" duration="3080000" />
+      <workItem from="1694422264814" duration="1940000" />
     </task>
     <task id="LOCAL-00038" summary="correction for 3D diffraction&#10;added custom height">
       <created>1634119198450</created>
@@ -763,7 +753,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689708888439</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="- added calculation of ischemic effects">
+      <created>1689779022545</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1689779022545</updated>
+    </task>
+    <task id="LOCAL-00086" summary="- fixed external link on information GUI">
+      <created>1689779121277</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1689779121277</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -834,8 +838,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- fixed portion of facades less than 5 m" />
-    <MESSAGE value="- added calculation for dwellings" />
     <MESSAGE value="- added checks for fields combobox" />
     <MESSAGE value="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer" />
     <MESSAGE value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
@@ -859,7 +861,9 @@
     <MESSAGE value="- added the dataeffetto table even fot 1 db - to test" />
     <MESSAGE value="- changed shapefile in data_for_testing" />
     <MESSAGE value="- fixed calculation of noise exposure for 1 dB class&#10;- added control in method fielf that does not contain NULL or valude different from 1,2,3" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fixed calculation of noise exposure for 1 dB class&#10;- added control in method fielf that does not contain NULL or valude different from 1,2,3" />
+    <MESSAGE value="- added calculation of ischemic effects" />
+    <MESSAGE value="- fixed external link on information GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixed external link on information GUI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

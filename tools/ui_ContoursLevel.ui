@@ -40,7 +40,7 @@
      <item>
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Noise Levels [dB(A)]</string>
+        <string>Noise Levels - dB(A)</string>
        </property>
       </widget>
      </item>
@@ -54,7 +54,7 @@
      <item>
       <widget class="QLabel" name="label_11">
        <property name="text">
-        <string>Minimum Level [dB(A)]</string>
+        <string>Minimum Level - dB(A)</string>
        </property>
       </widget>
      </item>
@@ -72,7 +72,7 @@
      <item>
       <widget class="QLabel" name="label_13">
        <property name="text">
-        <string>Maximum Level [dB(A)]</string>
+        <string>Maximum Level - dB(A)</string>
        </property>
       </widget>
      </item>
@@ -93,7 +93,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Interval Level [dB(A)]</string>
+        <string>Interval Level - dB(A)</string>
        </property>
       </widget>
      </item>
