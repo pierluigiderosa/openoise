@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>598</width>
-    <height>737</height>
+    <height>727</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -110,7 +110,7 @@
    <item>
     <widget class="QLabel" name="label_10">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2)&lt;/span&gt; Noise Levels [dB(A)]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;2)&lt;/span&gt; Noise Levels dB(A)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
@@ -407,36 +407,90 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QVBoxLayout" name="vLayout_Ischemia">
+     <property name="spacing">
+      <number>3</number>
+     </property>
      <property name="leftMargin">
       <number>0</number>
      </property>
      <property name="topMargin">
       <number>0</number>
      </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
      <item>
-      <widget class="QCheckBox" name="IschemicEvaluation">
-       <property name="text">
-        <string>Ischemic Evaluation</string>
+      <layout class="QHBoxLayout" name="hLayout_chek_ischemia">
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-      </widget>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QCheckBox" name="IschemicEvaluation">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>Evaluation of the Harmful Effects: N&lt;sub&gt;IHD,road&lt;/sub&gt; - Directive 2002/49/EC Annex III</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QLabel" name="label_12">
-       <property name="text">
-        <string>IIHD (incidence rate per 10000 people of IHD)</string>
+      <layout class="QHBoxLayout" name="hLayout_IHD">
+       <property name="topMargin">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QgsDoubleSpinBox" name="IHDdouble">
-       <property name="decimals">
-        <number>3</number>
+       <property name="bottomMargin">
+        <number>0</number>
        </property>
-       <property name="value">
-        <double>23.632999999999999</double>
-       </property>
-      </widget>
+       <item>
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>IIHD (incidence rate per 10000 people of IHD)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QgsDoubleSpinBox" name="IHDdouble">
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>

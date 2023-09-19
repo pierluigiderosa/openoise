@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>3</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -265,9 +265,29 @@ Specify the height of the receiver [m] - default is 4 m</string>
         </widget>
        </item>
        <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
-          <widget class="QgsFieldComboBox" name="field_height_receiver"/>
+          <widget class="QgsFieldComboBox" name="field_height_receiver">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -349,6 +369,9 @@ Specify the height of the receiver [m] - default is 4 m</string>
            <property name="toolTip">
             <string/>
            </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
            <property name="text">
             <string>Activate 3D calculation
 (this also takes into account the diffraction at horizontal obstacles)
@@ -359,9 +382,25 @@ Specify the height of the buildings [m]</string>
         </layout>
        </item>
        <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QgsFieldComboBox" name="field_height_building">
-         <property name="toolTip">
-          <string>to enable check that skip diffraction in disabled.</string>
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>0</height>
+          </size>
          </property>
          <property name="statusTip">
           <string/>
@@ -1055,7 +1094,7 @@ Specify the height of the buildings [m]</string>
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Create Diffracted Sound Rays Layer - Horizontal Obstacles (output line layer)</string>
+         <string>Create Diffracted Sound Rays Layer - Vertical Obstacles (output line layer)</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -1196,7 +1235,7 @@ Specify the height of the buildings [m]</string>
       <item>
        <widget class="QCheckBox" name="diff3DRaysCheck">
         <property name="text">
-         <string>Create Diffracted Sound Rays Layer - Vertical Obstacles (output line layer)</string>
+         <string>Create Diffracted Sound Rays Layer - Horizontal Obstacles (output line layer)</string>
         </property>
        </widget>
       </item>

@@ -115,6 +115,20 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         self.methodComboBox.setFilters(
             QgsFieldProxyModel.String)
 
+        self.IschemicEvaluation.setChecked(0)
+        # self.label_12.setEnabled(False)
+        # self.IHDdouble.setEnabled(False)
+        # self.IschemicEvaluation.toggled.connect(self.updateIDHmodel)
+
+    def updateIDHmodel(self):
+        if self.IschemicEvaluation.isChecked():
+            self.IHDdouble.setEnabled(True)
+            self.label_12.setEnabled(True)
+        else:
+            self.IHDdouble.setEnabled(False)
+            self.label_12.setEnabled(False)
+
+
     def HelpNoiseExposure_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
             <p><b>According to §2.8 Directive 2002/49/EC Annex II</b></p><p></p>    
@@ -312,8 +326,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         NIHAperc = NIHDroad * 100 / totPopulation
 
         f.setAttributes([float(round(totPopulation, 0)),
-                         float(round(NIHDroad, 2)),
-                         float(round(NIHAperc, 5))])
+                         float(round(NIHDroad, 0)),
+                         float(round(NIHAperc, 1))])
         pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
@@ -467,8 +481,10 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if self.IschemicEvaluation.isChecked():
             ischemicEval = True
+            self.IHDdouble.hide()
         else:
             ischemicEval = False
+            self.IHDdouble.show()
 
 
         # CRS control (each layer must have the same CRS)
@@ -502,6 +518,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             log_errors.write(self.tr("No errors.") + "\n\n")
             result_string = self.tr("Noise exposure assigned successfully,\n in temporary scratch layer,\n with followings input settings:") + "\n\n" +\
                             self.tr("Receiver Points: ")+receiver_points_layer.name()+"\n"+ \
+                            self.tr("Noise Band interval: ") + intervalNoise + " dB(A)\n" + \
                             self.tr("Noise Levels Lden: ") + receiver_points_layer_details['level_1'] +"\n"+ \
                             self.tr("Noise Levels Lnight: ") + receiver_points_layer_details['level_2'] +"\n"+ \
                             self.tr("Buildings: ") + buildings_layer.name() + "\n"+ \
@@ -777,7 +794,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds,intervalNoise)
                 print('L1 pop',df1)
                 if doseeffetto:
-                    self.DETable(df1,"High Annoyance - Lden",["NHA","%NHA"],"den",intervalNoise)
+                    self.DETable(df1,"High Annoyance - Lden",["NHA road","%NHA road"],"den",intervalNoise)
                 if ischemicEval:
                     self.IschemicTable(df1,"Ischaemic Heart Disease - Lden",["NIHD road","%NIHD road"],intervalNoise,IHDvalue)
 
@@ -789,7 +806,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 self.outputTempTable(df2,"People Exposure - Lnight","people",roundHundreds,intervalNoise)
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds,intervalNoise)
                 if doseeffetto:
-                    self.DETable(df2,"High Sleep Disturbance - Lnight",["NHSD","%NHSD"],"night",intervalNoise)
+                    self.DETable(df2,"High Sleep Disturbance - Lnight",["NHSD road","%NHSD road"],"night",intervalNoise)
                 print('L2 pop',df2)
                 print('Dose-Effetto: ',df2)
 
