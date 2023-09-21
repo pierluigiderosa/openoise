@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>598</width>
-    <height>727</height>
+    <width>633</width>
+    <height>652</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -69,6 +69,9 @@
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>2</number>
+     </property>
      <item>
       <widget class="QLabel" name="receiver_points_layer_label">
        <property name="sizePolicy">
@@ -78,7 +81,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1)&lt;/span&gt; Receiver Points Layer (input point layer)&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;1)&lt;/span&gt; Receiver Points Layer (input point layer)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -459,7 +462,7 @@
        <item>
         <widget class="QLabel" name="label_13">
          <property name="text">
-          <string>Evaluation of the Harmful Effects: N&lt;sub&gt;IHD,road&lt;/sub&gt; - Directive 2002/49/EC Annex III</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Evaluation of the Harmful Effects: &lt;span style=&quot; font-weight:600;&quot;&gt;N&lt;/span&gt;&lt;span style=&quot; font-weight:600; vertical-align:sub;&quot;&gt;IHD,road&lt;/span&gt; - Directive 2002/49/EC Annex III&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -476,12 +479,18 @@
        <item>
         <widget class="QLabel" name="label_12">
          <property name="text">
-          <string>IIHD (incidence rate per 10000 people of IHD)</string>
+          <string>       IIHD (Incidence Rate per 10.000 people of Ischaemic Heart Disease)</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QgsDoubleSpinBox" name="IHDdouble">
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="decimals">
           <number>3</number>
          </property>

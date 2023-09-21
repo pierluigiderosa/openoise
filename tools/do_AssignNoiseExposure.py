@@ -327,7 +327,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         f.setAttributes([float(round(totPopulation, 0)),
                          float(round(NIHDroad, 0)),
-                         float(round(NIHAperc, 1))])
+                         float(round(NIHAperc, 3))])
         pr.addFeature(f)
         QgsProject.instance().addMapLayer(vl)
 
