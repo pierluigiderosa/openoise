@@ -477,9 +477,25 @@
         <number>0</number>
        </property>
        <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>16</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QLabel" name="label_12">
          <property name="text">
-          <string>       IIHD (Incidence Rate per 10.000 people of Ischaemic Heart Disease)</string>
+          <string>       I&lt;sub&gt;IHD&lt;/sub&gt; (Incidence Rate per 10.000 people of Ischaemic Heart Disease)</string>
          </property>
         </widget>
        </item>

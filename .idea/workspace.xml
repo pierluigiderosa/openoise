@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- fix 19 settembre 23&#10;- varie modifiche GUI">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- NEW GUI for Noise Exposure&#10;- arrotondamento di NIHD">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_CalculateNoiseLevels.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/ui_NoiseExposure.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_NoiseExposure.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -425,21 +427,8 @@
       <workItem from="1694500591175" duration="2003000" />
       <workItem from="1695119853817" duration="1521000" />
       <workItem from="1695132632906" duration="2742000" />
-      <workItem from="1695285816610" duration="1211000" />
-    </task>
-    <task id="LOCAL-00040" summary="correction for 3D diffraction&#10;added custom height">
-      <created>1636384474912</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1636384474912</updated>
-    </task>
-    <task id="LOCAL-00041" summary="correction bug in diffraction">
-      <created>1637094682212</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1637094682212</updated>
+      <workItem from="1695285816610" duration="3429000" />
+      <workItem from="1695716001431" duration="3873000" />
     </task>
     <task id="LOCAL-00042" summary="correction bug in temperature emission for CNOSSOS">
       <created>1638374630196</created>
@@ -770,7 +759,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695135383395</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="- NEW GUI for Noise Exposure&#10;- arrotondamento di NIHD">
+      <created>1695287053291</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1695287053291</updated>
+    </task>
+    <task id="LOCAL-00090" summary="- NEW GUI for Noise Exposure&#10;- arrotondamento di NIHD">
+      <created>1695287322298</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1695287322299</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -841,7 +844,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello" />
     <MESSAGE value="- method 2 implemetation" />
     <MESSAGE value="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods" />
     <MESSAGE value="Upgrade GUI&#10;help buttons" />
@@ -866,7 +868,8 @@
     <MESSAGE value="- fixed external link on information GUI" />
     <MESSAGE value="- fixed external link on information GUI&#10;- fixed dB(A) in table for 1 dB interval&#10;- fixed som text in warnings&#10;- new GUI for Help, ApplyNoiseSymbology and ContourLevels" />
     <MESSAGE value="- fix 19 settembre 23&#10;- varie modifiche GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix 19 settembre 23&#10;- varie modifiche GUI" />
+    <MESSAGE value="- NEW GUI for Noise Exposure&#10;- arrotondamento di NIHD" />
+    <option name="LAST_COMMIT_MESSAGE" value="- NEW GUI for Noise Exposure&#10;- arrotondamento di NIHD" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

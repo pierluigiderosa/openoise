@@ -116,9 +116,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
             QgsFieldProxyModel.String)
 
         self.IschemicEvaluation.setChecked(0)
-        # self.label_12.setEnabled(False)
-        # self.IHDdouble.setEnabled(False)
-        # self.IschemicEvaluation.toggled.connect(self.updateIDHmodel)
+        self.label_12.setEnabled(False)
+        self.IHDdouble.setEnabled(False)
+        self.IschemicEvaluation.toggled.connect(self.updateIDHmodel)
 
     def updateIDHmodel(self):
         if self.IschemicEvaluation.isChecked():
@@ -436,7 +436,14 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         else:
             return True
 
+    def checkIIHD(self):
+        if self.IHDdouble.value() == 0:
+            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(
+                "The Incidence Rate per 10.000 people of Ischaemic Heart Disease should be greather than zero"))
 
+            return False
+
+        return True
 
     def accept(self):
 
@@ -482,6 +489,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         if self.IschemicEvaluation.isChecked():
             ischemicEval = True
             self.IHDdouble.hide()
+            # in case of ischemi evaluation the IIDH value should be greater than zero
+            if self.checkIIHD() == False:
+                return
         else:
             ischemicEval = False
             self.IHDdouble.show()
@@ -694,7 +704,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
             receiver_points_feat_number = receiver_points_feat_number + 1
             bar = receiver_points_feat_number/float(receiver_points_feat_total)*100
-            self.progressBar.setValue(bar)
+
 
             feat_levels_fields = {}
 
@@ -742,6 +752,9 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                             buildings_levels_from_receiverL2[id_edi].append(level_2)
                         else:
                             buildings_levels_from_receiverL2[id_edi] = [level_2]
+
+            # bar progressing
+            self.progressBar.setValue(bar)
 
 
         # POPULATION PART -- ADDED PART

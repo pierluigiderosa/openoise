@@ -562,7 +562,7 @@ class Dialog(QDialog,NoiseLevel_ui):
             return False
         if self.diff3DRaysCheck.isChecked() == True and self.height_building_check.isChecked() == False:
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"),
-                                    self.tr("Please activate the 3D global in Input tab"))
+                                    self.tr("Please activate 3D calculation in Input menu"))
             return False
 
         if self.diff_rays_layer_checkBox.isChecked() == True and self.rays_layer_checkBox.isChecked() == True:
@@ -677,7 +677,31 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         return True
 
+    def checkMultipart(self):
+        # check input data are not multipart
+        receiver_layer = self.receivers_layer_comboBox.currentLayer()
+        if QgsWkbTypes.isMultiType(receiver_layer.wkbType()):
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr(
+                "The receiver layer is a <b>MultiPart</b>. Please use the specifc tool in processing to convert it in a single part"))
+            return False
+        building_layer = self.buildings_layer_comboBox.currentLayer()
+        if QgsWkbTypes.isMultiType(building_layer.wkbType()):
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr(
+                "The building layer is a <b>MultiPart</b>. Please use the specifc tool in processing to convert it in a single part"))
+            return False
+        source_point_layer = self.sources_pts_layer_comboBox.currentLayer()
+        if QgsWkbTypes.isMultiType(source_point_layer.wkbType()):
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr(
+                "The source point layer is a <b>MultiPart</b>. Please use the specifc tool in processing to convert it in a single part"))
+            return False
+        source_road_layer = self.sources_roads_layer_comboBox.currentLayer()
+        if QgsWkbTypes.isMultiType(source_road_layer.wkbType()):
+            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr(
+                "The road layer is a <b>MultiPart</b>. Please use the specifc tool in processing to convert it in a single part"))
+            return False
 
+
+        return True
     def write_settings(self):
 
 
@@ -986,6 +1010,9 @@ class Dialog(QDialog,NoiseLevel_ui):
             return
 
         if self.CRS_check() == False:
+            return
+
+        if self.checkMultipart() == False:
             return
 
         if self.diff_rays_layer_checkBox.isChecked():
