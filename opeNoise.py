@@ -95,10 +95,11 @@ class opeNoise(object):
                                           self.tr("Noise Exposure"), self.iface.mainWindow())
         self.NoiseExposure_item.triggered.connect(self.AssignLevelsToBuildings_show)
         
+        # removed the application as this is inserted in noise exposure
         # AssignLevelsToBuildings
-        self.ApplyNoiseSymbology_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_ApplyNoiseSymbology.png"),
-                                        QCoreApplication.translate("opeNoise", "Apply Noise Symbology"), self.iface.mainWindow())
-        self.ApplyNoiseSymbology_item.triggered.connect(self.ApplyNoiseSymbology_show)
+        # self.ApplyNoiseSymbology_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_ApplyNoiseSymbology.png"),
+        #                                 QCoreApplication.translate("opeNoise", "Apply Noise Symbology"), self.iface.mainWindow())
+        # self.ApplyNoiseSymbology_item.triggered.connect(self.ApplyNoiseSymbology_show)
 
         # Create Grid
         self.CreateContours_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Contour_Levels.png"),
@@ -121,7 +122,7 @@ class opeNoise(object):
                                        self.CalculateNoiseLevels_item,
                                        self.CreateContours_item,
                                        self.NoiseExposure_item,
-                                       self.ApplyNoiseSymbology_item,
+                                       # self.ApplyNoiseSymbology_item,
                                        self.Informations_item,
                                        self.Credits_item])
         
@@ -134,7 +135,7 @@ class opeNoise(object):
         self.iface.removePluginMenu("&opeNoise", self.CreateReceiverPoints_item)
         self.iface.removePluginMenu("&opeNoise", self.CalculateNoiseLevels_item)
         self.iface.removePluginMenu("&opeNoise", self.NoiseExposure_item)
-        self.iface.removePluginMenu("&opeNoise", self.ApplyNoiseSymbology_item)
+        # self.iface.removePluginMenu("&opeNoise", self.ApplyNoiseSymbology_item)
         self.iface.removePluginMenu("&opeNoise", self.CreateContours_item)
         self.iface.removePluginMenu("&opeNoise", self.Informations_item)
         self.iface.removePluginMenu("&opeNoise", self.Credits_item)

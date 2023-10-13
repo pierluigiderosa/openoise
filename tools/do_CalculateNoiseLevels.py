@@ -124,7 +124,7 @@ class Dialog(QDialog,NoiseLevel_ui):
         self.save_settings_checkBox.toggled.connect(self.save_settings_checkBox_update)
         self.save_settings_pushButton.clicked.connect(self.outFile_save_settings)
 
-        research_ray = ['50','100','250','500','1000']
+        research_ray = ['50','100','250','500','1000', '2000','3000','4000','5000']
         self.research_ray_comboBox.clear()
         for value in research_ray:
             self.research_ray_comboBox.addItem(value)

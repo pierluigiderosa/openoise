@@ -69,7 +69,7 @@
     <emission>
         <implementation>
 		<pts />
-		<roads>POWER_R</roads>
+		<roads />
         </implementation>
 
 	<period>
@@ -80,10 +80,10 @@
 		    <nig />  
 		</pts>
 		<roads>
-		    <gen>True</gen>
-		    <day>False</day>            
-		    <eve>False</eve>            
-		    <nig>False</nig>  
+		    <gen />
+		    <day />            
+		    <eve />            
+		    <nig />  
 		</roads>
 	    <den>False</den>                                                          	     
 	</period>
@@ -96,7 +96,7 @@
         </POWER_P>
         
         <POWER_R>
-            <gen>f1-c1-n/h</gen>
+            <gen />
             <day />            
             <eve />            
             <nig />                                                            
