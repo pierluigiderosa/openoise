@@ -488,7 +488,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if self.IschemicEvaluation.isChecked():
             ischemicEval = True
-            self.IHDdouble.hide()
+
             # in case of ischemi evaluation the IIDH value should be greater than zero
             if self.checkIIHD() == False:
                 return

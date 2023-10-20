@@ -1012,8 +1012,8 @@ class Dialog(QDialog,NoiseLevel_ui):
         if self.CRS_check() == False:
             return
 
-        if self.checkMultipart() == False:
-            return
+        # if self.checkMultipart() == False:
+        #     return
 
         if self.diff_rays_layer_checkBox.isChecked():
             skip_diff = True

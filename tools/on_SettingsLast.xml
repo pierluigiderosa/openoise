@@ -2,7 +2,7 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/test_openoise</last>
+        <last>C:/Users/pierl/Documents/cartografie - 2autorizzazione</last>
     </directory>
 
     <layers>
@@ -69,7 +69,7 @@
     <emission>
         <implementation>
 		<pts />
-		<roads>CNOSSOS</roads>
+		<roads>CNOSSOS_R</roads>
         </implementation>
 
 	<period>
@@ -81,7 +81,7 @@
 		</pts>
 		<roads>
 		    <gen>False</gen>
-		    <day>True</day>            
+		    <day>False</day>            
 		    <eve>False</eve>            
 		    <nig>True</nig>  
 		</roads>
@@ -101,6 +101,13 @@
             <eve />            
             <nig />                                                            
         </POWER_R>
+
+        <CNOSSOS_R>
+            <gen />
+            <day />
+            <eve />
+            <nig>Lnight</nig>
+        </CNOSSOS_R>
         
         <NMPB>
             <gen_l_n />
@@ -141,8 +148,8 @@
             <gen_4b_n />
             <gen_4b_s />            
             
-            <day_1_n>light_n</day_1_n>
-            <day_1_s>light_v</day_1_s>            
+            <day_1_n />
+            <day_1_s />            
             <day_2_n />
             <day_2_s />
             <day_3_n />

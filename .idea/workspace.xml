@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- added control for multipart layer&#10;- added control for IIHD &gt;0">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- removed tool applyNoiseSimbology&#10;- fix for iso_traffic_spectrum">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opeNoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/opeNoise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics_NMPB.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics_NMPB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Acoustics.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_Helps.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Helps.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -428,14 +436,11 @@
       <workItem from="1695285816610" duration="3429000" />
       <workItem from="1695716001431" duration="5588000" />
       <workItem from="1695801461158" duration="597000" />
-      <workItem from="1697191596569" duration="841000" />
-    </task>
-    <task id="LOCAL-00043" summary="save emission on roads layer">
-      <created>1638434737014</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1638434737014</updated>
+      <workItem from="1697191596569" duration="3124000" />
+      <workItem from="1697437441397" duration="7654000" />
+      <workItem from="1697523192570" duration="7857000" />
+      <workItem from="1697624768772" duration="1108000" />
+      <workItem from="1697805090980" duration="2072000" />
     </task>
     <task id="LOCAL-00044" summary="initial fix emission CNOSSOS&#10;initial popolation aggregation on buildings">
       <created>1639989754344</created>
@@ -773,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695720586866</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="- removed tool applyNoiseSimbology&#10;- fix for iso_traffic_spectrum">
+      <created>1697192512971</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1697192512972</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -844,7 +856,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MODIFICHE DEL 23/03/2022&#10;modificata la skin della Noise Exposure con solo Lden e Lnight&#10;rinominata la tabella in output con Lden e Lnight&#10;BUG - corretto il tasto OK che rimaneva grigio dopo i warning su people, dwellings, methods" />
     <MESSAGE value="Upgrade GUI&#10;help buttons" />
     <MESSAGE value="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
     <MESSAGE value="new examples data" />
@@ -869,7 +880,8 @@
     <MESSAGE value="- fix 19 settembre 23&#10;- varie modifiche GUI" />
     <MESSAGE value="- NEW GUI for Noise Exposure&#10;- arrotondamento di NIHD" />
     <MESSAGE value="- added control for multipart layer&#10;- added control for IIHD &gt;0" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added control for multipart layer&#10;- added control for IIHD &gt;0" />
+    <MESSAGE value="- removed tool applyNoiseSimbology&#10;- fix for iso_traffic_spectrum" />
+    <option name="LAST_COMMIT_MESSAGE" value="- removed tool applyNoiseSimbology&#10;- fix for iso_traffic_spectrum" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

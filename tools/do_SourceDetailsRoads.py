@@ -63,6 +63,12 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
                                             'POWER_R_eve' : self.POWER_R_L_eve_comboBox,
                                             'POWER_R_nig' : self.POWER_R_L_nig_comboBox
                                             }
+        self.CNOSSOS_R_emission_comboBoxes_dict = {
+                                            'CNOSSOS_R_gen': self.CNOSSOS_R_L_gen_comboBox,
+                                            'CNOSSOS_R_day': self.CNOSSOS_R_L_day_comboBox,
+                                            'CNOSSOS_R_eve': self.CNOSSOS_R_L_eve_comboBox,
+                                            'CNOSSOS_R_nig': self.CNOSSOS_R_L_nig_comboBox
+        }
         self.NMPB_emission_comboBoxes_dict = {'NMPB_gen_l_n' : self.NMPB_L_gen_l_n_comboBox,
                                             'NMPB_day_l_n' : self.NMPB_L_day_l_n_comboBox,
                                             'NMPB_eve_l_n' : self.NMPB_L_eve_l_n_comboBox,
@@ -131,7 +137,9 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
                                             }
 
         self.decimal_comboBoxes = [self.POWER_R_L_gen_comboBox, self.POWER_R_L_day_comboBox,
-                                        self.POWER_R_L_eve_comboBox, self.POWER_R_L_nig_comboBox
+                                        self.POWER_R_L_eve_comboBox, self.POWER_R_L_nig_comboBox,
+                                   self.CNOSSOS_R_L_gen_comboBox,self.CNOSSOS_R_L_day_comboBox,
+                                   self.CNOSSOS_R_L_eve_comboBox,self.CNOSSOS_R_L_nig_comboBox
                                    ]
 
         self.int_comboBoxes = [        self.NMPB_L_gen_l_n_comboBox, self.NMPB_L_day_l_n_comboBox,
@@ -171,6 +179,7 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
                                         ]
 
         self.all_emission_comboBoxes = [self.POWER_R_L_gen_comboBox, self.POWER_R_L_day_comboBox, self.POWER_R_L_eve_comboBox, self.POWER_R_L_nig_comboBox,
+                      self.CNOSSOS_R_L_gen_comboBox,self.CNOSSOS_R_L_day_comboBox,self.CNOSSOS_R_L_eve_comboBox,self.CNOSSOS_R_L_nig_comboBox,
                       self.NMPB_L_gen_l_n_comboBox,self.NMPB_L_day_l_n_comboBox,self.NMPB_L_eve_l_n_comboBox,self.NMPB_L_nig_l_n_comboBox,
                       self.NMPB_L_gen_l_s_comboBox,self.NMPB_L_day_l_s_comboBox,self.NMPB_L_eve_l_s_comboBox,self.NMPB_L_nig_l_s_comboBox,
                       self.NMPB_L_gen_h_n_comboBox,self.NMPB_L_day_h_n_comboBox,self.NMPB_L_eve_h_n_comboBox,self.NMPB_L_nig_h_n_comboBox,
@@ -192,6 +201,7 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 
 
         self.source_checkBoxes = [self.POWER_R_L_gen_checkBox,self.POWER_R_L_day_checkBox,self.POWER_R_L_eve_checkBox,self.POWER_R_L_nig_checkBox,
+                                  self.CNOSSOS_R_L_gen_checkBox,self.CNOSSOS_R_L_day_checkBox,self.CNOSSOS_R_L_eve_checkBox,self.CNOSSOS_R_L_nig_checkBox,
                            self.NMPB_L_gen_checkBox,self.NMPB_L_day_checkBox,self.NMPB_L_eve_checkBox,self.NMPB_L_nig_checkBox,
                            self.NMPB_l_checkBox,self.NMPB_h_checkBox,
                            self.CNOSSOS_L_gen_checkBox,self.CNOSSOS_L_day_checkBox,self.CNOSSOS_L_eve_checkBox,self.CNOSSOS_L_nig_checkBox,
@@ -199,7 +209,8 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 
         self.source_POWER_R_period_checkBoxes = [self.POWER_R_L_day_checkBox,self.POWER_R_L_eve_checkBox,self.POWER_R_L_nig_checkBox]
         self.source_NMPB_period_checkBoxes = [self.NMPB_L_day_checkBox,self.NMPB_L_eve_checkBox,self.NMPB_L_nig_checkBox]
-        self.source_CNOSSOS_period_checkBoxes = [self.CNOSSOS_L_day_checkBox,self.CNOSSOS_L_eve_checkBox,self.CNOSSOS_L_nig_checkBox]
+        self.source_CNOSSOS_R_period_checkBoxes = [self.CNOSSOS_R_L_day_checkBox,self.POWER_R_L_eve_checkBox,self.POWER_R_L_nig_checkBox]
+        self.source_CNOSSOS_period_checkBoxes = [self.CNOSSOS_R_L_day_checkBox,self.CNOSSOS_R_L_eve_checkBox,self.CNOSSOS_R_L_nig_checkBox]
         # end definitions
 
         self.road_stackedWidget.setCurrentIndex(0)
@@ -209,10 +220,12 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
         self.POWER_R_radioButton.setChecked(0)
         self.NMPB_radioButton.setChecked(0)
         self.CNOSSOS_radioButton.setChecked(0)
+        self.CNOSSOS_R_radioButton.setChecked(0)
 
         self.POWER_R_radioButton.toggled.connect(self.road_stackedWidget_update)
         self.NMPB_radioButton.toggled.connect(self.road_stackedWidget_update)
         self.CNOSSOS_radioButton.toggled.connect(self.road_stackedWidget_update)
+        self.CNOSSOS_R_radioButton.toggled.connect(self.road_stackedWidget_update)
         self.HelpNMPB_traffic.clicked.connect(self.HelpNMPB_traffic_show)
         self.HelpNMPB.clicked.connect(self.HelpNMPB_show)
         self.HelpCNOSSOS.clicked.connect(self.HelpCNOSSOS_show)
@@ -614,6 +627,11 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
             self.CNOSSOS_L_eve_checkBox.setChecked(0)
             self.CNOSSOS_L_nig_checkBox.setChecked(0)
 
+            self.CNOSSOS_R_L_gen_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_day_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_eve_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_nig_checkBox.setChecked(0)
+
 
         if self.NMPB_radioButton.isChecked():
             self.road_stackedWidget.setCurrentIndex(1)
@@ -628,6 +646,11 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
             self.CNOSSOS_L_eve_checkBox.setChecked(0)
             self.CNOSSOS_L_nig_checkBox.setChecked(0)
 
+            self.CNOSSOS_R_L_gen_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_day_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_eve_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_nig_checkBox.setChecked(0)
+
 
         if self.CNOSSOS_radioButton.isChecked():
             self.road_stackedWidget.setCurrentIndex(2)
@@ -641,6 +664,30 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
             self.NMPB_L_day_checkBox.setChecked(0)
             self.NMPB_L_eve_checkBox.setChecked(0)
             self.NMPB_L_nig_checkBox.setChecked(0)
+
+            self.CNOSSOS_R_L_gen_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_day_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_eve_checkBox.setChecked(0)
+            self.CNOSSOS_R_L_nig_checkBox.setChecked(0)
+
+
+        if self.CNOSSOS_R_radioButton.isChecked():
+            self.road_stackedWidget.setCurrentIndex(3)
+
+            self.POWER_R_L_gen_checkBox.setChecked(0)
+            self.POWER_R_L_day_checkBox.setChecked(0)
+            self.POWER_R_L_eve_checkBox.setChecked(0)
+            self.POWER_R_L_nig_checkBox.setChecked(0)
+
+            self.NMPB_L_gen_checkBox.setChecked(0)
+            self.NMPB_L_day_checkBox.setChecked(0)
+            self.NMPB_L_eve_checkBox.setChecked(0)
+            self.NMPB_L_nig_checkBox.setChecked(0)
+
+            self.CNOSSOS_L_gen_checkBox.setChecked(0)
+            self.CNOSSOS_L_day_checkBox.setChecked(0)
+            self.CNOSSOS_L_eve_checkBox.setChecked(0)
+            self.CNOSSOS_L_nig_checkBox.setChecked(0)
 
         self.source_checkBox_update()
 
@@ -691,6 +738,24 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
             self.POWER_R_L_nig_comboBox.setEnabled(True)
         else:
             self.POWER_R_L_nig_comboBox.setEnabled(False)
+
+        # CNOSSOS_P
+        if self.CNOSSOS_R_L_gen_checkBox.isChecked():
+            self.CNOSSOS_R_L_gen_comboBox.setEnabled(True)
+        else:
+            self.CNOSSOS_R_L_gen_comboBox.setEnabled(False)
+        if self.CNOSSOS_R_L_day_checkBox.isChecked():
+            self.CNOSSOS_R_L_day_comboBox.setEnabled(True)
+        else:
+            self.CNOSSOS_R_L_day_comboBox.setEnabled(False)
+        if self.CNOSSOS_R_L_eve_checkBox.isChecked():
+            self.CNOSSOS_R_L_eve_comboBox.setEnabled(True)
+        else:
+            self.CNOSSOS_R_L_eve_comboBox.setEnabled(False)
+        if self.CNOSSOS_R_L_nig_checkBox.isChecked():
+            self.CNOSSOS_R_L_nig_comboBox.setEnabled(True)
+        else:
+            self.CNOSSOS_R_L_nig_comboBox.setEnabled(False)
 
         # NMPB
         if self.NMPB_l_checkBox.isChecked() and self.NMPB_L_gen_checkBox.isChecked():
@@ -973,6 +1038,16 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify at least one power for a reference period"))
                 return False
 
+        if self.CNOSSOS_R_radioButton.isChecked():
+            count=0
+            for key in list(self.CNOSSOS_R_emission_comboBoxes_dict.keys()):
+                comboBox = self.CNOSSOS_R_emission_comboBoxes_dict[key]
+                if comboBox.isEnabled():
+                    count = 1
+            if count == 0:
+                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify at least one power for a reference period"))
+                return False
+
         if self.NMPB_radioButton.isChecked():
             count = 0
             for key in list(self.NMPB_emission_comboBoxes_dict.keys()):
@@ -1074,21 +1149,23 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
             settings['implementation_roads'] ='NMPB'
         if self.CNOSSOS_radioButton.isChecked():
             settings['implementation_roads'] ='CNOSSOS'
+        if self.CNOSSOS_R_radioButton.isChecked():
+            settings['implementation_roads'] ='CNOSSOS_R'
 
 
-        if self.POWER_R_L_gen_checkBox.isChecked() or self.NMPB_L_gen_checkBox.isChecked() or self.CNOSSOS_L_gen_checkBox.isChecked():
+        if self.POWER_R_L_gen_checkBox.isChecked() or self.NMPB_L_gen_checkBox.isChecked() or self.CNOSSOS_L_gen_checkBox.isChecked() or self.CNOSSOS_R_L_gen_checkBox.isChecked():
             settings['period_roads_gen'] = 'True'
         else:
             settings['period_roads_gen'] = 'False'
-        if self.POWER_R_L_day_checkBox.isChecked() or self.NMPB_L_day_checkBox.isChecked() or self.CNOSSOS_L_day_checkBox.isChecked():
+        if self.POWER_R_L_day_checkBox.isChecked() or self.NMPB_L_day_checkBox.isChecked() or self.CNOSSOS_L_day_checkBox.isChecked() or self.CNOSSOS_R_L_day_checkBox.isChecked():
             settings['period_roads_day'] = 'True'
         else:
             settings['period_roads_day'] = 'False'
-        if self.POWER_R_L_eve_checkBox.isChecked() or self.NMPB_L_eve_checkBox.isChecked() or self.CNOSSOS_L_eve_checkBox.isChecked():
+        if self.POWER_R_L_eve_checkBox.isChecked() or self.NMPB_L_eve_checkBox.isChecked() or self.CNOSSOS_L_eve_checkBox.isChecked() or self.CNOSSOS_R_L_eve_checkBox.isChecked():
             settings['period_roads_eve'] = 'True'
         else:
             settings['period_roads_eve'] = 'False'
-        if self.POWER_R_L_nig_checkBox.isChecked() or self.NMPB_L_nig_checkBox.isChecked() or self.CNOSSOS_L_nig_checkBox.isChecked():
+        if self.POWER_R_L_nig_checkBox.isChecked() or self.NMPB_L_nig_checkBox.isChecked() or self.CNOSSOS_L_nig_checkBox.isChecked() or self.CNOSSOS_R_L_nig_checkBox.isChecked():
             settings['period_roads_nig'] = 'True'
         else:
             settings['period_roads_nig'] = 'False'
@@ -1098,6 +1175,12 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
             for key in list(self.POWER_R_emission_comboBoxes_dict.keys()):
                 if self.POWER_R_emission_comboBoxes_dict[key].isEnabled():
                     settings[key] = self.POWER_R_emission_comboBoxes_dict[key].currentText()
+                else:
+                    settings[key] = ''
+        if self.CNOSSOS_R_radioButton.isChecked():
+            for key in list(self.CNOSSOS_R_emission_comboBoxes_dict.keys()):
+                if self.CNOSSOS_R_emission_comboBoxes_dict[key].isEnabled():
+                    settings[key] = self.CNOSSOS_R_emission_comboBoxes_dict[key].currentText()
                 else:
                     settings[key] = ''
         if self.NMPB_radioButton.isChecked():
@@ -1137,6 +1220,23 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
                     if settings[key] is not None:
                         idx = self.POWER_R_emission_comboBoxes_dict[key].findText(settings[key])
                         self.POWER_R_emission_comboBoxes_dict[key].setCurrentIndex(idx)
+
+            if settings['implementation_roads'] == 'CNOSSOS_R':
+                self.CNOSSOS_R_radioButton.setChecked(1)
+
+                if settings['period_roads_gen'] == "True":
+                    self.CNOSSOS_R_L_gen_checkBox.setChecked(1)
+                if settings['period_roads_day'] == "True":
+                    self.CNOSSOS_R_L_day_checkBox.setChecked(1)
+                if settings['period_roads_eve'] == "True":
+                    self.CNOSSOS_R_L_eve_checkBox.setChecked(1)
+                if settings['period_roads_nig'] == "True":
+                    self.CNOSSOS_R_L_nig_checkBox.setChecked(1)
+
+                for key in list(self.CNOSSOS_R_emission_comboBoxes_dict.keys()):
+                    if settings[key] is not None:
+                        idx = self.CNOSSOS_R_emission_comboBoxes_dict[key].findText(settings[key])
+                        self.CNOSSOS_R_emission_comboBoxes_dict[key].setCurrentIndex(idx)
 
 
             if settings['implementation_roads'] == 'NMPB':

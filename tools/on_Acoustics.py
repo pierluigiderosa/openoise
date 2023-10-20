@@ -31,7 +31,7 @@ def GlobalToOctaveBands(model,level_input):
     '''
     the output is a dict:
     - pink noise: with keys [63, 125, 250, 500, 1000 , 2000, 4000, 8000] and value the levels in bands
-    - ISO traffic road: with {125 : -10.2, 250 : -10.2, 500 : -7.2, 1000 : -3.9, 2000 : -6.4, 4000 : -11.4}
+    - ISO traffic road: with {125 : -14.5, 250 : -10.2, 500 : -7.2, 1000 : -3.9, 2000 : -6.4, 4000 : -11.4}
     '''
     level_output = {}
 
@@ -41,7 +41,7 @@ def GlobalToOctaveBands(model,level_input):
 
         # ISO 1793-3
         if model == 'ISO_traffic_road':
-            levels_to_subctract_bands = {125 : -10.2, 250 : -10.2, 500 : -7.2, 1000 : -3.9, 2000 : -6.4, 4000 : -11.4}
+            levels_to_subctract_bands = {125 : -14.5, 250 : -10.2, 500 : -7.2, 1000 : -3.9, 2000 : -6.4, 4000 : -11.4}
 
             for band in list(levels_to_subctract_bands.keys()):
                 level_output[band] = round(level_input + levels_to_subctract_bands[band],1)

@@ -125,6 +125,23 @@ def get_levels(settings,source_layer,source_feat):
 
             level_bands[key] = on_Acoustics.GlobalToOctaveBands('ISO_traffic_road',level_global[key])
 
+    # CNOSSOS_R
+    elif source_layer.geometryType() == QgsWkbTypes.LineGeometry and settings['implementation_roads'] == 'CNOSSOS_R':
+        if settings['CNOSSOS_R_gen'] != None:
+            level_global['Lgeneric'] = source_feat[settings['CNOSSOS_R_gen']]
+        if settings['CNOSSOS_R_day'] != None:
+            level_global['Lday'] = source_feat[settings['CNOSSOS_R_day']]
+        if settings['CNOSSOS_R_eve'] != None:
+            level_global['Levening'] = source_feat[settings['CNOSSOS_R_eve']]
+        if settings['CNOSSOS_R_nig'] != None:
+            level_global['Lnight'] = source_feat[settings['CNOSSOS_R_nig']]
+
+        print('level global: ',level_global)
+        for key in list(level_global.keys()):
+            # fix_print_with_import
+            # todo - forse qui calcola male i level band
+            level_bands[key] = on_Acoustics.GlobalToOctaveBands('pink', level_global[key])
+
     # NMPB
     elif source_layer.geometryType() == QgsWkbTypes.LineGeometry and settings['implementation_roads'] == 'NMPB':
 
@@ -241,6 +258,7 @@ def get_levels(settings,source_layer,source_feat):
                 if settings[key_setting] is not None:
                     input_dict[key] = source_feat.attributes()[source_layer.dataProvider().fieldNameIndex(settings[key_setting])]
 
+            print('Lgnig:', input_dict)
             level_bands['Lnight'] = on_Acoustics.CNOSSOS(input_dict).bands()
             level_global['Lnight'] = on_Acoustics.OctaveBandsToGlobalA(level_bands['Lnight'])
 
@@ -253,7 +271,8 @@ def get_levels(settings,source_layer,source_feat):
     return levels
 
 
-def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_layer, settings, level_field_index, obstacles_layer, rays_writer, diff_rays_writer, diff3D_rays_writer):
+def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_layer, settings, level_field_index,
+         obstacles_layer, rays_writer, diff_rays_writer, diff3D_rays_writer):
 
     # partialPercBar store the corresponding partial for each progressbar. Six in total and grouped un one main ProgressBar is 100/
     partialPercBar = 100/6.
@@ -585,6 +604,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
                         ray_geometry = QgsGeometry.fromPolylineXY( [ receiver_feat.geometry().asPoint() , source_feat.geometry().asPoint() ] )
 
+                        # PART FOR NOISE MODELING CALCULATION EFFECTS
                         d_recTOsource = compute_distance(receiver_feat.geometry().asPoint(),source_feat.geometry().asPoint())
                         # length with receiver points height fixed to 4 m
 
@@ -622,7 +642,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                 if feat_type == 'road':
                                     if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
                                         level_dir[key] = level_dir[key] + 20 + 10*log10(float(segment)) + 3
-                                    if settings['implementation_roads'] == 'CNOSSOS':
+                                    if (settings['implementation_roads'] == 'CNOSSOS' or settings['implementation_roads'] == 'CNOSSOS_R'):
                                         level_dir[key] = level_dir[key] + 10*log10(float(segment)) + 3
 
                                 receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dir[key]/float(10))
@@ -741,11 +761,11 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                                 else:
                                                     level_dif[key] = on_Acoustics.OctaveBandsToGlobal(level_dif_bands[key])
 
-                                                # correction for the segment lenght
+                                                # correction for the segment lenght - TODO chiedere a daniele
                                                 if feat_type == 'road':
                                                     if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
                                                         level_dif[key] = level_dif[key] + 20 + 10*log10(float(segment)) + 3
-                                                    if settings['implementation_roads'] == 'CNOSSOS':
+                                                    if (settings['implementation_roads'] == 'CNOSSOS' or settings['implementation_roads'] == 'CNOSSOS_R'):
                                                         level_dif[key] = level_dif[key] + 10*log10(float(segment)) + 3
 
                                                 receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key]/float(10))
@@ -901,7 +921,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                 if feat_type == 'road':
                                     if (settings['implementation_roads'] == 'POWER_R' or settings['implementation_roads'] == 'NMPB'):
                                         level_dif[key] = level_dif[key] + 20 + 10 * log10(float(segment)) + 3
-                                    if settings['implementation_roads'] == 'CNOSSOS':
+                                    if (settings['implementation_roads'] == 'CNOSSOS' or settings['implementation_roads'] == 'CNOSSOS_R'):
                                         level_dif[key] = level_dif[key] + 10 * log10(float(segment)) + 3
                                 #         add noise to final value
                                 receiver_point_lin_level[key] = receiver_point_lin_level[key] + 10**(level_dif[key] / float(10))
@@ -1112,6 +1132,7 @@ def run(settings,progress_bars,totalBar):
     else:
         diff_rays_writer = None
 
+    # defines diff rays layer 3D vertical
     if diff3D_layer_path is not None:
 
         # add fields
