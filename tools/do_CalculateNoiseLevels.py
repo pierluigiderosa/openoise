@@ -506,7 +506,8 @@ class Dialog(QDialog,NoiseLevel_ui):
             if self.sources_pts_layer_comboBox.currentText() == "":
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify the points sources layer"))
                 return False
-            if not (settings['period_pts_gen'] == 'True' or settings['period_pts_day'] == 'True' or settings['period_pts_eve'] == 'True' or settings['period_pts_nig'] == 'True'):
+            if not (settings['period_pts_gen'] == 'True' or settings['period_pts_day'] == 'True' or settings['period_pts_eve'] == 'True' or settings['period_pts_nig'] == 'True' or
+                    settings['period_pts_gen_freq'] == 'True' or settings['period_pts_day_freq'] == 'True' or settings['period_pts_eve_freq'] == 'True'or settings['period_pts_nig_freq'] == 'True') :
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify at least one power for a reference period in the point source"))
                 return False
             if self.receivers_layer_comboBox.currentText() == self.sources_pts_layer_comboBox.currentText():
@@ -588,13 +589,13 @@ class Dialog(QDialog,NoiseLevel_ui):
         fields_to_calculate = []
 
         if self.sources_pts_layer_checkBox.isChecked():
-            if settings['period_pts_gen'] == 'True':
+            if settings['period_pts_gen'] == 'True' or settings['period_pts_gen_freq'] == 'True':
                 fields_to_calculate.append('Lgeneric')
-            if settings['period_pts_day'] == 'True':
+            if settings['period_pts_day'] == 'True' or settings['period_pts_day_freq'] == 'True':
                 fields_to_calculate.append('Lday')
-            if settings['period_pts_eve'] == 'True':
+            if settings['period_pts_eve'] == 'True' or settings['period_pts_eve_freq'] == 'True':
                 fields_to_calculate.append('Levening')
-            if settings['period_pts_nig'] == 'True':
+            if settings['period_pts_nig'] == 'True' or settings['period_pts_nig_freq'] == 'True':
                 fields_to_calculate.append('Lnight')
 
         if self.sources_roads_layer_checkBox.isChecked():

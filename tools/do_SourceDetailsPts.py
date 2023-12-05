@@ -50,14 +50,76 @@ class Dialog(QDialog,SourceDetails_ui):
 
         self.layer_name = layer_name
 
+        # set widget
+        self.POWER_P_radioButton.setChecked(0)
+        self.POWER_P_freq_radioButton.setChecked(0)
+
+        self.POWER_P_radioButton.toggled.connect(self.POWERstackedWidget_update)
+        self.POWER_P_freq_radioButton.toggled.connect(self.POWERstackedWidget_update)
+
+
         # start definition
         self.POWER_P_emission_comboBoxes_dict = {'POWER_P_gen' : self.POWER_P_L_gen_comboBox,
                                     'POWER_P_day' : self.POWER_P_L_day_comboBox,
                                     'POWER_P_eve' : self.POWER_P_L_eve_comboBox,
                                     'POWER_P_nig' : self.POWER_P_L_nig_comboBox
                                     }
+        self.POWER_P_Freq_GEN_comboboxes_dict = {'POWER_P_GEN_63': self.POWER_P_63_gen_combo,
+                                                 'POWER_P_GEN_125': self.POWER_P_125_gen_combo,
+                                                 'POWER_P_GEN_250': self.POWER_P_250_gen_combo,
+                                                 'POWER_P_GEN_500': self.POWER_P_500_gen_combo,
+                                                 'POWER_P_GEN_1000': self.POWER_P_1000_gen_combo,
+                                                 'POWER_P_GEN_2000': self.POWER_P_2000_gen_combo,
+                                                 'POWER_P_GEN_4000': self.POWER_P_4000_gen_combo,
+                                                 'POWER_P_GEN_8000': self.POWER_P_8000_gen_combo,
+                                                 }
+        self.POWER_P_Freq_DAY_comboboxes_dict = {'POWER_P_DAY_63': self.POWER_P_63_day_combo,
+                                                 'POWER_P_DAY_125': self.POWER_P_125_day_combo,
+                                                 'POWER_P_DAY_250': self.POWER_P_250_day_combo,
+                                                 'POWER_P_DAY_500': self.POWER_P_500_day_combo,
+                                                 'POWER_P_DAY_1000': self.POWER_P_1000_day_combo,
+                                                 'POWER_P_DAY_2000': self.POWER_P_2000_day_combo,
+                                                 'POWER_P_DAY_4000': self.POWER_P_4000_day_combo,
+                                                 'POWER_P_DAY_8000': self.POWER_P_8000_day_combo,
+                                                 }
+        self.POWER_P_Freq_EVE_comboboxes_dict = {'POWER_P_EVE_63': self.POWER_P_63_eve_combo,
+                                                 'POWER_P_EVE_125': self.POWER_P_125_eve_combo,
+                                                 'POWER_P_EVE_250': self.POWER_P_250_eve_combo,
+                                                 'POWER_P_EVE_500': self.POWER_P_500_eve_combo,
+                                                 'POWER_P_EVE_1000': self.POWER_P_1000_eve_combo,
+                                                 'POWER_P_EVE_2000': self.POWER_P_2000_eve_combo,
+                                                 'POWER_P_EVE_4000': self.POWER_P_4000_eve_combo,
+                                                 'POWER_P_EVE_8000': self.POWER_P_8000_eve_combo,
+                                                 }
+        self.POWER_P_Freq_NIG_comboboxes_dict = {'POWER_P_NIG_63': self.POWER_P_63_nig_combo,
+                                                 'POWER_P_NIG_125': self.POWER_P_125_nig_combo,
+                                                 'POWER_P_NIG_250': self.POWER_P_250_nig_combo,
+                                                 'POWER_P_NIG_500': self.POWER_P_500_nig_combo,
+                                                 'POWER_P_NIG_1000': self.POWER_P_1000_nig_combo,
+                                                 'POWER_P_NIG_2000': self.POWER_P_2000_nig_combo,
+                                                 'POWER_P_NIG_4000': self.POWER_P_4000_nig_combo,
+                                                 'POWER_P_NIG_8000': self.POWER_P_8000_nig_combo,
+                                                 }
 
         self.all_emission_comboBoxes = [self.POWER_P_L_gen_comboBox, self.POWER_P_L_day_comboBox, self.POWER_P_L_eve_comboBox, self.POWER_P_L_nig_comboBox]
+
+        self.all_emission_comboBoxes_Freq_GEN = [self.POWER_P_63_gen_combo, self.POWER_P_125_gen_combo,
+                                                 self.POWER_P_250_gen_combo, self.POWER_P_500_gen_combo,
+                                                 self.POWER_P_1000_gen_combo, self.POWER_P_2000_gen_combo,
+                                                 self.POWER_P_4000_gen_combo, self.POWER_P_8000_gen_combo]
+        self.all_emission_comboBoxes_Freq_DAY = [self.POWER_P_63_day_combo, self.POWER_P_125_day_combo,
+                                                 self.POWER_P_250_day_combo, self.POWER_P_500_day_combo,
+                                                 self.POWER_P_1000_day_combo, self.POWER_P_2000_day_combo,
+                                                 self.POWER_P_4000_day_combo, self.POWER_P_8000_day_combo]
+        self.all_emission_comboBoxes_Freq_EVE = [self.POWER_P_63_eve_combo, self.POWER_P_125_eve_combo,
+                                                 self.POWER_P_250_eve_combo, self.POWER_P_500_eve_combo,
+                                                 self.POWER_P_1000_eve_combo, self.POWER_P_2000_eve_combo,
+                                                 self.POWER_P_4000_eve_combo, self.POWER_P_8000_eve_combo]
+        self.all_emission_comboBoxes_Freq_NIG = [self.POWER_P_63_nig_combo, self.POWER_P_125_nig_combo,
+                                                 self.POWER_P_250_nig_combo, self.POWER_P_500_nig_combo,
+                                                 self.POWER_P_1000_nig_combo, self.POWER_P_2000_nig_combo,
+                                                 self.POWER_P_4000_nig_combo, self.POWER_P_8000_nig_combo]
+        
 
         self.source_checkBoxes = [self.POWER_P_L_gen_checkBox,self.POWER_P_L_day_checkBox,self.POWER_P_L_eve_checkBox,self.POWER_P_L_nig_checkBox]
 
@@ -72,9 +134,36 @@ class Dialog(QDialog,SourceDetails_ui):
 
         self.POWER_P_L_gen_checkBox.toggled.connect(self.source_checkBox_update)
 
+        # connection checkBox Freq and comboboxes
+        self.POWER_P_L_gen_checkBox_Freq.toggled.connect(self.check_freq_gen_update)
+        self.POWER_P_L_day_checkBox_Freq.toggled.connect(self.check_freq_gen_update)
+        self.POWER_P_L_eve_checkBox_Freq.toggled.connect(self.check_freq_gen_update)
+        self.POWER_P_L_nig_checkBox_Freq.toggled.connect(self.check_freq_gen_update)
+
+
         self.setToolTips()
 
         self.reload_settings()
+
+
+    def POWERstackedWidget_update(self):
+        if self.POWER_P_radioButton.isChecked():
+
+            self.POWERstackedWidget.setCurrentIndex(0)
+
+            self.POWER_P_L_gen_checkBox_Freq.setChecked(0)
+            self.POWER_P_L_day_checkBox_Freq.setChecked(0)
+            self.POWER_P_L_eve_checkBox_Freq.setChecked(0)
+            self.POWER_P_L_nig_checkBox_Freq.setChecked(0)
+
+        if self.POWER_P_freq_radioButton.isChecked():
+
+            self.POWERstackedWidget.setCurrentIndex(1)
+
+            self.POWER_P_L_gen_checkBox.setChecked(0)
+            self.POWER_P_L_day_checkBox.setChecked(0)
+            self.POWER_P_L_eve_checkBox.setChecked(0)
+            self.POWER_P_L_nig_checkBox.setChecked(0)
 
 
     def source_fields_update(self):
@@ -97,6 +186,31 @@ class Dialog(QDialog,SourceDetails_ui):
             comboBox.setFilters(QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
             # for label in source_layer_fields_labels:
             #     comboBox.addItem(label)
+
+        for comboBox in self.all_emission_comboBoxes_Freq_GEN:
+            comboBox.clear()
+            comboBox.setEnabled(False)
+            comboBox.setLayer(source_layer)
+
+            comboBox.setFilters(QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
+        for comboBox in self.all_emission_comboBoxes_Freq_DAY:
+            comboBox.clear()
+            comboBox.setEnabled(False)
+            comboBox.setLayer(source_layer)
+
+            comboBox.setFilters(QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
+        for comboBox in self.all_emission_comboBoxes_Freq_EVE:
+            comboBox.clear()
+            comboBox.setEnabled(False)
+            comboBox.setLayer(source_layer)
+
+            comboBox.setFilters(QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
+        for comboBox in self.all_emission_comboBoxes_Freq_NIG:
+            comboBox.clear()
+            comboBox.setEnabled(False)
+            comboBox.setLayer(source_layer)
+
+            comboBox.setFilters(QgsFieldProxyModel.Double | QgsFieldProxyModel.Int | QgsFieldProxyModel.Numeric)
 
 
     def source_checkBox_update(self):
@@ -132,6 +246,36 @@ class Dialog(QDialog,SourceDetails_ui):
             else:
                 comboBox.setToolTip("")
 
+    def check_freq_gen_update(self):
+        # GEN
+        if self.POWER_P_L_gen_checkBox_Freq.isChecked():
+            for comboBox in self.all_emission_comboBoxes_Freq_GEN:
+                comboBox.setEnabled(True)
+        else:
+            for comboBox in self.all_emission_comboBoxes_Freq_GEN:
+                comboBox.setEnabled(False)
+        # DAY
+        if self.POWER_P_L_day_checkBox_Freq.isChecked():
+            for comboBox in self.all_emission_comboBoxes_Freq_DAY:
+                comboBox.setEnabled(True)
+        else:
+            for comboBox in self.all_emission_comboBoxes_Freq_DAY:
+                comboBox.setEnabled(False)
+        # EVE
+        if self.POWER_P_L_eve_checkBox_Freq.isChecked():
+            for comboBox in self.all_emission_comboBoxes_Freq_EVE:
+                comboBox.setEnabled(True)
+        else:
+            for comboBox in self.all_emission_comboBoxes_Freq_EVE:
+                comboBox.setEnabled(False)
+        # NIG
+        if self.POWER_P_L_nig_checkBox_Freq.isChecked():
+            for comboBox in self.all_emission_comboBoxes_Freq_NIG:
+                comboBox.setEnabled(True)
+        else:
+            for comboBox in self.all_emission_comboBoxes_Freq_NIG:
+                comboBox.setEnabled(False)
+        
 
     def check(self):
 
@@ -146,6 +290,23 @@ class Dialog(QDialog,SourceDetails_ui):
             comboBox = self.POWER_P_emission_comboBoxes_dict[key]
             if comboBox.isEnabled():
                 count = 1
+        for key in list(self.POWER_P_Freq_GEN_comboboxes_dict.keys()):
+            comboBox = self.POWER_P_Freq_GEN_comboboxes_dict[key]
+            if comboBox.isEnabled():
+                count = 1
+        for key in list(self.POWER_P_Freq_DAY_comboboxes_dict.keys()):
+            comboBox = self.POWER_P_Freq_DAY_comboboxes_dict[key]
+            if comboBox.isEnabled():
+                count = 1
+        for key in list(self.POWER_P_Freq_EVE_comboboxes_dict.keys()):
+            comboBox = self.POWER_P_Freq_EVE_comboboxes_dict[key]
+            if comboBox.isEnabled():
+                count = 1
+        for key in list(self.POWER_P_Freq_NIG_comboboxes_dict.keys()):
+            comboBox = self.POWER_P_Freq_NIG_comboboxes_dict[key]
+            if comboBox.isEnabled():
+                count = 1
+
         if count == 0:
             QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify at least one power value for a reference period"))
             return False
@@ -157,7 +318,12 @@ class Dialog(QDialog,SourceDetails_ui):
 
         settings = {}
 
-        settings['implementation_pts'] = 'True'
+        if self.POWER_P_radioButton.isChecked():
+            settings['implementation_pts'] = 'True'
+            settings['implementation_pts_freq'] = 'False'
+        if self.POWER_P_freq_radioButton.isChecked():
+            settings['implementation_pts_freq'] = 'True'
+            settings['implementation_pts'] = 'False'
 
         if self.POWER_P_L_gen_checkBox.isChecked():
             settings['period_pts_gen'] = 'True'
@@ -176,12 +342,49 @@ class Dialog(QDialog,SourceDetails_ui):
         else:
             settings['period_pts_nig'] = 'False'
 
+        # settings of frequencies
+        if self.POWER_P_L_gen_checkBox_Freq.isChecked():
+            settings['period_pts_gen_freq'] = 'True'
+        else:
+            settings['period_pts_gen_freq'] = 'False'
+
+        if self.POWER_P_L_day_checkBox_Freq.isChecked():
+            settings['period_pts_day_freq'] = 'True'
+        else:
+            settings['period_pts_day_freq'] = 'False'
+
+        if self.POWER_P_L_eve_checkBox_Freq.isChecked():
+            settings['period_pts_eve_freq'] = 'True'
+        else:
+            settings['period_pts_eve_freq'] = 'False'
+
+        if self.POWER_P_L_nig_checkBox_Freq.isChecked():
+            settings['period_pts_nig_freq'] = 'True'
+        else:
+            settings['period_pts_nig_freq'] = 'False'
+
 
         for key in list(self.POWER_P_emission_comboBoxes_dict.keys()):
             if self.POWER_P_emission_comboBoxes_dict[key].isEnabled():
                 settings[key] = self.POWER_P_emission_comboBoxes_dict[key].currentField()
             else:
                 settings[key] = ''
+
+        for key in list(self.POWER_P_Freq_GEN_comboboxes_dict.keys()):
+            if self.POWER_P_Freq_GEN_comboboxes_dict[key].isEnabled():
+                settings[key] = self.POWER_P_Freq_GEN_comboboxes_dict[key].currentField()
+
+        for key in list(self.POWER_P_Freq_DAY_comboboxes_dict.keys()):
+            if self.POWER_P_Freq_DAY_comboboxes_dict[key].isEnabled():
+                settings[key] = self.POWER_P_Freq_DAY_comboboxes_dict[key].currentField()
+
+        for key in list(self.POWER_P_Freq_EVE_comboboxes_dict.keys()):
+            if self.POWER_P_Freq_EVE_comboboxes_dict[key].isEnabled():
+                settings[key] = self.POWER_P_Freq_EVE_comboboxes_dict[key].currentField()
+
+        for key in list(self.POWER_P_Freq_NIG_comboboxes_dict.keys()):
+            if self.POWER_P_Freq_NIG_comboboxes_dict[key].isEnabled():
+                settings[key] = self.POWER_P_Freq_NIG_comboboxes_dict[key].currentField()
 
         on_Settings.setSettings(settings)
 
@@ -190,6 +393,13 @@ class Dialog(QDialog,SourceDetails_ui):
 
         try:
             settings = on_Settings.getAllSettings()
+
+            if settings['implementation_pts'] == 'True':
+                self.POWER_P_radioButton.setChecked(1)
+
+            if settings['implementation_pts_freq'] == 'True':
+                self.POWER_P_freq_radioButton.setChecked(1)
+
 
             if settings['period_pts_gen'] == "True":
                 self.POWER_P_L_gen_checkBox.setChecked(1)
@@ -204,6 +414,39 @@ class Dialog(QDialog,SourceDetails_ui):
                 if settings[key] is not None:
                     idx = self.POWER_P_emission_comboBoxes_dict[key].findText(settings[key])
                     self.POWER_P_emission_comboBoxes_dict[key].setCurrentIndex(idx)
+
+            # reload data for frequencies
+            if settings['period_pts_gen_freq'] == 'True':
+                self.POWER_P_L_gen_checkBox_Freq.setChecked(1)
+
+            if settings['period_pts_day_freq'] == 'True':
+                self.POWER_P_L_day_checkBox_Freq.setChecked(1)
+
+            if settings['period_pts_eve_freq'] == 'True':
+                self.POWER_P_L_eve_checkBox_Freq.setChecked(1)
+
+            if settings['period_pts_nig_freq'] == 'True':
+                self.POWER_P_L_nig_checkBox_Freq.setChecked(1)
+
+            for key in list(self.POWER_P_Freq_GEN_comboboxes_dict.keys()):
+                if settings[key] is not None:
+                    idx = self.POWER_P_Freq_GEN_comboboxes_dict[key].findText(settings[key])
+                    self.POWER_P_Freq_GEN_comboboxes_dict[key].setCurrentIndex(idx)
+
+            for key in list(self.POWER_P_Freq_DAY_comboboxes_dict.keys()):
+                if settings[key] is not None:
+                    idx = self.POWER_P_Freq_DAY_comboboxes_dict[key].findText(settings[key])
+                    self.POWER_P_Freq_DAY_comboboxes_dict[key].setCurrentIndex(idx)
+
+            for key in list(self.POWER_P_Freq_EVE_comboboxes_dict.keys()):
+                if settings[key] is not None:
+                    idx = self.POWER_P_Freq_EVE_comboboxes_dict[key].findText(settings[key])
+                    self.POWER_P_Freq_EVE_comboboxes_dict[key].setCurrentIndex(idx)
+
+            for key in list(self.POWER_P_Freq_NIG_comboboxes_dict.keys()):
+                if settings[key] is not None:
+                    idx = self.POWER_P_Freq_NIG_comboboxes_dict[key].findText(settings[key])
+                    self.POWER_P_Freq_NIG_comboboxes_dict[key].setCurrentIndex(idx)
 
             self.source_checkBox_update()
 

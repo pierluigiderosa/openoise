@@ -6,222 +6,804 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>832</width>
-    <height>233</height>
+    <width>839</width>
+    <height>540</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Point Sources Details</string>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>180</y>
-     <width>341</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="implementation_label_24">
-   <property name="geometry">
-    <rect>
-     <x>51</x>
-     <y>76</y>
-     <width>101</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Data Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="Line" name="line_11">
-   <property name="windowModality">
-    <enum>Qt::NonModal</enum>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>21</x>
-     <y>90</y>
-     <width>781</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>21</x>
-     <y>110</y>
-     <width>791</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_9">
-    <item>
-     <widget class="QLabel" name="n_l_label_15">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>27</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Sound Power Level - dB(A) -</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>For point sources, you can set the type of implementation as follow:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QRadioButton" name="POWER_P_radioButton">
+       <property name="text">
+        <string>Sound Power Level - dB(A) - overall</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="POWER_P_freq_radioButton">
+       <property name="text">
+        <string>Sound Power Level - dB(A) - frequencies</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="POWERstackedWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="POWER_P_overall_widget">
+      <widget class="Line" name="line_12">
+       <property name="windowModality">
+        <enum>Qt::NonModal</enum>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>40</y>
+         <width>624</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="POWER_P_L_eve_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>60</y>
+         <width>71</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Evening</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="POWER_P_L_gen_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generic</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="implementation_label_24">
+       <property name="geometry">
+        <rect>
+         <x>41</x>
+         <y>66</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Data Type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>100</y>
+         <width>791</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <widget class="QLabel" name="n_l_label_15">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>27</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Sound Power Level - dB(A) -</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QgsFieldComboBox" name="POWER_P_L_gen_comboBox"/>
+        </item>
+        <item>
+         <widget class="QgsFieldComboBox" name="POWER_P_L_day_comboBox"/>
+        </item>
+        <item>
+         <widget class="QgsFieldComboBox" name="POWER_P_L_eve_comboBox"/>
+        </item>
+        <item>
+         <widget class="QgsFieldComboBox" name="POWER_P_L_nig_comboBox"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="Line" name="line_11">
+       <property name="windowModality">
+        <enum>Qt::NonModal</enum>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>80</y>
+         <width>781</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="POWER_P_L_day_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>60</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Day</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="implementation_label_25">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>30</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reference Periods&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="POWER_P_L_nig_checkBox">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>60</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Night</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
      </widget>
-    </item>
-    <item>
-     <widget class="QgsFieldComboBox" name="POWER_P_L_gen_comboBox"/>
-    </item>
-    <item>
-     <widget class="QgsFieldComboBox" name="POWER_P_L_day_comboBox"/>
-    </item>
-    <item>
-     <widget class="QgsFieldComboBox" name="POWER_P_L_eve_comboBox"/>
-    </item>
-    <item>
-     <widget class="QgsFieldComboBox" name="POWER_P_L_nig_comboBox"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QCheckBox" name="POWER_P_L_gen_checkBox">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>70</y>
-     <width>91</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Generic</string>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="POWER_P_L_day_checkBox">
-   <property name="geometry">
-    <rect>
-     <x>410</x>
-     <y>70</y>
-     <width>81</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Day</string>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="POWER_P_L_eve_checkBox">
-   <property name="geometry">
-    <rect>
-     <x>560</x>
-     <y>70</y>
-     <width>71</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Evening</string>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>751</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>For point sources, you can set the type of implementation as follow:</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="POWER_P_L_nig_checkBox">
-   <property name="geometry">
-    <rect>
-     <x>710</x>
-     <y>70</y>
-     <width>81</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Night</string>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="Line" name="line_12">
-   <property name="windowModality">
-    <enum>Qt::NonModal</enum>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>50</y>
-     <width>624</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="implementation_label_25">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>40</y>
-     <width>111</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reference Periods&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
+     <widget class="QWidget" name="POWER_P_freq_widget">
+      <widget class="QCheckBox" name="POWER_P_L_gen_checkBox_Freq">
+       <property name="geometry">
+        <rect>
+         <x>145</x>
+         <y>40</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generic freq</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>110</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>125</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>70</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>63</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_8000_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>350</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>190</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>500</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>270</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>2000</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_1000_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>230</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_4000_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>310</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_125_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>110</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_63_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>70</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>230</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1000</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_2000_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>270</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_500_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>190</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_250_gen_combo">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>150</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>150</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>250</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>310</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>4000</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>350</y>
+         <width>55</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>8000</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="implementation_label_26">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>20</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reference Periods&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="Line" name="line_13">
+       <property name="windowModality">
+        <enum>Qt::NonModal</enum>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>30</y>
+         <width>624</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_125_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>110</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_2000_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>270</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_8000_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>350</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="POWER_P_L_day_checkBox_Freq">
+       <property name="geometry">
+        <rect>
+         <x>325</x>
+         <y>40</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Day freq</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_500_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>190</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_4000_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>310</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_63_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>70</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_250_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>150</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_1000_day_combo">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>230</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_250_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>150</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_8000_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>350</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_63_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>70</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="POWER_P_L_eve_checkBox_Freq">
+       <property name="geometry">
+        <rect>
+         <x>505</x>
+         <y>40</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Evening freq</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_1000_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>230</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_4000_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>310</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_500_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>190</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_2000_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>270</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_125_eve_combo">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>110</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_63_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>70</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_125_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>110</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_4000_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>310</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="POWER_P_L_nig_checkBox_Freq">
+       <property name="geometry">
+        <rect>
+         <x>685</x>
+         <y>40</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Night freq</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_1000_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>230</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_500_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>190</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_2000_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>270</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_250_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>150</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QgsFieldComboBox" name="POWER_P_8000_nig_combo">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>350</y>
+         <width>150</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>

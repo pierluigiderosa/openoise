@@ -7,26 +7,26 @@
 
     <layers>
         <receivers>
-            <name>receveir_points1</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points1.shp</path>
+            <name>ricettore</name>
+            <path>C:/Users/pierl/Desktop/Sorgente puntuale openoise/ricettore.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
 
         <sources>
 	    <pts>	
-		<name />
-		<path />
+		<name>Sorgente_p.to</name>
+		<path>C:/Users/pierl/Desktop/Sorgente puntuale openoise/Sorgente_p.to.shp</path>
 	    </pts>
 	    <roads>	
-		<name>roads_CNOSSOS</name>
-		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
+		<name />
+		<path />
 	    </roads>
         </sources>
 
         <buildings>
-            <name>buildings</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
+            <name />
+            <path />
         </buildings>
 
         <emissions_points>
@@ -46,7 +46,7 @@
     </layers>
 
     <options>
-        <research_ray>50</research_ray>
+        <research_ray>100</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
@@ -68,33 +68,80 @@
     
     <emission>
         <implementation>
-		<pts />
-		<roads>CNOSSOS_R</roads>
+		<pts>False</pts>
+        <pts_freq>True</pts_freq>
+		<roads />
         </implementation>
 
 	<period>
 		<pts>
-		    <gen />
-		    <day />            
-		    <eve />            
-		    <nig />  
-		</pts>
-		<roads>
 		    <gen>False</gen>
 		    <day>False</day>            
 		    <eve>False</eve>            
-		    <nig>True</nig>  
+		    <nig>False</nig>  
+		</pts>
+         <freq>
+            <gen>False</gen>
+            <day>True</day>
+            <eve>False</eve>
+            <nig>False</nig>
+        </freq>
+		<roads>
+		    <gen />
+		    <day />
+		    <eve />
+		    <nig />
 		</roads>
-	    <den>False</den>                                                          	     
+	    <den>False</den>
 	</period>
-    
+
         <POWER_P>
             <gen />
-            <day />            
-            <eve />            
-            <nig />                                                            
+            <day />
+            <eve />
+            <nig />
         </POWER_P>
-        
+
+        <POWER_P_GEN_FREQ>
+            <f63>LWA_63Hz</f63>
+            <f125>LWA_125Hz</f125>
+            <f250>LWA_250Hz</f250>
+            <f500>LWA_500Hz</f500>
+            <f1000>LWA_1kHz</f1000>
+            <f2000>LWA_2kHz</f2000>
+            <f4000>LWA_4kHz</f4000>
+            <f8000>LWA_8kHz</f8000>
+        </POWER_P_GEN_FREQ>
+        <POWER_P_DAY_FREQ>
+            <f63>LWA_63Hz</f63>
+            <f125>LWA_125Hz</f125>
+            <f250>LWA_250Hz</f250>
+            <f500>LWA_500Hz</f500>
+            <f1000>LWA_1kHz</f1000>
+            <f2000>LWA_2kHz</f2000>
+            <f4000>LWA_4kHz</f4000>
+            <f8000>LWA_8kHz</f8000>
+        </POWER_P_DAY_FREQ>
+        <POWER_P_EVE_FREQ>
+            <f63>LWA_63Hz</f63>
+            <f125>LWA_125Hz</f125>
+            <f250>LWA_250Hz</f250>
+            <f500>LWA_500Hz</f500>
+            <f1000>LWA_1kHz</f1000>
+            <f2000>LWA_2kHz</f2000>
+            <f4000>LWA_4kHz</f4000>
+            <f8000>LWA_8kHz</f8000>
+        </POWER_P_EVE_FREQ>
+        <POWER_P_NIG_FREQ>
+            <f63>LWA_63Hz</f63>
+            <f125>LWA_125Hz</f125>
+            <f250>LWA_250Hz</f250>
+            <f500>LWA_500Hz</f500>
+            <f1000>LWA_1kHz</f1000>
+            <f2000>LWA_2kHz</f2000>
+            <f4000>LWA_4kHz</f4000>
+            <f8000>LWA_8kHz</f8000>
+        </POWER_P_NIG_FREQ>
         <POWER_R>
             <gen />
             <day />            
@@ -106,7 +153,7 @@
             <gen />
             <day />
             <eve />
-            <nig>Lnight</nig>
+            <nig />
         </CNOSSOS_R>
         
         <NMPB>
@@ -170,8 +217,8 @@
             <eve_4b_n />
             <eve_4b_s />
                         
-            <nig_1_n>light_n</nig_1_n>
-            <nig_1_s>light_v</nig_1_s>            
+            <nig_1_n />
+            <nig_1_s />            
             <nig_2_n />
             <nig_2_s />
             <nig_3_n />
@@ -181,8 +228,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface>Surface</surface>                    
-            <slope>Slope</slope>  
+            <surface />                    
+            <slope />  
 
         </CNOSSOS>       
     </emission>    

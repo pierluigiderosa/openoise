@@ -61,6 +61,25 @@ def GlobalToOctaveBands(model,level_input):
     return level_output
 
 
+def DeatilOctaveBandsToGlobal(level_input):
+    '''
+    level_input: has to be a dict with keys [63, 125, 250, 500, 1000 , 2000, 4000, 8000] and value the levels in bands
+    '''
+
+    level_output = 0
+
+    for ref_period in level_input:
+        levels_bands = level_input[ref_period]
+        for bands in levels_bands.keys():
+            if levels_bands[bands] is not None:
+                level_output = level_output + 10 ** (levels_bands[bands] / 10.)
+
+    if level_output > 0:
+        level_output = round(10 * log10(level_output), 1)
+
+    return level_output
+
+
 def OctaveBandsToGlobal(level_input):
     '''
     level_input: has to be a dict with keys [63, 125, 250, 500, 1000 , 2000, 4000, 8000] and value the levels in bands

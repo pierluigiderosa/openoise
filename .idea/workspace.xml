@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- removed tool applyNoiseSimbology&#10;- fix for iso_traffic_spectrum">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- initial version CNOSSOS POWER">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_AssignNoiseExposure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/do_SourceDetailsPts.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_SourceDetailsPts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_SourceDetailsRoads.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tools/log_AssignLevelsToBuildings_errors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Acoustics.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Acoustics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_CalculateNoiseLevels.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/on_SettingsLast.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_SettingsLast.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/ui_Helps.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_Helps.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/ui_SourceDetailsPts.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_SourceDetailsPts.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" beforeDir="false" afterPath="$PROJECT_DIR$/tools/ui_SourceDetailsRoads.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -440,14 +439,16 @@
       <workItem from="1697437441397" duration="7654000" />
       <workItem from="1697523192570" duration="7857000" />
       <workItem from="1697624768772" duration="1108000" />
-      <workItem from="1697805090980" duration="2072000" />
-    </task>
-    <task id="LOCAL-00044" summary="initial fix emission CNOSSOS&#10;initial popolation aggregation on buildings">
-      <created>1639989754344</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1639989754344</updated>
+      <workItem from="1697805090980" duration="2574000" />
+      <workItem from="1699514406921" duration="76000" />
+      <workItem from="1699514551912" duration="308000" />
+      <workItem from="1699516223401" duration="1377000" />
+      <workItem from="1699520200265" duration="722000" />
+      <workItem from="1700644680440" duration="6563000" />
+      <workItem from="1701069991327" duration="1690000" />
+      <workItem from="1701188851734" duration="3378000" />
+      <workItem from="1701242178331" duration="14762000" />
+      <workItem from="1701770092405" duration="6995000" />
     </task>
     <task id="LOCAL-00045" summary="fix delta_Lroad in case of speed out of range Vmin Vmax">
       <created>1640260736019</created>
@@ -785,7 +786,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697192512972</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="- initial version CNOSSOS POWER">
+      <created>1697807422828</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1697807422832</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -856,7 +864,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Upgrade GUI&#10;help buttons" />
     <MESSAGE value="Upgrade GUI&#10;help buttons&#10;05-04-2022" />
     <MESSAGE value="new examples data" />
     <MESSAGE value="severa issued fixed in GUI and texts" />
@@ -881,7 +888,8 @@
     <MESSAGE value="- NEW GUI for Noise Exposure&#10;- arrotondamento di NIHD" />
     <MESSAGE value="- added control for multipart layer&#10;- added control for IIHD &gt;0" />
     <MESSAGE value="- removed tool applyNoiseSimbology&#10;- fix for iso_traffic_spectrum" />
-    <option name="LAST_COMMIT_MESSAGE" value="- removed tool applyNoiseSimbology&#10;- fix for iso_traffic_spectrum" />
+    <MESSAGE value="- initial version CNOSSOS POWER" />
+    <option name="LAST_COMMIT_MESSAGE" value="- initial version CNOSSOS POWER" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

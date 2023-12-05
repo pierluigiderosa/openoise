@@ -91,26 +91,6 @@
       </spacer>
      </item>
      <item>
-      <widget class="QRadioButton" name="CNOSSOS_R_radioButton">
-       <property name="text">
-        <string>CNOSSOS (emission)</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>200</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
       <widget class="QRadioButton" name="CNOSSOS_radioButton">
        <property name="text">
         <string>CNOSSOS (traffic flow)</string>
@@ -125,7 +105,7 @@
    <item>
     <widget class="QStackedWidget" name="road_stackedWidget">
      <property name="currentIndex">
-      <number>3</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="road_power_page">
       <widget class="QWidget" name="layoutWidget">
@@ -1857,151 +1837,6 @@
       <zorder>HelpCNOSSOS</zorder>
       <zorder>implementation_label_24</zorder>
       <zorder>line_11</zorder>
-     </widget>
-     <widget class="QWidget" name="road_CNOSSOS_power">
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>0</y>
-         <width>161</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Reference Periods&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="Line" name="line_15">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>8</y>
-         <width>531</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_23">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>26</y>
-         <width>101</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Data type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="CNOSSOS_R_L_nig_checkBox">
-       <property name="geometry">
-        <rect>
-         <x>690</x>
-         <y>30</y>
-         <width>81</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Night</string>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="CNOSSOS_R_L_gen_checkBox">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>30</y>
-         <width>91</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Generic</string>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="CNOSSOS_R_L_day_checkBox">
-       <property name="geometry">
-        <rect>
-         <x>380</x>
-         <y>30</y>
-         <width>81</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Day</string>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="CNOSSOS_R_L_eve_checkBox">
-       <property name="geometry">
-        <rect>
-         <x>530</x>
-         <y>30</y>
-         <width>71</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Evening</string>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>70</y>
-         <width>791</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_88_1">
-        <item>
-         <widget class="QLabel" name="n_l_label_15">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>27</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Sound Emission Level - dB(A) -</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QgsFieldComboBox" name="CNOSSOS_R_L_gen_comboBox"/>
-        </item>
-        <item>
-         <widget class="QgsFieldComboBox" name="CNOSSOS_R_L_day_comboBox"/>
-        </item>
-        <item>
-         <widget class="QgsFieldComboBox" name="CNOSSOS_R_L_eve_comboBox"/>
-        </item>
-        <item>
-         <widget class="QgsFieldComboBox" name="CNOSSOS_R_L_nig_comboBox"/>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </widget>
    </item>
