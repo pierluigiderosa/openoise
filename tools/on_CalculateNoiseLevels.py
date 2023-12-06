@@ -120,7 +120,8 @@ def get_levels(settings,source_layer,source_feat):
                                         4000:source_feat[ settings['POWER_P_GEN_4000']],
                                         8000:source_feat[ settings['POWER_P_GEN_8000']]}
 
-            level_global['Lgeneric'] = on_Acoustics.DeatilOctaveBandsToGlobal(level_bands)
+            print('level_bands: ',level_bands)
+            level_global['Lgeneric'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
             
         if settings['period_pts_day_freq'] != None:
             level_bands['Lday'] = {63: source_feat[ settings['POWER_P_DAY_63']],
@@ -132,7 +133,7 @@ def get_levels(settings,source_layer,source_feat):
                                         4000:source_feat[ settings['POWER_P_DAY_4000']],
                                         8000:source_feat[ settings['POWER_P_DAY_8000']]}
 
-            level_global['Lday'] = on_Acoustics.DeatilOctaveBandsToGlobal(level_bands)
+            level_global['Lday'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
             
         if settings['period_pts_eve_freq'] != None:
             level_bands['Levening'] = {63: source_feat[ settings['POWER_P_EVE_63']],
@@ -144,7 +145,7 @@ def get_levels(settings,source_layer,source_feat):
                                         4000:source_feat[ settings['POWER_P_EVE_4000']],
                                         8000:source_feat[ settings['POWER_P_EVE_8000']]}
 
-            level_global['Levening'] = on_Acoustics.DeatilOctaveBandsToGlobal(level_bands)
+            level_global['Levening'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
             
         if settings['period_pts_nig_freq'] != None:
             level_bands['Lnight'] = {63: source_feat[ settings['POWER_P_NIG_63']],
@@ -156,7 +157,7 @@ def get_levels(settings,source_layer,source_feat):
                                         4000:source_feat[ settings['POWER_P_NIG_4000']],
                                         8000:source_feat[ settings['POWER_P_NIG_8000']]}
 
-            level_global['Lnight'] = on_Acoustics.DeatilOctaveBandsToGlobal(level_bands)
+            level_global['Lnight'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
 
     # POWER_R
     elif source_layer.geometryType() == QgsWkbTypes.LineGeometry and settings['implementation_roads'] == 'POWER_R':

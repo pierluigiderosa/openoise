@@ -81,8 +81,8 @@
 		    <nig>False</nig>  
 		</pts>
          <freq>
-            <gen>False</gen>
-            <day>True</day>
+            <gen>True</gen>
+            <day>False</day>
             <eve>False</eve>
             <nig>False</nig>
         </freq>

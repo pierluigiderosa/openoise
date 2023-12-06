@@ -61,7 +61,7 @@ def GlobalToOctaveBands(model,level_input):
     return level_output
 
 
-def DeatilOctaveBandsToGlobal(level_input):
+def DetailOctaveBandsToGlobal(level_input):
     '''
     level_input: has to be a dict with keys [63, 125, 250, 500, 1000 , 2000, 4000, 8000] and value the levels in bands
     '''
@@ -71,7 +71,7 @@ def DeatilOctaveBandsToGlobal(level_input):
     for ref_period in level_input:
         levels_bands = level_input[ref_period]
         for bands in levels_bands.keys():
-            if levels_bands[bands] is not None:
+            if levels_bands[bands] != None:
                 level_output = level_output + 10 ** (levels_bands[bands] / 10.)
 
     if level_output > 0:
@@ -88,7 +88,8 @@ def OctaveBandsToGlobal(level_input):
     level_output = 0
 
     for band in level_input:
-        level_output = level_output + 10**(level_input[band]/10.)
+        if level_input[band] != None:
+            level_output = level_output + 10**(level_input[band]/10.)
 
 
     if level_output > 0:
@@ -194,7 +195,10 @@ class AtmosphericAbsorption(object):
         attenuation = self.attenuation()
 
         for band in self.level_input:
-            level_atm[band] = round(self.level_input[band] - attenuation[band],1)
+            if self.level_input[band] != None:
+                level_atm[band] = round(self.level_input[band] - attenuation[band],1)
+            else:
+                level_atm[band] = None
         return level_atm
 
     def attenuation(self):

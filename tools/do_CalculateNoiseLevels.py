@@ -332,11 +332,11 @@ class Dialog(QDialog,NoiseLevel_ui):
         nig_roads = False
 
         if self.sources_pts_layer_checkBox.isChecked():
-            if settings['period_pts_day'] == 'True':
+            if settings['period_pts_day'] == 'True' or settings['period_pts_day_freq'] == 'True':
                 day_pts = True
-            if settings['period_pts_eve'] == 'True':
+            if settings['period_pts_eve'] == 'True' or settings['period_pts_eve_freq'] == 'True':
                 eve_pts = True
-            if settings['period_pts_nig'] == 'True':
+            if settings['period_pts_nig'] == 'True' or settings['period_pts_nig_freq'] == 'True':
                 nig_pts = True
         if self.sources_roads_layer_checkBox.isChecked():
             if settings['period_roads_day'] == 'True':
