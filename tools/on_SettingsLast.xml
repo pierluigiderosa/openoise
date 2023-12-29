@@ -68,20 +68,20 @@
     
     <emission>
         <implementation>
-		<pts>False</pts>
-        <pts_freq>True</pts_freq>
+		<pts>True</pts>
+        <pts_freq>False</pts_freq>
 		<roads />
         </implementation>
 
 	<period>
 		<pts>
-		    <gen>False</gen>
+		    <gen>True</gen>
 		    <day>False</day>            
 		    <eve>False</eve>            
 		    <nig>False</nig>  
 		</pts>
          <freq>
-            <gen>True</gen>
+            <gen>False</gen>
             <day>False</day>
             <eve>False</eve>
             <nig>False</nig>
@@ -96,7 +96,7 @@
 	</period>
 
         <POWER_P>
-            <gen />
+            <gen>LWA</gen>
             <day />
             <eve />
             <nig />

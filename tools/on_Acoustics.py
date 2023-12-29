@@ -72,7 +72,8 @@ def DetailOctaveBandsToGlobal(level_input):
         levels_bands = level_input[ref_period]
         for bands in levels_bands.keys():
             if levels_bands[bands] != None:
-                level_output = level_output + 10 ** (levels_bands[bands] / 10.)
+                if levels_bands[bands] > 0:
+                    level_output = level_output + 10 ** (levels_bands[bands] / 10.)
 
     if level_output > 0:
         level_output = round(10 * log10(level_output), 1)

@@ -30,7 +30,8 @@ from qgis.PyQt.QtWidgets import QDialog
 #from qgis.core import *
 from qgis.PyQt.QtWidgets import QFileDialog
 from qgis.PyQt.QtWidgets import QMessageBox
-from qgis.core import (QgsProject, QgsWkbTypes, QgsMapLayerProxyModel,QgsVectorFileWriter)
+from qgis.core import (QgsProject, QgsWkbTypes, QgsMapLayerProxyModel,
+                       QgsVectorFileWriter,NULL as qgisnull)
 try:
     from qgis.core import Qgis
 except ImportError:
@@ -108,7 +109,7 @@ class Dialog(QDialog,NoiseLevel_ui):
 
         self.sources_pts_pushButton.clicked.connect(self.sourcePts_show)
         self.sources_roads_pushButton.clicked.connect(self.sourceRoads_show)
-        # self.helpBuilding.cliFcked.connect(self.helpBuilding_show)
+        # self.helpBuilding.clicked.connect(self.helpBuilding_show)
         self.HelpParameters.clicked.connect(self.HelpParameters_show)
         self.helpCalculateOptions.clicked.connect(self.HelpCalculateOptions_show)
 
@@ -513,6 +514,51 @@ class Dialog(QDialog,NoiseLevel_ui):
             if self.receivers_layer_comboBox.currentText() == self.sources_pts_layer_comboBox.currentText():
                 QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("The receivers point layer and the source point layer are the same"))
                 return False
+
+        numZeros=0
+        numNulls=0
+        if self.sources_pts_layer_checkBox.isChecked() and self.sources_pts_layer_comboBox.currentText() != "":
+            self.sources_pts_layer = \
+            QgsProject.instance().mapLayersByName(self.sources_pts_layer_comboBox.currentText())[0]
+            for feat in self.sources_pts_layer.getFeatures():
+                if settings['period_pts_gen'] == 'True':
+                    if feat[settings['POWER_P_gen']] ==0:
+                        numZeros+=1
+                    if feat[settings['POWER_P_gen']] == qgisnull:
+                        numNulls+=1
+                if settings['period_pts_day'] == 'True':
+                    if feat[settings['POWER_P_day']] ==0:
+                        numZeros+=1
+                    if feat[settings['POWER_P_day']] == qgisnull:
+                        numNulls+=1
+                if settings['period_pts_eve'] == 'True':
+                    if feat[settings['POWER_P_eve']] ==0:
+                        numZeros+=1
+                    if feat[settings['POWER_P_eve']] == qgisnull:
+                        numNulls+=1
+                if settings['period_pts_nig'] == 'True':
+                    if feat[settings['POWER_P_nig']] ==0:
+                        numZeros+=1
+                    if feat[settings['POWER_P_nig']] == qgisnull:
+                        numNulls+=1
+            # show warnings
+            if numNulls > 0:
+                reply = QMessageBox.question(self, self.tr("opeNoise - Calculate Noise Levels"),
+                                        self.tr("<b>Null values</b>  are present in the attribute table of the point source vector layer."
+                                                "\n These values may be missing or corrupted. Do you want to proceed with the operation?"),
+                                     QMessageBox.Yes,QMessageBox.No)
+                if reply == QMessageBox.No:
+                    return False
+
+            if numZeros > 0:
+                reply = QMessageBox.question(self, self.tr("opeNoise - Calculate Noise Levels"),
+                                        self.tr("<b>Zeroes values</b> are present in the attribute table of the point source vector layer."
+                                                "\n These values may be missing or corrupted. Do you want to proceed with the operation?"),
+                                     QMessageBox.Yes,QMessageBox.No)
+                if reply == QMessageBox.No:
+                    return False
+
+
 
         if self.sources_roads_layer_checkBox.isChecked():
             if self.sources_roads_layer_comboBox.currentText() == "":

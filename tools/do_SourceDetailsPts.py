@@ -57,6 +57,8 @@ class Dialog(QDialog,SourceDetails_ui):
         self.POWER_P_radioButton.toggled.connect(self.POWERstackedWidget_update)
         self.POWER_P_freq_radioButton.toggled.connect(self.POWERstackedWidget_update)
 
+        self.InfoButtonBands.clicked.connect(self.HelpBands_show)
+
 
         # start definition
         self.POWER_P_emission_comboBoxes_dict = {'POWER_P_gen' : self.POWER_P_L_gen_comboBox,
@@ -463,3 +465,8 @@ class Dialog(QDialog,SourceDetails_ui):
         self.write_settings()
 
         self.close()
+
+    def HelpBands_show(self):
+        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+<p><strong>Octave Bands: </strong>If data are unavailable for one or more octave bands, enter the value NULL or zero.</p>
+'''))

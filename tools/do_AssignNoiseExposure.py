@@ -131,7 +131,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def HelpNoiseExposure_show(self):
             QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
-            <p><b>According to §2.8 Directive 2002/49/EC Annex II</b></p><p></p>    
+            <p><b>According to §2.8 amends Annex II Directive 2002/49/EC</b></p><p></p>    
             <p><i>For more information see also Help -> How it Works -> Noise Exposure</i></p>   
             <p><strong>People: </strong>the estimated number of people living in each building </p>
             <p><strong>Dwellings: </strong>the estimated number of dwellings for each building</p>
