@@ -99,7 +99,7 @@ def renderizeXY(layer, field):
     myRangeList.append(myRange)
     # symbol
     mySymbol = QgsSymbol.defaultSymbol(layer.geometryType())
-    mySymbol.setColor(QColor('##75085c'))
+    mySymbol.setColor(QColor('#75085c'))
     mySymbol.setOpacity(myOpacity)
     myRange = QgsRendererRange(74.5,79.4,mySymbol,"75 - 80 dB(A)")
     myRangeList.append(myRange)

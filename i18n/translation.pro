@@ -1,5 +1,4 @@
-FORMS = ../tools/ui_ApplyNoiseSymbology.ui \
-        ../tools/ui_ContoursLevel.ui \
+FORMS = ../tools/ui_ContoursLevel.ui \
         ../tools/ui_CreateContours.ui \
         ../tools/ui_NoiseExposure.ui \
         ../tools/ui_CalculateNoiseLevels.ui \
