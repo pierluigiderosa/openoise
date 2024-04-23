@@ -443,7 +443,6 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
             return False
 
-        return True
 
     def accept(self):
 
@@ -452,6 +451,16 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         if self.checkMethodField() == False:
             return
+
+        if self.IschemicEvaluation.isChecked():
+            ischemicEval = True
+
+            # in case of ischemi evaluation the IIDH value should be greater than zero
+            if self.checkIIHD() == False:
+                return
+        else:
+            ischemicEval = False
+            self.IHDdouble.show()
 
         if self.controls() == 0:
             self.run_buttonBox.setEnabled( True )
@@ -486,15 +495,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         else:
             doseffetto = False
 
-        if self.IschemicEvaluation.isChecked():
-            ischemicEval = True
 
-            # in case of ischemi evaluation the IIDH value should be greater than zero
-            if self.checkIIHD() == False:
-                return
-        else:
-            ischemicEval = False
-            self.IHDdouble.show()
 
 
         # CRS control (each layer must have the same CRS)

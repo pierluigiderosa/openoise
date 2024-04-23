@@ -38,7 +38,7 @@ currentPath = os.path.dirname(__file__)
 #import do_CreateReceiverPoints,do_CalculateNoiseLevels,do_AssignLevelsToBuildings,do_ApplyNoiseSymbology#,do_Credits
 
 from .tools import do_Informations,do_CreateReceiverPoints,do_CalculateNoiseLevels,\
-    do_AssignNoiseExposure,do_ApplyNoiseSymbology,do_Help, do_CreateGrid
+    do_AssignNoiseExposure,do_Help, do_CreateGrid
 
 class opeNoise(object):
 
@@ -94,12 +94,7 @@ class opeNoise(object):
         self.NoiseExposure_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Credits.png"),
                                           self.tr("Noise Exposure"), self.iface.mainWindow())
         self.NoiseExposure_item.triggered.connect(self.AssignLevelsToBuildings_show)
-        
-        # removed the application as this is inserted in noise exposure
-        # AssignLevelsToBuildings
-        # self.ApplyNoiseSymbology_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_ApplyNoiseSymbology.png"),
-        #                                 QCoreApplication.translate("opeNoise", "Apply Noise Symbology"), self.iface.mainWindow())
-        # self.ApplyNoiseSymbology_item.triggered.connect(self.ApplyNoiseSymbology_show)
+
 
         # Create Grid
         self.CreateContours_item = QAction(QIcon(":/plugins/opeNoise/icons/icon_Contour_Levels.png"),
@@ -173,15 +168,7 @@ class opeNoise(object):
         d.show()
         d.exec_()   
 
-    def ApplyNoiseSymbology_show(self):
 
-        d = do_ApplyNoiseSymbology.Dialog(self.iface)
-        flags = Qt.Window | Qt.WindowSystemMenuHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint | Qt.WindowCloseButtonHint
-        d.setWindowFlags(flags)
-        d.setWindowModality(Qt.ApplicationModal)
-        d.setFixedSize(d.size())
-        d.show()
-        d.exec_()
 
     def CreateGrid_show(self):
 

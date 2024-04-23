@@ -139,8 +139,12 @@ class Dialog(QDialog,FORM_CLASS):
          '''))
 
     def extent_layer_definition2(self):
-        extent = self.iface.mapCanvas().extent()
-        self.ExtentGrid.setCurrentExtent(extent,QgsCoordinateReferenceSystem("EPSG:3003"))
+        canvas = self.iface.mapCanvas()
+        canvas_extent = canvas.extent()
+        self.ExtentGrid.setOriginalExtent(canvas_extent,canvas.mapSettings().destinationCrs())
+        self.ExtentGrid.setCurrentExtent( canvas_extent,  QgsCoordinateReferenceSystem('EPSG:3857')  )
+        self.ExtentGrid.setOutputCrs(QgsCoordinateReferenceSystem('EPSG:3857'))
+        # self.ExtentGrid.setCurrentExtent(canvas_extent,QgsCoordinateReferenceSystem("EPSG:3003"))
 
     def outputFile_grid(self):
 

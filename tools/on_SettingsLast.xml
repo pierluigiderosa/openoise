@@ -2,31 +2,31 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Documents/cartografie - 2autorizzazione</last>
+        <last>C:/Users/pierl/Desktop/test_openoise</last>
     </directory>
 
     <layers>
         <receivers>
-            <name>ricettore</name>
-            <path>C:/Users/pierl/Desktop/Sorgente puntuale openoise/ricettore.shp</path>
+            <name>receveir_points1</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points1.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
 
         <sources>
 	    <pts>	
-		<name>Sorgente_p.to</name>
-		<path>C:/Users/pierl/Desktop/Sorgente puntuale openoise/Sorgente_p.to.shp</path>
-	    </pts>
-	    <roads>	
 		<name />
 		<path />
+	    </pts>
+	    <roads>	
+		<name>roads_CNOSSOS</name>
+		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name />
-            <path />
+            <name>buildings</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -46,7 +46,7 @@
     </layers>
 
     <options>
-        <research_ray>100</research_ray>
+        <research_ray>50</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
@@ -68,17 +68,17 @@
     
     <emission>
         <implementation>
-		<pts>True</pts>
-        <pts_freq>False</pts_freq>
-		<roads />
+		<pts />
+        <pts_freq />
+		<roads>CNOSSOS</roads>
         </implementation>
 
 	<period>
 		<pts>
-		    <gen>True</gen>
-		    <day>False</day>            
-		    <eve>False</eve>            
-		    <nig>False</nig>  
+		    <gen />
+		    <day />            
+		    <eve />            
+		    <nig />  
 		</pts>
          <freq>
             <gen>False</gen>
@@ -87,16 +87,16 @@
             <nig>False</nig>
         </freq>
 		<roads>
-		    <gen />
-		    <day />
-		    <eve />
-		    <nig />
+		    <gen>True</gen>
+		    <day>False</day>
+		    <eve>False</eve>
+		    <nig>False</nig>
 		</roads>
 	    <den>False</den>
 	</period>
 
         <POWER_P>
-            <gen>LWA</gen>
+            <gen />
             <day />
             <eve />
             <nig />
@@ -184,8 +184,8 @@
         </NMPB>
         
         <CNOSSOS>
-            <gen_1_n />
-            <gen_1_s />            
+            <gen_1_n>light_n</gen_1_n>
+            <gen_1_s>light_v</gen_1_s>            
             <gen_2_n />
             <gen_2_s />
             <gen_3_n />
@@ -228,8 +228,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface />                    
-            <slope />  
+            <surface>Surface</surface>                    
+            <slope>Slope</slope>  
 
         </CNOSSOS>       
     </emission>    
