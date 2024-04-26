@@ -122,7 +122,7 @@ class Dialog(QDialog,FORM_CLASS):
     #     self.BuildingMaskLayerCombo.setFilters(QgsMapLayerProxyModel.PolygonLayer)
 
     def infoReceivers_show(self):
-        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+        QMessageBox.information(self, self.tr("opeNoise Map - Help"), self.tr('''
          <p><strong>Create Receiver Points: </strong>By default, level calculations are performed 4m above the ground.  
          After creating the receivers, you can add a new attribute with a numeric field of a height other than 4m. 
          In the Calculate Noise Levels tool, you can activate the custom height of the receivers. 
@@ -130,7 +130,7 @@ class Dialog(QDialog,FORM_CLASS):
          '''))
 
     def infoGrid_show(self):
-        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+        QMessageBox.information(self, self.tr("opeNoise Map - Help"), self.tr('''
          <p><strong>Create Grid Points: </strong>By default, level calculations are performed 4m above the ground.  
          After creating the receivers, you can add a new attribute with a numeric field of a height other than 4m. 
          In the Calculate Noise Levels tool, you can activate the custom height of the receivers. 
@@ -230,11 +230,11 @@ class Dialog(QDialog,FORM_CLASS):
       
         self.buttonBox.setEnabled( False )
         if self.buildings_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify buildings layer"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"), self.tr("Please specify buildings layer"))
             self.buttonBox.setEnabled( True )
             return
         elif self.receiver_layer_lineEdit.text() == "" or self.receiver_layer_lineEdit.text() == ".shp":
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr("Please specify output receiver points layer"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"), self.tr("Please specify output receiver points layer"))
             
             self.buttonBox.setEnabled( True )
             return
@@ -244,7 +244,7 @@ class Dialog(QDialog,FORM_CLASS):
             buildings_layer = self.buildings_layer_comboBox.currentLayer()
             if self.selected_receivers.isChecked():
                 if  buildings_layer.selectedFeatureCount() == 0:
-                    QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
+                    QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"),
                                             self.tr("Please select at least one feature in building layer"))
                     ID_selected_receiver = []
                 else:
@@ -293,7 +293,7 @@ class Dialog(QDialog,FORM_CLASS):
                                 self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                                 self.tr("Duration: ") + str(self.duration())
 
-                QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), result_string)
+                QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"), result_string)
             else:
                 result_string = self.tr("Sorry, process not complete.") + "\n\n" +\
                                 self.tr("View the log file to understand the problem:") + "\n" +\
@@ -302,7 +302,7 @@ class Dialog(QDialog,FORM_CLASS):
                                 self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S.%f") + "\n"+\
                                 self.tr("Duration: ") + str(self.duration())
                                 
-                QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr(result_string))
+                QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"), self.tr(result_string))
                 
                 self.buttonBox.setEnabled( True )
 
@@ -329,7 +329,7 @@ class Dialog(QDialog,FORM_CLASS):
         # check that CRS in projected
         project = QgsProject.instance()
         if project.crs().isGeographic():
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"), self.tr(
+            QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"), self.tr(
                 "The project have to use a projected CRS (Coordinate Reference System)."))
             return
 
@@ -339,12 +339,12 @@ class Dialog(QDialog,FORM_CLASS):
 
         extentSelected = self.ExtentGrid.outputExtent()
         if extentSelected.area() == 0:
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
+            QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"),
                                     self.tr("Please specify extension layer"))
             return
 
         if self.gridpoint_lineEdit.text()== "" or self.gridpoint_lineEdit.text() == ".shp":
-            QMessageBox.information(self, self.tr("opeNoise - Create Receiver or Grid Points"),
+            QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"),
                                     self.tr("Please specify output grid points layer"))
             return
 
@@ -359,7 +359,7 @@ class Dialog(QDialog,FORM_CLASS):
         grid_path = self.gridpoint_lineEdit.text()
 
         if grid_path == "":
-            QMessageBox.information(self, self.tr("opeNoise - Apply Noise Symbology"),
+            QMessageBox.information(self, self.tr("opeNoise Map - Apply Noise Symbology"),
                                     self.tr("Please specify the output grid vector layer"))
             return 0
 

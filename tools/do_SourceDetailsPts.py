@@ -284,7 +284,7 @@ class Dialog(QDialog,SourceDetails_ui):
         for comboBox in self.all_emission_comboBoxes:
 
             if comboBox.isEnabled() == True and comboBox.currentText() == "":
-                QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please select a field"))
+                QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr("Please select a field"))
                 return False
 
         count = 0
@@ -310,7 +310,7 @@ class Dialog(QDialog,SourceDetails_ui):
                 count = 1
 
         if count == 0:
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Please specify at least one power value for a reference period"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr("Please specify at least one power value for a reference period"))
             return False
 
         return True
@@ -454,7 +454,7 @@ class Dialog(QDialog,SourceDetails_ui):
 
         except:
 
-            QMessageBox.information(self, self.tr("opeNoise - Calculate Noise Levels"), self.tr("Sorry, but somethigs wrong in import last settings"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr("Sorry, but somethigs wrong in import last settings"))
 
 
     def accept(self):
@@ -467,6 +467,6 @@ class Dialog(QDialog,SourceDetails_ui):
         self.close()
 
     def HelpBands_show(self):
-        QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+        QMessageBox.information(self, self.tr("opeNoise Map - Help"), self.tr('''
 <p><strong>Octave Bands: </strong>If data are unavailable for one or more octave bands, enter the value NULL or zero.</p>
 '''))

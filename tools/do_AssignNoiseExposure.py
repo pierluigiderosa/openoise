@@ -90,7 +90,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                  self.tr("This tool works correctly only if the receiver points layer ") + '\n' +\
                  self.tr("is created from a buildings layer with opeNoise") + '\n' +\
                  self.tr("and its structure is not modified.")
-        QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(string))
+        QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr(string))
 
         self.populate_comboBox()
 
@@ -130,7 +130,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
     def HelpNoiseExposure_show(self):
-            QMessageBox.information(self, self.tr("opeNoise - Help"), self.tr('''
+            QMessageBox.information(self, self.tr("opeNoise Map - Help"), self.tr('''
             <p><b>According to §2.8 amends Annex II Directive 2002/49/EC</b></p><p></p>    
             <p><i>For more information see also Help -> How it Works -> Noise Exposure</i></p>   
             <p><strong>People: </strong>the estimated number of people living in each building </p>
@@ -147,22 +147,22 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def checkdata(self):
         if self.buildings_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+            QMessageBox.information(self, self.tr("opeNoise Map - Assign levels to people"),
                                     self.tr("Please specify buildings layer"))
             return False
 
         if self.receiver_points_population_field.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+            QMessageBox.information(self, self.tr("opeNoise Map - Assign levels to people"),
                                     self.tr("Please specify the field containing the number of people in each building"))
             return False
 
         if self.dwellingCombobox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+            QMessageBox.information(self, self.tr("opeNoise Map - Assign levels to people"),
                                     self.tr("Please specify the field containing the number of dwellings in each building"))
             return False
 
         if self.methodComboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Assign levels to people"),
+            QMessageBox.information(self, self.tr("opeNoise Map - Assign levels to people"),
                                     self.tr("Please specify the field containing façade type exposition (type string)"))
             return False
 
@@ -171,13 +171,13 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         fieldMethod = self.methodComboBox.currentText()
         for feat in buildingLayer.getFeatures():
             if feat[fieldMethod] == qgisnull:
-                QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"),
+                QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"),
                                         self.tr(
                                             "Please check: one or more buildings contain a NULL value in the field containing the façade type exposition (string type 1,2,3)"))
                 return False
             result = feat[fieldMethod].endswith(('1', '2', '3'))
             if result is not True:
-                QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"),
+                QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"),
                                         self.tr(
                                             "Please check: one or more buildings contain a wrong value in the field containing the façade type exposition (string type 1,2,3)"))
                 return False
@@ -363,16 +363,16 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
     def controls(self):
         self.run_buttonBox.setEnabled( False )
         if self.receiver_points_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify receiver points layer"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr("Please specify receiver points layer"))
             return 0
 
         if self.level_1_comboBox.currentText() == "" and self.level_2_comboBox.currentText() == "":
                message = self.tr("Please specify noise level")
-               QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(message))
+               QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr(message))
                return 0
 
         if self.buildings_layer_comboBox.currentText() == "":
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("Please specify buildings layer"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr("Please specify buildings layer"))
             return 0
 
         return 1
@@ -418,10 +418,10 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         if fields_already_present:
             overwrite_begin = self.tr("In the buildings layer the following sound levels are present: ")
             overwrite_end = self.tr(" . Do you want to overwrite data in attribute table?")
-            reply = QMessageBox.question(self, self.tr("opeNoise - Noise Exposure"),
+            reply = QMessageBox.question(self, self.tr("opeNoise Map - Noise Exposure"),
                                            overwrite_begin + '\n' + str(fields_already_present) + overwrite_end, QMessageBox.Yes, QMessageBox.No)
             if reply == QMessageBox.No:
-                reply2 = QMessageBox.question(self, self.tr("opeNoise - Noise Exposure"),
+                reply2 = QMessageBox.question(self, self.tr("opeNoise Map - Noise Exposure"),
                                                self.tr("To mantain old data, copy them in a new field"), QMessageBox.Ok)
                 return False
             else:
@@ -438,7 +438,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
     def checkIIHD(self):
         if self.IHDdouble.value() == 0:
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(
+            QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr(
                 "The Incidence Rate per 10.000 people of Ischaemic Heart Disease should be greather than zero"))
 
             return False
@@ -500,7 +500,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
         # CRS control (each layer must have the same CRS)
         if receiver_points_layer.crs().authid() != buildings_layer.crs().authid():
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr("The layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr("The layers don't have the same CRS (Coordinate Reference System). Please use layers with same CRS"))
             self.run_buttonBox.setEnabled( True )
             return
 
@@ -539,8 +539,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(result_string))
-#            self.iface.messageBar().pushMessage(self.tr("opeNoise - Noise Exposure"), self.tr("Process complete"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr(result_string))
+#            self.iface.messageBar().pushMessage(self.tr("opeNoise Map - Noise Exposure"), self.tr("Process complete"))
         else:
             result_string = self.tr("Sorry, process not complete.") + "\n\n" +\
                             self.tr("View the log file to understand the problem:") + "\n" +\
@@ -548,8 +548,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                             self.tr("Start: ") + self.time_start.strftime("%a %d/%b/%Y %H:%M:%S.%f") + "\n" +\
                             self.tr("End: ") + self.time_end.strftime("%a %d/%b/%Y %H:%M:%S.%f") + "\n"+\
                             self.tr("Duration: ") + str(self.duration())
-            QMessageBox.information(self, self.tr("opeNoise - Noise Exposure"), self.tr(result_string))
-#            self.iface.messageBar().pushMessage(self.tr("opeNoise - Noise Exposure"), self.tr("Process not complete"))
+            QMessageBox.information(self, self.tr("opeNoise Map - Noise Exposure"), self.tr(result_string))
+#            self.iface.messageBar().pushMessage(self.tr("opeNoise Map - Noise Exposure"), self.tr("Process not complete"))
 
         self.log_end()
 
@@ -578,7 +578,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
         dir_path = os.path.dirname(path)
         log_errors_path_name = os.path.join(dir_path,"log_AssignLevelsToBuildings_errors.txt")
         log_errors = open(log_errors_path_name,"w")
-        log_errors.write(self.tr("opeNoise") + " - " + self.tr("Noise Exposure") + " - " + self.tr("Errors") + "\n\n")
+        log_errors.write(self.tr("opeNoise Map") + " - " + self.tr("Noise Exposure") + " - " + self.tr("Errors") + "\n\n")
 
     def log_end(self):
 

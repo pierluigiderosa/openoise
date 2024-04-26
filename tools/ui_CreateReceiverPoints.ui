@@ -38,7 +38,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>opeNoise - Create Receiver or Grid Points</string>
+   <string>opeNoise Map - Create Receiver or Grid Points</string>
   </property>
   <property name="locale">
    <locale language="Italian" country="Italy"/>

@@ -20,7 +20,7 @@
    <enum>Qt::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>OpeNoise - Calculate Noise Levels</string>
+   <string>OpeNoise Map - Calculate Noise Levels</string>
   </property>
   <property name="modal">
    <bool>false</bool>

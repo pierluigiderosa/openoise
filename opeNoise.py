@@ -73,7 +73,7 @@ class opeNoise(object):
     def initGui(self):
         
         # opeNoise         
-        self.opeNoise_menu = QMenu(QCoreApplication.translate("opeNoise", "&opeNoise"))
+        self.opeNoise_menu = QMenu(QCoreApplication.translate("opeNoise", "&opeNoise Map"))
         self.opeNoise_menu.setIcon(QIcon(":/plugins/opeNoise/icons/icon_opeNoise.png"))
 
         # CreateReceiverPoints
