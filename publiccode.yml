@@ -1,6 +1,6 @@
 publiccodeYmlVersion: '0.2'
 name: Openoise Map - QGIS plugin
-url: 'https://github.com/Arpapiemonte/openoise-map'
+url: 'https://github.com/Arpapiemonte/openoise'
 softwareVersion: '1.2'
 developmentStatus: stable
 softwareType: addon

@@ -61,11 +61,12 @@ class Dialog(QDialog,SourceDetails_ui):
 
 
         # start definition
-        self.POWER_P_emission_comboBoxes_dict = {'POWER_P_gen' : self.POWER_P_L_gen_comboBox,
-                                    'POWER_P_day' : self.POWER_P_L_day_comboBox,
-                                    'POWER_P_eve' : self.POWER_P_L_eve_comboBox,
-                                    'POWER_P_nig' : self.POWER_P_L_nig_comboBox
-                                    }
+        self.POWER_P_emission_comboBoxes_dict = {
+                                                'POWER_P_gen' : self.POWER_P_L_gen_comboBox,
+                                                'POWER_P_day' : self.POWER_P_L_day_comboBox,
+                                                'POWER_P_eve' : self.POWER_P_L_eve_comboBox,
+                                                'POWER_P_nig' : self.POWER_P_L_nig_comboBox
+                                                }
         self.POWER_P_Freq_GEN_comboboxes_dict = {'POWER_P_GEN_63': self.POWER_P_63_gen_combo,
                                                  'POWER_P_GEN_125': self.POWER_P_125_gen_combo,
                                                  'POWER_P_GEN_250': self.POWER_P_250_gen_combo,

@@ -521,6 +521,7 @@ class Dialog(QDialog,NoiseLevel_ui):
             self.sources_pts_layer = \
             QgsProject.instance().mapLayersByName(self.sources_pts_layer_comboBox.currentText())[0]
             for feat in self.sources_pts_layer.getFeatures():
+                # check for overall zeroes and nulls
                 if settings['period_pts_gen'] == 'True':
                     if feat[settings['POWER_P_gen']] ==0:
                         numZeros+=1
@@ -541,11 +542,38 @@ class Dialog(QDialog,NoiseLevel_ui):
                         numZeros+=1
                     if feat[settings['POWER_P_nig']] == qgisnull:
                         numNulls+=1
+                # check for bands zeroes and nulls
+                bands= ['63','125','250','500','1000','2000','4000','8000']
+                if settings['period_pts_gen_freq'] == 'True':
+                    for band in bands:
+                        if feat[settings['POWER_P_GEN_'+band]] == 0:
+                            numZeros += 1
+                        if feat[settings['POWER_P_GEN_'+band]] == qgisnull:
+                            numNulls += 1
+                if settings['period_pts_day_freq'] == 'True':
+                    for band in bands:
+                        if feat[settings['POWER_P_DAY_'+band]] == 0:
+                            numZeros += 1
+                        if feat[settings['POWER_P_DAY_'+band]] == qgisnull:
+                            numNulls += 1
+                if settings['period_pts_eve_freq'] == 'True':
+                    for band in bands:
+                        if feat[settings['POWER_P_EVE_'+band]] == 0:
+                            numZeros += 1
+                        if feat[settings['POWER_P_EVE_'+band]] == qgisnull:
+                            numNulls += 1
+                if settings['period_pts_nig_freq'] == 'True':
+                    for band in bands:
+                        if feat[settings['POWER_P_NIG_'+band]] == 0:
+                            numZeros += 1
+                        if feat[settings['POWER_P_NIG_'+band]] == qgisnull:
+                            numNulls += 1
+
             # show warnings
             if numNulls > 0:
                 reply = QMessageBox.question(self, self.tr("opeNoise Map - Calculate Noise Levels"),
                                         self.tr("<b>Null values</b>  are present in the attribute table of the point source vector layer."
-                                                "\n These values may be missing or corrupted. Do you want to proceed with the operation?"),
+                                                "\n These values may be missing. Do you want to proceed with the operation?"),
                                      QMessageBox.Yes,QMessageBox.No)
                 if reply == QMessageBox.No:
                     return False
@@ -553,12 +581,10 @@ class Dialog(QDialog,NoiseLevel_ui):
             if numZeros > 0:
                 reply = QMessageBox.question(self, self.tr("opeNoise Map - Calculate Noise Levels"),
                                         self.tr("<b>Zeroes values</b> are present in the attribute table of the point source vector layer."
-                                                "\n These values may be missing or corrupted. Do you want to proceed with the operation?"),
+                                                "\n These values may be missing. Do you want to proceed with the operation?"),
                                      QMessageBox.Yes,QMessageBox.No)
                 if reply == QMessageBox.No:
                     return False
-
-
 
         if self.sources_roads_layer_checkBox.isChecked():
             if self.sources_roads_layer_comboBox.currentText() == "":
