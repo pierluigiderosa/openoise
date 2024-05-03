@@ -15,18 +15,18 @@
 
         <sources>
 	    <pts>	
-		<name>source_points</name>
-		<path>C:/Users/pierl/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/openoise/data set for testing/source_points.shp</path>
-	    </pts>
-	    <roads>	
 		<name />
 		<path />
+	    </pts>
+	    <roads>	
+		<name>roads_CNOSSOS</name>
+		<path>C:/Users/pierl/Desktop/test_openoise/roads_CNOSSOS.shp</path>
 	    </roads>
         </sources>
 
         <buildings>
-            <name />
-            <path />
+            <name>buildings</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/buildings.shp</path>
         </buildings>
 
         <emissions_points>
@@ -46,7 +46,7 @@
     </layers>
 
     <options>
-        <research_ray>1000</research_ray>
+        <research_ray>100</research_ray>
         <temperature>20</temperature>
         <humidity>70</humidity>
         <diff_skip>False</diff_skip>
@@ -68,29 +68,29 @@
     
     <emission>
         <implementation>
-		<pts>False</pts>
-        <pts_freq>True</pts_freq>
-		<roads />
+		<pts />
+        <pts_freq />
+		<roads>CNOSSOS</roads>
         </implementation>
 
 	<period>
 		<pts>
-		    <gen>False</gen>
-		    <day>False</day>            
-		    <eve>False</eve>            
-		    <nig>False</nig>  
+		    <gen />
+		    <day />            
+		    <eve />            
+		    <nig />  
 		</pts>
          <freq>
-            <gen>True</gen>
+            <gen>False</gen>
             <day>False</day>
-            <eve>False</eve>
+            <eve>True</eve>
             <nig>False</nig>
         </freq>
 		<roads>
-		    <gen />
-		    <day />
-		    <eve />
-		    <nig />
+		    <gen>True</gen>
+		    <day>False</day>
+		    <eve>False</eve>
+		    <nig>False</nig>
 		</roads>
 	    <den>False</den>
 	</period>
@@ -184,8 +184,8 @@
         </NMPB>
         
         <CNOSSOS>
-            <gen_1_n />
-            <gen_1_s />            
+            <gen_1_n>light_n</gen_1_n>
+            <gen_1_s>light_v</gen_1_s>            
             <gen_2_n />
             <gen_2_s />
             <gen_3_n />
@@ -228,8 +228,8 @@
             <nig_4b_n />
             <nig_4b_s />                                    
                         
-            <surface />                    
-            <slope />  
+            <surface>Surface</surface>                    
+            <slope>Lnight</slope>  
 
         </CNOSSOS>       
     </emission>    

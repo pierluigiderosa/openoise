@@ -1068,12 +1068,20 @@ class Dialog(QDialog,NoiseLevel_ui):
 
     def duration(self):
         duration = self.time_end - self.time_start
+        giorni = duration.days
+        ore, remainder = divmod(duration.seconds, 3600)
+        minuti, secondi = divmod(remainder, 60)
+        # Costruzione della stringa di output
+        tempo_intercorso = ""
+        if giorni > 0:
+            tempo_intercorso += f"{giorni} d, "
+        tempo_intercorso += f"{ore} h: {minuti} m: {secondi+1} s:"
         duration_h = duration.seconds // 3600
         duration_m = (duration.seconds // 60) % 60
         duration_s = duration.seconds
         duration_string = str(format(duration_h, '02')) + ':' + str(format(duration_m, '02')) + ':' + str(
             format(duration_s, '02'))
-        return duration_string
+        return tempo_intercorso
 
 
 

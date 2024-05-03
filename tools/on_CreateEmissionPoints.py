@@ -40,8 +40,8 @@ def compute_distance(QgsPoint1, QgsPoint2):
 def add_point_to_layer(writer, point, attributes):
     geometry = QgsGeometry.fromPointXY(point)
     feature = QgsFeature()
-    feature.setGeometry(geometry)
     feature.setAttributes(attributes)
+    feature.setGeometry(geometry)
     writer.addFeature(feature)
     writer.updateExtents()
 
@@ -186,10 +186,10 @@ def run(sources_layer_path, receivers_layer_path, emission_pts_layer_path, resea
 
                     # add_point_to_layer(emission_pts_writer, pt,
                     #                    [emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
-                    feature = QgsFeature()
-                    feature.setGeometry(QgsGeometry.fromPointXY(pt1))
-                    feature.setAttributes([emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
-                    emission_pts_pr.addFeatures([feature])
+                    feature1 = QgsFeature()
+                    feature1.setGeometry(QgsGeometry.fromPointXY(pt))
+                    feature1.setAttributes([emission_pt_id, emission_pt_id_road, sources_feat.id(), segment_max])
+                    emission_pts_pr.addFeatures([feature1])
                     emission_pts_writer.updateExtents()
 
                     emission_pt_id = emission_pt_id + 1

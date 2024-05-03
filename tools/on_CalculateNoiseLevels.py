@@ -120,7 +120,7 @@ def get_levels(settings,source_layer,source_feat):
                                         4000:source_feat[ settings['POWER_P_GEN_4000']],
                                         8000:source_feat[ settings['POWER_P_GEN_8000']]}
 
-            print('level_bands: ',level_bands)
+            #print('level_bands: ',level_bands)
             level_global['Lgeneric'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
             
         if settings['period_pts_day_freq'] != None:
@@ -187,7 +187,7 @@ def get_levels(settings,source_layer,source_feat):
         if settings['CNOSSOS_R_nig'] != None:
             level_global['Lnight'] = source_feat[settings['CNOSSOS_R_nig']]
 
-        print('level global: ',level_global)
+        #print('level global: ',level_global)
         for key in list(level_global.keys()):
             # fix_print_with_import
             # todo - forse qui calcola male i level band
@@ -368,6 +368,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
     # Create emission layer that will contain all the emission pts from source_pts and source_roads
     emission_pts_layer_path = os.path.abspath(os.path.join(temp_dir + os.sep + "emission_pts.shp"))
+    print('emissioni:',emission_pts_layer_path)
     # emission_pts_fields = [QgsField("type", QVariant.String),
     #                        QgsField("id_source", QVariant.Int),
     #                        QgsField("segment", QVariant.String),]
@@ -485,6 +486,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
             emission_pts_writer.addFeature(source_feat)
 
     del emission_pts_writer
+
 
     # Create dict with all the data
     source_feat_all_dict = {}
@@ -688,7 +690,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
                                     level_dir[key] = on_Acoustics.OctaveBandsToGlobalA(level_atm_bands[key]) - geo_attenuation
                                 else:
                                     level_dir[key] = on_Acoustics.OctaveBandsToGlobal(level_atm_bands[key]) - geo_attenuation
-                                print("level_dir[key]",level_dir[key])
+                                #print("level_dir[key]",level_dir[key])
 
                                 # correction for the segment lenght
                                 if feat_type == 'road':
@@ -1272,7 +1274,7 @@ def run(settings,progress_bars,totalBar):
 
         if 'Lgeneric' in level_field_index:
             if Skip_intersectionDD is False:
-                print('receiver feat: ',receiver_feat_new_fields,f.id(),f['Lgeneric'])
+                # print('receiver feat: ',receiver_feat_new_fields,f.id(),f['Lgeneric'])
                 f['Lgeneric'] = receiver_feat_new_fields[f.id()][level_field_index['Lgeneric']]
 
             else:

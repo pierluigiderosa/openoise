@@ -795,18 +795,18 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
 
 
             if receiver_points_layer_details['level_1'] != 'none':
-                print('buildingPop: ',buildingPop,
-                     'buildings_levels_from_receiverL1',buildings_levels_from_receiverL1,
-                      'buildingDwell',buildingDwell,
-                    'buildingMethod',buildingMethod,
-                      'receiverFacadeDicL1',receiverFacadeDicL1)
+                # print('buildingPop: ',buildingPop,
+                #      'buildings_levels_from_receiverL1',buildings_levels_from_receiverL1,
+                #       'buildingDwell',buildingDwell,
+                #     'buildingMethod',buildingMethod,
+                #       'receiverFacadeDicL1',receiverFacadeDicL1)
                 df1,df1Dwell = self.EUpopCalculationMethod(buildingPop,
                                                   buildings_levels_from_receiverL1,
                                                   buildingDwell,
                                                   buildingMethod,receiverFacadeDicL1,intervalNoise)
                 self.outputTempTable(df1,"People Exposure - Lden","people",roundHundreds,intervalNoise)
                 self.outputTempTable(df1Dwell, "Dwellings Exposure - Lden","dwellings",roundHundreds,intervalNoise)
-                print('L1 pop',df1)
+                # print('L1 pop',df1)
                 if doseeffetto:
                     self.DETable(df1,"High Annoyance - Lden",["NHA road","%NHA road"],"den",intervalNoise)
                 if ischemicEval:
@@ -821,8 +821,8 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                 self.outputTempTable(df2Dwell, "Dwellings Exposure - Lnight","dwellings",roundHundreds,intervalNoise)
                 if doseeffetto:
                     self.DETable(df2,"High Sleep Disturbance - Lnight",["NHSD road","%NHSD road"],"night",intervalNoise)
-                print('L2 pop',df2)
-                print('Dose-Effetto: ',df2)
+                # print('L2 pop',df2)
+                # print('Dose-Effetto: ',df2)
 
             #     print('L5 pop',df5)
 
