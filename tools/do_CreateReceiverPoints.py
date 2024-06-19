@@ -317,12 +317,21 @@ class Dialog(QDialog,FORM_CLASS):
         
     def duration(self):
         duration = self.time_end - self.time_start
-        duration_h = duration.seconds // 3600
-        duration_m = (duration.seconds // 60) % 60
-        duration_s = duration.seconds
-        duration_string = str(format(duration_h, '02')) + ':' + str(format(duration_m, '02')) + ':' + str(
-            format(duration_s, '02'))
-        return duration_string
+        giorni = duration.days
+        ore, remainder = divmod(duration.seconds, 3600)
+        minuti, secondi = divmod(remainder, 60)
+        # Costruzione della stringa di output
+        tempo_intercorso = ""
+        if giorni > 0:
+            tempo_intercorso += f"{giorni} d - "
+        tempo_intercorso += f"{ore} h - {minuti} m - {secondi + 1} s"
+        # old method to define duration
+        # duration_h = duration.seconds // 3600
+        # duration_m = (duration.seconds // 60) % 60
+        # duration_s = duration.seconds
+        # duration_string = str(format(duration_h, '02')) + ':' + str(format(duration_m, '02')) + ':' + str(
+        #     format(duration_s, '02'))
+        return tempo_intercorso
 
     def runGrid(self):
 

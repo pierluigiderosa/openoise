@@ -284,18 +284,18 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 <tbody>
 <tr>
 <td style="text-align: center;" width="79" height="10">
-<p><span lang="en-US"><strong>Id</strong></span></p>
+<p><span lang="en-US">Id</span></p>
 </td>
 <td style="text-align: center;" width="320">
-<p><span lang="en-US"><strong>Road Surface Categories</strong></span></p>
+<p><span lang="en-US">Road Surface Categories</span></p>
 </td>
 <td style="text-align: center;" colspan="3" width="199">
-<p><span lang="en-US"><strong>Noise Level Correction</strong></span></p>
+<p><span lang="en-US">Noise Level Correction</span></p>
 </td>
 </tr>
 <tr>
 <td style="text-align: center;" rowspan="2" width="79" height="12">
-<p><span lang="en-US">porous</span></p>
+<p><span lang="en-US"><strong>porous</strong></span></p>
 </td>
 <td style="text-align: center;" rowspan="2" width="320">
 <p><span lang="en-US">Porous Surface</span></p>
@@ -323,7 +323,7 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 </tr>
 <tr>
 <td style="text-align: center;" width="79">
-<p><span lang="en-US">smooth</span></p>
+<p><span lang="en-US"><strong>smooth</strong></span></p>
 </td>
 <td style="text-align: center;" width="320">
 <p><span lang="en-US">Smooth asphalt (concrete or mastic)</span></p>
@@ -334,7 +334,7 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 </tr>
 <tr>
 <td style="text-align: center;" width="79">
-<p><span lang="en-US">cement</span></p>
+<p><span lang="en-US"><strong>cement</strong></span></p>
 </td>
 <td style="text-align: center;" width="320">
 <p><span lang="en-US">Cement concrete</span></p>
@@ -345,7 +345,7 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 </tr>
 <tr>
 <td style="text-align: center;" width="79">
-<p><span lang="en-US">corrugated</span></p>
+<p><span lang="en-US"><strong>corrugated</strong></span></p>
 </td>
 <td style="text-align: center;" width="320">
 <p><span lang="en-US">Corrugated asphalt</span></p>
@@ -356,7 +356,7 @@ class Dialog(QDialog,ui_SourceDetailsRoads_ui):
 </tr>
 <tr>
 <td style="text-align: center;" width="79">
-<p><span lang="en-US">stones</span></p>
+<p><span lang="en-US"><strong>stones</strong></span></p>
 </td>
 <td style="text-align: center;" width="320">
 <p><span lang="en-US">Paving stones</span></p>

@@ -22,19 +22,20 @@ email=openoise@arpa.piemonte.it
 # Uncomment the following line and add your changelog entries:
 changelog=Ver 2.2 (May 2024)
     - Improved computation time
-	- Point sources in 1/3 octave bands
+    - Point sources in 1/3 octave bands
     - Added calculation for ischemic effetcs
-	- Added noise exposure with 1 db level
-	- Creation of receivers to selected buildings
-	- Added grid point spacing 1-2-3-4 m
-	- Added search ray 2000-3000-4000-5000 m
-	- Added control for multilayers
-	- Added controls for NULL values
-	- New color palette
-	- Bug fixing NMPB emission
+    - Added noise exposure with 1 db level
+    - Creation of receivers to selected buildings
+    - Added grid point spacing 1-2-3-4 m
+    - Added search ray 2000-3000-4000-5000 m
+    - Added control for multilayers
+    - Added controls for NULL values
+    - New color palette
+    - Bug fixing NMPB emission
+    - Bug fixing processing times 
     - Fixed GUI
     - Rename plugin overlall
-	- Changed shapefile for testing
+    - Changed shapefile for testing
     Ver 2.0 (July 2022)
     - Bug fixing
     - CNOSSOS roads emission (amends Annex II to Directive 2002/49/EC)
