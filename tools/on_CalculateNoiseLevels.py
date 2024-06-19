@@ -363,7 +363,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 #        print 'crea diffraction points ',datetime.now() - time
         time = datetime.now()
     else:
-        totalBar.setValue(partialPercBar)
+        totalBar.setValue(int(partialPercBar))
 
 
     # Create emission layer that will contain all the emission pts from source_pts and source_roads
@@ -502,7 +502,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
         bar.setValue(barValue)
 
         # totalbar prepare_emi
-        totalBar.setValue(barValue/6+100/6)
+        totalBar.setValue(int(barValue/6+100/6))
 
 
         type_source = source_feat['type']
@@ -585,7 +585,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         else:
             diffTOsource_dict = {}
-            totalBar.setValue(100 / 6 * 4)
+            totalBar.setValue(int(100 / 6 * 4))
         progress_bars['difTOsou']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
@@ -601,7 +601,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         else:
             recTOdiff_dict = {}
-            totalBar.setValue(100 / 6. * 5)
+            totalBar.setValue(int(100 / 6. * 5))
         progress_bars['recTOdif']['label'].setText('Done in ' + duration(time,datetime.now()) )
 
         # fix_print_with_import
@@ -631,9 +631,9 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         receiver_feat_number = receiver_feat_number + 1
         barValue = receiver_feat_number/float(receiver_feat_total)*100
-        bar.setValue(barValue)
+        bar.setValue(int(barValue))
         # totalbar calculate
-        totalBar.setValue(barValue/6+100/6*5)
+        totalBar.setValue(int(barValue/6+100/6*5))
 
         receiver_feat_new_fields = {}
 

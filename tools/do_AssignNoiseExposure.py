@@ -755,7 +755,7 @@ class Dialog(QDialog, Ui_AssignNoiseToBuildings_window):
                             buildings_levels_from_receiverL2[id_edi] = [level_2]
 
             # bar progressing
-            self.progressBar.setValue(bar)
+            self.progressBar.setValue(int(bar))
 
 
         # POPULATION PART -- ADDED PART

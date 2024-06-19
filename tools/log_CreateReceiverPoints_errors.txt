@@ -1,4 +1,8 @@
 opeNoise - Create Receiver or Grid Points - Errors
 
-No errors.
-
+Traceback (most recent call last):
+  File "C:\Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise-map\tools\do_CreateReceiverPoints.py", line 278, in accept
+    on_CreateReceiverPoints.case2b(bar,buildings_layer_path,receiver_points_layer_path,ID_selected_receiver)
+  File "C:\Users/pierl/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\openoise-map\tools\on_CreateReceiverPoints.py", line 417, in case2b
+    bar.setValue(barValue)
+TypeError: setValue(self, value: int): argument 1 has unexpected type 'float'

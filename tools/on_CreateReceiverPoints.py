@@ -84,7 +84,7 @@ def middle(bar, buildings_layer_path, receiver_points_layer_path, IDs_selected_r
 
         buildings_feat_number = buildings_feat_number + 1
         barValue = buildings_feat_number/float(buildings_feat_total)*100
-        bar.setValue(barValue)
+        bar.setValue(int(barValue))
 
         building_geom = buildings_feat.geometry()
         if building_geom.isMultipart():
@@ -312,7 +312,7 @@ def spaced(bar,buildings_layer_path,receiver_points_layer_path,spaced_pts_distan
 
         receiver_memory_feat_number = receiver_memory_feat_number + 1
         barValue = receiver_memory_feat_number/float(receiver_memory_feat_total)*25 + 75
-        bar.setValue(barValue)
+        bar.setValue(int(barValue))
 
         rect = QgsRectangle()
         rect.setXMinimum(receiver_memory_feat.geometry().asPoint().x() - distance_from_facades)
@@ -414,7 +414,7 @@ def case2b(bar,buildings_layer_path,receiver_points_layer_path,IDs_selected_rece
 
         buildings_feat_number = buildings_feat_number + 1
         barValue = buildings_feat_number / float(buildings_feat_total) * 100
-        bar.setValue(barValue)
+        bar.setValue(int(barValue))
 
         # creates the search rectangle to match the receiver point in the building and del them
 

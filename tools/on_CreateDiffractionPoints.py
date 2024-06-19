@@ -57,8 +57,8 @@ def run(bar,buildings_layer_path,diffraction_points_layer_path,totalBar):
         
         buildings_feat_number = buildings_feat_number + 1
         barValue = buildings_feat_number/float(buildings_feat_total)*100
-        bar.setValue(barValue)
-        totalBar.setValue(barValue/6)
+        bar.setValue(int(barValue))
+        totalBar.setValue(int(barValue/6))
 
         building_geom = buildings_feat.geometry()
         if building_geom.isMultipart():

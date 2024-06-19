@@ -72,11 +72,11 @@ def run(bar, receiver_layer, diffraction_layer, obstacles_path, research_ray,tot
 
         layer1_feat_number = layer1_feat_number + 1
         barValue = layer1_feat_number/float(layer1_feat_total)*100
-        bar.setValue(barValue)
+        bar.setValue(int(barValue))
         if diffMode is True:
-            totalBar.setValue(barValue / 6 +100/6*3)
+            totalBar.setValue(int(barValue / 6 +100/6*3))
         else:
-            totalBar.setValue(barValue/6+100/6*2)
+            totalBar.setValue(int(barValue/6+100/6*2))
 
         # researches the layer2 points in a rectangle created by the research_ray
         # creates the search rectangle from receiver geometry
@@ -155,9 +155,9 @@ def run_selection(bar,layer1_path,layer2_path,obstacles_path,research_ray,dict_s
 
         layer1_feat_number = layer1_feat_number + 1
         barValue = layer1_feat_number/float(layer1_feat_total)*100
-        bar.setValue(barValue)
+        bar.setValue(int(barValue))
         # totalbar recTodiff
-        totalBar.setValue(barValue/6+100/6*4)
+        totalBar.setValue(int(barValue/6+100/6*4))
         
         # researches the layer2 points in a rectangle created by the research_ray
         # creates the search rectangle
@@ -239,7 +239,7 @@ def run_selection_distance(bar,layer1_path,layer2_path,obstacles_path,research_r
 
         layer1_feat_number = layer1_feat_number + 1
         barValue = layer1_feat_number/float(layer1_feat_total)*100
-        bar.setValue(barValue)        
+        bar.setValue(int(barValue)  )
         
         # researches the layer2 points in a rectangle created by the research_ray
         # creates the search rectangle
