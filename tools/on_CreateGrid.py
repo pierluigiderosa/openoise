@@ -302,6 +302,7 @@ def createRasterAndContour(resolution, layerTOrasterize_path, field, interval, c
     # feedback.setProgress(100)
     ProgressBarGrid.setValue(100)
     poly_output = result_poly['OUTPUT']
+    print('polgonize: ',result_poly['OUTPUT'])
 
     poly_name = os.path.splitext(
         os.path.basename(poly_path))[0]

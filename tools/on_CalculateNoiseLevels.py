@@ -499,7 +499,7 @@ def calc(progress_bars, totalBar,receiver_layer, source_pts_layer, source_roads_
 
         source_feat_number = source_feat_number + 1
         barValue = source_feat_number/float(source_feat_total)*100
-        bar.setValue(barValue)
+        bar.setValue(int(barValue))
 
         # totalbar prepare_emi
         totalBar.setValue(int(barValue/6+100/6))

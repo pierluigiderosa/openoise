@@ -7,8 +7,8 @@
 
     <layers>
         <receivers>
-            <name>receveir_points1</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points1.shp</path>
+            <name>receveir_points_version_3.37</name>
+            <path>C:/Users/pierl/Desktop/test_openoise/receveir_points_version_3.37.shp</path>
             <custom3d>False</custom3d>
             <custom3dfield />
         </receivers>
@@ -229,7 +229,7 @@
             <nig_4b_s />                                    
                         
             <surface>Surface</surface>                    
-            <slope>Lnight</slope>  
+            <slope>Slope</slope>  
 
         </CNOSSOS>       
     </emission>    
