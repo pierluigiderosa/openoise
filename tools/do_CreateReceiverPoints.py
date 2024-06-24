@@ -229,6 +229,11 @@ class Dialog(QDialog,FORM_CLASS):
     def accept(self):
       
         self.buttonBox.setEnabled( False )
+
+        # check multipart for building layer
+        if self.checkMultipart() == False:
+            return
+
         if self.buildings_layer_comboBox.currentText() == "":
             QMessageBox.information(self, self.tr("opeNoise Map - Create Receiver or Grid Points"), self.tr("Please specify buildings layer"))
             self.buttonBox.setEnabled( True )
@@ -333,6 +338,15 @@ class Dialog(QDialog,FORM_CLASS):
         #     format(duration_s, '02'))
         return tempo_intercorso
 
+    def checkMultipart(self):
+        building_layer = self.buildings_layer_comboBox.currentLayer()
+        if building_layer.storageType() != 'ESRI Shapefile':
+            if QgsWkbTypes.isMultiType(building_layer.wkbType()):
+                QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
+                    """The buildings layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
+                    To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
+                    """))
+                return False
     def runGrid(self):
 
         # check that CRS in projected
