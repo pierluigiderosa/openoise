@@ -2,7 +2,7 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/test_openoise</last>
+        <last>C:/Users/pierl/Desktop/test_openoise/Multipart1</last>
     </directory>
 
     <layers>
@@ -184,8 +184,8 @@
         </NMPB>
         
         <CNOSSOS>
-            <gen_1_n>light_n</gen_1_n>
-            <gen_1_s>light_v</gen_1_s>            
+            <gen_1_n>Leggeri</gen_1_n>
+            <gen_1_s>V_leggeri</gen_1_s>            
             <gen_2_n />
             <gen_2_s />
             <gen_3_n />
@@ -229,7 +229,7 @@
             <nig_4b_s />                                    
                         
             <surface>Surface</surface>                    
-            <slope>Lnight</slope>  
+            <slope>Slope</slope>  
 
         </CNOSSOS>       
     </emission>    

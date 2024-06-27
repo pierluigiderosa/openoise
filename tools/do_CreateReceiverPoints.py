@@ -340,12 +340,17 @@ class Dialog(QDialog,FORM_CLASS):
 
     def checkMultipart(self):
         building_layer = self.buildings_layer_comboBox.currentLayer()
-        if building_layer.storageType() != 'ESRI Shapefile':
+        warning_message = """The buildings layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
+                    To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
+                    """
+        if building_layer.storageType() == 'ESRI Shapefile':
+            if self.multipartCheck(building_layer):
+                QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(warning_message))
+                return False
+        else:
             if QgsWkbTypes.isMultiType(building_layer.wkbType()):
                 QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
-                    """The buildings layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
-                    To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
-                    """))
+                    warning_message))
                 return False
     def runGrid(self):
 
@@ -400,5 +405,54 @@ class Dialog(QDialog,FORM_CLASS):
         self.close()
 
     
+    def multipartCheck(self,layer):
+        features = layer.getFeatures()
+
+        countfeature = 0
+        countgeometry = 0
+
+        for feature in features:
+            countfeature += 1
+            # retrieve every feature with its geometry and attributes
+
+            # fetch geometry
+            # show some information about the feature geometry
+            geom = feature.geometry()
+            geomSingleType = QgsWkbTypes.isSingleType(geom.wkbType())
+            if geom.type() == QgsWkbTypes.PointGeometry:
+                # the geometry type can be of single or multi type
+                if geomSingleType:
+                    countgeometry += 1
+                else:
+                    x = geom.asPoint()
+                    # print("MultiPoint: ", x)
+                    countgeometry += len(x)
+
+            elif geom.type() == QgsWkbTypes.LineGeometry:
+                if geomSingleType:
+
+                    countgeometry += 1
+                else:
+                    x = geom.asMultiPolyline()
+                    # print("MultiLine: ", x, "length: ", geom.length())
+                    countgeometry += len(x)
+
+            elif geom.type() == QgsWkbTypes.PolygonGeometry:
+                if geomSingleType:
+
+                    countgeometry += 1
+                else:
+                    x = geom.asMultiPolygon()
+                    # print("MultiPolygon: ", x, "Area: ", geom.area())
+                    isMultipartEsri = True
+                    countgeometry += len(x)
+
+        print('countfeature: ',countfeature)
+        print('countgeometry: ',countgeometry)
+        if countfeature == countgeometry:
+            isMultipartEsri = False
+        else:
+            isMultipartEsri = True
+        return isMultipartEsri
 
     
