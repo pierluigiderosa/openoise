@@ -357,8 +357,8 @@ class Dialog(QDialog,FORM_CLASS):
             return
 
         # progressbar Grid Point
-        BarGridReceiver = self.progressBarGridReceiver
-        BarGridReceiver.setMaximum(100)
+        # BarGridReceiver = self.progressBarGridReceiver
+        # BarGridReceiver.setMaximum(100)
 
         extentSelected = self.ExtentGrid.outputExtent()
         if extentSelected.area() == 0:
@@ -393,7 +393,7 @@ class Dialog(QDialog,FORM_CLASS):
             resolution,
             grid_path,
             extentSelected,
-            BarGridReceiver,
+            # BarGridReceiver,
 
         )
 

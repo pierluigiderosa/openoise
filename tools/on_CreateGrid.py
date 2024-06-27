@@ -23,11 +23,11 @@ from qgis.utils import iface
 from qgis import processing
 
 
-def createGrid(resolution, grid_path, extent,BarGridReceiver):
+def createGrid(resolution, grid_path, extent):
 
     # feedback configuration
     feedback = QgsProcessingFeedback()
-    feedback.progressChanged.connect(BarGridReceiver.setValue)
+    # feedback.progressChanged.connect(BarGridReceiver.setValue)
 
     # rename shape output in case already exists
     grid_path = removeLayer(grid_path)
