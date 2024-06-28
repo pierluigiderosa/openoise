@@ -810,47 +810,51 @@ class Dialog(QDialog,NoiseLevel_ui):
                 """The receiver points layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
                 To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts"""))
             return False
-        source_point_layer = self.sources_pts_layer_comboBox.currentLayer()
-        if QgsWkbTypes.isMultiType(source_point_layer.wkbType()):
-            QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
-                """The sources points layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
-                To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
-                """))
-            return False
 
-        # POLYGON LAYER
-        building_layer = self.buildings_layer_comboBox.currentLayer()
-        if building_layer.storageType() == 'ESRI Shapefile':
-            if self.multipartCheckESRI(building_layer):
-                QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr("""
-                The buildings layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
-                To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
-                    """))
-                return False
-        else:
-            if QgsWkbTypes.isMultiType(building_layer.wkbType()):
+        if self.sources_pts_layer_checkBox.isChecked() == True:
+            source_point_layer = self.sources_pts_layer_comboBox.currentLayer()
+            if QgsWkbTypes.isMultiType(source_point_layer.wkbType()):
                 QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
-                    """The buildings layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
+                    """The sources points layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
                     To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
                     """))
                 return False
+
+        # POLYGON LAYER
+        if self.buildings_layer_checkBox.isChecked():
+            building_layer = self.buildings_layer_comboBox.currentLayer()
+            if building_layer.storageType() == 'ESRI Shapefile':
+                if self.multipartCheckESRI(building_layer):
+                    QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr("""
+                    The buildings layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
+                    To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
+                        """))
+                    return False
+            else:
+                if QgsWkbTypes.isMultiType(building_layer.wkbType()):
+                    QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
+                        """The buildings layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
+                        To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
+                        """))
+                    return False
 
         # LINE LAYER
-        source_road_layer = self.sources_roads_layer_comboBox.currentLayer()
-        if source_road_layer.storageType() == 'ESRI Shapefile':
-            if self.multipartCheckESRI(source_road_layer):
-                QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr("""
-                    The roads layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
-                    To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
-                     """))
-                return False
-        else:
-            if QgsWkbTypes.isMultiType(source_road_layer.wkbType()):
-                QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
-                    """The roads layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
-                    To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
-                    """))
-                return False
+        if self.sources_roads_layer_checkBox.isChecked() == True:
+            source_road_layer = self.sources_roads_layer_comboBox.currentLayer()
+            if source_road_layer.storageType() == 'ESRI Shapefile':
+                if self.multipartCheckESRI(source_road_layer):
+                    QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr("""
+                        The roads layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
+                        To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
+                         """))
+                    return False
+            else:
+                if QgsWkbTypes.isMultiType(source_road_layer.wkbType()):
+                    QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
+                        """The roads layer is a <b>MultiPart</b>, the plugin does not support these types of layers. 
+                        To convert a multipart layer to single parts, use the specific QGIS tool: Vector -> Geometry Tools -> Multipart to Singleparts
+                        """))
+                    return False
 
 
         return True
