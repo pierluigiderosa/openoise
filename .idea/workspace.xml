@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- add check multipart only if layer is activated">
+    <list default="true" id="18137f74-4ebd-4bca-a9d2-878681a20709" name="Default Changelist" comment="- cleaned xml for pubblication&#10;- version to publish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CalculateNoiseLevels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/do_CreateReceiverPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/do_CreateReceiverPoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/on_Settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tools/on_Settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data set for testing/buildings.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data set for testing/buildings.dbf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -468,14 +466,8 @@
       <workItem from="1719224545287" duration="2536000" />
       <workItem from="1719588258732" duration="1296000" />
       <workItem from="1719732254955" duration="723000" />
-      <workItem from="1719835223459" duration="1410000" />
-    </task>
-    <task id="LOCAL-00060" summary="- grid creation leave points inside buildings&#10;- the isoline method filter the nodata values,fill the raster and create the polygon layer">
-      <created>1646906126076</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1646906126076</updated>
+      <workItem from="1719835223459" duration="2352000" />
+      <workItem from="1719843637244" duration="35000" />
     </task>
     <task id="LOCAL-00061" summary="MODIFICHE DEL 18-22 Marzo&#10;tutte le modifiche in verde ovvero:&#10;su menù ricettori tolto secondo metodo di creazione&#10;su menù ricettori rinominata descrizione ed aggiunta etichetta esplicativa&#10;su calcolo popolazione rinominato tutti i pannelli in Noise Exposure&#10;modificato in people exposure la tabella dei risultati&#10;nella stessa tabella cambiato level in level_band&#10;messa la gestione dei NULL a zero&#10;tolto il record vuoto nei menù a tendina della popolazione&#10;aggiunta stilizzazione del raster nel calcolo delle curve isolivello">
       <created>1647944461705</created>
@@ -813,7 +805,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719589229376</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="- cleaned xml for pubblication&#10;- version to publish">
+      <created>1719837802879</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1719837802880</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -881,7 +880,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- added the dataeffetto table even fot 1 db - to test" />
     <MESSAGE value="- changed shapefile in data_for_testing" />
     <MESSAGE value="- fixed calculation of noise exposure for 1 dB class&#10;- added control in method fielf that does not contain NULL or valude different from 1,2,3" />
     <MESSAGE value="- added calculation of ischemic effects" />
@@ -906,7 +904,8 @@
     <MESSAGE value="- removed progressbar in createGrid&#10;- removed un-necessary icons" />
     <MESSAGE value="- performed a multipart check for ESRI shapefile" />
     <MESSAGE value="- add check multipart only if layer is activated" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add check multipart only if layer is activated" />
+    <MESSAGE value="- cleaned xml for pubblication&#10;- version to publish" />
+    <option name="LAST_COMMIT_MESSAGE" value="- cleaned xml for pubblication&#10;- version to publish" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/openoise$opeNoise.coverage" NAME="opeNoise Coverage Results" MODIFIED="1628320118595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
