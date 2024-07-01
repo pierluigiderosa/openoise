@@ -856,8 +856,8 @@ class Dialog(QDialog,NoiseLevel_ui):
                         """))
                     return False
 
-
         return True
+
     def write_settings(self):
 
 

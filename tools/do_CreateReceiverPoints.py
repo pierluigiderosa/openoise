@@ -352,6 +352,9 @@ class Dialog(QDialog,FORM_CLASS):
                 QMessageBox.information(self, self.tr("opeNoise Map - Calculate Noise Levels"), self.tr(
                     warning_message))
                 return False
+
+        return True
+
     def runGrid(self):
 
         # check that CRS in projected

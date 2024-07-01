@@ -2,21 +2,21 @@
 
     <directory>
         <default />
-        <last>C:/Users/pierl/Desktop/test_openoise</last>
+        <last></last>
     </directory>
 
     <layers>
         <receivers>
-            <name>receivers1</name>
-            <path>C:/Users/pierl/Desktop/test_openoise/Multipart1/receivers1.shp</path>
-            <custom3d>False</custom3d>
+            <name></name>
+            <path></path>
+            <custom3d></custom3d>
             <custom3dfield />
         </receivers>
 
         <sources>
 	    <pts>	
-		<name>Parti singole sorgente</name>
-		<path>C:\Users\pierl\Desktop\test_openoise\Multipart1\Sorgente_singlepart.shp|layername=Sorgente_singlepart</path>
+		<name></name>
+		<path></path>
 	    </pts>
 	    <roads>	
 		<name />
@@ -46,45 +46,45 @@
     </layers>
 
     <options>
-        <research_ray>1000</research_ray>
-        <temperature>20</temperature>
-        <humidity>70</humidity>
-        <diff_skip>False</diff_skip>
-        <save_emission>False</save_emission>
-        <height_receiver>False</height_receiver>
-        <threedglobal>False</threedglobal>
-        <threedglobal_rays>False</threedglobal_rays>
+        <research_ray></research_ray>
+        <temperature></temperature>
+        <humidity></humidity>
+        <diff_skip></diff_skip>
+        <save_emission></save_emission>
+        <height_receiver></height_receiver>
+        <threedglobal></threedglobal>
+        <threedglobal_rays></threedglobal_rays>
         <field3D />
 
         <den>
-            <day_hours>14</day_hours> 
-            <eve_hours>2</eve_hours>            
-            <nig_hours>8</nig_hours>                                                            
-            <day_penalty>0</day_penalty> 
-            <eve_penalty>5</eve_penalty>            
-            <nig_penalty>10</nig_penalty>
+            <day_hours></day_hours>
+            <eve_hours></eve_hours>
+            <nig_hours></nig_hours>
+            <day_penalty></day_penalty>
+            <eve_penalty></eve_penalty>
+            <nig_penalty></nig_penalty>
         </den>
     </options>
     
     <emission>
         <implementation>
-		<pts>True</pts>
-        <pts_freq>False</pts_freq>
+		<pts></pts>
+        <pts_freq></pts_freq>
 		<roads />
         </implementation>
 
 	<period>
 		<pts>
-		    <gen>True</gen>
-		    <day>False</day>            
-		    <eve>False</eve>            
-		    <nig>False</nig>  
+		    <gen></gen>
+		    <day></day>
+		    <eve></eve>
+		    <nig></nig>
 		</pts>
          <freq>
-            <gen>False</gen>
-            <day>False</day>
-            <eve>False</eve>
-            <nig>False</nig>
+            <gen></gen>
+            <day></day>
+            <eve></eve>
+            <nig></nig>
         </freq>
 		<roads>
 		    <gen />
@@ -92,55 +92,55 @@
 		    <eve />
 		    <nig />
 		</roads>
-	    <den>False</den>
+	    <den></den>
 	</period>
 
         <POWER_P>
-            <gen>LWA</gen>
+            <gen />
             <day />
             <eve />
-            <nig />
+            <nig></nig>
         </POWER_P>
 
         <POWER_P_GEN_FREQ>
-            <f63>LWA_63Hz</f63>
-            <f125>LWA_125Hz</f125>
-            <f250>LWA_250Hz</f250>
-            <f500>LWA_500Hz</f500>
-            <f1000>LWA_1kHz</f1000>
-            <f2000>LWA_2kHz</f2000>
-            <f4000>LWA_4kHz</f4000>
-            <f8000>LWA_8kHz</f8000>
+            <f63></f63>
+            <f125></f125>
+            <f250></f250>
+            <f500></f500>
+            <f1000></f1000>
+            <f2000></f2000>
+            <f4000></f4000>
+            <f8000></f8000>
         </POWER_P_GEN_FREQ>
         <POWER_P_DAY_FREQ>
-            <f63>LWA_63Hz</f63>
-            <f125>LWA_125Hz</f125>
-            <f250>LWA_250Hz</f250>
-            <f500>LWA_500Hz</f500>
-            <f1000>LWA_1kHz</f1000>
-            <f2000>LWA_2kHz</f2000>
-            <f4000>LWA_4kHz</f4000>
-            <f8000>LWA_8kHz</f8000>
+            <f63></f63>
+            <f125></f125>
+            <f250></f250>
+            <f500></f500>
+            <f1000></f1000>
+            <f2000></f2000>
+            <f4000></f4000>
+            <f8000></f8000>
         </POWER_P_DAY_FREQ>
         <POWER_P_EVE_FREQ>
-            <f63>LWA_63Hz</f63>
-            <f125>LWA_125Hz</f125>
-            <f250>LWA_250Hz</f250>
-            <f500>LWA_500Hz</f500>
-            <f1000>LWA_1kHz</f1000>
-            <f2000>LWA_2kHz</f2000>
-            <f4000>LWA_4kHz</f4000>
-            <f8000>LWA_8kHz</f8000>
+            <f63></f63>
+            <f125></f125>
+            <f250></f250>
+            <f500></f500>
+            <f1000></f1000>
+            <f2000></f2000>
+            <f4000></f4000>
+            <f8000></f8000>
         </POWER_P_EVE_FREQ>
         <POWER_P_NIG_FREQ>
-            <f63>LWA_63Hz</f63>
-            <f125>LWA_125Hz</f125>
-            <f250>LWA_250Hz</f250>
-            <f500>LWA_500Hz</f500>
-            <f1000>LWA_1kHz</f1000>
-            <f2000>LWA_2kHz</f2000>
-            <f4000>LWA_4kHz</f4000>
-            <f8000>LWA_8kHz</f8000>
+            <f63></f63>
+            <f125></f125>
+            <f250></f250>
+            <f500></f500>
+            <f1000></f1000>
+            <f2000></f2000>
+            <f4000></f4000>
+            <f8000></f8000>
         </POWER_P_NIG_FREQ>
         <POWER_R>
             <gen />
