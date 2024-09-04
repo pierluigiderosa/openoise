@@ -110,7 +110,7 @@ def get_levels(settings,source_layer,source_feat):
 
     # POWER_P_frequencies
     if source_layer.geometryType() == QgsWkbTypes.PointGeometry and settings['implementation_pts_freq'] == 'True':
-        if settings['period_pts_gen_freq'] != None:
+        if settings['period_pts_gen_freq'] is True:
             level_bands['Lgeneric'] = {63: source_feat[ settings['POWER_P_GEN_63']],
                                         125:source_feat[ settings['POWER_P_GEN_125']],
                                         250:source_feat[ settings['POWER_P_GEN_250']],
@@ -123,7 +123,7 @@ def get_levels(settings,source_layer,source_feat):
             #print('level_bands: ',level_bands)
             level_global['Lgeneric'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
             
-        if settings['period_pts_day_freq'] != None:
+        if settings['period_pts_day_freq'] is True: #!= None:
             level_bands['Lday'] = {63: source_feat[ settings['POWER_P_DAY_63']],
                                         125:source_feat[ settings['POWER_P_DAY_125']],
                                         250:source_feat[ settings['POWER_P_DAY_250']],
@@ -135,7 +135,7 @@ def get_levels(settings,source_layer,source_feat):
 
             level_global['Lday'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
             
-        if settings['period_pts_eve_freq'] != None:
+        if settings['period_pts_eve_freq'] is True: #!= None:
             level_bands['Levening'] = {63: source_feat[ settings['POWER_P_EVE_63']],
                                         125:source_feat[ settings['POWER_P_EVE_125']],
                                         250:source_feat[ settings['POWER_P_EVE_250']],
@@ -147,7 +147,7 @@ def get_levels(settings,source_layer,source_feat):
 
             level_global['Levening'] = on_Acoustics.DetailOctaveBandsToGlobal(level_bands)
             
-        if settings['period_pts_nig_freq'] != None:
+        if settings['period_pts_nig_freq'] is True: #!= None:
             level_bands['Lnight'] = {63: source_feat[ settings['POWER_P_NIG_63']],
                                         125:source_feat[ settings['POWER_P_NIG_125']],
                                         250:source_feat[ settings['POWER_P_NIG_250']],
